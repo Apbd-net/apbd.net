@@ -1,0 +1,51 @@
+#leaderboards {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#leaderboards td {
+    text-indent: calc(0);
+}
+
+.container h1 {
+    font-size: 2em;
+    margin-top: -1em;
+}
+
+#leaderboards tr th {
+    text-align: start;
+    padding-block: 5px;
+    text-indent: 2.15em;
+}
+
+#leaderboards tr:nth-child(1) th {
+    text-align: center;
+    text-indent: unset;
+}
+
+#leaderboards tr:nth-child(1) th:first-child {
+    text-align: start;
+}
+#leaderboards tr:nth-child(2) th,
+#leaderboards tr:nth-child(3) th,
+#leaderboards tr:nth-child(4) th {
+    text-indent: unset;
+}
+
+#leaderboards tr:nth-child(2) th::before {
+    content: "🥇\00a0\00a0\00a0";
+}
+
+#leaderboards tr:nth-child(3) th::before {
+    content: "🥈\00a0\00a0\00a0";
+}
+
+#leaderboards tr:nth-child(4) th::before {
+    content: "🥉\00a0\00a0\00a0";
+}
+
+#leaderboards tr:nth-child(2) td:last-child, #leaderboards tr:nth-child(3) td:last-child, #leaderboards tr:nth-child(4) td:last-child {
+    font-weight: 600;
+}

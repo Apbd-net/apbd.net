@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contribution Leaderboards</title>
+    <meta name="description" content="Official rankings for our content contributors. Major thanks to whoever's on the list! ♥️">
+
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/contribute.css">
+    <link rel="stylesheet" href="../style/leaderboards.css">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VPXMF38X8C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VPXMF38X8C');
+</script>
+
+<body>
+    <header>
+        <h1 ti="0" onclick="window.location.href = window.location.origin + window.location.search">{{APBD Foods List}}
+        </h1>
+        <nav class="header-menu">
+            <div>
+                <a ti="1" id="about" href="#">{{About}}</a>
+                <div id="about-menu" class="navbar-menu">
+                    <a ti="145" target="_blank" href="https://github.com/ShaharMS/APBD-FoodList/blob/main/README.md">{{Website}} <span>&UpperRightArrow;</span></a>
+                    <a target="_blank" href="https://rarediseases.org/rare-diseases/adult-polyglucosan-body-disease/">APBD <span>&UpperRightArrow;</span></a>
+                    <a ti="146" 
+                        onclick="window.location.href = window.location.origin + `/about/database${'_' + (new URLSearchParams(window.location.search).get('lang') || 'en')}.html` + window.location.search"
+                        href="#">{{Food Database}}</a>
+                </div>
+            </div>
+            <div>
+                <a ti="2" id="contribute" href="#">{{Contribute}}</a>
+                <div id="contribute-menu" class="navbar-menu">
+                    <a ti="32"
+                        onclick="window.location.href = window.location.origin + '/contribute/request.html' + window.location.search"
+                        href="#">{{Request data}}</a>
+                    <a ti="33"
+                        onclick="window.location.href = window.location.origin + '/contribute/provide.html' + window.location.search"
+                        href="#">{{Provide data}}</a>
+                    <a ti="66"
+                        onclick="window.location.href = window.location.origin + '/contribute/leaderboards.html' + window.location.search"
+                        href="#">{{Leaderboards}}</a>
+                </div>
+            </div>
+
+            <div>
+                <a ti="3" id="contact" href="#">{{Contact}}</a>
+                <div id="contact-menu" class="navbar-menu">
+                    <a ti="34" href="https://github.com/ShaharMS/APBD-FoodList">{{Website Code}} <span>&UpperRightArrow;</span></a>
+                    <a id="discord" ti="35" href="#" onclick="navigator.clipboard.writeText('shaharms');">{{Discord}}:
+                        shaharms</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <blockquote ti="57" style="margin-top: 30px;">
+            {{Leaderboard description}}
+        </blockquote>
+
+        <h1 ti="66">{{Leaderboards}}</h1>
+
+        <table id="leaderboards">
+
+        </table>
+    </div>
+
+    <script src="../code/dropdowns.js"></script>
+    <script src="../code/translator.js"></script>
+    <script src="../code/help-marks.js"></script>
+    <script src="../code/choice-buttons.js"></script>
+    <script src="../code/leaderboards-loader.js" type="module"></script>
+</html>

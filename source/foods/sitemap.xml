@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <url>
+        <loc>https://foods.apbd.net</loc>
+    </url>
+    <url>
+        <loc>https://apbd.net</loc>
+    </url>
+    <url>
+        <loc>https://foods.apbd.net/contribute/request.html</loc>
+    </url>
+    <url>
+        <loc>https://foods.apbd.net/contribute/provide.html</loc>
+    </url>
+    <url>
+        <loc>https://foods.apbd.net/contribute/leaderboards.html</loc>
+    </url>
+    <url>
+        <loc>https://foods.apbd.net/about/database_en.html</loc>
+    </url>
+    <url>
+        <loc>https://foods.apbd.net/about/database_he.html</loc>
+    </url>
+</urlset>

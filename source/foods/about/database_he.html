@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APBD Food List: Database</title>
+
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/about.css">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VPXMF38X8C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VPXMF38X8C');
+</script>
+
+<body>
+    <script>
+        let l = new URLSearchParams(window.location.search).get('lang') || 'en';
+        if (l !== 'he') {
+            window.location.href = window.location.origin + `/about/database${'_' + l}.html` + window.location.search
+        }
+    </script>
+    <header>
+        <h1 ti="0" onclick="window.location.href = window.location.origin + window.location.search">{{APBD Foods List}}
+        </h1>
+        <nav class="header-menu">
+            <div>
+                <a ti="1" id="about" href="#">{{About}}</a>
+                <div id="about-menu" class="navbar-menu">
+                    <a ti="145" target="_blank" href="https://github.com/ShaharMS/APBD-FoodList/blob/main/README.md">{{Website}} <span>&UpperRightArrow;</span></a>
+                    <a target="_blank" href="https://rarediseases.org/rare-diseases/adult-polyglucosan-body-disease/">APBD <span>&UpperRightArrow;</span></a>
+                    <a ti="146" 
+                        onclick="window.location.href = window.location.origin + `/about/database${'_' + (new URLSearchParams(window.location.search).get('lang') || 'en')}.html` + window.location.search"
+                        href="#">{{Food Database}}</a>
+                </div>
+            </div>
+            <div>
+                <a ti="2" id="contribute" href="#">{{Contribute}}</a>
+                <div id="contribute-menu" class="navbar-menu">
+                    <a ti="32"
+                        onclick="window.location.href = window.location.origin + '/contribute/request.html' + window.location.search"
+                        href="#">{{Request data}}</a>
+                    <a ti="33"
+                        onclick="window.location.href = window.location.origin + '/contribute/provide.html' + window.location.search"
+                        href="#">{{Provide data}}</a>
+                    <a ti="66"
+                        onclick="window.location.href = window.location.origin + '/contribute/leaderboards.html' + window.location.search"
+                        href="#">{{Leaderboards}}</a>
+                </div>
+            </div>
+
+            <div>
+                <a ti="3" id="contact" href="#">{{Contact}}</a>
+                <div id="contact-menu" class="navbar-menu">
+                    <a ti="34" href="https://github.com/ShaharMS/APBD-FoodList">{{Website Code}} <span>&UpperRightArrow;</span></a>
+                    <a id="discord" ti="35" href="#" onclick="navigator.clipboard.writeText('shaharms');">{{Discord}}:
+                        shaharms</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <select class="language-switch" id="language-switch">
+            <option ti="10" value="en">{{English}}</option>
+            <option ti="11" value="he">{{Hebrew}}</option>
+        </select>
+        <h1>איך האתר מאשר מידע</h1>
+        <p>
+            אחד מהגורמים העיקריים ליצירת אתר במיוחד בשביל זה, במקום להסתמך על רשימה חיצונית/אתר אחר, היא הכמות האדירה
+            של מידע לא עקבי, בכלל לא מדויק, ואפילו זדוני (ראיתי יותר מכמה אתרים שמטרתם בסוף להציג מתכונים/מוצרים שלהם
+            כ"אלטרנטיבה בריאה" לסכרתיים לדוגמה, בעוד שהומצר שלהם רחוק מאוד מזה...&rlm;)<br>
+            מכיוון שאני לא רוצה להחשב כ"חלק מהם", החלטתי להיות שקוף לגמרי בנוגע לפיתוח האתר - אפשר לצפות,
+            ואפילו לבקש לערוך את קוד האתר, ואני מתכוון להיות שקוף מאוד לגבי המקומות מהם אני משיג את המידע עצמו.&rlm;
+        </p>
+        <blockquote>
+            לפני שנתחיל, חשוב לדעת, שגם עם כל המאמצים שאני משקיע בלהציג מידע נכון ומדויק ככל האפשר, עדיין יכולים
+            להיות אי-דיוקים כאלה או אחרים. כמו שמוזכר באודות האתר וברשיון תחתיו הקוד שלו נמצא, אני לא אחראי לשום דבר
+            הנגרם עקב שימוש באתר. ראה את ה<a target="_blank" href="https://github.com/ShaharMS/APBD-FoodList/blob/main/LICENSE.md">רשיון</a> למידע נוסף.&rlm;<br>
+            חלק רלוונטי ברשיון נמצא למטה:
+            <br>
+            <button onclick="document.getElementById('warrenty').classList.toggle('hidden')">לחץ כאן על מנת להראות/להחביא חלק רלוונטי</button>
+            <pre id="warrenty" class="hidden" style="word-wrap: break-word; width: 100%; white-space: pre-wrap;">
+BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. 
+EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY OF ANY KIND, 
+EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. 
+THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, 
+YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+
+IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT HOLDER, 
+OR ANY OTHER PARTY WHO MAY MODIFY AND/OR REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, 
+INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE PROGRAM 
+(INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR 
+A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), 
+EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+            </pre>
+        </blockquote>
+        <h2>מקורות מידע</h2>
+        <p>
+            נכון לעכשיו, מאגר הנתונים מורכב ממידע משני מקורות:&rlm;
+            <ul style="list-style-type: circle;">
+                <li>
+                    <a href="https://www.usda.gov/">USDA</a> - רוב המידע לגבי דברים "נאים" - מירקות ותבלינים עד לבשר, נלקח מכאן. 
+                    במקרים בהם המידע נמצא כאן, ערכים ועומסים גליקמיים נלקחים מהאתר <a href="https://glycemic-index.net/">Glycemic Index Guide</a>,
+                     שגם לוקח מידע מה-USDA.&rlm;                    
+                </li>
+                <li>
+                    <a href="https://www.foodsdictionary.co.il/">foodsdictionary.co.il</a> - במקרים בהם מידע משתנה מאוד בין מקורות שונים, או ה-USDA
+                     לא מספק מידע, אני משתמש באתר הזה בשביל למלא את המידע שחסר. האתר הזה גם מספק מידע אמין.&rlm;
+                </li>
+                <li>
+                    <a href="https://foodstruct.com">foodstruct.com</a> - כאשר מדובר במוצר נפוץ ממותג פופולרי
+                    (לדוגמה: קולה, ביג-מק) .&rlm;כמעט תמיד יש עליו מידע באתר הזה. נראה שהמידע באתר הזה ,מדויק, וכן אני מרגיש בנח לסמוך עליו
+                </li>
+            </ul>
+        </p>
+        <p>
+            כשנוסף מידע לאתר, הוא כמעט תמיד יהיה מאחד מהמקורות שמוזכרים למעלה. גם אם יש מידע, אם הוא למספיק אמין, לא אשים אותו באתר,
+            ואפילו מעבר לזה - אם מוצר מסויים הוא יותר מדי "גנרי", וחברות שונות שמציעות אותו מספקות ערכים תזונתיים שונים, הוא גם לא יכלל.&rlm;
+        </p>
+        <p>
+            דוגמאות של מאכלים "גנריים" שלא נלקחו לאתר:&rlm; 
+            <ul>
+                <li>קורנפלקס - כמעט אף אחד לא אוכל קורנפלקס בכלל בלי סוכר, וחברות שונות מוסיפות כמויות שונות מאוד של סוכר לקורנפלקס שלהם.&rlm;</li>
+                <li>פירות משומרים - כל חברה מעבדת את הפירות המשומרים אחרת, ואחד מהחומרים שבד"כ מוסיפים הוא סוכר.&rlm;</li>
+            </ul> 
+            דוגמאות של מאכלים "גנריים"  שנלקחו לאתר:&rlm; 
+            <ul>
+                <li>סוגי פסטה שונים - פסטות מחבילה כמעט תמיד נעשות מסוג קמח אחד (סמולינה, דורום, לבן) + מים/ביצים, שלשניהם השפעה מינימלית על הערכים התזונתיים של המאכל.&rlm;</li>
+            </ul>
+            לסיכום - אם לאותו מאכל מחברות שונות יש ערכים תזונתיים שונים מאוד, הוא לא יכלל תחת שם המאכל לבד, ויוצמד אליו שם החברה.&rlm;
+        </p>
+
+        <h2>איך משתמשים מספקים מידע</h2>
+
+        <p>
+            כאשר משתמש מספק לאתר מידע, זה אוטומטית כותב קוד בשביל האתר,
+            ,ומודיע לי שמשתמש ביקש להוסיף מידע לאתר
+            ויחד עם זאת נותן לי אופציה להכניס את הקוד שנכתב אוטומטית לאתר.&rlm; <br>
+            אני (המפתח) עובר על המידע והקוד שנשלח לי, בודק אם הוא הגיוני ומדיוק, לפי התנאים
+            שהזכרתי למעלה. אם המידע שסופק טוב, אני משלב את הקוד
+            שצורף איתו אל תוך האתר. אם המידע שסופק לא טוב, אני סוגר את הבקשה לסיפוק מידע, ולא קורה כלום.
+            אם המרקה הוא איפשהו בין לבין, אני מתקן את מה שצריך, ומשלב את הקוד עם הפרטים המתקנים לתוך האתר.&rlm;
+        </p>
+
+        <h2>סממני מידע</h2>
+        <p>
+            אולי שמת לב שבחלק מהתאים ברשימה יש עוד סימנים/מילים, בנוסף למספרים שיש בדרך כלל.&rlm;<br>
+            להלן כל הסממנים השונים:&rlm;
+            <li>
+                <code>~</code> - אחת משלוש סיבות (מסודרות מהנפוצות ביותר, לנדירות ביותר):&rlm;
+                <ul style="list-style-type: circle;">
+                    <li>למאכל טווח מידע מאוד רחב, והערך הנתמך והנפוץ ביותר נבחר.&rlm;</li>
+                    <li>המידע על המאכל לקוח ממקומות שאינם מרשימת המקורות האמינים. נעשה בגלל חוסר מידע, לרוב למאכלים האקזוטיים.&rlm;</li>
+                    <li>המקורות האמינים לא הסכימו אחד עם השני. במקרה כזה, מתבצע "ממוצע" הגיוני בין המקומות, או רק מקור אחד שומש.&rlm;</li>
+                </ul>
+            </li>
+            <li>
+                <code>&lt;</code> - אין מידע שמתרכז סביב ערך מסוים, אבל נראה שיש בבירור מגבלה עליונה לערך.&rlm;
+            </li>
+            <li>
+                <code>&gt;</code> - זהה ל-<code>&lt;</code>, אבל בכיוון ההפוך (נראה שיש בבירור מגבלה תחתונה.)&rlm;
+            </li>
+            <li>
+                <code style="color: red; font-weight: 900;">!</code> - למרות שפרטי האוכל מציגים אותו באור טוב, הם לא מראים את התמונה המלאה - שלפיה, אפשר לראות שהאוכל גורם נזק.
+                  במקרים שבהם סימן הקריאה מוצג על פרט, אפשר ללחוץ עליו, ותופיע תיבת טקסט, שתתאר למה האוכל מסוכן.&rlm;
+            </li>
+            <li>
+                <code>No Data</code> - לא נמצא מידע אמין מספיק/בכלל לגבי המאכל הזה. חשוב להבהיר -
+                אפילו אם לעמודה אחת אין מידע, זה לא אומר שהעמודות האחרות בהכרך יהיו פחות מדויקות. אם המידע בעמודות האחרות לא מדויק, יופיעו הסימנים המוזכרים לעיל.&rlm;
+            </li>
+        </ul>
+    </div>
+
+    <script src="../code/translator.js"></script>
+    <script src="../code/dropdowns.js"></script>
+    <script src="../code/switches.js"></script>
+
+    <script type="module">
+        let urlParams = new URLSearchParams(window.location.search);
+
+        let lang = urlParams.get("lang") || "en";
+        await translate(lang);
+        activateDropdowns();
+        activateSwitches();
+    </script>
+</body>
+</html>
