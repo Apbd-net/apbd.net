@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provide Food Info</title>
+
+    <meta name="description" content="Allows adding different foods to the APBD Foods List directly via the website. Try it out - Help a cause!">
+
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/dropdown.css">
+    <link rel="stylesheet" href="../style/contribute.css">
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VPXMF38X8C"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VPXMF38X8C');
+</script></head>
+
+<!-- Google tag (gtag.js) -->
+
+
+
+<body>
+    <script>
+        const touch = matchMedia('(hover: none)').matches
+        console.log(touch);
+        
+        if (touch) {
+            let prev = window.document.body;
+            window.addEventListener("touchend", function (e) {
+                if (e.target.onclick) e.target.onclick();
+                if (prev !== e.target) prev.classList.remove("hover");
+                e.target.classList.toggle("hover");
+                prev = e.target;
+                console.log(e.target);
+            }, { passive: false });
+        }
+    </script>
+    <header>
+        <div class="logo">
+            <img src="./favicon.ico" alt="Website logo">
+            <div class="column">
+                <a class="title" href="https://apbd.net">APBD.net</a>
+                <a class="sub" href="#" onclick="window.location.href = window.location.origin + window.location.search">Allowed Foods List</a>
+            </div>
+            
+        </div>
+        <nav class="header-menu">
+            <div class="dropdown">
+                <a id="about" href="#">About</a>
+                <div class="dropdown-content">
+                    <a target="_blank" href="https://github.com/ShaharMS/APBD-FoodList/blob/main/README.md">Website</a>
+                    <a target="_blank" href="https://rarediseases.org/rare-diseases/adult-polyglucosan-body-disease/">APBD <span>↗</span></a>
+                    <a onclick="window.location.href = window.location.origin + `/about/database${'_' + (new URLSearchParams(window.location.search).get('lang') || 'en')}.html` + window.location.search" href="#">Food Database</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a id="contribute" href="#">Contribute</a>
+                <div class="dropdown-content">
+                    <a href="./contribute/request.html">Request data</a>
+                    <a href="./contribute/provide.html">Provide data</a>
+                    <a href="./contribute/leaderboards.html">Leaderboards</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a id="contact" href="#">Language</a>
+                <div class="dropdown-content">
+                    <a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'en')" href="#">English</a>
+                    <a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'he')" href="#">Hebrew</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <blockquote ti="37" style="margin-top: 30px;">
+            {{This page exists to help you and other people, by expanding the list of documented foods.}}
+        </blockquote>
+
+        <form id="provide-form">
+            <table id="provide-table">
+                <tbody><tr>
+                    <th>
+                        <help ti="46">{{Name description}}.</help>
+                        <span ti="44">Name</span>
+                    </th>
+                    <td>
+                        <input id="name" placeholder="Name...">
+                        <div class="button-row">
+                            <button id="n-np" type="button" ti="42">I'd rather not provide</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+
+                    <th>
+                        <help ti="47">{{Food name (english) description}}.</help>
+                        <span ti="38">{{Food name (english)}}</span>
+                    </th>
+                    <td>
+                        <input id="food-name-english" placeholder="Food name...">
+                        <div class="button-row">
+                            <button id="fn-ns" type="button" ti="41">I'm not sure</button>
+                            <button id="fn-dk" type="button" ti="40">I don't know</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <help ti="48">{{Food name (hebrew) description}}.</help>
+                        <span ti="39">{{Food name (hebrew)}}</span>
+                    </th>
+                    <td>
+                        <input id="food-name-hebrew" placeholder="שם מאכל...">
+                        <div class="button-row">
+                            <button id="t-ns" type="button" ti="41">I'm not sure</button>
+                            <button id="t-dk" type="button" ti="40">I don't know any</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <help ti="202">{{Food's Company description}}</help>
+                        <span ti="200 201">{{Optional}}: {{Food's Company}}</span>
+                    </th>
+                    <td>
+                        <input id="company" placeholder="Company Name..." list="companies">
+                        <div class="button-row">
+                            <button id="co-ns" type="button" ti="41">I'm not sure</button>
+                            <button id="co-dk" type="button" ti="40">I don't know</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <help ti="52">{{Glycemic Index description}}.</help>
+                        <span ti="6">{{Glycemic Index}}</span>
+                    </th>
+                    <td>
+                        <input id="glycemic-index" type="number" placeholder="Between 0 and 100" min="0" max="100">
+                        <div class="button-row">
+                            <button id="gi-ns" type="button" ti="41">I'm not sure</button>
+                            <button id="gi-dk" type="button" ti="40">I don't know any</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <help ti="53">{{Glycemic Load description}}.</help>
+                        <span ti="7 51">{{Glycemic Load}} ({{Per 100g}})</span>
+                    </th>
+                    <td>
+                        <input id="glycemic-load" type="number" placeholder="Glycemic Load" min="0">
+                        <div class="button-row">
+                            <button id="gl-ns" type="button" ti="41">I'm not sure</button>
+                            <button id="gl-dk" type="button" ti="40">I don't know any</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <help ti="54">{{Sugar description}}.</help>
+                        <span ti="8 51">{{Sugar}} ({{Per 100g}})</span>
+                    </th>
+                    <td>
+                        <input id="sugar" type="number" placeholder="Sugar (grams)" min="0">
+                        <div class="button-row">
+                            <button id="s-ns" type="button" ti="41">I'm not sure</button>
+                            <button id="s-dk" type="button" ti="40">I don't know any</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <help ti="55">{{Carbs description}}.</help>
+                        <span ti="9 51">{{Carbs}} ({{Per 100g}})</span>
+                    </th>
+                    <td>
+                        <input id="carbs" type="number" placeholder="Carbs (grams)" min="0">
+                        <div class="button-row">
+                            <button id="c-ns" type="button" ti="41">I'm not sure</button>
+                            <button id="c-dk" type="button" ti="40">I don't know any</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody></table>
+        </form>
+
+        <div class="row">
+            <button type="submit" id="submit" ti="43">{{Submit}}</button>
+            <select class="language-switch" id="language-switch">
+                <option ti="10" value="en">{{English}}</option>
+                <option ti="11" value="he">{{Hebrew}}</option>
+            </select>
+        </div>
+        <h3 id="submition-output"></h3>
+
+        
+    <script>
+        String.prototype.attemptedXSS = function() {
+            return /[<>]/.test(this);
+        }
+
+
+        let submit = document.getElementById("submit");
+        let output = document.getElementById("submition-output");
+        
+        submit.onclick = () => {
+
+            let notice = confirm("Are you sure you want to submit?");
+            if (!notice) return;
+
+            submit.textContent = translationMatrix[49][languageIndex];
+
+            output.innerHTML = "Grabbing Data From Text Fields...";
+
+            let name = document.getElementById("name").value;
+            let name__RatherNotProvide = document.getElementById("n-np").classList.contains("selected");
+
+            if (name.length === 0 && !name__RatherNotProvide) {
+                switch (languageIndex) {
+                    case 0: output.innerHTML = "Please provide a name, or select 'I'd rather not provide'."; break;
+                    case 1: output.innerHTML = "אנא הכנס שם, או בחר 'מעדיף שלא להגיד'&rlm;"; break;
+                }
+                submit.textContent = translationMatrix[43][languageIndex];
+                return;
+            }
+
+            let foodName = document.getElementById("food-name-english").value;
+            let foodName__NotSure = document.getElementById("fn-ns").classList.contains("selected");
+            let foodName__DontKnow = document.getElementById("fn-dk").classList.contains("selected");
+
+            if (foodName.length === 0 && !foodName__DontKnow) {
+                switch (languageIndex) {
+                    case 0: output.innerHTML = "Please provide a food name, or select 'I don't know'."; break;
+                    case 1: output.innerHTML = "אנא הכנס שם מאכל, או בחר 'אני לא יודע'&rlm;"; break;
+                }
+                submit.textContent = translationMatrix[43][languageIndex];
+                return;
+            }
+
+            let translations = document.getElementById("food-name-hebrew").value;
+            let translations__NotSure = document.getElementById("t-ns").classList.contains("selected");
+            let translations__DontKnowAny = document.getElementById("t-dk").classList.contains("selected");
+
+            let company = document.getElementById("company").value;
+            let company__NotSure = document.getElementById("co-ns").classList.contains("selected");
+            let company__DontKnowAny = document.getElementById("co-dk").classList.contains("selected");
+
+            let glycemicIndex = document.getElementById("glycemic-index").value;
+            let glycemicIndex__NotSure = document.getElementById("gi-ns").classList.contains("selected");
+            let glycemicIndex__DontKnow = document.getElementById("gi-dk").classList.contains("selected");
+
+            if (glycemicIndex.length === 0 && !glycemicIndex__DontKnow) {
+                switch (languageIndex) {
+                    case 0: output.innerHTML = "Please provide a glycemic index, or select 'I don't know'."; break;
+                    case 1: output.innerHTML = "אנא הכנס ערך גליקמי, או בחר 'אני לא יודע'&rlm;"; break;
+                }
+                submit.textContent = translationMatrix[43][languageIndex];
+                return;
+            }
+
+            let glycemicLoad = document.getElementById("glycemic-load").value;
+            let glycemicLoad__NotSure = document.getElementById("gl-ns").classList.contains("selected");
+            let glycemicLoad__DontKnow = document.getElementById("gl-dk").classList.contains("selected");
+
+            if (glycemicLoad.length === 0 && !glycemicLoad__DontKnow) {
+                switch (languageIndex) {
+                    case 0: output.innerHTML = "Please provide a glycemic load, or select 'I don't know'."; break;
+                    case 1: output.innerHTML = "אנא הכנס עומס גליקמי, או בחר 'אני לא יודע,'&rlm;"; break;
+                }
+                submit.textContent = translationMatrix[43][languageIndex];
+                return;
+            }
+
+            let sugar = document.getElementById("sugar").value;
+            let sugar__NotSure = document.getElementById("s-ns").classList.contains("selected");
+            let sugar__DontKnow = document.getElementById("s-dk").classList.contains("selected");
+
+            if (sugar.length === 0 && !sugar__DontKnow) {
+                switch (languageIndex) {
+                    case 0: output.innerHTML = "Please provide sugar amount, or select 'I don't know'."; break;
+                    case 1: output.innerHTML = "אנא הכנס כמות סוכר, או בחר 'אני לא יודע'&rlm;"; break;
+                }
+                submit.textContent = translationMatrix[43][languageIndex];
+                return;
+            }
+
+            let carbs = document.getElementById("carbs").value;
+            let carbs__NotSure = document.getElementById("c-ns").classList.contains("selected");
+            let carbs__DontKnow = document.getElementById("c-dk").classList.contains("selected");
+
+            if (carbs.length === 0 && !carbs__DontKnow) {
+                switch (languageIndex) {
+                    case 0: output.innerHTML = "Please provide carbs amount, or select 'I don't know'."; break;
+                    case 1: output.innerHTML = "אנא הכנס כמות פחמימות, או בחר 'אני לא יודע'&rlm;"; break;
+                }
+                submit.textContent = translationMatrix[43][languageIndex];
+                return;
+            }
+
+            if (document.getElementById("food-name-english").classList.contains("already-exists") || document.getElementById("food-name-hebrew").classList.contains("already-exists")) {
+                switch (languageIndex) {
+                    case 0: output.innerHTML = "Food already exists in the food list."; break;
+                    case 1: output.innerHTML = "המאכל כבר נמצא ברשימה.&rlm;"; break;
+                }
+                submit.textContent = translationMatrix[43][languageIndex];
+                return;
+            }
+
+            output.innerHTML = "Testing For Attempted XSS Attacks...";
+
+            if (name.attemptedXSS() || foodName.attemptedXSS() || glycemicIndex.attemptedXSS() || glycemicLoad.attemptedXSS() || sugar.attemptedXSS() || carbs.attemptedXSS() || translations.attemptedXSS()) {
+                switch (languageIndex) {
+                    case 0: output.innerHTML = "Nice try 😉"; break;
+                    case 1: output.innerHTML = "נסיון חמוד 😉"; break;
+                }
+                submit.textContent = translationMatrix[43][languageIndex];
+                return;
+            }
+
+            output.innerHTML = "Building Submission Packet...";
+
+            let payload = {
+                type: "provide",
+                name: name.length === 0 || name__RatherNotProvide ? "Anonymous" : name,
+                foodEnglish: foodName.length === 0 ? "<english not given>" : foodName,
+                foodEnglishSecurity: foodName__DontKnow ? 0 : (foodName__NotSure ? 1 : 2),
+                foodHebrew: translations.length === 0 ? "<hebrew not given>" : translations,
+                foodHebrewSecurity: translations__DontKnowAny ? 0 : (translations__NotSure ? 1 : 2),
+                glycemicIndex: glycemicIndex.length === 0 ? -1 : parseFloat(glycemicIndex),
+                glycemicIndexSecurity: glycemicIndex__DontKnow ? 0 : (glycemicIndex__NotSure ? 1 : 2),
+                glycemicLoad: glycemicLoad.length === 0 ? -1 : parseFloat(glycemicLoad),
+                glycemicLoadSecurity: glycemicLoad__DontKnow ? 0 : (glycemicLoad__NotSure ? 1 : 2),
+                sugar: sugar.length === 0 ? -1 : parseFloat(sugar),
+                sugarSecurity: sugar__DontKnow ? 0 : (sugar__NotSure ? 1 : 2),
+                carbs: carbs.length === 0 ? -1 : parseFloat(carbs),
+                carbsSecurity: carbs__DontKnow ? 0 : (carbs__NotSure ? 1 : 2),
+                company: company.length === 0 ? null : company,
+            }
+
+            if (payload.foodEnglishSecurity == 0 && payload.foodHebrewSecurity == 0 && payload.glycemicIndexSecurity == 0) {
+                switch (languageIndex) {
+                    case 0: output.innerHTML = "Contribution not submitted: not enough information provided."; break;
+                    case 1: output.innerHTML = "תרומת תוכן לא נשלחה: לא סופק מספיק מידע.&rlm;"; break;
+                }
+                submit.textContent = translationMatrix[43][languageIndex];
+                return;
+            } else {
+                output.innerHTML = "Sending Submission Packet...";
+                fetch("https://apbd-contrib-bot.shaharmsecond.workers.dev/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(payload),
+                })
+                    .then(response => {
+                        output.innerHTML = "Getting Response...";
+                        return response.text();
+                    })
+                    .then(data => {
+                        output.innerHTML = data;
+                        submit.textContent = translationMatrix[43][languageIndex];
+                    });
+            }
+
+
+        }   
+    </script>
+
+    </div>
+
+    <script src="../code/dropdowns.js"></script>
+    <script src="../code/translator.js"></script>
+    <script src="../code/help-marks.js"></script>
+    <script src="../code/choice-buttons.js"></script>
+    <script src="../code/switches.js"></script>
+    <script src="../code/food-name-validator.js"></script>
+
+    <script type="module">
+        let urlParams = new URLSearchParams(window.location.search);
+
+        let lang = urlParams.get("lang") || "en";
+        await translate(lang);
+        activateDropdowns();
+        activateHelpMarks();
+        activateChoiceButtons();
+        activateSwitches();
+        activateFoodNameValidator();
+    </script>
+
+
+</body></html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Food Info</title>
+    <meta name="description" content="Allows requesting different foods from the APBD Foods List directly via the website. Try it out - Help a cause!">
+
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/dropdown.css">
+    <link rel="stylesheet" href="../style/contribute.css">
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VPXMF38X8C"></script><script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-VPXMF38X8C');
+</script></head>
+
+<!-- Google tag (gtag.js) -->
+
+
+
+<body>
+
+    <script>
+        const touch = matchMedia('(hover: none)').matches
+        console.log(touch);
+
+        if (touch) {
+            let prev = window.document.body;
+            window.addEventListener("touchend", function (e) {
+                if (e.target.onclick) e.target.onclick();
+                if (prev !== e.target) prev.classList.remove("hover");
+                e.target.classList.toggle("hover");
+                prev = e.target;
+                console.log(e.target);
+            }, { passive: false });
+        }
+    </script>
+    <header>
+        <div class="logo">
+            <img src="../favicon.ico" alt="Website logo">
+            <div class="column">
+                <a class="title" href="https://apbd.net">APBD.net</a>
+                <a class="sub" href="#" onclick="window.location.href = window.location.origin + window.location.search">רשימת מאכלים מותרים</a>
+            </div>
+
+        </div>
+        <nav class="header-menu">
+            <div class="dropdown">
+                <a id="about" href="#">אודות</a>
+                <div class="dropdown-content">
+                    <a target="_blank" href="https://github.com/ShaharMS/APBD-FoodList/blob/main/README.md">אתר</a>
+                    <a target="_blank" href="https://rarediseases.org/rare-diseases/adult-polyglucosan-body-disease/">APBD
+                        <span>↗</span></a>
+                    <a onclick="window.location.href = window.location.origin + `/about/database${'_' + (new URLSearchParams(window.location.search).get('lang') || 'en')}.html` + window.location.search" href="#">מסד הנתונים</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a id="contribute" href="#">תרום תוכן</a>
+                <div class="dropdown-content">
+                    <a href="./contribute/request.html">בקשת נתונים</a>
+                    <a href="./contribute/provide.html">סיפוק נתונים</a>
+                    <a href="./contribute/leaderboards.html">תורמים מובילים</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a id="contact" href="#">שפה</a>
+                <div class="dropdown-content">
+                    <a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'en')" href="#">אנגלית</a>
+                    <a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'he')" href="#">עברית</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <blockquote>העמוד הזה קיים על מנת לאפשר לך ולאנשים אחרים לעזור אחד לשני, ע"י הרחבה של רשימת המאכלים המתועדים. אין צורך לחשוש אם לא בטוחים/יודעים מידע מסוים - אני על זה :)‏</blockquote>
+
+        <div class="request-options">
+            <div class="column">
+                <h2>בקשה באמצעות: פרטים</h2>
+                <form id="request-form">
+                    <table id="request-table">
+                        <tbody><tr>
+                            <th>
+                                <help>השם הפרטי + משפחה שלך. אם ניתן, ישמש בתור מזהה בלוח ההישגים, שתחתיו תווסף תרומת התוכן. תרום מספיק תוכן, ואולי תגיע למקום הראשון 😁‏</help>
+                                <span>שם</span>
+                            </th>
+                            <td>
+                                <input id="name" placeholder="שם פרטי ושם משפחה...">
+                                <div class="button-row">
+                                    <button id="n-np" type="button">מעדיף שלא למסור</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <th>
+                                <help>שם המאכל אותו אתה רוצה להוסיף. עדיף להביא שם ממוקד יותר אם אפשר (כמובן מבלי להשמיט מידע). אם מעורבת חברה מסוימת ביצור האוכל, ניתן להזכיר זאת בשדה נפרד.‏</help>
+                                <span>שם המאכל (אנגלית)</span>
+                            </th>
+                            <td>
+                                <input id="food-name-english" placeholder="Food name...">
+                                <div class="button-row">
+                                    <button id="fn-ns" type="button">אני לא בטוח</button>
+                                    <button id="fn-dk" type="button">אני לא יודע</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <help>למטרות תרגום, מומלץ לתת גם את שם המאכל בעברית (הופך לי את העבודה לקלה יותר 🙃)‏</help>
+                                <span>שם המאכל (עברית)</span>
+                            </th>
+                            <td>
+                                <input id="food-name-hebrew" placeholder="שם המאכל...">
+                                <div class="button-row">
+                                    <button id="t-ns" type="button">אני לא בטוח</button>
+                                    <button id="t-dk" type="button">אני לא יודע</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <help>אם המוצר הספציפי אותו אתה מבקש מיוצר ע"י חברה מסוימת, תזכיר את שמה כאן. זה נותן לי להצמיד את שם ולוגו החברה למוצר באתר עצמו.‏</help>
+                                <span>אופציונאלי: שם החברה</span>
+                            </th>
+                            <td>
+                                <input id="company" list="companies" placeholder="שם החברה...">
+                                <div class="button-row">
+                                    <button id="co-ns" type="button">אני לא בטוח</button>
+                                    <button id="co-dk" type="button">אני לא יודע</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </form>
+            </div>
+
+
+            <h3>או</h3>
+
+            <div class="column">
+                <h2>בקשה באמצעות: תמונות</h2>
+                <form id="image-request-form">
+                    <table id="image-request-table">
+                        <tbody><tr>
+                            <th>
+                                <help>איך האוכל נראה כאשר הקדימה שלו מצולם. במאכלים ארוזים, החלק הקדמי של החבילה בד"כ מכיל את שם האוכל, החברה שמייצרת אותו, ומה בעצם האוכל.‏</help>
+                                <span>אוכל/מארז - מקדימה</span>
+                            </th>
+                            <td>
+                                <div style="display: flex; width: 100%; flex-direction: row; justify-content: center;">
+                                    <img width="0" height="0" style="display: none;">
+                                </div>
+                                <div class="button-row">
+                                    <button type="button" onclick="takeAndDisplay(this.parentElement.parentElement)">Take Image</button>
+                                    <label for="image-picker">בחר תמונה מהגלריה...</label>
+                                    <input id="image-picker" type="file" accept="image/*" placeholder="בחר תמונה מהגלריה...">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <help>איך האוכל נראה כאשר חלקו האחורי מצולם. במאכלים ארוזים, החלק האחורי לרוב מכיל את הערכים התזונתיים של המאכל, המרכיבים שלו, ועוד פרטים נוספים על המאכל/החברה.‏</help>
+                                <span>אוכל/מארז - מאחורה</span>
+                            </th>
+                            <td>
+                                <div style="display: flex; width: 100%; flex-direction: row; justify-content: center;">
+                                    <img width="0" height="0" style="display: none;">
+                                </div>
+                                <div class="button-row">
+                                    <button type="button" onclick="takeAndDisplay(this.parentElement.parentElement)">Take Image</button>
+                                    <label for="image-picker">בחר תמונה מהגלריה...</label>
+                                    <input id="image-picker" type="file" accept="image/*" placeholder="בחר תמונה מהגלריה...">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <help>חלק מאריזות המאכלים עבות, ויש להן מידע נוסף על אחד הצדדים שלהם (לדוגמה - אריזות קורנפלקס). אפשר להשתמש בשדה זה אם יש צורך בתמונה נוספת מהצד.‏</help>
+                                <span>אופציונאלי: אוכל/מארז - מהצד</span>
+                            </th>
+                            <td>
+                                <div style="display: flex; width: 100%; flex-direction: row; justify-content: center;">
+                                    <img width="0" height="0" style="display: none;">
+                                </div>
+                                <div class="button-row">
+                                    <button type="button" onclick="takeAndDisplay(this.parentElement.parentElement)">Take Image</button>
+                                    <label for="image-picker">בחר תמונה מהגלריה...</label>
+                                    <input id="image-picker" type="file" accept="image/*" placeholder="בחר תמונה מהגלריה...">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </form>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <button type="submit" id="submit">שלח</button>
+        </div>
+        <h3 id="submition-output"></h3>
+
+
+    </div>
+
+    <script src="../code/help-marks.js"></script>
+    <script src="../code/choice-buttons.js"></script>
+    <script src="../code/food-name-validator.js"></script>
+    <script src="../code/image-processor.js"></script>
+
+    <script>
+        String.prototype.attemptedXSS = function () {
+            return /[<>]/.test(this);
+        }
+        let submit = document.getElementById("submit");
+        let output = document.getElementById("submition-output");
+        submit.onclick = () => {
+            console.log(languageIndex);
+            let notice = confirm("Are you sure you want to submit?");
+            if (!notice) return;
+
+            submit.textContent = "Submitting...";
+
+            output.innerHTML = "Grabbing Data From Text Fields...";
+
+            let name = document.getElementById("name").value;
+            let name_RatherNotProvide = document.getElementById("n-np").classList.contains("selected");
+
+            if (name.length === 0 && !name_RatherNotProvide) {
+                output.innerHTML = "Please provide a name, or select 'I'd rather not provide'.";
+                submit.textContent = "Submit";
+                return;
+            }
+
+            let foodName = document.getElementById("food-name-english").value;
+            let foodName_NotSure = document.getElementById("fn-ns").classList.contains("selected");
+            let foodName_DontKnow = document.getElementById("fn-dk").classList.contains("selected");
+
+            if (foodName.length === 0 && !foodName_DontKnow) {
+                output.innerHTML = "Please provide an english translation of the food name, or select 'I don't know'.";
+                submit.textContent = "Submit";
+                return;
+            }
+
+            let translations = document.getElementById("food-name-hebrew").value;
+            let translations_NotSure = document.getElementById("t-ns").classList.contains("selected");
+            let translations_DontKnow = document.getElementById("t-dk").classList.contains("selected");
+
+            if (translations.length === 0 && !translations_DontKnow) {
+                output.innerHTML = "Please provide a hebrew translation of the food name, or select 'I don't know'.";
+                submit.textContent = "Submit";
+                return;
+            }
+
+            output.innerHTML = "Testing For Attempted XSS Attacks...";
+
+            if (name.attemptedXSS() || foodName.attemptedXSS() || translations.attemptedXSS()) {
+                output.innerHTML = "Nice try 😉";
+                submit.textContent = "Submit";
+                return;
+            }
+
+            if (document.getElementById("food-name-english").classList.contains("already-exists") || document.getElementById("food-name-hebrew").classList.contains("already-exists")) {
+                output.innerHTML = "Food already exists in the food list.";
+                submit.textContent = "Submit";
+                return;
+            }
+
+            output.innerHTML = "Building Request Packet...";
+
+            let payload = {
+                type: "request",
+                name: name.length === 0 || name_RatherNotProvide ? "Anonymous" : name,
+                foodEnglish: foodName.length === 0 ? "Not Given" : foodName,
+                foodEnglishSecurity: foodName_DontKnow ? 0 : (foodName_NotSure ? 1 : 2),
+                foodHebrew: translations.length === 0 || translations_DontKnow ? "Not Given" : translations,
+                foodHebrewSecurity: translations_DontKnow ? 0 : (translations_NotSure ? 1 : 2),
+            }
+
+            if (foodName_DontKnow && translations_DontKnow) {
+                // Ignore "nonsense" requests
+                output.innerHTML = "Request not submitted: no information provided.";
+                submit.textContent = "Submit";
+                return;
+            } else {
+                output.innerHTML = "Sending Request Packet...";
+                fetch("https://apbd-contrib-bot.shaharmsecond.workers.dev/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(payload),
+                })
+                    .then(response => {
+                        output.innerHTML = "Getting Response...";
+                        return response.text();
+                    })
+                    .then(data => {
+                        output.innerHTML = data;
+                        submit.textContent = "Submit";
+                    });
+            }
+        }
+    </script>
+
+    <script type="module">
+        let urlParams = new URLSearchParams(window.location.search);
+
+        let lang = urlParams.get("lang") || "en";
+        activateHelpMarks();
+        activateChoiceButtons();
+        activateFoodNameValidator();
+    </script>
+
+
+</body></html>

@@ -1,0 +1,242 @@
+Allowed Foods List¦רשימת מאכלים מותרים⤓
+About¦אודות⤓
+Contribute¦הוספה לאתר⤓
+Language¦שפה⤓
+A list of foods sorted by multiple catorgories, such as glycemic indices, glycemic loads, sugars & carbs. Low glycemic loads & indices should be better for people with APBD. Some foods are missing? click the "contribute" option to request/provide data.¦רשימת מאכלים ממויינת לקטגוריות, כגון ערך גליקמי, עומס גליקמי, פחמימות וסוכרים. עומסים גליקמיים נמוכים אמורים להיות טובים יותר לאכילה לאנשים עם APBD. חסר מאכלים? לחצו על אפשרות "הוספה לאתר" כדי לבקש/לספק נתונים.⤓
+Food Name¦שם מאכל⤓
+Glycemic Index¦ערך גליקמי⤓
+Glycemic Load¦עומס גליקמי⤓
+Sugars¦סוכרים⤓
+Carbs¦פחמימות⤓
+English¦אנגלית⤓
+Hebrew¦עברית⤓
+Avocado¦אבוקדו⤓
+Artichoke¦ארטישוק⤓
+Eggplant¦חציל⤓
+Sweet Potato¦בטטה⤓
+Broccoli¦ברוקלי⤓
+Cabbage¦כרוב⤓
+Brussel Sprouts¦כרוב ניצנים⤓
+Cauliflower¦כרובית⤓
+Kohlrabi¦קולורבי⤓
+Carrot¦גזר⤓
+Cucumber¦מלפפון⤓
+Cucumber (peeled)¦מלפפון (מקולף)⤓
+Tomato¦עגבניה⤓
+Radish¦צנון⤓
+Turnip¦לפת⤓
+Beetroot¦סלק⤓
+Jerusalem Artichoke¦ארטישוק ירושלמי⤓
+Pumpkin¦דלעת⤓
+Zucchini¦זוקיני⤓
+Weight¦משקל⤓
+Request Food Addition¦בקשה להוספת מאכל⤓
+Provide Food Data¦ספק נתוני מאכל⤓
+Website Code¦קוד האתר⤓
+Discord¦דיסקורד⤓
+Username Copied¦שם משתמש הועתק⤓
+העמוד הזה קיים על מנת לאפשר לך ולאנשים אחרים לעזור אחד לשני, ע&quot;י הרחבה של רשימת המאכלים המתועדים. אין צורך לחשוש אם לא בטוחים/יודעים מידע מסוים - אני על זה :)
+Food Name (English)¦שם המאכל (אנגלית)⤓
+Food Name (Hebrew)¦שם המאכל (עברית)⤓
+I don't know¦אני לא יודע⤓
+I'm not sure¦אני לא בטוח⤓
+I'd rather not provide¦מעדיף שלא להגיד⤓
+Submit¦שלח⤓
+First And Last Name¦שם פרטי ושם משפחה⤓
+Used in two places:¦חשוב בשני מקומות:⤓
+When Provided, This name will be added to the contribution chart (if necessary) and a "contribution point" will be added to your name¦אם מסופק, תרשם בטבלת התורמים, ותווסף "נקודת תרומה" אחת לשמך⤓
+The food's name in English, for when a user displays the food list in English¦שם המאכל באנגלית, בשימוש כאשר משתמש מנסה להציג את רשימת המאכלים באנגלית⤓
+The food's name in Hebrew, for when a user displays the food list in Hebrew¦שם המאכל בעברית, בשימוש כאשר משתמש מנסה להציג את רשימת המאכלים בעברית⤓
+Submitting...¦שולח בקשה...⤓
+In Grams¦בגרמים⤓
+Per 100 Grams¦ל-100 גרם מאכל⤓
+Each food has a glycemic index, ranging from 0 to 100. A higher value spikes blood sugar higher and more rapidly¦כל אוכל נמצא במקום כלשהו על מדד הערך הגליקמי. ערכים גבוהים "מקפיצים" את רמת הסוכר בדם לרמה גבוהה, ובמהירות⤓
+Glycemic Load is defined by the glycemic index, divided by 100, then multiplied by the amount of carbs the food contains (in grams). A higher value spikes blood sugar higher and more rapidly¦עומס גליקמי מחושב באמצעות חילוק הערך הגליקמי ב-100, והכפלת התוצאה בכמות הפחממות שבאוכל, בגרמים. ערכים גבוהים יותר "מקפיצים" את רמת הסוכר בדם לרמה גבוהה, ובמהירות⤓
+Sugar is one of the three types of carbohydrates. aside from it, there are also starches & fibers. Fibers are "ok" carbs, while starches & sugars are "bad" carbs.¦סוכר הוא אחד משלושת סוגי הפחמימות: סיבים, סוכר, ועמילן. סיבים הן פחמימה "טובה", בעוד שעמילן וסוכר הן פחמימות "רעות".⤓
+Almost every single food contains carbohydrates. Our body uses them to generate energy¦רוב המאכלים מכילים כמות מסוימת של פחמימות. הגוף שלנו משתמש בהם על מנת לייצר אנרגיה⤓
+Sort By¦מיין לפי⤓
+Those who took part in improving and expanding the list should be remembered. Major thank-yous! ♥️¦מגיע לכל מי שלקח חלק בשיפור והרחבת האתר, שידעו שעשה ותרם רבות. תודה רבה רבה לכם! ♥️⤓
+This is the name the contributor provided when they made different contributions, such as food requests or additions¦זה השם שתורם התוכן הזדהה איתו כאשר סיפק נתונים לאתר⤓
+The amount of fulfilled requests this contributor made for food additions. The more the merrier¦כמות הבקשות להוספת מאכלים שמומשו, ונוספו לרשימת המאכלים. כמה שיותר - יותר טוב⤓
+The amount of fulfilled data contributions (via the "Provide Food Data" section). The more the merrier¦כמות הבקשות להוספת מאכלים שמומשו, בהם המשתמש סיפק את הרוב המוחלט של המידע, דרך החלק "ספק נתוני מאכל". כמה שיותר - יותר טוב⤓ 
+Overall score is calculated by the amount of requests, added to the amount of direct contributions times 10. Directly contributing is harder, so it gets a boost in score¦סך כל הנקודות למשתמש מחושבות ע"י הוספת כמות בקשות ההוספה לכמות תרומות המידע הישירות, מוכפלות ב-10. מכיוון שקשה יותר לשלוח גם מידע על מאכל, ולא רק את שמו, סוג שליחת המידע הזה מקבל "דחיפה" בתוצאה הסופית⤓
+Name¦שם⤓
+Content Contributions¦תרומות תוכן⤓
+Direct Content Contributions¦תרומות תוכן ישירות⤓ 
+Score¦נקודות⤓
+Leaderboards¦לוח הישגים⤓
+Onion¦בצל⤓
+Water¦מים⤓
+Apricot¦משמש⤓
+Quince¦חבוש⤓
+Pineapple¦אננס⤓
+Orange¦תפוז⤓
+Watermelon¦אבטיח⤓
+Acerola Cherry¦דובדבן ברבדוס⤓
+Banana¦בננה⤓
+Green Banana¦בננה ירוקה⤓
+Green Grapes¦ענבים ירוקים⤓
+Red Grapes¦ענבים אדומים⤓
+Purple Grapes¦ענבים סגולים⤓
+Black Grapes¦ענבים שחורים⤓
+Pomegranate¦רימון⤓
+Grapefruit¦אשכולית⤓
+Pear¦אגס⤓
+Pepino¦פיפנו⤓
+Melon¦מלון⤓
+Blackberry¦אוסנה⤓
+Yellow Gooseberry¦דומדמנית צהובה⤓
+No Data¦אין מידע⤓
+Food Already Exists¦מאכל כבר קיים⤓
+Raisins¦צימוקים⤓
+Fig¦תאנה⤓
+Kiwi¦קיווי⤓
+Strawberry¦תות⤓
+Cranberry¦חמוציות⤓
+Lemon¦לימון⤓
+Lychee¦ליצ'י⤓
+Raspberry¦פטל (פרי)⤓
+Mango¦מנגו⤓
+Mandarin¦תפוז סיני⤓
+Passion Fruit¦פסיפלורה⤓
+Cloudberry¦אוכמניית ענן⤓
+Medlar¦שסק⤓
+Nectarine¦נקטרינה⤓
+Sea Buckthorn¦היפופיאה⤓
+Prickly Pear¦צבר⤓
+Papaya¦פאפאיה⤓
+Peach¦אפרסק⤓
+Breadfruit¦פרי עץ לחם⤓
+Pomelo¦פומלה⤓
+Plum¦שזיף⤓
+Red Currant¦דומדמנית⤓
+Black Currant¦ענבי שועל⤓
+Physalis¦שלפח⤓
+Date¦תמר⤓
+Persimmon¦אפרסמון⤓
+Cherries¦דובדבנים⤓
+Blueberry¦אוכמניית⤓
+Prune¦שזיפים מיובשים⤓
+Dried Apples¦תפוח מיובש⤓
+Apple¦תפוח⤓
+Goji Berry¦אוכמניית גוג'י⤓
+Garlic¦שום⤓
+Potato¦תפוח אדמה⤓
+Basil¦בזיליקום⤓
+Balsamic Vinegar¦חומץ בלסמי⤓
+Vanilla, Spice¦וניל, תבלין⤓
+Ginger¦ג'ינג'ר⤓
+Cinnamon¦קינמון⤓
+Sesame Seeds¦שומשום⤓
+Carob Powder¦אבקת חרוב⤓
+Lotus Root¦שורש לוטוס⤓
+Flaxseed¦זרעי פשתן⤓
+Poppy Seeds¦פרג⤓
+Dried Oregano¦אורגנו מיובש⤓
+Caraway Seeds¦כרוויה תרבותית⤓
+Horseradish¦חזרת⤓
+Goose Fat¦שומן אווז⤓
+Fat¦שומן⤓
+Raw Coconut Milk¦חלב קוקוס לא מעובד⤓
+Butter¦חמאה⤓
+Almond Oil¦שמן שקדים⤓
+Olive Oil¦שמן זית⤓
+Pesto Sauce¦רוטב פסטו⤓
+Vegetable Fat¦שומן ירקות⤓
+Website¦האתר⤓
+Food Database¦מסד נתוני מאכלים⤓
+Mutton¦בשר כבש⤓
+Beef¦בשר בקר⤓
+Beef Tongue¦לשון בקר⤓
+Beef Liver¦כבד בקר⤓
+Goose¦אווז⤓
+Turkey¦עוף הודו⤓
+Chicken¦עוף⤓
+Chicken Wings¦כנפיים (עוף)⤓
+Chicken Drums¦שוקיים (עוף)⤓
+Chicken Thighs¦רבע (עוף)⤓
+Veal¦בשר עגל⤓
+Duck¦בשר ברווז⤓
+Foie Gras¦כבד אווז⤓
+Eggs (All Sizes)¦ביצים (כל גודל)⤓
+Amaranth Seeds¦זרעי אמרנט⤓
+White Corn¦תירס לבן⤓
+Yellow Corn¦תירס צהוב⤓
+Bulgur¦בורגול⤓
+Cooked¦מבושל⤓
+Buckwheat¦כוסמת⤓
+Potato Flour¦קמח תפוחי אדמה⤓
+Quinoa¦קינואה⤓
+Corn Starch¦עמילן תירס⤓
+Couscous¦קוסקוס⤓
+Buckwheat Flour¦קמח כוסמת⤓
+Semolina Flour¦קמח סמולינה⤓
+Whole Wheat Flour¦קמח חיטה מלאה⤓
+Arrowroot Flour¦קמח מרנטת הרנה⤓
+Quinoa Flour¦קמח קינואה⤓
+Chestnut Flour¦קמח ערמונים⤓
+Spelled Flour¦קמח כוסמין⤓
+Corn Flour¦קמח תירס⤓
+Chickpea Flour¦קמח חומוס⤓
+Rye Flour¦קמח שיפון⤓
+Whole-Grain Rye Flour¦קמח שיפון מלא⤓
+Rice Flour¦קמח אורז⤓
+Soy Flour¦קמח סויה⤓
+Oat Flour¦קמח שיבולת שועל⤓
+Barley Flour¦קמח שעורה⤓
+White Flour¦קמח לבן⤓
+Noodles¦נודלס⤓
+Pasta¦פסטה⤓
+Al-Dente¦אל-דנטה⤓
+Plain Matzo¦מצה רגילה⤓
+Basmati Rice¦אורז בסמטי⤓
+Wild Rice¦אורז פרא⤓
+Jasmine Rice¦אורז יסמין⤓
+Sushi Rice¦אורז סושי⤓
+Round Rice¦אורז עגול⤓
+Chia Seeds¦זרעי צ'יה⤓
+Dried¦מיובש⤓
+Sorghum¦דורה⤓
+Coconut¦קוקוס⤓
+Optional¦אופציונאלי⤓
+Food Company¦חברת המאכל⤓
+If this food is produced by a specific company (for example, a specific sauce), input the name of the company here¦אם המאכל הזה מיוצר על ידי חברה ספציפית (למשל, רוטב של חברה מסוימת), מומלץ לכניס כאן את שם החברה⤓
+Big Mac¦ביג מק⤓
+Chicken Breast¦חזה (עוף)⤓
+Whopper¦וופר⤓
+McChicken¦מק צ'יקן⤓
+Chicken McNuggets¦מק נאגטס⤓
+4-Piece¦ 4 נאגטס⤓
+5-Piece¦ 5 נאגטס⤓
+9-Piece¦ 9 נאגטס⤓
+10-Piece¦ 10 נאגטס⤓
+12-Piece¦ 12 נאגטס⤓
+French Fries¦צ'יפס⤓
+Regular¦רגיל⤓
+Medium¦גדול⤓
+Large¦ענק⤓
+Coke¦קולה⤓
+Coke Zero¦קולה זירו⤓
+Coke Zero uses Aspertame as a sweetner. Aspertame still triggers insulin production, prompting glycogen synthesis, which is problematic.¦קולה זירו מומתק באמצעות אספרטיים. אספרטיים גם גורם לגוף להפריש אינסולין, שגורר יצירת גליקוגן, דבר שמאוד בעייתי.⤓
+Sprite¦ספרייט⤓
+Sprite Zero¦ספרייט זירו⤓
+Sprite Zero uses Aspertame as a sweetner. Aspertame still triggers insulin production, prompting glycogen synthesis, which is problematic.¦ספרייט זירו מומתק באמצעות אספרטיים. אספרטיים גם גורם לגוף להפריש אינסולין, שגורר יצירת גליקוגן, דבר שמאוד בעייתי.⤓
+Fanta¦פאנטה⤓
+Fanta Zero¦פאנטה זירו⤓
+Fanta Zero uses Aspertame as a sweetner. Aspertame still triggers insulin production, prompting glycogen synthesis, which is problematic.¦פאנטה זירו מומתק באמצעות אספרטיים. אספרטיים גם גורם לגוף להפריש אינסולין, שגורר יצירת גליקוגן, דבר שמאוד בעייתי.⤓
+Whole Milk 3%¦חלב מלא 3%⤓
+Milk 3%¦חלב 3%⤓
+Courgette¦קישוא⤓
+Salmon¦דג סלמון⤓
+Tuna¦דג טונה⤓
+Mackerel¦דג מקרל⤓
+Denis¦דג דניס⤓
+Green Peas¦אפונה ירוקה⤓
+Green Peas, Cooked¦אפונה ירוקה, מבושל⤓
+Great¦מצוין⤓
+Okay¦סביר⤓
+Not Good¦לא טוב⤓
+Very Bad¦רע מאוד⤓
+Milk 1%¦חלב 1%⤓
+Milk 3.6%¦חלב 3.6%⤓
+Goat Milk 3.7%¦חלב עזים 3.7%⤓
