@@ -1,0 +1,45 @@
+.ex {
+    position: absolute;
+    outline: solid 2px white;
+    box-shadow: 4px 4px 4px 4px black;
+}
+
+.ex:hover {
+    scale: 1.1;
+    z-index: 100;
+    box-shadow: 0 0 10px white;
+}
+
+#ex1 {
+    width: 400px;
+    transform: rotate(10deg);
+    top: calc(100vh + 70px);
+    right: 80px;
+}
+
+#ex2 {
+    width: 400px;
+    transform: rotate(-5deg);
+    top: calc(100vh + 340px);
+    right: 40px;
+}
+
+#ex3 {
+    width: 450px;
+    transform: rotate(15deg);
+    top: calc(100vh + 540px);
+    right: 30px;
+}
+
+.text-container {
+    width: 50%;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-container h1 {
+    font-size: 2em;
+}

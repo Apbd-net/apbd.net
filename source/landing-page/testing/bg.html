@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/main.css">
+</head>
+
+<body>
+    <script>
+        return;
+
+        class Point {
+            /**
+             * @param {number} x
+             * @param {number} y
+             * @returns {{x: number, y: number}}
+             */
+            constructor(x, y) {
+                this.x = x
+                this.y = y
+                this.color = "darkred";
+                this.pointSize = 20;
+                /**
+                 * @type {Point[]}
+                 */
+                this.connected = []
+                /**
+                 * @type {HTMLDivElement[]}
+                 */
+                this.lineElements = []
+
+                this.element = document.createElement("div")
+
+                this.element.style.cssText = `
+                display: block; 
+                position: absolute; 
+                left: ${x}px; 
+                top: ${y}px; 
+                width: ${this.pointSize}px; 
+                height: ${this.pointSize}px;
+                background-color: ${this.color};
+                z-index: 100;
+                border-radius: 50%;`;
+                this.element.addEventListener("mousemove", e => {
+                    if (e.layerX < this.pointSize / 2) {
+                        this.x += e.layerX
+                    } else {
+                        this.x -= this.pointSize - e.layerX
+                    }
+
+                    if (e.layerY < this.pointSize / 2) {
+                        this.y += e.layerY
+                    } else {
+                        this.y -= this.pointSize - e.layerY
+                    }
+
+                })
+                document.body.appendChild(this.element)
+                requestAnimationFrame(this.update.bind(this))
+
+
+            }
+
+            /**
+             * Updates the position and style of the lines connecting this point to other points.
+             * 
+             * Iterates over the connected points and updates the corresponding line elements.
+             * 
+             * @returns {void}
+             */
+            update() {
+                this.element.style.left = `${this.x}px`
+                this.element.style.top = `${this.y}px`
+                for (let i = 0; i < this.connected.length; i++) {
+                    var point = this.connected[i]
+                    var line = this.lineElements[i]
+                    line.style.width = `${Math.sqrt(Math.pow(point.x - this.x, 2) + Math.pow(point.y - this.y, 2))}px`
+                    line.style.left = `${this.x + (point.x - this.x) / 2}px`
+                    line.style.top = `${this.y + (point.y - this.y) / 2}px`
+                    line.style.transform = ` translate(calc(-50% + ${this.pointSize / 2}px), ${this.pointSize / 2}px) rotate(${Math.atan2(point.y - this.y, point.x - this.x) * 180 / Math.PI}deg)`
+                }
+
+                requestAnimationFrame(this.update.bind(this))
+            }
+
+            /**
+             * Connects this point to another point.
+             * 
+             * @param {Point} point The point to connect to.
+             * @returns {void}
+             */
+            connect(point) {
+                this.connected.push(point)
+                let lineElement = document.createElement("div")
+                lineElement.style.cssText = `
+                display: block; 
+                position: absolute; 
+                height: 2px; 
+                background-color: ${this.color};`;
+                this.lineElements.push(lineElement)
+                document.body.appendChild(lineElement)
+
+            }
+
+
+            branch(amount, deg, split = true, passed = 1) {
+                // get 2 random ints between 4 and 8
+                let rnd1 = (Math.floor(Math.random() * 4) + 4) * 30 * passed
+                let rnd2 = (Math.floor(Math.random() * 4) + 4) * 30 * passed
+
+                //get two random degrees: one between -30 and 30 and one between -5 and 5.
+                // make sure they oppose each other
+                let deg1 = Math.floor(Math.random() * 60) - 30
+                let deg2 = Math.floor(Math.random() * 20) - 10
+                if (Math.sign(deg1) === Math.sign(deg2)) {
+                    if (Math.random() > 0.5)
+                        deg1 = -deg1;
+                    else
+                        deg2 = -deg2
+                }
+
+                if (split)
+                    var point1 = new Point(this.x + rnd1 * Math.cos((deg + deg1) * Math.PI / 180), this.y + rnd1 * Math.sin((deg + deg1) * Math.PI / 180))
+                let point2 = new Point(this.x + rnd2 * Math.cos((deg + deg2) * Math.PI / 180), this.y + rnd2 * Math.sin((deg + deg2) * Math.PI / 180))
+                if (split) this.connect(point1)
+                this.connect(point2)
+                if (amount > 0) {
+                    if (split) point1.branch(amount - 1, deg, true, passed + 1)
+                    point2.branch(amount - 1, deg, true, passed + 1)
+                }
+
+            }
+        }
+
+        const winWidth = window.innerWidth
+        const winHeight = window.innerHeight
+    </script>
+    <script>
+
+        return;
+        let center = new Point(winWidth / 4 * 3, winHeight / 2)
+        for (let i = 0; i < 360; i += 30) {
+            center.branch(4, i, false);
+        }
+
+        let div2 = document.createElement("div")
+        div2.style.cssText = `
+            display: block; 
+            position: absolute; 
+            top: 0px; left: 0px;
+            width: 100%; height: 100%;
+            z-index: 2000;
+            background: radial-gradient(circle at 75% 50%, #22222222, #000000ff)`;
+
+        document.body.appendChild(div2)
+    </script>
+
+        <img src="../assets/main/glycogen.png" alt=""
+            style="position: absolute; top:50%; left: 75%; transform: translate(-50%, -50%);">
+
+</body>
+
+</html>

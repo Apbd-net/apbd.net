@@ -1,3 +1,0 @@
-User-Agent: *
-Disallow: /scrapes/
-Disallow: /content/translations.txt

@@ -4,16 +4,20 @@ import { JSDOM } from "jsdom";
 import { readdirSync, copyFileSync, mkdirSync, readFileSync, writeFileSync, rmSync, existsSync, unlinkSync } from "fs";
 import { log } from "console";
 import { watch } from "chokidar";
+import { chdir, cwd } from "process";
 
 function sl() {
     return process.platform === "win32" ? "\\" : "/";
 }
 
-const TOOLS = ["foods"];
 const LANDING_PAGE_ID = "landing-page";
+const TOOLS = ["foods", LANDING_PAGE_ID];
+
 const EXCLUDED_ROOT_PATHS = {
-    "foods": ["scrapes", "compiler", "robots.txt", "LICENSE.md", "README.md", "sitemap.xml", "node_modules", ".vscode", ".git"]
+    "foods": ["scrapes", "LICENSE.md", "README.md", ".vscode", "favicon.ico"],
 };
+EXCLUDED_ROOT_PATHS[LANDING_PAGE_ID] = ["favicon.ico", "testing"];
+
 const SUPPORTED_LANGUAGES = ["en", "he"];
 const MIGRATE_TRANSLATION_SYSTEM = process.argv.includes("--migrate-translation-system") || process.argv.includes("--mts");
 const CONTINUOUS = process.argv.includes("--continuous") || process.argv.includes("--c");
@@ -166,7 +170,10 @@ function main() {
 
         buildTool(tool, rootFiles);
         if (CONTINUOUS) {
+            let current = cwd();
+            chdir(getToolDir(tool));
             const watcher = watch(rootFiles, { persistent: true });
+            chdir(current);
             watcher
                 .on('add', (p) => { log(`Adding: ${getToolDir(tool) + p}`); buildFile(p, tool) })
                 .on('change', (p) => { log(`Changing: ${getToolDir(tool) + p}`); buildFile(p, tool) })
