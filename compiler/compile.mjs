@@ -1,8 +1,9 @@
 // writes this entire project to two different file paths, depending on the language.
 
 import { JSDOM } from "jsdom";
-import { readdirSync, copyFileSync, mkdirSync, readFileSync, writeFileSync, rmSync } from "fs";
+import { readdirSync, copyFileSync, mkdirSync, readFileSync, writeFileSync, rmSync, existsSync, unlinkSync } from "fs";
 import { log } from "console";
+import { watch } from "chokidar";
 
 function sl() {
     return process.platform === "win32" ? "\\" : "/";
@@ -15,7 +16,7 @@ const EXCLUDED_ROOT_PATHS = {
 };
 const SUPPORTED_LANGUAGES = ["en", "he"];
 const MIGRATE_TRANSLATION_SYSTEM = process.argv.includes("--migrate-translation-system") || process.argv.includes("--mts");
-
+const CONTINUOUS = process.argv.includes("--continuous") || process.argv.includes("--c");
 const BUILD_PATH = `.${sl()}build`;
 const SOURCE_PATH = `.${sl()}source`;
 
@@ -74,6 +75,22 @@ function buildFile(path, toolId) {
             copyFileSync(getToolDir(toolId) + path, `${getToolBuildDir(lang, toolId)}${path}`);
         }
     });
+}
+
+/**
+ * Removes a file from the build directory for each supported language.
+ *
+ * @param {string} path - the path of the file to remove, relative to the tool's source directory
+ * @param {string} toolId - the ID of the tool
+ * @return {void}
+ */
+function removeFile(path, toolId) {
+    for (let lang of SUPPORTED_LANGUAGES) {
+        let filePath = getToolBuildDir(lang, toolId) + path;
+        if (existsSync(filePath)) {
+            unlinkSync(filePath);
+        }
+    }
 }
 
 /**
@@ -148,9 +165,17 @@ function main() {
             .filter(file => !EXCLUDED_ROOT_PATHS[tool].includes(file))
 
         buildTool(tool, rootFiles);
+        if (CONTINUOUS) {
+            const watcher = watch(rootFiles, { persistent: true });
+            watcher
+                .on('add', (p) => { log(`Adding: ${getToolDir(tool) + p}`); buildFile(p, tool) })
+                .on('change', (p) => { log(`Changing: ${getToolDir(tool) + p}`); buildFile(p, tool) })
+                .on('unlink', (p) => { log(`Removing: ${getToolDir(tool) + p}`); removeFile(p, tool) });
+        }
     }
 
-    log("Done! Ready To Deploy :D");
+    if (CONTINUOUS) log(`Initial build phase done! Watching for changes...`);
+    else log("Done! Ready To Deploy :D");
 }
 
 main();
