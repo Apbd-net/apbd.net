@@ -168,20 +168,34 @@ function main() {
         rootFiles = rootFiles
             .filter(file => !EXCLUDED_ROOT_PATHS[tool].includes(file))
 
-        buildTool(tool, rootFiles);
-        if (CONTINUOUS) {
-            let current = cwd();
-            chdir(getToolDir(tool));
-            const watcher = watch(rootFiles, { persistent: true });
-            chdir(current);
-            watcher
-                .on('add', (p) => { log(`Adding: ${getToolDir(tool) + p}`); buildFile(p, tool) })
-                .on('change', (p) => { log(`Changing: ${getToolDir(tool) + p}`); buildFile(p, tool) })
-                .on('unlink', (p) => { log(`Removing: ${getToolDir(tool) + p}`); removeFile(p, tool) });
-        }
+        buildTool(tool, Array.from(rootFiles));
     }
 
-    if (CONTINUOUS) log(`Initial build phase done! Watching for changes...`);
+    if (CONTINUOUS) {
+        log(`Initial build phase done! Watching for changes...`);
+        const watcher = watch(SOURCE_PATH, { recursive: true });
+        watcher
+            .on("ready", () => {})
+            .on("change", path => {
+                let toolId = path.split(sl())[1];
+                let actualPath = path.split(sl()).slice(2).join(sl());
+                log(`File Changed: ${path.replace(SOURCE_PATH + sl(), "")}`);
+                buildFile(actualPath, toolId);
+            })
+            .on("add", path => {
+                let toolId = path.split(sl())[1];
+                let actualPath = path.split(sl()).slice(2).join(sl());
+                log(`File Added: ${path.replace(SOURCE_PATH + sl(), "")}`);
+                buildFile(actualPath, toolId);
+            })
+            .on("unlink", path => {
+                let toolId = path.split(sl())[1];
+                let actualPath = path.split(sl()).slice(2).join(sl());
+                log(`File Removed: ${path.replace(SOURCE_PATH + sl(), "")}`);
+                removeFile(actualPath, toolId);
+            });
+
+    }
     else log("Done! Ready To Deploy :D");
 }
 

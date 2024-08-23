@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APBD.net: מסד נתוני המאכלים</title>
+    
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/about.css">
+    <link rel="stylesheet" href="../style/dropdown.css">
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VPXMF38X8C"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VPXMF38X8C');
+</script></head>
+
+<!-- Google tag (gtag.js) -->
+
+
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="../../../favicon.ico" alt="Website logo">
+            <div class="column">
+                <a class="title" href="https://apbd.net">APBD.net</a>
+                <a class="sub" href="../">רשימת מאכלים מותרים</a>
+            </div>
+
+        </div>
+        <nav class="header-menu">
+            <div class="dropdown">
+                <a id="about" href="#">אודות</a>
+                <div class="dropdown-content">
+                    <a target="_blank" href="https://github.com/ShaharMS/APBD-FoodList/blob/main/README.md">אתר</a>
+                    <a target="_blank" href="https://rarediseases.org/rare-diseases/adult-polyglucosan-body-disease/">APBD
+                        <span>↗</span></a>
+                    <a onclick="window.location.href = window.location.origin + `/about/database${'_' + (new URLSearchParams(window.location.search).get('lang') || 'en')}.html` + window.location.search" href="#">מסד הנתונים</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a id="contribute" href="#">תרום תוכן</a>
+                <div class="dropdown-content">
+                    <a href="../contribute/request.html">בקשת נתונים</a>
+                    <a href="../contribute/provide.html">סיפוק נתונים</a>
+                    <a href="../contribute/leaderboards.html">תורמים מובילים</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a id="contact" href="#">שפה</a>
+                <div class="dropdown-content">
+                    <a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'en')" href="#">אנגלית</a>
+                    <a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'he')" href="#">עברית</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>איך האתר מאמת מידע</h1>
+        <p>אחד מהגורמים העיקריים ליצירת אתר במיוחד בשביל זה, במקום להסתמך על רשימה חיצונית/אתר אחר, היא הכמות האדירה
+            של מידע לא עקבי, בכלל לא מדויק, ואפילו זדוני (ראיתי יותר מכמה אתרים שמטרתם בסוף להציג מתכונים/מוצרים שלהם
+            כ"אלטרנטיבה בריאה" לסכרתיים לדוגמה, בעוד שהומצר שלהם רחוק מאוד מזה...&amp;‏)<br>
+            מכיוון שאני לא רוצה להחשב כ"חלק מהם", החלטתי להיות שקוף לגמרי בנוגע לפיתוח האתר - אפשר לצפות,
+            ואפילו לבקש לערוך את קוד האתר, ואני מתכוון להיות שקוף מאוד לגבי המקומות מהם אני משיג את המידע עצמו.‏
+        </p>
+
+        <blockquote>
+            <p '="">לפני שנתחיל, חשוב לדעת, שגם עם כל המאמצים שאני משקיע בלהציג מידע נכון ומדויק ככל האפשר, עדיין יכולים
+                להיות אי-דיוקים כאלה או אחרים. כמו שמוזכר באודות האתר וברשיון תחתיו הקוד שלו נמצא, אני לא אחראי לשום דבר
+                הנגרם עקב שימוש באתר. ראה את ה<a target="_blank" href="https://github.com/ShaharMS/APBD-FoodList/blob/main/LICENSE.md">רשיון</a> למידע נוסף.‏<br>
+                חלק רלוונטי ברשיון נמצא למטה:</p>
+            <button onclick="document.getElementById('warrenty').classList.toggle('hidden')">לחץ כאן על מנת להראות/להחביא חלק רלוונטי</button>
+            <pre id="warrenty" class="hidden" style="word-wrap: break-word; width: 100%; white-space: pre-wrap;">BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. 
+EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY OF ANY KIND, 
+EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. 
+THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, 
+YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+
+IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT HOLDER, 
+OR ANY OTHER PARTY WHO MAY MODIFY AND/OR REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, 
+INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE PROGRAM 
+(INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR 
+A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), 
+EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+            </pre>
+        </blockquote>
+
+        <h2>מקורות מידע</h2>
+        <p>
+            </p><section>נכון לעכשיו, מאגר הנתונים מורכב ממידע משני מקורות:‏</section>
+            <ul style="list-style-type: circle;">
+                <li><a href="https://www.usda.gov/">USDA</a> - רוב המידע לגבי דברים "נאים" - מירקות ותבלינים עד לבשר, נלקח מכאן. 
+                        במקרים בהם המידע נמצא כאן, ערכים ועומסים גליקמיים נלקחים מהאתר <a href="https://glycemic-index.net/">Glycemic Index Guide</a>,
+                        שגם לוקח מידע מה-USDA.‏</li>
+                <li><a href="https://www.foodsdictionary.co.il/">foodsdictionary.co.il</a> - במקרים בהם מידע משתנה מאוד בין מקורות שונים, או ה-USDA
+                        לא מספק מידע, אני משתמש באתר הזה בשביל למלא את המידע שחסר. האתר הזה גם מספק מידע אמין.‏</li>
+                <li><a href="https://foodstruct.com">foodstruct.com</a> - כאשר מדובר במוצר נפוץ ממותג פופולרי
+                        (לדוגמה: קולה, ביג-מק) .‏כמעט תמיד יש עליו מידע באתר הזה. נראה שהמידע באתר הזה ,מדויק, וכן אני מרגיש בנח לסמוך עליו</li>
+            </ul>
+        <p></p>
+    </div>
+
+</body></html>
