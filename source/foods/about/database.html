@@ -143,6 +143,97 @@ EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH D
                 </li>
             </ul>
         </p>
+        <p
+            en="When the website adds data, it uses these sources as much as it possibly can, and even drops data where there isn't any which is trusted."
+            he="כשהאתר מוסיף מידע לרשימה, הוא משתמש במקורות לעיל כמה שיותר, ואפילו משמיט מידע אם לא קיים מידע מספיק אמין.&rlm;"
+        ></p>
+
+        <h2
+            en="How Users Provide Data"
+            he="איך משתמשים מספקים מידע"
+        ></h2>
+        <p
+            en='When a user makes a contribution, it automatically writes "potential" code for the website, and alerts me of a request to 
+            write this code to the website. <br>
+            I Go over the data, and see if it is supported in any of the trusted sources, if available.
+            If not - I try to look for data in other sources, to see if they support the request&apos;s data.'
+            he="כאשר משתמש מספק לאתר מידע, זה אוטומטית כותב קוד בשביל האתר,
+            ,ומודיע לי שמשתמש ביקש להוסיף מידע לאתר
+            ויחד עם זאת נותן לי אופציה להכניס את הקוד שנכתב אוטומטית לאתר.&rlm; <br>
+            אני (המפתח) עובר על המידע והקוד שנשלח לי, בודק אם הוא הגיוני ומדיוק, לפי התנאים
+            שהזכרתי למעלה."
+        ></p>
+        <p
+            en="If the data is supported, I manually allow the data to be merged into the website (may sound complicated, takes basically two clicks 😅),
+            update the leaderboards (if the user who provided the data gave their name) and the website online is updated."
+            he=".אם המידע שסופק טוב, אני משלב את הקוד שצורף איתו אל תוך האתר (אולי נשמע ממסובך, לוקח לי שני קליקים 😅), ומעדכן את לוח ההישגים (אם המשתמש סיפק את שמו)"
+        ></p>
+        <p
+            en="If the data is partially supported, i fix what needs fixing, and do the steps above."
+            he="אם המידע שסופק נתמך באופן חלקי, אני מתקן ומשנה את מה שצריך, ומשלב את הקוד אל תוך האתר."
+        ></p>
+        <p
+            en="If the data is not supported, I reject the request to add the code to the website, and instead i add the food to a 'backlist', which i research on my own."
+            he="אם המידע שסופק לא טוב, אני סוגר את הבקשה לסיפוק מידע, ולא קורה כלום."
+        ></p>
+        <h2
+            en="Different Identifiers"
+            he="סממני מידע"
+        ></h2>
+        <p
+            en="You may have noticed some cells in the database contain some extra information, 
+            in the form of additional signs/replacement words.
+            These are listed below:"
+            he="אולי שמת לב שבחלק מהתאים ברשימה יש עוד סימנים/מילים, בנוסף למספרים שיש בדרך כלל.&rlm;<br>
+            להלן כל הסממנים השונים:&rlm;"
+        ></p>
+        <ul>
+            <li>
+                <code>~</code> - <span
+                    en="One of Two reasons:"
+                    he="אחת משתי סיבות:"
+                ></span>
+                <ul style="list-style-type: circle;">
+                    <li
+                        en="The food contains a very broad range of data, and the most supported & common value was chosen"
+                        he="למאכל טווח מידע מאוד רחב, והערך הנתמך והנפוץ ביותר נבחר"
+                    ></li>
+                    <li
+                        en="A source other than the USDA (or any of website's other trusted sources) was used because of a lack of data (The website's reliability was still checked)."
+                        he="המידע על המאכל לקוח ממקומות שאינם מרשימת המקורות האמינים. נעשה בגלל חוסר מידע, לרוב למאכלים האקזוטיים.&rlm;"
+                    ></li>
+                </ul>
+            </li>
+            <li>
+                <code>&lt;</code> - <span
+                    en="There is no accurately averageable data, but there is a &quot;clear&quot; upper bound for it."
+                    he="המידע על המאכל לקוח ממקומות שאינם מרשימת המקורות האמינים. נעשה בגלל חוסר מידע, לרוב למאכלים האקזוטיים.&rlm;"
+                ></span>
+            </li>
+            <li>
+                <code>&gt;</code> - <span
+                    en="Same as <code>&lt;</code>, but the other way around, where there's a clear lower bound."
+                    he="זהה ל-<code>&lt;</code>, אבל בכיוון ההפוך (נראה שיש בבירור מגבלה תחתונה.)&rlm;"
+                ></span>
+            </li>
+            <li>
+                <code style="color: red; font-weight: 900;">⚠</code> - <span
+                    en="Despite the food's details making it looks good to eat, they're not
+                     showing the full picture, and they're actually harmful. When displayed on a detail, the entire detail is
+                      colored red, and when clicked/tapped a box of text will show up to explain why the food is harmful."
+                    he="למרות שפרטי האוכל מציגים אותו באור טוב, הם לא מראים את התמונה המלאה - שלפיה, אפשר לראות שהאוכל גורם נזק.
+                    במקרים שבהם סימן הקריאה מוצג על פרט, אפשר ללחוץ עליו, ותופיע תיבת טקסט, שתתאר למה האוכל מסוכן.&rlm;"
+                ></span>
+            </li>
+            <li>
+                <code en="No Data" he="אין מידע"></code> - <span
+                    en="No reliable data was found for this food item. Important to note -
+                    Even if one column has no data, that doesnt necessarily mean that the other columns have innacurate/estimated data. If they do, a <code>~</code> is used."
+                    he="לא נמצא מידע אמין מספיק/בכלל לגבי המאכל הזה. חשוב להבהיר -
+                    אפילו אם לעמודה אחת אין מידע, זה לא אומר שהעמודות האחרות בהכרח יהיו פחות מדויקות. אם המידע בעמודות האחרות לא מדויק, יופיעו הסימנים המוזכרים לעיל.&rlm;"
+                ></span>
+            </li>
+        </ul>
     </div>
 </body>
 </html>

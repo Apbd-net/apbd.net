@@ -19,7 +19,7 @@
     background-color: #2b2a33;
     border: 1px solid #8f8f9d;
     border-radius: 4px;
-    width: 180px;
+    width: calc(100% - 5px);
 }
 
 #request-table td, #image-request-table td, #provide-table td {
@@ -34,7 +34,7 @@
     flex-direction: row;
 }
 
-.button-row>* {
+.button-row > * {
     background-color: #333333;
     border: 1px solid #8f8f9d;
     color: white;
@@ -114,11 +114,12 @@ span.already-exists {
 .request-options .column {
     align-items: center;
     height: 100%;
-    width: 65%;
+    width: 400px;
 }
 
 .request-options form, .request-options table {
     height: 100%;
+    width: 100%;
 }
 
 #image-picker {

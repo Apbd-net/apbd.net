@@ -100,6 +100,45 @@ EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH D
                         and drinks. In these cases, data is taken from this website, as it seems to be accurate.</li>
             </ul>
         <p></p>
+        <p>When the website adds data, it uses these sources as much as it possibly can, and even drops data where there isn't any which is trusted.</p>
+
+        <h2>How Users Provide Data</h2>
+        <p>When a user makes a contribution, it automatically writes "potential" code for the website, and alerts me of a request to 
+            write this code to the website. <br>
+            I Go over the data, and see if it is supported in any of the trusted sources, if available.
+            If not - I try to look for data in other sources, to see if they support the request's data.</p>
+        <p>If the data is supported, I manually allow the data to be merged into the website (may sound complicated, takes basically two clicks 😅),
+            update the leaderboards (if the user who provided the data gave their name) and the website online is updated.</p>
+        <p>If the data is partially supported, i fix what needs fixing, and do the steps above.</p>
+        <p>If the data is not supported, I reject the request to add the code to the website, and instead i add the food to a 'backlist', which i research on my own.</p>
+        <h2>Different Identifiers</h2>
+        <p>You may have noticed some cells in the database contain some extra information, 
+            in the form of additional signs/replacement words.
+            These are listed below:</p>
+        <ul>
+            <li>
+                <code>~</code> - <span>One of Two reasons:</span>
+                <ul style="list-style-type: circle;">
+                    <li>The food contains a very broad range of data, and the most supported &amp; common value was chosen</li>
+                    <li>A source other than the USDA (or any of website's other trusted sources) was used because of a lack of data (The website's reliability was still checked).</li>
+                </ul>
+            </li>
+            <li>
+                <code>&lt;</code> - <span>There is no accurately averageable data, but there is a "clear" upper bound for it.</span>
+            </li>
+            <li>
+                <code>&gt;</code> - <span>Same as <code>&lt;</code>, but the other way around, where there's a clear lower bound.</span>
+            </li>
+            <li>
+                <code style="color: red; font-weight: 900;">⚠</code> - <span>Despite the food's details making it looks good to eat, they're not
+                     showing the full picture, and they're actually harmful. When displayed on a detail, the entire detail is
+                      colored red, and when clicked/tapped a box of text will show up to explain why the food is harmful.</span>
+            </li>
+            <li>
+                <code>No Data</code> - <span>No reliable data was found for this food item. Important to note -
+                    Even if one column has no data, that doesnt necessarily mean that the other columns have innacurate/estimated data. If they do, a <code>~</code> is used.</span>
+            </li>
+        </ul>
     </div>
 
 </body></html>

@@ -79,7 +79,7 @@
         <blockquote>העמוד הזה קיים על מנת לאפשר לך ולאנשים אחרים לעזור אחד לשני, ע"י הרחבה של רשימת המאכלים המתועדים. אין צורך לחשוש אם לא בטוחים/יודעים מידע מסוים - אני על זה :)‏</blockquote>
 
         <div class="request-options">
-            <div class="column">
+            <div class="column" id="c1">
                 <h2>בקשה באמצעות: פרטים</h2>
                 <form id="request-form">
                     <table id="request-table">
@@ -89,9 +89,9 @@
                                 <span>שם</span>
                             </th>
                             <td>
-                                <input id="name" placeholder="שם פרטי ושם משפחה...">
+                                <input id="name" oninput="document.getElementById('c2').style.display = document.getElementById('or').style.display = (this.value.length !== 0 || document.getElementById('n-np1').classList.contains('selected') ? 'none' : '')" placeholder="שם פרטי ושם משפחה...">
                                 <div class="button-row">
-                                    <button id="n-np" type="button">מעדיף שלא למסור</button>
+                                    <button id="n-np1" type="button">מעדיף שלא למסור</button>
                                 </div>
                             </td>
                         </tr>
@@ -140,13 +140,25 @@
             </div>
 
 
-            <h3>או</h3>
+            <h3 id="or">או</h3>
 
-            <div class="column">
+            <div class="column" id="c2">
                 <h2>בקשה באמצעות: תמונות</h2>
                 <form id="image-request-form">
                     <table id="image-request-table">
                         <tbody><tr>
+                            <th>
+                                <help>השם הפרטי + משפחה שלך. אם ניתן, ישמש בתור מזהה בלוח ההישגים, שתחתיו תווסף תרומת התוכן. תרום מספיק תוכן, ואולי תגיע למקום הראשון 😁‏</help>
+                                <span>שם</span>
+                            </th>
+                            <td>
+                                <input id="name" oninput="document.getElementById('c1').style.display = document.getElementById('or').style.display = (this.value.length !== 0 || document.getElementById('n-np2').classList.contains('selected') ? 'none' : '')" placeholder="שם פרטי ושם משפחה...">
+                                <div class="button-row">
+                                    <button id="n-np2" type="button">מעדיף שלא למסור</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
                             <th>
                                 <help>איך האוכל נראה כאשר הקדימה שלו מצולם. במאכלים ארוזים, החלק הקדמי של החבילה בד"כ מכיל את שם האוכל, החברה שמייצרת אותו, ומה בעצם האוכל.‏</help>
                                 <span>אוכל/מארז - מקדימה</span>

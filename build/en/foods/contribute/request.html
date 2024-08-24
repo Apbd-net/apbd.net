@@ -79,7 +79,7 @@
         <blockquote>This page exists to help you and other people, by expanding the list of documented foods. Don't hesitate to choose "I dont know" or "I'm not sure". I've got your back :)</blockquote>
 
         <div class="request-options">
-            <div class="column">
+            <div class="column" id="c1">
                 <h2>Request Using: Details</h2>
                 <form id="request-form">
                     <table id="request-table">
@@ -89,9 +89,9 @@
                                 <span>Name</span>
                             </th>
                             <td>
-                                <input id="name" placeholder="First and last name...">
+                                <input id="name" oninput="document.getElementById('c2').style.display = document.getElementById('or').style.display = (this.value.length !== 0 || document.getElementById('n-np1').classList.contains('selected') ? 'none' : '')" placeholder="First and last name...">
                                 <div class="button-row">
-                                    <button id="n-np" type="button">I'd rather not provide</button>
+                                    <button id="n-np1" type="button">I'd rather not provide</button>
                                 </div>
                             </td>
                         </tr>
@@ -140,13 +140,25 @@
             </div>
 
 
-            <h3>Or</h3>
+            <h3 id="or">Or</h3>
 
-            <div class="column">
+            <div class="column" id="c2">
                 <h2>Request Using: Images</h2>
                 <form id="image-request-form">
                     <table id="image-request-table">
                         <tbody><tr>
+                            <th>
+                                <help>Your first and last name. Used to add this contribution to the leaderboards, under your name. Contribute enough, and maybe one day you'll get to 1st place 😁</help>
+                                <span>Name</span>
+                            </th>
+                            <td>
+                                <input id="name" oninput="document.getElementById('c1').style.display = document.getElementById('or').style.display = (this.value.length !== 0 || document.getElementById('n-np2').classList.contains('selected') ? 'none' : '')" placeholder="First and last name...">
+                                <div class="button-row">
+                                    <button id="n-np2" type="button">I'd rather not provide</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
                             <th>
                                 <help>The way the food looks from the front. On packaged food, usually contains the name of the food, it's company and what it actually is.</help>
                                 <span>Food/Packaging's Front</span>

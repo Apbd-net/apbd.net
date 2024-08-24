@@ -93,7 +93,7 @@
         </blockquote>
 
         <div class="request-options">
-            <div class="column">
+            <div class="column" id="c1">
                 <h2 en="Request Using: Details" he="בקשה באמצעות: פרטים"></h2>
                 <form id="request-form">
                     <table id="request-table">
@@ -107,9 +107,10 @@
                             </th>
                             <td>
                                 <input id="name" placeholder-en="First and last name..."
-                                    placeholder-he="שם פרטי ושם משפחה...">
+                                    placeholder-he="שם פרטי ושם משפחה..."
+                                    oninput="document.getElementById('c2').style.display = document.getElementById('or').style.display = (this.value.length !== 0 || document.getElementById('n-np1').classList.contains('selected') ? 'none' : '')">
                                 <div class="button-row">
-                                    <button id="n-np" type="button" en="I'd rather not provide" he="מעדיף שלא למסור">I'd
+                                    <button id="n-np1" type="button" en="I'd rather not provide" he="מעדיף שלא למסור">I'd
                                         rather not provide</button>
                                 </div>
                             </td>
@@ -176,12 +177,30 @@
             </div>
 
 
-            <h3 en="Or" he="או"></h3>
+            <h3 en="Or" he="או" id="or"></h3>
 
-            <div class="column">
+            <div class="column" id="c2">
                 <h2 en="Request Using: Images" he="בקשה באמצעות: תמונות"></h2>
                 <form id="image-request-form">
                     <table id="image-request-table">
+                        <tr>
+                            <th>
+                                <help
+                                    en="Your first and last name. Used to add this contribution to the leaderboards, under your name. Contribute enough, and maybe one day you'll get to 1st place 😁"
+                                    he="השם הפרטי + משפחה שלך. אם ניתן, ישמש בתור מזהה בלוח ההישגים, שתחתיו תווסף תרומת התוכן. תרום מספיק תוכן, ואולי תגיע למקום הראשון 😁&rlm;">
+                                </help>
+                                <span en="Name" he="שם">Name</span>
+                            </th>
+                            <td>
+                                <input id="name" placeholder-en="First and last name..."
+                                    placeholder-he="שם פרטי ושם משפחה..."
+                                    oninput="document.getElementById('c1').style.display = document.getElementById('or').style.display = (this.value.length !== 0 || document.getElementById('n-np2').classList.contains('selected') ? 'none' : '')">
+                                <div class="button-row">
+                                    <button id="n-np2" type="button" en="I'd rather not provide" he="מעדיף שלא למסור">I'd
+                                        rather not provide</button>
+                                </div>
+                            </td>
+                        </tr>
                         <tr>
                             <th>
                                 <help

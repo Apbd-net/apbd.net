@@ -173,7 +173,7 @@ function main() {
 
     if (CONTINUOUS) {
         log(`Initial build phase done! Watching for changes...`);
-        const watcher = watch(SOURCE_PATH, { recursive: true });
+        const watcher = watch(SOURCE_PATH, { recursive: true, ignoreInitial: true, useFsEvents: true });
         watcher
             .on("ready", () => {})
             .on("change", path => {
