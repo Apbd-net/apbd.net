@@ -1,3 +1,4 @@
+
 let blockquote;
 let blockquoteContent;
 /**
@@ -26,19 +27,20 @@ function createHelpMark(content, parent) {
     return mark;
 }
 
-function activateHelpMarks() {
-
-    blockquote = document.getElementsByTagName("blockquote")[0];
+blockquote = document.getElementsByTagName("blockquote")[0];
+blockquote.style.height = `calc(${blockquote.getBoundingClientRect().height}px - 12px)`;
+window.addEventListener("resize", () => {
+    blockquote.style.height = "unset";
     blockquote.style.height = `calc(${blockquote.getBoundingClientRect().height}px - 12px)`;
-    blockquoteContent = blockquote.innerText;
-    /**
-     * @type {HTMLCollectionOf<HTMLElement>}
-     */
-    let all = document.getElementsByTagName("help");
+});
+blockquoteContent = blockquote.innerText;
+/**
+ * @type {HTMLCollectionOf<HTMLElement>}
+ */
+let all = document.getElementsByTagName("help");
 
-    for (let element of all) {
-        var content = element.textContent;
-        element.style.display = "none";
-        element.before(createHelpMark(content, element.parentElement));
-    }
+for (let element of all) {
+    var content = element.textContent;
+    element.style.display = "none";
+    element.before(createHelpMark(content, element.parentElement));
 }

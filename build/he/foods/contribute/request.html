@@ -81,62 +81,60 @@
         <div class="request-options">
             <div class="column" id="c1">
                 <h2>בקשה באמצעות: פרטים</h2>
-                <form id="request-form">
-                    <table id="request-table">
-                        <tbody><tr>
-                            <th>
-                                <help>השם הפרטי + משפחה שלך. אם ניתן, ישמש בתור מזהה בלוח ההישגים, שתחתיו תווסף תרומת התוכן. תרום מספיק תוכן, ואולי תגיע למקום הראשון 😁‏</help>
-                                <span>שם</span>
-                            </th>
-                            <td>
-                                <input id="name" oninput="document.getElementById('c2').style.display = document.getElementById('or').style.display = (this.value.length !== 0 || document.getElementById('n-np1').classList.contains('selected') ? 'none' : '')" placeholder="שם פרטי ושם משפחה...">
-                                <div class="button-row">
-                                    <button id="n-np1" type="button">מעדיף שלא למסור</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
+                <table id="request-table">
+                    <tbody><tr>
+                        <th>
+                            <help>השם הפרטי + משפחה שלך. אם ניתן, ישמש בתור מזהה בלוח ההישגים, שתחתיו תווסף תרומת התוכן. תרום מספיק תוכן, ואולי תגיע למקום הראשון 😁‏</help>
+                            <span>שם</span>
+                        </th>
+                        <td>
+                            <input id="name" oninput="document.getElementById('c2').style.display = document.getElementById('or').style.display = (this.value.length !== 0 || document.getElementById('n-np1').classList.contains('selected') ? 'none' : '')" placeholder="שם פרטי ושם משפחה...">
+                            <div class="button-row">
+                                <button id="n-np1" type="button">מעדיף שלא למסור</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
 
-                            <th>
-                                <help>שם המאכל אותו אתה רוצה להוסיף. עדיף להביא שם ממוקד יותר אם אפשר (כמובן מבלי להשמיט מידע). אם מעורבת חברה מסוימת ביצור האוכל, ניתן להזכיר זאת בשדה נפרד.‏</help>
-                                <span>שם המאכל (אנגלית)</span>
-                            </th>
-                            <td>
-                                <input id="food-name-english" placeholder="Food name...">
-                                <div class="button-row">
-                                    <button id="fn-ns" type="button">אני לא בטוח</button>
-                                    <button id="fn-dk" type="button">אני לא יודע</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <help>למטרות תרגום, מומלץ לתת גם את שם המאכל בעברית (הופך לי את העבודה לקלה יותר 🙃)‏</help>
-                                <span>שם המאכל (עברית)</span>
-                            </th>
-                            <td>
-                                <input id="food-name-hebrew" placeholder="שם המאכל...">
-                                <div class="button-row">
-                                    <button id="t-ns" type="button">אני לא בטוח</button>
-                                    <button id="t-dk" type="button">אני לא יודע</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <help>אם המוצר הספציפי אותו אתה מבקש מיוצר ע"י חברה מסוימת, תזכיר את שמה כאן. זה נותן לי להצמיד את שם ולוגו החברה למוצר באתר עצמו.‏</help>
-                                <span>אופציונאלי: שם החברה</span>
-                            </th>
-                            <td>
-                                <input id="company" list="companies" placeholder="שם החברה...">
-                                <div class="button-row">
-                                    <button id="co-ns" type="button">אני לא בטוח</button>
-                                    <button id="co-dk" type="button">אני לא יודע</button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody></table>
-                </form>
+                        <th>
+                            <help>שם המאכל אותו אתה רוצה להוסיף. עדיף להביא שם ממוקד יותר אם אפשר (כמובן מבלי להשמיט מידע). אם מעורבת חברה מסוימת ביצור האוכל, ניתן להזכיר זאת בשדה נפרד.‏</help>
+                            <span>שם המאכל (אנגלית)</span>
+                        </th>
+                        <td>
+                            <input id="food-name-english" placeholder="Food name...">
+                            <div class="button-row">
+                                <button id="fn-ns" type="button">אני לא בטוח</button>
+                                <button id="fn-dk" type="button">אני לא יודע</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <help>למטרות תרגום, מומלץ לתת גם את שם המאכל בעברית (הופך לי את העבודה לקלה יותר 🙃)‏</help>
+                            <span>שם המאכל (עברית)</span>
+                        </th>
+                        <td>
+                            <input id="food-name-hebrew" placeholder="שם המאכל...">
+                            <div class="button-row">
+                                <button id="t-ns" type="button">אני לא בטוח</button>
+                                <button id="t-dk" type="button">אני לא יודע</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <help>אם המוצר הספציפי אותו אתה מבקש מיוצר ע"י חברה מסוימת, תזכיר את שמה כאן. זה נותן לי להצמיד את שם ולוגו החברה למוצר באתר עצמו.‏</help>
+                            <span>אופציונאלי: שם החברה</span>
+                        </th>
+                        <td>
+                            <input id="company" list="companies" placeholder="שם החברה...">
+                            <div class="button-row">
+                                <button id="co-ns" type="button">אני לא בטוח</button>
+                                <button id="co-dk" type="button">אני לא יודע</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
             </div>
 
 
@@ -144,80 +142,74 @@
 
             <div class="column" id="c2">
                 <h2>בקשה באמצעות: תמונות</h2>
-                <form id="image-request-form">
-                    <table id="image-request-table">
-                        <tbody><tr>
-                            <th>
-                                <help>השם הפרטי + משפחה שלך. אם ניתן, ישמש בתור מזהה בלוח ההישגים, שתחתיו תווסף תרומת התוכן. תרום מספיק תוכן, ואולי תגיע למקום הראשון 😁‏</help>
-                                <span>שם</span>
-                            </th>
-                            <td>
-                                <input id="name" oninput="document.getElementById('c1').style.display = document.getElementById('or').style.display = (this.value.length !== 0 || document.getElementById('n-np2').classList.contains('selected') ? 'none' : '')" placeholder="שם פרטי ושם משפחה...">
-                                <div class="button-row">
-                                    <button id="n-np2" type="button">מעדיף שלא למסור</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <help>איך האוכל נראה כאשר הקדימה שלו מצולם. במאכלים ארוזים, החלק הקדמי של החבילה בד"כ מכיל את שם האוכל, החברה שמייצרת אותו, ומה בעצם האוכל.‏</help>
-                                <span>אוכל/מארז - מקדימה</span>
-                            </th>
-                            <td>
-                                <div style="display: flex; width: 100%; flex-direction: row; justify-content: center;">
-                                    <img width="0" height="0" style="display: none;">
-                                </div>
-                                <div class="button-row">
-                                    <button type="button" onclick="takeAndDisplay(this.parentElement.parentElement)">צלם תמונה...</button>
-                                    <label for="image-picker">בחר תמונה מהגלריה...</label>
-                                    <input id="image-picker" type="file" accept="image/*" placeholder="בחר תמונה מהגלריה...">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <help>איך האוכל נראה כאשר חלקו האחורי מצולם. במאכלים ארוזים, החלק האחורי לרוב מכיל את הערכים התזונתיים של המאכל, המרכיבים שלו, ועוד פרטים נוספים על המאכל/החברה.‏</help>
-                                <span>אוכל/מארז - מאחורה</span>
-                            </th>
-                            <td>
-                                <div style="display: flex; width: 100%; flex-direction: row; justify-content: center;">
-                                    <img width="0" height="0" style="display: none;">
-                                </div>
-                                <div class="button-row">
-                                    <button type="button" onclick="takeAndDisplay(this.parentElement.parentElement)">צלם תמונה...</button>
-                                    <label for="image-picker">בחר תמונה מהגלריה...</label>
-                                    <input id="image-picker" type="file" accept="image/*" placeholder="בחר תמונה מהגלריה...">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <help>חלק מאריזות המאכלים עבות, ויש להן מידע נוסף על אחד הצדדים שלהם (לדוגמה - אריזות קורנפלקס). אפשר להשתמש בשדה זה אם יש צורך בתמונה נוספת מהצד.‏</help>
-                                <span>אופציונאלי: אוכל/מארז - מהצד</span>
-                            </th>
-                            <td>
-                                <div style="display: flex; width: 100%; flex-direction: row; justify-content: center;">
-                                    <img width="0" height="0" style="display: none;">
-                                </div>
-                                <div class="button-row">
-                                    <button type="button" onclick="takeAndDisplay(this.parentElement.parentElement)">צלם תמונה...</button>
-                                    <label for="image-picker">בחר תמונה מהגלריה...</label>
-                                    <input id="image-picker" type="file" accept="image/*" placeholder="בחר תמונה מהגלריה...">
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody></table>
-                </form>
+                <table id="image-request-table">
+                    <tbody><tr>
+                        <th>
+                            <help>השם הפרטי + משפחה שלך. אם ניתן, ישמש בתור מזהה בלוח ההישגים, שתחתיו תווסף תרומת התוכן. תרום מספיק תוכן, ואולי תגיע למקום הראשון 😁‏</help>
+                            <span>שם</span>
+                        </th>
+                        <td>
+                            <input id="name" oninput="document.getElementById('c1').style.display = document.getElementById('or').style.display = (this.value.length !== 0 || document.getElementById('n-np2').classList.contains('selected') ? 'none' : '')" placeholder="שם פרטי ושם משפחה...">
+                            <div class="button-row">
+                                <button id="n-np2" type="button">מעדיף שלא למסור</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <help>איך האוכל נראה כאשר הקדימה שלו מצולם. במאכלים ארוזים, החלק הקדמי של החבילה בד"כ מכיל את שם האוכל, החברה שמייצרת אותו, ומה בעצם האוכל.‏</help>
+                            <span>אוכל/מארז - מקדימה</span>
+                        </th>
+                        <td>
+                            <div style="display: flex; width: 100%; flex-direction: row; justify-content: center;">
+                                <img width="0" height="0" style="display: none;">
+                            </div>
+                            <div class="button-row">
+                                <button type="button" onclick="takeAndDisplay(this.parentElement.parentElement)">צלם תמונה...</button>
+                                <label for="image-picker">בחר תמונה מהגלריה...</label>
+                                <input id="image-picker" type="file" accept="image/*" placeholder="בחר תמונה מהגלריה...">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <help>איך האוכל נראה כאשר חלקו האחורי מצולם. במאכלים ארוזים, החלק האחורי לרוב מכיל את הערכים התזונתיים של המאכל, המרכיבים שלו, ועוד פרטים נוספים על המאכל/החברה.‏</help>
+                            <span>אוכל/מארז - מאחורה</span>
+                        </th>
+                        <td>
+                            <div style="display: flex; width: 100%; flex-direction: row; justify-content: center;">
+                                <img width="0" height="0" style="display: none;">
+                            </div>
+                            <div class="button-row">
+                                <button type="button" onclick="takeAndDisplay(this.parentElement.parentElement)">צלם תמונה...</button>
+                                <label for="image-picker">בחר תמונה מהגלריה...</label>
+                                <input id="image-picker" type="file" accept="image/*" placeholder="בחר תמונה מהגלריה...">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <help>חלק מאריזות המאכלים עבות, ויש להן מידע נוסף על אחד הצדדים שלהם (לדוגמה - אריזות קורנפלקס). אפשר להשתמש בשדה זה אם יש צורך בתמונה נוספת מהצד.‏</help>
+                            <span>אופציונאלי: אוכל/מארז - מהצד</span>
+                        </th>
+                        <td>
+                            <div style="display: flex; width: 100%; flex-direction: row; justify-content: center;">
+                                <img width="0" height="0" style="display: none;">
+                            </div>
+                            <div class="button-row">
+                                <button type="button" onclick="takeAndDisplay(this.parentElement.parentElement)">צלם תמונה...</button>
+                                <label for="image-picker">בחר תמונה מהגלריה...</label>
+                                <input id="image-picker" type="file" accept="image/*" placeholder="בחר תמונה מהגלריה...">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
             </div>
 
         </div>
 
-
-        <div class="row">
-            <button type="submit" id="submit">שלח</button>
-        </div>
+        <button type="submit" id="submit">שלח</button>
         <h3 id="submition-output"></h3>
-
 
     </div>
 
@@ -322,10 +314,6 @@
     </script>
 
     <script type="module">
-        let urlParams = new URLSearchParams(window.location.search);
-
-        let lang = urlParams.get("lang") || "en";
-        activateHelpMarks();
         activateChoiceButtons();
         activateFoodNameValidator();
     </script>

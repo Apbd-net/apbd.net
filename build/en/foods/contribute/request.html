@@ -81,62 +81,60 @@
         <div class="request-options">
             <div class="column" id="c1">
                 <h2>Request Using: Details</h2>
-                <form id="request-form">
-                    <table id="request-table">
-                        <tbody><tr>
-                            <th>
-                                <help>Your first and last name. Used to add this contribution to the leaderboards, under your name. Contribute enough, and maybe one day you'll get to 1st place 😁</help>
-                                <span>Name</span>
-                            </th>
-                            <td>
-                                <input id="name" oninput="document.getElementById('c2').style.display = document.getElementById('or').style.display = (this.value.length !== 0 || document.getElementById('n-np1').classList.contains('selected') ? 'none' : '')" placeholder="First and last name...">
-                                <div class="button-row">
-                                    <button id="n-np1" type="button">I'd rather not provide</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
+                <table id="request-table">
+                    <tbody><tr>
+                        <th>
+                            <help>Your first and last name. Used to add this contribution to the leaderboards, under your name. Contribute enough, and maybe one day you'll get to 1st place 😁</help>
+                            <span>Name</span>
+                        </th>
+                        <td>
+                            <input id="name" oninput="document.getElementById('c2').style.display = document.getElementById('or').style.display = (this.value.length !== 0 || document.getElementById('n-np1').classList.contains('selected') ? 'none' : '')" placeholder="First and last name...">
+                            <div class="button-row">
+                                <button id="n-np1" type="button">I'd rather not provide</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
 
-                            <th>
-                                <help>The Food's name. More useful to leave a concise name here, and if a company is involved, mention it after the fact.</help>
-                                <span>Food name (english)</span>
-                            </th>
-                            <td>
-                                <input id="food-name-english" placeholder="Food name...">
-                                <div class="button-row">
-                                    <button id="fn-ns" type="button">I'm not sure</button>
-                                    <button id="fn-dk" type="button">I don't know</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <help>For Translation purposes, It is a good idea to add the name in Hebrew. (makes my job a little easier 🙃)</help>
-                                <span>Food name (hebrew)</span>
-                            </th>
-                            <td>
-                                <input id="food-name-hebrew" placeholder="שם המאכל...">
-                                <div class="button-row">
-                                    <button id="t-ns" type="button">I'm not sure</button>
-                                    <button id="t-dk" type="button">I don't know</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <help>If the specific food you're requesting is produced by a specific company, mention it here, This allows me to tag the item with the company and it's logo.</help>
-                                <span>Optional: Food's Company</span>
-                            </th>
-                            <td>
-                                <input id="company" list="companies" placeholder="Company Name...">
-                                <div class="button-row">
-                                    <button id="co-ns" type="button">I'm not sure</button>
-                                    <button id="co-dk" type="button">I don't know</button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody></table>
-                </form>
+                        <th>
+                            <help>The Food's name. More useful to leave a concise name here, and if a company is involved, mention it after the fact.</help>
+                            <span>Food name (english)</span>
+                        </th>
+                        <td>
+                            <input id="food-name-english" placeholder="Food name...">
+                            <div class="button-row">
+                                <button id="fn-ns" type="button">I'm not sure</button>
+                                <button id="fn-dk" type="button">I don't know</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <help>For Translation purposes, It is a good idea to add the name in Hebrew. (makes my job a little easier 🙃)</help>
+                            <span>Food name (hebrew)</span>
+                        </th>
+                        <td>
+                            <input id="food-name-hebrew" placeholder="שם המאכל...">
+                            <div class="button-row">
+                                <button id="t-ns" type="button">I'm not sure</button>
+                                <button id="t-dk" type="button">I don't know</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <help>If the specific food you're requesting is produced by a specific company, mention it here, This allows me to tag the item with the company and it's logo.</help>
+                            <span>Optional: Food's Company</span>
+                        </th>
+                        <td>
+                            <input id="company" list="companies" placeholder="Company Name...">
+                            <div class="button-row">
+                                <button id="co-ns" type="button">I'm not sure</button>
+                                <button id="co-dk" type="button">I don't know</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
             </div>
 
 
@@ -144,80 +142,74 @@
 
             <div class="column" id="c2">
                 <h2>Request Using: Images</h2>
-                <form id="image-request-form">
-                    <table id="image-request-table">
-                        <tbody><tr>
-                            <th>
-                                <help>Your first and last name. Used to add this contribution to the leaderboards, under your name. Contribute enough, and maybe one day you'll get to 1st place 😁</help>
-                                <span>Name</span>
-                            </th>
-                            <td>
-                                <input id="name" oninput="document.getElementById('c1').style.display = document.getElementById('or').style.display = (this.value.length !== 0 || document.getElementById('n-np2').classList.contains('selected') ? 'none' : '')" placeholder="First and last name...">
-                                <div class="button-row">
-                                    <button id="n-np2" type="button">I'd rather not provide</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <help>The way the food looks from the front. On packaged food, usually contains the name of the food, it's company and what it actually is.</help>
-                                <span>Food/Packaging's Front</span>
-                            </th>
-                            <td>
-                                <div style="display: flex; width: 100%; flex-direction: row; justify-content: center;">
-                                    <img width="0" height="0" style="display: none;">
-                                </div>
-                                <div class="button-row">
-                                    <button type="button" onclick="takeAndDisplay(this.parentElement.parentElement)">Take Image...</button>
-                                    <label for="image-picker">Pick from the Gallery...</label>
-                                    <input id="image-picker" type="file" accept="image/*" placeholder="Choose from the Gallery...">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <help>The way the food looks from the back. On packaged food, usually contains the food's nutrition facts, its ingredients, and more details about the food/its comapny.</help>
-                                <span>Food/Packaging's Back</span>
-                            </th>
-                            <td>
-                                <div style="display: flex; width: 100%; flex-direction: row; justify-content: center;">
-                                    <img width="0" height="0" style="display: none;">
-                                </div>
-                                <div class="button-row">
-                                    <button type="button" onclick="takeAndDisplay(this.parentElement.parentElement)">Take Image...</button>
-                                    <label for="image-picker">Pick from the Gallery...</label>
-                                    <input id="image-picker" type="file" accept="image/*" placeholder="Choose from the Gallery...">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <help>Some food packages are thick, and contain extra info on one of their sides (for example, a cereal box). Use this field to provide an image, if necessary.</help>
-                                <span>Optional: Food/Packaging's Side</span>
-                            </th>
-                            <td>
-                                <div style="display: flex; width: 100%; flex-direction: row; justify-content: center;">
-                                    <img width="0" height="0" style="display: none;">
-                                </div>
-                                <div class="button-row">
-                                    <button type="button" onclick="takeAndDisplay(this.parentElement.parentElement)">Take Image...</button>
-                                    <label for="image-picker">Pick from the Gallery...</label>
-                                    <input id="image-picker" type="file" accept="image/*" placeholder="Choose from the Gallery...">
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody></table>
-                </form>
+                <table id="image-request-table">
+                    <tbody><tr>
+                        <th>
+                            <help>Your first and last name. Used to add this contribution to the leaderboards, under your name. Contribute enough, and maybe one day you'll get to 1st place 😁</help>
+                            <span>Name</span>
+                        </th>
+                        <td>
+                            <input id="name" oninput="document.getElementById('c1').style.display = document.getElementById('or').style.display = (this.value.length !== 0 || document.getElementById('n-np2').classList.contains('selected') ? 'none' : '')" placeholder="First and last name...">
+                            <div class="button-row">
+                                <button id="n-np2" type="button">I'd rather not provide</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <help>The way the food looks from the front. On packaged food, usually contains the name of the food, it's company and what it actually is.</help>
+                            <span>Food/Packaging's Front</span>
+                        </th>
+                        <td>
+                            <div style="display: flex; width: 100%; flex-direction: row; justify-content: center;">
+                                <img width="0" height="0" style="display: none;">
+                            </div>
+                            <div class="button-row">
+                                <button type="button" onclick="takeAndDisplay(this.parentElement.parentElement)">Take Image...</button>
+                                <label for="image-picker">Pick from the Gallery...</label>
+                                <input id="image-picker" type="file" accept="image/*" placeholder="Choose from the Gallery...">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <help>The way the food looks from the back. On packaged food, usually contains the food's nutrition facts, its ingredients, and more details about the food/its comapny.</help>
+                            <span>Food/Packaging's Back</span>
+                        </th>
+                        <td>
+                            <div style="display: flex; width: 100%; flex-direction: row; justify-content: center;">
+                                <img width="0" height="0" style="display: none;">
+                            </div>
+                            <div class="button-row">
+                                <button type="button" onclick="takeAndDisplay(this.parentElement.parentElement)">Take Image...</button>
+                                <label for="image-picker">Pick from the Gallery...</label>
+                                <input id="image-picker" type="file" accept="image/*" placeholder="Choose from the Gallery...">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <help>Some food packages are thick, and contain extra info on one of their sides (for example, a cereal box). Use this field to provide an image, if necessary.</help>
+                            <span>Optional: Food/Packaging's Side</span>
+                        </th>
+                        <td>
+                            <div style="display: flex; width: 100%; flex-direction: row; justify-content: center;">
+                                <img width="0" height="0" style="display: none;">
+                            </div>
+                            <div class="button-row">
+                                <button type="button" onclick="takeAndDisplay(this.parentElement.parentElement)">Take Image...</button>
+                                <label for="image-picker">Pick from the Gallery...</label>
+                                <input id="image-picker" type="file" accept="image/*" placeholder="Choose from the Gallery...">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
             </div>
 
         </div>
 
-
-        <div class="row">
-            <button type="submit" id="submit">Submit</button>
-        </div>
+        <button type="submit" id="submit">Submit</button>
         <h3 id="submition-output"></h3>
-
 
     </div>
 
@@ -322,10 +314,6 @@
     </script>
 
     <script type="module">
-        let urlParams = new URLSearchParams(window.location.search);
-
-        let lang = urlParams.get("lang") || "en";
-        activateHelpMarks();
         activateChoiceButtons();
         activateFoodNameValidator();
     </script>

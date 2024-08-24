@@ -1,3 +1,7 @@
+body {
+    height: 100%;
+}
+
 #request-table, #provide-table, #image-request-table {
     width: 100%;
     border: none;
@@ -10,9 +14,13 @@
 
 #request-table th, #image-request-table th, #provide-table th {
     display: table-cell;
-    padding-block: 20px;
     padding-inline: 5px;
     border: 2px solid #333333;
+    
+    min-height: 90px;
+    max-height: 90px;
+    height: 90px;
+    overflow-y: hidden;
 }
 
 #request-table input, #image-request-table input, #provide-table input {
@@ -46,11 +54,6 @@
 
 .button-row .selected {
     background-color: #555555;
-}
-
-
-#provide-table {
-    margin-top: -50px;
 }
 
 #submit {
@@ -104,7 +107,6 @@ span.already-exists {
     gap: 10px;
     margin-top: 20px;
     align-items: center;
-    height: min(60vh, 400px);
 }
 
 .request-options h3 {
@@ -113,12 +115,11 @@ span.already-exists {
 
 .request-options .column {
     align-items: center;
-    height: 100%;
-    width: 400px;
+    width: 40%;
 }
 
-.request-options form, .request-options table {
-    height: 100%;
+.request-options table {
+    min-height: 100%;
     width: 100%;
 }
 
@@ -128,12 +129,22 @@ span.already-exists {
     z-index: -1;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
+    .request-options h2 {
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width: 800px) {
     .request-options {
         flex-direction: column;
         height: unset;
 
         margin-top: unset;
+    }
+
+    .request-options h2 {
+        font-size: 1.5em;
     }
 
     .request-options h3 {
@@ -142,11 +153,17 @@ span.already-exists {
     }
 
     .request-options .column {
-        width: 100%;
+        width: 500px;
     }
 
     .request-options h2:nth-last-child(2) {
         margin-top: 0px;
     }
 
+}
+
+@media screen and (max-width: 540px) {
+    .request-options .column {
+        width: 90vw;
+    }
 }
