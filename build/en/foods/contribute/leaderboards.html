@@ -132,10 +132,11 @@
             s.style.cssText = `
                 font-weight: 700;
                 position: absolute;
-                margin: 3px -2em;
+                margin: 3px ${document.dir === "rtl" ? "-2em" : ""};
             `;
             s.classList.add("rainbow-text");
-            element.prepend(s)
+            if (document.dir === "rtl") element.prepend(s)
+            else element.appendChild(s)
         }
     </script>
 </body></html>
