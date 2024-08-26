@@ -1,10 +1,12 @@
 // writes this entire project to two different file paths, depending on the language.
 
 import { JSDOM } from "jsdom";
-import { readdirSync, copyFileSync, mkdirSync, readFileSync, writeFileSync, rmSync, existsSync, unlinkSync } from "fs";
+import { readdirSync, copyFileSync, mkdirSync, readFileSync, writeFileSync, rmSync, existsSync, unlinkSync, cpSync } from "fs";
 import { log } from "console";
 import { watch } from "chokidar";
 import { chdir, cwd } from "process";
+import { exec } from "child_process";
+import { start} from "live-server"
 
 function sl() {
     return process.platform === "win32" ? "\\" : "/";
@@ -21,63 +23,85 @@ EXCLUDED_ROOT_PATHS[LANDING_PAGE_ID] = ["favicon.ico", "testing"];
 const SUPPORTED_LANGUAGES = ["en", "he"];
 const MIGRATE_TRANSLATION_SYSTEM = process.argv.includes("--migrate-translation-system") || process.argv.includes("--mts");
 const CONTINUOUS = process.argv.includes("--continuous") || process.argv.includes("--c");
+const LAUNCH_DEV_SERVER = process.argv.includes("--launch-dev-server") || process.argv.includes("--dev") || process.argv.includes("--d");
+
 const BUILD_PATH = `.${sl()}build`;
 const SOURCE_PATH = `.${sl()}source`;
+
+const CSS = `css`;
+const HTML = `html`;
+const JS = `js`;
+const IMG = `img`;
+const SUPPORTED_PROGRAMMING_LANGUAGES = [CSS, JS, IMG];
+
+
+/**
+ * Returns the directory build path for a given language.
+ *
+ * @param {string} lang - the language code (e.g. "en", "he") or the programming language code (e.g. "css", "js")
+ * @return {string} the buid directory for the given language
+ */
+function getLangBuildDir(lang) {
+    return `${BUILD_PATH}${sl()}${lang}${sl()}`;
+}
+
+/**
+ * Returns a tool's build directory, given language and tool ID.
+ * 
+ * Language here only refers to actualy languages, since they are the only ones that are split into dedicated build directories.
+ *
+ * @param {string} lang - The language code (e.g. "en", "he").
+ * @param {string} toolId - The ID of the tool.
+ * @return {string} The build directory for the given language and tool ID.
+ */
+function getToolBuildDir(lang, toolId) {
+    if (toolId === LANDING_PAGE_ID) {
+        return getLangBuildDir(lang);
+    }
+
+    return getLangBuildDir(lang) + toolId + sl();
+}
 
 
 
 /**
- * Returns the directory path for a given language.
+ * Returns the directory path for a given languages's source.
+ * 
+ * Language here only refers to programming languages, since their sources are present before compilation
  *
- * @param {string} lang - the language code (e.g. "en", "he")
- * @param {string} toolId - the ID of the tool
- * @return {string} the directory path for the given language
+ * @param {string} lang - the language code (`HTML`, `CSS`, `JS`)
+ * @return {string} the source directory for the given language
  */
 function getLangDir(lang) {
-    return `${BUILD_PATH}${sl()}${lang}${sl()}`;
-}
-
-function getToolBuildDir(lang, toolId) {
-    if (toolId === LANDING_PAGE_ID) {
-        return getLangDir(lang);
-    }
-
-    return getLangDir(lang) + toolId + sl();
+    return `${SOURCE_PATH}${sl()}${lang}${sl()}`;
 }
 
 /**
  * Returns the directory path for a given tool.
  *
- * @param {string} toolId - the ID of the tool
- * @return {string} the directory path for the given tool
+ * @param {string} toolId The ID of the tool
+ * @return {string} The directory path for the given tool
  */
 function getToolDir(toolId) {
-    return `${SOURCE_PATH}${sl()}${toolId}${sl()}`;
+    return `${getLangDir(HTML)}${toolId}${sl()}`;
 }
 
 /**
- * builds a file and adds it to the build folder for each language
+ * builds an HTML file thats multilang ready and adds it to the build folder for each language
  *
- * @param {string} path - the path of the file
- * @param {string} toolId - the id of the tool to build for
+ * @param {string} path The path of the file
+ * @param {string} toolId The id of the tool to build for
  * @return {void}
  */
-function buildFile(path, toolId) {
+function buildHTMLFile(path, toolId) {
     SUPPORTED_LANGUAGES.forEach(lang => {
-        if (path.endsWith(".html")) {
-            let content = readFileSync(getToolDir(toolId) + path, "utf-8");
-            // May support different langauges, produce translated documents
+        let content = readFileSync(getToolDir(toolId) + path, "utf-8");
+        // May support different langauges, produce translated documents
 
-            let result = generateTranslation(content, lang);
-            // Create the dir if it doesn't exist
-            mkdirSync(`${getToolBuildDir(lang, toolId)}${path.split(sl()).slice(0, -1).join(sl())}`, { recursive: true });
-            writeFileSync(`${getToolBuildDir(lang, toolId)}${path}`, result);
-        } else {
-            // Copy other files
-            // Create the dir if it doesn't exist
-            mkdirSync(`${getToolBuildDir(lang, toolId)}${path.split(sl()).slice(0, -1).join(sl())}`, { recursive: true });
-            copyFileSync(getToolDir(toolId) + path, `${getToolBuildDir(lang, toolId)}${path}`);
-        }
+        let result = generateTranslation(content, lang);
+        // Create the dir if it doesn't exist
+        mkdirSync(`${getToolBuildDir(lang, toolId)}${path.split(sl()).slice(0, -1).join(sl())}`, { recursive: true });
+        writeFileSync(`${getToolBuildDir(lang, toolId)}${path}`, result);
     });
 }
 
@@ -88,7 +112,7 @@ function buildFile(path, toolId) {
  * @param {string} toolId - the ID of the tool
  * @return {void}
  */
-function removeFile(path, toolId) {
+function removeHTMLFile(path, toolId) {
     for (let lang of SUPPORTED_LANGUAGES) {
         let filePath = getToolBuildDir(lang, toolId) + path;
         if (existsSync(filePath)) {
@@ -96,6 +120,35 @@ function removeFile(path, toolId) {
         }
     }
 }
+
+/**
+ * Copies files from their source directory to their build directory.
+ * 
+ * Used for files that don't need postprocessing.
+ * 
+ * @param {string} path The path of the file to copy
+ * @param {string} fileType The type of the file to copy (`JS`, `CSS` or even `HTML`)
+ */
+function copyOtherFiles(path, fileType) {
+    // Copy other files
+    // Create the dir if it doesn't exist
+    mkdirSync(getLangBuildDir(fileType) + path.split(sl()).slice(0, -1).join(sl()), { recursive: true });
+    copyFileSync(getLangDir(fileType) + path, getToolBuildDir(lang, toolId) + path);
+}
+
+/**
+ * Removes a file from the build directory for a specific language.
+ *
+ * @param {string} path - the path of the file to remove
+ * @param {string} fileType - the type of the file to remove (e.g. JS, CSS or even HTML)
+ * @return {void}
+ */
+function removeOtherFiles(path, fileType) {
+    if (existsSync(getLangBuildDir(fileType) + path)) {
+        unlinkSync(getLangBuildDir(fileType) + path);
+    }
+}
+
 
 /**
  * Syncs current files.
@@ -120,7 +173,8 @@ function buildTool(toolId, rootFiles) {
     }
 
     rootFiles.forEach(file => {
-        buildFile(file, toolId);
+        // Other types of files are not present in the tool's directories
+        buildHTMLFile(file, toolId);
     })
 
     log(`Build Successful For \`${toolId}\` for languages: [${SUPPORTED_LANGUAGES.join(", ")}]`)
@@ -156,11 +210,31 @@ function generateTranslation(content, lang) {
 
 function main() {
 
+    // This script has to run from the parent repository directory (/apbd.net/ instead of /apbd.net/compiler)
+    // Incase this mistake is made, well change CWD and log it.
+    // We will check for this by looking wether or not the `compiler` directory exists at CWD.
+
+    if (!existsSync(BUILD_PATH)) {
+        log(`Compiler started at incorrect directory: ${cwd()}`);
+        log(`Next time, Please run this script from the root directory of the apbd.net repository.`);
+    }
+    while (!existsSync(BUILD_PATH)) {
+        log(`Going backwards one directory and retrying...`);
+        try {
+            process.chdir("../")
+            log(`Successfully Changed CWD to ${cwd()}`);
+        } catch (e) {
+            log(`Cannot go backwards from ${cwd()}`);
+            log("Exiting...");
+            process.exit(1);
+        }
+    }
+    log(`\nStarting Build Process...`);
     // Make sure each language's subfolder exists
     // If it already exists, wipe it clean
-    SUPPORTED_LANGUAGES.forEach(lang => {
-        rmSync(getLangDir(lang), { recursive: true, force: true });
-        mkdirSync(getLangDir(lang), { recursive: true });
+    SUPPORTED_LANGUAGES.concat(SUPPORTED_PROGRAMMING_LANGUAGES).forEach(lang => {
+        rmSync(getLangBuildDir(lang), { recursive: true, force: true });
+        mkdirSync(getLangBuildDir(lang), { recursive: true });
     });
 
     for (let tool of TOOLS) {
@@ -171,30 +245,69 @@ function main() {
         buildTool(tool, Array.from(rootFiles));
     }
 
+    for (let lang of SUPPORTED_PROGRAMMING_LANGUAGES) {
+        cpSync(getLangDir(lang), getLangBuildDir(lang), { recursive: true });
+        log(`Copied ${lang} files to build folder.`);
+    }
+
     if (CONTINUOUS) {
+
+        if (LAUNCH_DEV_SERVER) {
+            log(`Starting development server...`);
+            let currentCWD = process.cwd();
+            process.chdir(BUILD_PATH);
+            exec('http-server --http', (error, stdout, stderr) => {
+                if (error) {
+                    log(`Error: ${error.message}`);
+                    return;
+                }
+            });
+            log(`Server running at http://localhost:8080/`);
+            process.chdir(currentCWD);
+        }
+
         log(`Initial build phase done! Watching for changes...`);
-        const watcher = watch(SOURCE_PATH, { recursive: true, ignoreInitial: true, useFsEvents: true });
+        const watcher = watch(getLangDir(HTML), { recursive: true, ignoreInitial: true, useFsEvents: true });
         watcher
-            .on("ready", () => {})
+            .on("ready", () => { })
             .on("change", path => {
-                let toolId = path.split(sl())[1];
-                let actualPath = path.split(sl()).slice(2).join(sl());
-                log(`File Changed: ${path.replace(SOURCE_PATH + sl(), "")}`);
-                buildFile(actualPath, toolId);
+                let toolId = path.split(sl())[2];
+                let actualPath = path.split(sl()).slice(3).join(sl());
+                log(actualPath);
+                log(`File Changed: ${path.replace(getLangDir(HTML), "")}`);
+                buildHTMLFile(actualPath, toolId);
             })
             .on("add", path => {
-                let toolId = path.split(sl())[1];
-                let actualPath = path.split(sl()).slice(2).join(sl());
-                log(`File Added: ${path.replace(SOURCE_PATH + sl(), "")}`);
-                buildFile(actualPath, toolId);
+                let toolId = path.split(sl())[2];
+                let actualPath = path.split(sl()).slice(3).join(sl());
+                log(actualPath);
+                log(`File Added: ${path.replace(getLangDir(HTML), "")}`);
+                buildHTMLFile(actualPath, toolId);
             })
             .on("unlink", path => {
-                let toolId = path.split(sl())[1];
-                let actualPath = path.split(sl()).slice(2).join(sl());
-                log(`File Removed: ${path.replace(SOURCE_PATH + sl(), "")}`);
-                removeFile(actualPath, toolId);
+                let toolId = path.split(sl())[2];
+                let actualPath = path.split(sl()).slice(3).join(sl());
+                log(`File Removed: ${path.replace(getLangDir(HTML), "")}`);
+                removeHTMLFile(actualPath, toolId);
             });
 
+        for (let lang of SUPPORTED_PROGRAMMING_LANGUAGES) {
+            let langWatcher = watch(getLangDir(lang), { recursive: true, ignoreInitial: true, useFsEvents: true });
+            langWatcher
+                .on("ready", () => { })
+                .on("change", path => {
+                    log(`Asset Changed (${lang}): ${path.replace(getLangDir(lang), "")}`);
+                    copyOtherFiles(path, lang);
+                })
+                .on("add", path => {
+                    log(`Asset Added (${lang}): ${path.replace(getLangDir(lang), "")}`);
+                    copyOtherFiles(path, lang);
+                })
+                .on("unlink", path => {
+                    log(`Asset Removed (${lang}): ${path.replace(getLangDir(lang), "")}`);
+                    removeOtherFiles(path, lang);
+                });
+        }
     }
     else log("Done! Ready To Deploy :D");
 }

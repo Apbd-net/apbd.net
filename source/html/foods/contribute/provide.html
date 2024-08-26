@@ -1,26 +1,30 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl"><head>
+<html lang-en="en" lang-he="he" dir-he="rtl" dir-en="ltr">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APBD.net: ספק מידע על מאכל</title>
+    <title en="APBD.net: Provide Food Info" he="APBD.net: ספק מידע על מאכל"></title>
 
-    <meta name="description" content="-כאן אפשר להוסיף מאכלים נוספים לרשימת המאכלים שלנו בAPBD.net. נסה אותי - עשה טוב!‏">
+    <meta name="description"
+        content-en="Allows adding different foods to APBD.net's Food List directly via the website. Try it out - Help a cause!"
+        content-he="-כאן אפשר להוסיף מאכלים נוספים לרשימת המאכלים שלנו בAPBD.net. נסה אותי - עשה טוב!&rlm;">
 
     <link rel="stylesheet" href="../style/main.css">
     <link rel="stylesheet" href="..//css/foods/dropdown.css">
     <link rel="stylesheet" href="../style/contribute.css">
 
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VPXMF38X8C"></script><script>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VPXMF38X8C"></script>
+<script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-VPXMF38X8C');
-</script></head>
-
-<!-- Google tag (gtag.js) -->
-
-
+</script>
 
 <body>
     <script>
@@ -43,153 +47,197 @@
             <img src="../../../favicon.ico" alt="Website logo">
             <div class="column">
                 <a class="title" href="https://apbd.net">APBD.net</a>
-                <a class="sub" href="../">רשימת מאכלים מותרים</a>
+                <a class="sub" href="../"
+                    en="Allowed Foods List" he="רשימת מאכלים מותרים">
+                    Allowed Foods List
+                </a>
             </div>
 
         </div>
         <nav class="header-menu">
             <div class="dropdown">
-                <a id="about" href="#">אודות</a>
+                <a id="about" href="#" en="About" he="אודות">About</a>
                 <div class="dropdown-content">
-                    <a target="_blank" href="https://github.com/ShaharMS/APBD-FoodList/blob/main/README.md">אתר</a>
-                    <a target="_blank" href="https://rarediseases.org/rare-diseases/adult-polyglucosan-body-disease/">APBD
-                        <span>↗</span></a>
-                    <a href="../about/database.html">מסד הנתונים</a>
+                    <a target="_blank" href="https://github.com/ShaharMS/APBD-FoodList/blob/main/README.md" en="Website"
+                        he="אתר">Website<span>&UpperRightArrow;</span></a>
+                    <a target="_blank"
+                        href="https://rarediseases.org/rare-diseases/adult-polyglucosan-body-disease/">APBD
+                        <span>&UpperRightArrow;</span></a>
+                    <a href="../about/database.html" en="Food Database" he="מסד הנתונים">Food Database</a>
                 </div>
             </div>
             <div class="dropdown">
-                <a id="contribute" href="#">תרום תוכן</a>
+                <a id="contribute" href="#" en="Contribute" he="תרום תוכן">Contribute</a>
                 <div class="dropdown-content">
-                    <a href="../contribute/request.html">בקשת נתונים</a>
-                    <a href="../contribute/provide.html">סיפוק נתונים</a>
-                    <a href="../contribute/leaderboards.html">תורמים מובילים</a>
+                    <a href="../contribute/request.html" en="Request data" he="בקשת נתונים">Request data</a>
+                    <a href="../contribute/provide.html" en="Provide data" he="סיפוק נתונים">Provide data</a>
+                    <a href="../contribute/leaderboards.html" en="Leaderboards" he="תורמים מובילים">Leaderboards</a>
                 </div>
             </div>
 
             <div class="dropdown">
-                <a id="contact" href="#">שפה</a>
+                <a id="contact" href="#" en="Language" he="שפה">Language</a>
                 <div class="dropdown-content">
-                    <a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'en')" href="#">אנגלית</a>
-                    <a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'he')" href="#">עברית</a>
+                    <a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'en')" href="#"
+                        en="English" he="אנגלית">English</a>
+                    <a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'he')" href="#"
+                        en="Hebrew" he="עברית">Hebrew</a>
                 </div>
             </div>
         </nav>
     </header>
 
     <div class="container">
-        <blockquote>העמוד הזה קיים על מנת לאפשר לך ולאנשים אחרים לעזור אחד לשני, ע"י הרחבה של רשימת המאכלים המתועדים. אין צורך לחשוש אם לא בטוחים/יודעים מידע מסוים - אני על זה :)‏</blockquote>
+        <blockquote
+            en="This page exists to help you and other people, by expanding the list of documented foods. Don't hesitate to choose &quot;I dont know&quot; or &quot;I'm not sure&quot;. I've got your back :)"
+            he="העמוד הזה קיים על מנת לאפשר לך ולאנשים אחרים לעזור אחד לשני, ע&quot;י הרחבה של רשימת המאכלים המתועדים. אין צורך לחשוש אם לא בטוחים/יודעים מידע מסוים - אני על זה :)&rlm;">
+        </blockquote>
 
         <form id="provide-form">
             <table id="provide-table">
-                <tbody><tr>
+                <tr>
                     <th>
-                        <help>השם הפרטי + משפחה שלך. אם ניתן, ישמש בתור מזהה בלוח ההישגים, שתחתיו תווסף תרומת התוכן. תרום מספיק תוכן, ואולי תגיע למקום הראשון 😁‏</help>
-                        <span>שם</span>
+                        <help
+                            en="Your first and last name. Used to add this contribution to the leaderboards, under your name. Contribute enough, and maybe one day you'll get to 1st place 😁"
+                            he="השם הפרטי + משפחה שלך. אם ניתן, ישמש בתור מזהה בלוח ההישגים, שתחתיו תווסף תרומת התוכן. תרום מספיק תוכן, ואולי תגיע למקום הראשון 😁&rlm;">
+                        </help>
+                        <span en="Name" he="שם">Name</span>
                     </th>
                     <td>
-                        <input id="name" placeholder="שם פרטי ושם משפחה...">
+                        <input id="name" placeholder-en="First and last name..."
+                            placeholder-he="שם פרטי ושם משפחה...">
                         <div class="button-row">
-                            <button id="n-np" type="button">מעדיף שלא למסור</button>
+                            <button id="n-np" type="button" en="I'd rather not provide" he="מעדיף שלא למסור">I'd
+                                rather not provide</button>
                         </div>
                     </td>
                 </tr>
                 <tr>
 
                     <th>
-                        <help>שם המאכל אותו אתה רוצה להוסיף. עדיף להביא שם ממוקד יותר אם אפשר (כמובן מבלי להשמיט מידע). אם מעורבת חברה מסוימת ביצור האוכל, ניתן להזכיר זאת בשדה נפרד.‏</help>
-                        <span>שם המאכל (אנגלית)</span>
+                        <help
+                            en="The Food's name. More useful to leave a concise name here, and if a company is involved, mention it after the fact."
+                            he="שם המאכל אותו אתה רוצה להוסיף. עדיף להביא שם ממוקד יותר אם אפשר (כמובן מבלי להשמיט מידע). אם מעורבת חברה מסוימת ביצור האוכל, ניתן להזכיר זאת בשדה נפרד.&rlm;">
+                        </help>
+                        <span en="Food name (english)" he="שם המאכל (אנגלית)">">Food name (english)</span>
                     </th>
                     <td>
                         <input id="food-name-english" placeholder="Food name...">
                         <div class="button-row">
-                            <button id="fn-ns" type="button">אני לא בטוח</button>
-                            <button id="fn-dk" type="button">אני לא יודע</button>
+                            <button id="fn-ns" type="button" en="I'm not sure" he="אני לא בטוח">I'm not
+                                sure</button>
+                            <button id="fn-dk" type="button" en="I don't know" he="אני לא יודע">I don't
+                                know</button>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        <help>למטרות תרגום, מומלץ לתת גם את שם המאכל בעברית (הופך לי את העבודה לקלה יותר 🙃)‏</help>
-                        <span>שם המאכל (עברית)</span>
+                        <help
+                            en="For Translation purposes, It is a good idea to add the name in Hebrew. (makes my job a little easier 🙃)"
+                            he="למטרות תרגום, מומלץ לתת גם את שם המאכל בעברית (הופך לי את העבודה לקלה יותר 🙃)&rlm;">
+                        </help>
+                        <span en="Food name (hebrew)" he="שם המאכל (עברית)">">Food name (hebrew)</span>
                     </th>
                     <td>
                         <input id="food-name-hebrew" placeholder="שם המאכל...">
                         <div class="button-row">
-                            <button id="t-ns" type="button">אני לא בטוח</button>
-                            <button id="t-dk" type="button">אני לא יודע</button>
+                            <button id="t-ns" type="button" en="I'm not sure" he="אני לא בטוח">I'm not
+                                sure</button>
+                            <button id="t-dk" type="button" en="I don't know" he="אני לא יודע">>I don't
+                                know</button>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        <help>אם המוצר הספציפי אותו אתה מבקש מיוצר ע"י חברה מסוימת, תזכיר את שמה כאן. זה נותן לי להצמיד את שם ולוגו החברה למוצר באתר עצמו.‏</help>
-                        <span>אופציונאלי: שם החברה</span>
+                        <help
+                            en="If the specific food you're requesting is produced by a specific company, mention it here, This allows me to tag the item with the company and it's logo."
+                            he="אם המוצר הספציפי אותו אתה מבקש מיוצר ע&quot;י חברה מסוימת, תזכיר את שמה כאן. זה נותן לי להצמיד את שם ולוגו החברה למוצר באתר עצמו.&rlm;">
+                        </help>
+                        <span en="Optional: Food's Company" he="אופציונאלי: שם החברה">Optional: Food's
+                            Company</span>
                     </th>
                     <td>
-                        <input id="company" list="companies" placeholder="שם החברה...">
+                        <input id="company" placeholder-en="Company Name..." placeholder-he="שם החברה..."
+                            list="companies">
                         <div class="button-row">
-                            <button id="co-ns" type="button">אני לא בטוח</button>
-                            <button id="co-dk" type="button">אני לא יודע</button>
+                            <button id="co-ns" type="button" en="I'm not sure" he="אני לא בטוח">I'm not
+                                sure</button>
+                            <button id="co-dk" type="button" en="I don't know" he="אני לא יודע">I don't
+                                know</button>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        <help>כל אוכל נמצא במקום כלשהו על מדד הערך הגליקמי. ערכים גבוהים 'מקפיצים' את רמת הסוכר בדם לרמה גבוהה, ובמהירות.‏</help>
-                        <span>ערך גליקמי</span>
+                        <help 
+                            en="Each food has a glycemic index, ranging from 0 to 100. A higher value spikes blood sugar higher and more rapidly."
+                            he="כל אוכל נמצא במקום כלשהו על מדד הערך הגליקמי. ערכים גבוהים 'מקפיצים' את רמת הסוכר בדם לרמה גבוהה, ובמהירות.&rlm;">
+                        </help>
+                        <span en="Glycemic Index" he="ערך גליקמי"></span>
                     </th>
                     <td>
-                        <input id="glycemic-index" type="number" min="0" max="100" placeholder="בין 0 ל-100">
+                        <input id="glycemic-index" type="number" placeholder-en="Between 0 and 100" placeholder-he="בין 0 ל-100" min="0" max="100">
                         <div class="button-row">
-                            <button id="gi-ns" type="button">אני לא בטוח</button>
-                            <button id="gi-dk" type="button">אני לא יודע</button>
+                            <button id="gi-ns" type="button" en="I'm not sure" he="אני לא בטוח">I'm not sure</button>
+                            <button id="gi-dk" type="button" en="I don't know" he="אני לא יודע">I don't know</button>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        <help>עומס גליקמי מחושב באמצעות חילוק הערך הגליקמי ב-100, והכפלת התוצאה בכמות הפחממות שבאוכל, בגרמים. ערכים גבוהים יותר 'מקפיצים' את רמת הסוכר בדם לרמה גבוהה, ובמהירות גבוהה יותר.‏</help>
-                        <span>עומס גליקמי (ל-100 גרם)</span>
+                        <help
+                            en="Glycemic Load is defined by the glycemic index, divided by 100, then multiplied by the amount of carbs the food contains (in grams). A higher value spikes blood sugar higher and more rapidly"
+                            he="עומס גליקמי מחושב באמצעות חילוק הערך הגליקמי ב-100, והכפלת התוצאה בכמות הפחממות שבאוכל, בגרמים. ערכים גבוהים יותר 'מקפיצים' את רמת הסוכר בדם לרמה גבוהה, ובמהירות גבוהה יותר.&rlm;">
+                        </help>
+                        <span en="Glycemic Load (Per 100g)" he="עומס גליקמי (ל-100 גרם)">{{Glycemic Load}} ({{Per 100g}})</span>
                     </th>
                     <td>
-                        <input id="glycemic-load" type="number" min="0" placeholder="עומס גליקמי">
+                        <input id="glycemic-load" type="number" placeholder-en="Glycemic Load" placeholder-he="עומס גליקמי" min="0">
                         <div class="button-row">
-                            <button id="gl-ns" type="button">אני לא בטוח</button>
-                            <button id="gl-dk" type="button">אני לא יודע</button>
+                            <button id="gl-ns" type="button" en="I'm not sure" he="אני לא בטוח">I'm not sure</button>
+                            <button id="gl-dk" type="button" en="I don't know" he="אני לא יודע">I don't know</button>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        <help>סוכר הוא אחד משלושת סוגי הפחמימות: סיבים, סוכר, ועמילן. סיבים הן פחמימה 'טובה', בעוד שעמילן וסוכר הן פחמימות 'רעות'.‏</help>
-                        <span>סוכר (ל-100 גרם)</span>
+                        <help
+                            en="Sugar is one of the three types of carbohydrates. aside from it, there are also starches & fibers. Fibers are 'ok' carbs, while starches & sugars are 'bad' carbs."
+                            he="סוכר הוא אחד משלושת סוגי הפחמימות: סיבים, סוכר, ועמילן. סיבים הן פחמימה 'טובה', בעוד שעמילן וסוכר הן פחמימות 'רעות'.&rlm;">
+                        </help>
+                        <span en="Sugar (Per 100g)" he="סוכר (ל-100 גרם)"></span>
                     </th>
                     <td>
-                        <input id="sugar" type="number" min="0" placeholder="סוכר (גרם)">
+                        <input id="sugar" type="number" placeholder-en="Sugar (grams)" placeholder-he="סוכר (גרם)" min="0">
                         <div class="button-row">
-                            <button id="s-ns" type="button">אני לא בטוח</button>
-                            <button id="s-dk" type="button">אני לא יודע</button>
+                            <button id="s-ns" type="button" en="I'm not sure" he="אני לא בטוח">I'm not sure</button>
+                            <button id="s-dk" type="button" en="I don't know" he="אני לא יודע">I don't know</button>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        <help>רוב המאכלים מכילים כמות מסוימת של פחמימות. הגוף שלנו משתמש בהם על מנת לייצר אנרגיה</help>
-                        <span>פחמימות (ל-100 גרם)</span>
+                        <help
+                            en="Almost every single food contains carbohydrates. Our body uses them to generate energy"
+                            he="רוב המאכלים מכילים כמות מסוימת של פחמימות. הגוף שלנו משתמש בהם על מנת לייצר אנרגיה">
+                        </help>
+                        <span en="Carbs (Per 100g)" he="פחמימות (ל-100 גרם)"></span>
                     </th>
                     <td>
-                        <input id="carbs" type="number" min="0" placeholder="פחמימות (גרם)">
+                        <input id="carbs" type="number" placeholder-en="Carbs (grams)" placeholder-he="פחמימות (גרם)" min="0">
                         <div class="button-row">
-                            <button id="c-ns" type="button">אני לא בטוח</button>
-                            <button id="c-dk" type="button">אני לא יודע</button>
+                            <button id="c-ns" type="button" en="I'm not sure" he="אני לא בטוח">I'm not sure</button>
+                            <button id="c-dk" type="button" en="I don't know" he="אני לא יודע">I don't know</button>
                         </div>
                     </td>
                 </tr>
-            </tbody></table>
+            </table>
         </form>
 
         <div class="row">
-            <button type="submit" id="submit">שלח</button>
+            <button type="submit" id="submit" en="Submit" he="שלח"></button>
         </div>
         <h3 id="submition-output"></h3>
 
@@ -351,6 +399,6 @@
         activateChoiceButtons();
         activateFoodNameValidator();
     </script>
+</body>
 
-
-</body></html>
+</html>

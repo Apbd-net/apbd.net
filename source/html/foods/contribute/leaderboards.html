@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang-en="en" lang-he="he" dir-he="rtl" dir-en="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title
+        en="APBD.net: Contribution Leaderboards"
+        he="APBD.net: לוח הישגים"
+    ></title>
+    <meta name="description" 
+        content-en="Official rankings for our content contributors. Major thanks to whoever's on the list! ♥️"
+        content-he="לוח ההישגים של תורמי התוכן שלנו. מגיע המון הערכה לכל אחד ואחת שנמצא כאן! ♥️"
+    >
+
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/contribute.css">
+    <link rel="stylesheet" href="../style/leaderboards.css">
+    <link rel="stylesheet" href="..//css/foods/dropdown.css">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VPXMF38X8C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VPXMF38X8C');
+</script>
+
+<body>
+    <script>
+        const touch = matchMedia('(hover: none)').matches
+        console.log(touch);
+
+        if (touch) {
+            let prev = window.document.body;
+            window.addEventListener("touchend", function (e) {
+                if (e.target.onclick) e.target.onclick();
+                if (prev !== e.target) prev.classList.remove("hover");
+                e.target.classList.toggle("hover");
+                prev = e.target;
+                console.log(e.target);
+            }, { passive: false });
+        }
+    </script>
+    <header>
+        <div class="logo">
+            <img src="../../../favicon.ico" alt="Website logo">
+            <div class="column">
+                <a class="title" href="https://apbd.net">APBD.net</a>
+                <a class="sub" href="../" en="Allowed Foods List" he="רשימת מאכלים מותרים">
+                    Allowed Foods List
+                </a>
+            </div>
+
+        </div>
+        <nav class="header-menu">
+            <div class="dropdown">
+                <a id="about" href="#" en="About" he="אודות">About</a>
+                <div class="dropdown-content">
+                    <a target="_blank" href="https://github.com/ShaharMS/APBD-FoodList/blob/main/README.md" en="Website"
+                        he="אתר">Website<span>&UpperRightArrow;</span></a>
+                    <a target="_blank"
+                        href="https://rarediseases.org/rare-diseases/adult-polyglucosan-body-disease/">APBD
+                        <span>&UpperRightArrow;</span></a>
+                    <a href="../about/database.html" en="Food Database" he="מסד הנתונים">Food Database</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a id="contribute" href="#" en="Contribute" he="תרום תוכן">Contribute</a>
+                <div class="dropdown-content">
+                    <a href="../contribute/request.html" en="Request data" he="בקשת נתונים">Request data</a>
+                    <a href="../contribute/provide.html" en="Provide data" he="סיפוק נתונים">Provide data</a>
+                    <a href="../contribute/leaderboards.html" en="Leaderboards" he="תורמים מובילים">Leaderboards</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a id="contact" href="#" en="Language" he="שפה">Language</a>
+                <div class="dropdown-content">
+                    <a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'en')" href="#"
+                        en="English" he="אנגלית">English</a>
+                    <a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'he')" href="#"
+                        en="Hebrew" he="עברית">Hebrew</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <blockquote style="margin-top: 30px;"
+            en="Those who took part in improving and expanding the list should be remembered. Major thank-yous! ♥️"
+            he="מגיע לכל מי שלקח חלק בשיפור והרחבת האתר, שידעו שעשה ותרם רבות. תודה רבה רבה לכם! ♥️"
+        ></blockquote>
+
+        <h1
+            en="Leaderboards"
+            he="לוח הישגים"
+        ></h1>
+
+        <table id="leaderboards">
+            <thead>
+                <tr>
+                    <th>
+                        <help 
+                            en="This is the name the contributor provided when they made different contributions, such as food requests or additions"
+                            he="זה השם שתורם התוכן הזדהה איתו כאשר סיפק נתונים לאתר"
+                        ></help>
+                        <span
+                            en="Name"
+                            he="שם"
+                        ></span>
+                    </th>
+                    <th>
+                        <help
+                            en="The amount of fulfilled requests this contributor made for food additions. The more the merrier"
+                            he="כמות הבקשות להוספת מאכלים שמומשו, ונוספו לרשימת המאכלים. כמה שיותר - יותר טוב"
+                        ></help>
+                        <span
+                            en="Content Requests"
+                            he="בקשות תוכן"
+                        ></span>
+                    </th>
+                    <th>
+                        <help
+                            en='The amount of fulfilled data contributions (via the "Provide Food Data" section). The more the merrier'
+                            he='כמות הבקשות להוספת מאכלים שמומשו, בהם המשתמש סיפק את הרוב המוחלט של המידע, דרך החלק "ספק נתוני מאכל". כמה שיותר - יותר טוב'
+                        ></help>
+                        <span
+                            en="Content Contributions"
+                            he="תרומות תוכן"
+                        ></span>
+                    </th>
+                    <th>
+                        <help
+                            en='Overall score is calculated by the amount of requests, added to the amount of direct contributions times 10. Directly contributing is harder, so it gets a boost in score'
+                            he='סך כל הנקודות למשתמש מחושבות ע"י הוספת כמות בקשות ההוספה לכמות תרומות המידע הישירות, מוכפלות ב-10. מכיוון שקשה יותר לשלוח גם מידע על מאכל, ולא רק את שמו, סוג שליחת המידע הזה מקבל "דחיפה" בתוצאה הסופית'
+                        ></help>
+                        <span
+                            en="Overall Score"
+                            he="סך כל הנקודות"
+                        ></span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr contributor id="CONTRIBUTOR__Shahar Marcus">
+                    <th>Shahar Marcus</th>
+                    <td req id="REQ__Shahar Marcus">0</td>
+                    <td prov id="PROV__Shahar Marcus">2</td>
+                    <td score>20</td>
+                </tr>
+                <tr contributor id="CONTRIBUTOR__Nir Marcus">
+                    <th>Nir Marcus</th>
+                    <td req id="REQ__Nir Marcus">4</td>
+                    <td prov id="PROV__Nir Marcus">0</td>
+                    <td score>4</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="../code/help-marks.js"></script>
+    <script src="../code/choice-buttons.js"></script>
+
+    <script>
+        let provElements = document.querySelectorAll("[prov]");
+
+        for (let element of provElements) {
+            if (parseInt(element.innerText) === 0) continue;
+            let s = document.createElement("small");
+            s.innerHTML = "x10";
+            s.style.cssText = `
+                font-weight: 700;
+                position: absolute;
+                margin: 3px ${document.dir === "rtl" ? "-2em" : ""};
+            `;
+            s.classList.add("rainbow-text");
+            if (document.dir === "rtl") element.prepend(s)
+            else element.appendChild(s)
+        }
+    </script>
+</html>
