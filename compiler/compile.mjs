@@ -6,19 +6,17 @@ import { log } from "console";
 import { watch } from "chokidar";
 import { chdir, cwd } from "process";
 import { exec } from "child_process";
-import { start} from "live-server"
+import liveServer from "live-server";
 
 function sl() {
     return process.platform === "win32" ? "\\" : "/";
 }
 
-const LANDING_PAGE_ID = "landing-page";
-const TOOLS = ["foods", LANDING_PAGE_ID];
-
+const TOOLS = ["foods", "landing-page"];
 const EXCLUDED_ROOT_PATHS = {
-    "foods": ["scrapes", "LICENSE.md", "README.md", ".vscode", "favicon.ico"],
+    "foods": ["scrapes"],
+    "landing-page": []
 };
-EXCLUDED_ROOT_PATHS[LANDING_PAGE_ID] = ["favicon.ico", "testing"];
 
 const SUPPORTED_LANGUAGES = ["en", "he"];
 const MIGRATE_TRANSLATION_SYSTEM = process.argv.includes("--migrate-translation-system") || process.argv.includes("--mts");
@@ -55,7 +53,7 @@ function getLangBuildDir(lang) {
  * @return {string} The build directory for the given language and tool ID.
  */
 function getToolBuildDir(lang, toolId) {
-    if (toolId === LANDING_PAGE_ID) {
+    if (toolId === "landing-page") {
         return getLangBuildDir(lang);
     }
 
@@ -133,7 +131,7 @@ function copyOtherFiles(path, fileType) {
     // Copy other files
     // Create the dir if it doesn't exist
     mkdirSync(getLangBuildDir(fileType) + path.split(sl()).slice(0, -1).join(sl()), { recursive: true });
-    copyFileSync(getLangDir(fileType) + path, getToolBuildDir(lang, toolId) + path);
+    copyFileSync(getLangDir(fileType) + path, getLangBuildDir(fileType) + path);
 }
 
 /**
@@ -254,19 +252,15 @@ function main() {
 
         if (LAUNCH_DEV_SERVER) {
             log(`Starting development server...`);
-            let currentCWD = process.cwd();
-            process.chdir(BUILD_PATH);
-            exec('http-server --http', (error, stdout, stderr) => {
-                if (error) {
-                    log(`Error: ${error.message}`);
-                    return;
-                }
-            });
-            log(`Server running at http://localhost:8080/`);
-            process.chdir(currentCWD);
+            liveServer.start({ root: BUILD_PATH, open: true });
+            process.on("SIGINT", () => {
+                liveServer.shutdown()
+                log("Server stopped. Exiting...");
+                process.exit(0);
+            })
         }
 
-        log(`Initial build phase done! Watching for changes...`);
+        if (!CONTINUOUS) log(`Initial build phase done! Watching for changes...`);
         const watcher = watch(getLangDir(HTML), { recursive: true, ignoreInitial: true, useFsEvents: true });
         watcher
             .on("ready", () => { })
@@ -296,15 +290,18 @@ function main() {
             langWatcher
                 .on("ready", () => { })
                 .on("change", path => {
-                    log(`Asset Changed (${lang}): ${path.replace(getLangDir(lang), "")}`);
+                    path = path.split(sl()).slice(2).join(sl());
+                    log(`Asset Changed (${lang}): ${path}`);
                     copyOtherFiles(path, lang);
                 })
                 .on("add", path => {
-                    log(`Asset Added (${lang}): ${path.replace(getLangDir(lang), "")}`);
+                    path = path.split(sl()).slice(2).join(sl());
+                    log(`Asset Added (${lang}): ${path}`);
                     copyOtherFiles(path, lang);
                 })
                 .on("unlink", path => {
-                    log(`Asset Removed (${lang}): ${path.replace(getLangDir(lang), "")}`);
+                    path = path.split(sl()).slice(2).join(sl());
+                    log(`Asset Removed (${lang}): ${path}`);
                     removeOtherFiles(path, lang);
                 });
         }

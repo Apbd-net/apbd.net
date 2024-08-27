@@ -1,13 +1,9 @@
 /**
  * @type{{
             defaultWeight: float,
-            foodNameEn: string,
-            foodNameHe: string,
-            foodTranslationIndices: int[],
-            preprocessedFoodName: string,
+            foodName: string
             companyId: string,
-            companyEn: string,
-            companyHe: string,
+            companyName: string,
             glycemicIndex: {
                 value: float,
                 metadata: {

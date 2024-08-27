@@ -160,12 +160,12 @@ for (let i = 0; i < rows.length; i++) {
             companyImg.crossOrigin = "Anonymous";
             companyImg.style.height = "1.2em";
             companyImg.style.display = "inline";
-            companyImg.src = `./assets/logos/${companyName}.png`;
+            companyImg.src = `/img/foods/logos/${companyName}.png`;
             companyImg.alt = companyName + " Logo";
             companyImg.style.paddingInlineEnd = "0.5rem";
 
             companyImg.onerror = function () {
-                companyImg.src = window.location.origin + "/assets/logos/default.png";
+                companyImg.src = window.location.origin + "/img/foods/logos/default.png";
             }
 
             name.prepend(companyImg);
