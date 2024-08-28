@@ -205,5 +205,3 @@ if (prevRows !== currentRows) {
         localStorage.currentRowAmount = currentRows;
     }
 }
-
-onTableReady(table);

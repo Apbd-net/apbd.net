@@ -3,8 +3,6 @@
  * @param {"name-d"|"name-u"|"company-d"|"company-u"|"glycemic-index-d"|"glycemic-index-u"|"glycemic-load-d"|"glycemic-load-u"|"carbs-d"|"carbs-u"|"sugar-d"|"sugar-u"} method 
  */
 function sortBy(rows, method) {
-    const parameters = new URLSearchParams(window.location.search);
-    console.log("Sorting by " + parameters.get("sort"));
     let header = rows.shift();
     switch (method) {
         case "last-added": {

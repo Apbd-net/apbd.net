@@ -1,9 +1,9 @@
 /**
  * @type {HTMLCollectionOf<HTMLElement>}
  */
-let all = document.getElementsByClassName("button-row");
+let all_B = document.getElementsByClassName("button-row");
 
-for (let element of all) {
+for (let element of all_B) {
     let buttons = Array.from(element.getElementsByTagName("*"));
     for (let button of buttons) {
         button.addEventListener("click", function () {

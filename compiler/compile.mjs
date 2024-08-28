@@ -18,6 +18,126 @@ const EXCLUDED_ROOT_PATHS = {
     "landing-page": []
 };
 
+/**
+ * These script pre-process files in the `html` directory, right before theyre compiled. 
+ * Changes commited here are permanent.
+ */
+const PROJECT_SCRIPTS = {
+    "foods": {
+        "data.json": (_) => {
+            // We know were running from project root
+            // foods' index.html is in source/html/foods/
+            let tableHtml = readFileSync("source/html/foods/index.html", "utf8");
+            log(tableHtml);
+            let p = new JSDOM(tableHtml);
+            let tableBody = p.window.document.getElementById("FOODLIST_ENTRIES");
+            let json = {
+                companies: [],
+                array: []
+            };
+            let rows = tableBody.getElementsByTagName("tr");
+            for (let row of rows) {
+                // Check if the company exists, and if its already in the companies array
+                if (row.children[1].hasAttribute("company-id")) {
+                    let companyID = row.children[1].getAttribute("company-id");
+                    if (!json.companies.some(data => data.ID == companyID)) {
+                        json.companies.push({
+                            ID: companyID,
+                            en: row.children[1].getAttribute("company-en"),
+                            he: row.children[1].getAttribute("company-he")
+                        })
+                    }
+                }
+                json.array.push({
+                    food: {
+                        en: row.children[1].getAttribute("en"),
+                        he: row.children[1].getAttribute("he")
+                    },
+                    company: {
+                        ID: row.children[1].getAttribute("company-id"),
+                        en: row.children[1].getAttribute("company-en"),
+                        he: row.children[1].getAttribute("company-he")
+                    },
+                    defaultWeight: parseFloat(row.children[0].getAttribute("value")),
+                    glycemicIndex: parseFloat(row.children[2].getElementsByTagName("span")[0].innerText),
+                    glycemicIndexMetadata: row.children[2]
+                        .getElementsByTagName("span")[0]
+                        .getAttributeNames()
+                        .filter(name => name !== "value" && name !== "style" && name !== "class")
+                        .map(name => {
+                            return {
+                                key: name,
+                                value: row.children[2].getElementsByTagName("span")[0].getAttribute(name)
+                            }
+                        }),
+                    glycemicLoad: parseFloat(row.children[3].getElementsByTagName("span")[0].getAttribute("value")),
+                    glycemicLoadMetadata: row.children[3]
+                        .getElementsByTagName("span")[0]
+                        .getAttributeNames()
+                        .filter(name => name !== "value" && name !== "style" && name !== "class")
+                        .map(name => {
+                            return {
+                                key: name,
+                                value: row.children[3].getElementsByTagName("span")[0].getAttribute(name)
+                            }
+                        }),
+                    sugar: parseFloat(row.children[4].getElementsByTagName("span")[0].getAttribute("value")),
+                    sugarMetadata: row.children[4]
+                        .getElementsByTagName("span")[0]
+                        .getAttributeNames()
+                        .filter(name => name !== "value" && name !== "style" && name !== "class")
+                        .map(name => {
+                            return {
+                                key: name,
+                                value: row.children[4].getElementsByTagName("span")[0].getAttribute(name)
+                            }
+                        }),
+                    carbs: parseFloat(row.children[5].getElementsByTagName("span")[0].getAttribute("value")),
+                    carbsMetadata: row.children[5]
+                        .getElementsByTagName("span")[0]
+                        .getAttributeNames()
+                        .filter(name => name !== "value" && name !== "style" && name !== "class")
+                        .map(name => {
+                            return {
+                                key: name,
+                                value: row.children[5].getElementsByTagName("span")[0].getAttribute(name)
+                            }
+                        })
+                })
+            }
+            return JSON.stringify(json);
+        },
+        "index.html": (content) => {
+            if (content.startsWith("<tr>")) {
+                // Content was just added by the bot. Move it to the correct place:
+                let tRowEnd = content.indexOf("</tr>");
+                let tRow = content.slice(0, tRowEnd + 5);
+                content = content.slice(tRowEnd + 5);
+
+                let p = new JSDOM(content);
+                p.window.document.getElementById("FOODLIST_ENTRIES").innerHTML += tRow;
+
+                return p.serialize();
+            }
+        },
+        "contribute/leaderboards.html": (content) => {
+            if (content.startsWith("<tr>")) {
+                // Content was just added by the bot. Move it to the correct place:
+                let tRowEnd = content.indexOf("</tr>");
+                let tRow = content.slice(0, tRowEnd + 5);
+                content = content.slice(tRowEnd + 5);
+
+                let p = new JSDOM(content);
+                p.window.document.getElementById("CONTRIBUTORS").innerHTML += tRow;
+
+                return p.serialize();
+            }
+        }
+    },
+    "landing-page": {}
+}
+
+
 const SUPPORTED_LANGUAGES = ["en", "he"];
 const MIGRATE_TRANSLATION_SYSTEM = process.argv.includes("--migrate-translation-system") || process.argv.includes("--mts");
 const CONTINUOUS = process.argv.includes("--continuous") || process.argv.includes("--c");
@@ -96,7 +216,7 @@ function buildHTMLFile(path, toolId) {
         let content = readFileSync(getToolDir(toolId) + path, "utf-8");
         // May support different langauges, produce translated documents
 
-        let result = generateTranslation(content, lang);
+        let result = !path.endsWith(".html") ? content : generateTranslation(content, lang);
         // Create the dir if it doesn't exist
         mkdirSync(`${getToolBuildDir(lang, toolId)}${path.split(sl()).slice(0, -1).join(sl())}`, { recursive: true });
         writeFileSync(`${getToolBuildDir(lang, toolId)}${path}`, result);
@@ -171,6 +291,12 @@ function buildTool(toolId, rootFiles) {
     }
 
     rootFiles.forEach(file => {
+        if (PROJECT_SCRIPTS[toolId][file]) {
+            let content = readFileSync(getToolDir(toolId) + file, "utf-8");
+            log(`Running specified script on ${file}`);
+            content = PROJECT_SCRIPTS[toolId][file](content) || content;
+            writeFileSync(getToolDir(toolId) + file, content);
+        }
         // Other types of files are not present in the tool's directories
         buildHTMLFile(file, toolId);
     })
@@ -203,7 +329,7 @@ function generateTranslation(content, lang) {
         }
     }
 
-    return "<!DOCTYPE html>\n" + doc.documentElement.outerHTML;
+    return parser.serialize();
 }
 
 function main() {

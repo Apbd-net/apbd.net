@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr" nodata="No Data"><head>
+<!DOCTYPE html><html lang="en" dir="ltr" nodata="No Data"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APBD.net: Food List</title>
@@ -104,7 +103,7 @@
         </div>
 
             <table id="food-list" style="display: table;">
-                <tbody>
+                <thead>
                     <tr style="position: sticky; top: 0px; background-color: #111;">
                         <th style="padding-block: 5px;">Weight (In Grams)</th>
                         <th style="padding-block: 5px;">Food Name</th>
@@ -113,6 +112,8 @@
                         <th style="padding-block: 5px;">Sugars (In Grams)</th>
                         <th style="padding-block: 5px;">Carbs (In Grams)</th>
                     </tr>
+                </thead>
+                <tbody id="FOODLIST_ENTRIES">
                     <tr>
                         <td><input type="number" id="grams" value="100"></td>
                         <td>Acerola Cherry</td>
@@ -1596,7 +1597,6 @@
     <script src="/js/foods/help-marks.js"></script>
     <script src="/js/foods/searchbar.js"></script>
     <script src="/js/foods/table-sorter.js"></script>
-    <script src="/js/foods/table-data.js"></script>
     <script src="/js/foods/table-loader.js"></script>
 
 

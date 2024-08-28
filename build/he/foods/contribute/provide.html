@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl"><head>
+<!DOCTYPE html><html lang="he" dir="rtl"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APBD.net: ספק מידע על מאכל</title>
@@ -127,6 +126,7 @@
                     </th>
                     <td>
                         <input id="company" list="companies" placeholder="שם החברה...">
+                        <datalist id="companies"></datalist>
                         <div class="button-row">
                             <button id="co-ns" type="button">אני לא בטוח</button>
                             <button id="co-dk" type="button">אני לא יודע</button>
@@ -346,9 +346,6 @@
     <script src="/js/foods/choice-buttons.js"></script>
     <script src="/js/foods/food-name-validator.js"></script>
 
-    <script type="module">
-        activateFoodNameValidator();
-    </script>
 
 
 </body></html>

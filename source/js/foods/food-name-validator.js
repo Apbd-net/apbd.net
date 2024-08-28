@@ -1,45 +1,12 @@
-function activateFoodNameValidator() {
-    /**
- * @type{{
-            defaultWeight: float,
-            foodNameEn: string,
-            foodNameHe: string,
-            foodTranslationIndices: int[],
-            preprocessedFoodName: string,
-            companyId: string,
-            companyEn: string,
-            companyHe: string,
-            glycemicIndex: {
-                value: float,
-                metadata: {
-                    key: string,
-                    details: string
-                }[]
-            },
-            glycemicLoad: {
-                value: float,
-                metadata: {
-                    key: string,
-                    details: string
-                }[]
-            },
-            sugar: {
-                value: float,
-                metadata: {
-                    key: string,
-                    details: string
-                }[]
-            },
-            carbs: {
-                value: float,
-                metadata: {
-                    key: string,
-                    details: string
-                }
-            }
-    }[]}
- */
-    let tableData = JSON.parse(localStorage.tableRows);
+fetch("/en/foods/data.json").then((response) => response.text()).then((data) => {
+    activateFoodNameValidator(JSON.parse(data));
+})
+
+function activateFoodNameValidator(data) {
+    console.log(data);
+    
+    let enNames = data.array.map(entry => entry.food.en);
+    let heNames = data.array.map(entry => entry.food.he);
     /**
     * @type {HTMLInputElement}
     */
@@ -65,9 +32,9 @@ function activateFoodNameValidator() {
     enField.addEventListener("input", (_) => {
         if (enField.value.length == 0) return;
 
-        if (tableData.some(data => data.foodNameEn == enField.value)) {
+        if (enNames.some(data => data == enField.value)) {
             enField.classList.add("already-exists");
-            enSpan.innerHTML = translationMatrix[89][languageIndex];
+            enSpan.innerHTML = "already exists";
         } else {
             enField.classList.remove("already-exists");
             enSpan.innerHTML = "";
@@ -77,11 +44,12 @@ function activateFoodNameValidator() {
     heField.addEventListener("input", (_) => {
         if (heField.value.length == 0) return;
 
-        if (tableData.some(data => data.foodNameHe == heField.value)) {
-            heSpan.innerHTML = translationMatrix[89][languageIndex];
+        if (heNames.some(data => data == heField.value)) {
+            heSpan.innerHTML = "already exists";
             heField.classList.add("already-exists");
         } else {
             heField.classList.remove("already-exists");
+            heSpan.innerHTML = "";
         }
     });
 
@@ -104,4 +72,8 @@ function activateFoodNameValidator() {
             enSpan.innerHTML = translationMatrix[89][languageIndex];
         }
     });
+
+    let companiesDatalist = document.getElementById("companies");
+
+    companiesDatalist.innerHTML = data.companies.map(company => `<option value='{ID: ${company.ID}, en: ${company.en}, he: ${company.he}}'>${window.document.dir == "ltr" ? company.en : company.he}</option>`).join("\n");
 }

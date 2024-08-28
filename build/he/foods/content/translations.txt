@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html><head></head><body>Allowed Foods List¦רשימת מאכלים מותרים⤓
+Allowed Foods List¦רשימת מאכלים מותרים⤓
 About¦אודות⤓
 Contribute¦הוספה לאתר⤓
 Language¦שפה⤓
-A list of foods sorted by multiple catorgories, such as glycemic indices, glycemic loads, sugars &amp; carbs. Low glycemic loads &amp; indices should be better for people with APBD. Some foods are missing? click the "contribute" option to request/provide data.¦רשימת מאכלים ממויינת לקטגוריות, כגון ערך גליקמי, עומס גליקמי, פחמימות וסוכרים. עומסים גליקמיים נמוכים אמורים להיות טובים יותר לאכילה לאנשים עם APBD. חסר מאכלים? לחצו על אפשרות "הוספה לאתר" כדי לבקש/לספק נתונים.⤓
+A list of foods sorted by multiple catorgories, such as glycemic indices, glycemic loads, sugars & carbs. Low glycemic loads & indices should be better for people with APBD. Some foods are missing? click the "contribute" option to request/provide data.¦רשימת מאכלים ממויינת לקטגוריות, כגון ערך גליקמי, עומס גליקמי, פחמימות וסוכרים. עומסים גליקמיים נמוכים אמורים להיות טובים יותר לאכילה לאנשים עם APBD. חסר מאכלים? לחצו על אפשרות "הוספה לאתר" כדי לבקש/לספק נתונים.⤓
 Food Name¦שם מאכל⤓
 Glycemic Index¦ערך גליקמי⤓
 Glycemic Load¦עומס גליקמי⤓
@@ -36,7 +35,7 @@ Provide Food Data¦ספק נתוני מאכל⤓
 Website Code¦קוד האתר⤓
 Discord¦דיסקורד⤓
 Username Copied¦שם משתמש הועתק⤓
-העמוד הזה קיים על מנת לאפשר לך ולאנשים אחרים לעזור אחד לשני, ע"י הרחבה של רשימת המאכלים המתועדים. אין צורך לחשוש אם לא בטוחים/יודעים מידע מסוים - אני על זה :)
+העמוד הזה קיים על מנת לאפשר לך ולאנשים אחרים לעזור אחד לשני, ע&quot;י הרחבה של רשימת המאכלים המתועדים. אין צורך לחשוש אם לא בטוחים/יודעים מידע מסוים - אני על זה :)
 Food Name (English)¦שם המאכל (אנגלית)⤓
 Food Name (Hebrew)¦שם המאכל (עברית)⤓
 I don't know¦אני לא יודע⤓
@@ -53,7 +52,7 @@ In Grams¦בגרמים⤓
 Per 100 Grams¦ל-100 גרם מאכל⤓
 Each food has a glycemic index, ranging from 0 to 100. A higher value spikes blood sugar higher and more rapidly¦כל אוכל נמצא במקום כלשהו על מדד הערך הגליקמי. ערכים גבוהים "מקפיצים" את רמת הסוכר בדם לרמה גבוהה, ובמהירות⤓
 Glycemic Load is defined by the glycemic index, divided by 100, then multiplied by the amount of carbs the food contains (in grams). A higher value spikes blood sugar higher and more rapidly¦עומס גליקמי מחושב באמצעות חילוק הערך הגליקמי ב-100, והכפלת התוצאה בכמות הפחממות שבאוכל, בגרמים. ערכים גבוהים יותר "מקפיצים" את רמת הסוכר בדם לרמה גבוהה, ובמהירות⤓
-Sugar is one of the three types of carbohydrates. aside from it, there are also starches &amp; fibers. Fibers are "ok" carbs, while starches &amp; sugars are "bad" carbs.¦סוכר הוא אחד משלושת סוגי הפחמימות: סיבים, סוכר, ועמילן. סיבים הן פחמימה "טובה", בעוד שעמילן וסוכר הן פחמימות "רעות".⤓
+Sugar is one of the three types of carbohydrates. aside from it, there are also starches & fibers. Fibers are "ok" carbs, while starches & sugars are "bad" carbs.¦סוכר הוא אחד משלושת סוגי הפחמימות: סיבים, סוכר, ועמילן. סיבים הן פחמימה "טובה", בעוד שעמילן וסוכר הן פחמימות "רעות".⤓
 Almost every single food contains carbohydrates. Our body uses them to generate energy¦רוב המאכלים מכילים כמות מסוימת של פחמימות. הגוף שלנו משתמש בהם על מנת לייצר אנרגיה⤓
 Sort By¦מיין לפי⤓
 Those who took part in improving and expanding the list should be remembered. Major thank-yous! ♥️¦מגיע לכל מי שלקח חלק בשיפור והרחבת האתר, שידעו שעשה ותרם רבות. תודה רבה רבה לכם! ♥️⤓
@@ -240,4 +239,4 @@ Not Good¦לא טוב⤓
 Very Bad¦רע מאוד⤓
 Milk 1%¦חלב 1%⤓
 Milk 3.6%¦חלב 3.6%⤓
-Goat Milk 3.7%¦חלב עזים 3.7%⤓</body></html>
+Goat Milk 3.7%¦חלב עזים 3.7%⤓

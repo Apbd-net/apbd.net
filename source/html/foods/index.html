@@ -116,7 +116,7 @@
         </div>
 
             <table id="food-list" style="display: table;">
-                <tbody>
+                <thead>
                     <tr style="position: sticky; top: 0px; background-color: #111;">
                         <th style="padding-block: 5px;" en="Weight (In Grams)" he="משקל (בגרמים)">Weight (In Grams)</th>
                         <th style="padding-block: 5px;" en="Food Name" he="שם מאכל">Food Name</th>
@@ -125,6 +125,8 @@
                         <th style="padding-block: 5px;" en="Sugars (In Grams)" he="סוכרים (בגרמים)">Sugars (In Grams)</th>
                         <th style="padding-block: 5px;" en="Carbs (In Grams)" he="פחמימות (בגרמים)">Carbs (In Grams)</th>
                     </tr>
+                </thead>
+                <tbody id="FOODLIST_ENTRIES">
                     <tr>
                         <td><input type="number" id="grams" value="100"></td>
                         <td en="Acerola Cherry" he="דובדבן ברבדוס">Acerola Cherry</td>
@@ -1624,7 +1626,6 @@
     <script src="/js/foods/help-marks.js"></script>
     <script src="/js/foods/searchbar.js"></script>
     <script src="/js/foods/table-sorter.js"></script>
-    <script src="/js/foods/table-data.js"></script>
     <script src="/js/foods/table-loader.js"></script>
 </body>
 
