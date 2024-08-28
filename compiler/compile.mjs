@@ -267,21 +267,19 @@ function main() {
             .on("change", path => {
                 let toolId = path.split(sl())[2];
                 let actualPath = path.split(sl()).slice(3).join(sl());
-                log(actualPath);
-                log(`File Changed: ${path.replace(getLangDir(HTML), "")}`);
+                if (!LAUNCH_DEV_SERVER) log(`File Changed: ${path.replace(getLangDir(HTML), "")}`);
                 buildHTMLFile(actualPath, toolId);
             })
             .on("add", path => {
                 let toolId = path.split(sl())[2];
                 let actualPath = path.split(sl()).slice(3).join(sl());
-                log(actualPath);
-                log(`File Added: ${path.replace(getLangDir(HTML), "")}`);
+                if (!LAUNCH_DEV_SERVER) log(`File Added: ${path.replace(getLangDir(HTML), "")}`);
                 buildHTMLFile(actualPath, toolId);
             })
             .on("unlink", path => {
                 let toolId = path.split(sl())[2];
                 let actualPath = path.split(sl()).slice(3).join(sl());
-                log(`File Removed: ${path.replace(getLangDir(HTML), "")}`);
+                if (!LAUNCH_DEV_SERVER) log(`File Removed: ${path.replace(getLangDir(HTML), "")}`);
                 removeHTMLFile(actualPath, toolId);
             });
 
@@ -291,17 +289,17 @@ function main() {
                 .on("ready", () => { })
                 .on("change", path => {
                     path = path.split(sl()).slice(2).join(sl());
-                    log(`Asset Changed (${lang}): ${path}`);
+                    if (!LAUNCH_DEV_SERVER) log(`Asset Changed (${lang}): ${path}`);
                     copyOtherFiles(path, lang);
                 })
                 .on("add", path => {
                     path = path.split(sl()).slice(2).join(sl());
-                    log(`Asset Added (${lang}): ${path}`);
+                    if (!LAUNCH_DEV_SERVER) log(`Asset Added (${lang}): ${path}`);
                     copyOtherFiles(path, lang);
                 })
                 .on("unlink", path => {
                     path = path.split(sl()).slice(2).join(sl());
-                    log(`Asset Removed (${lang}): ${path}`);
+                    if (!LAUNCH_DEV_SERVER) log(`Asset Removed (${lang}): ${path}`);
                     removeOtherFiles(path, lang);
                 });
         }
