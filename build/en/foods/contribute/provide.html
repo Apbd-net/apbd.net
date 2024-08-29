@@ -121,6 +121,18 @@
                 </tr>
                 <tr>
                     <th>
+                        <help>Change this value if the food you'd like to provide has a specific weight to it (for example, a Big Mac weighs 220 grams)</help>
+                        <span>Optional: Food's Weight</span>
+                    </th>
+                    <td>
+                        <input type="number" id="food-weight" placeholder="100" value="100" min="0"> 
+                        <div class="button-row">
+                            <button type="button" onclick="document.getElementById('food-weight').value = 100; this.classList.toggle('selected');">Reset to 100g</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
                         <help>If the specific food you're requesting is produced by a specific company, mention it here, This allows me to tag the item with the company and it's logo.</help>
                         <span>Optional: Food's Company</span>
                     </th>
@@ -214,70 +226,54 @@
 
                 let name = document.getElementById("name").value;
                 let name__RatherNotProvide = document.getElementById("n-np").classList.contains("selected");
-
                 if (name.length === 0 && !name__RatherNotProvide) {
                     output.innerHTML = "Please provide a name, or select 'I'd rather not provide'.";
                     submit.textContent = "Submit";
                     return;
                 }
 
-                let foodName = document.getElementById("food-name-english").value;
-                let foodName__NotSure = document.getElementById("fn-ns").classList.contains("selected");
-                let foodName__DontKnow = document.getElementById("fn-dk").classList.contains("selected");
+                let foodEn = document.getElementById("food-name-english").value;
+                let foodEn_NotSure = document.getElementById("fn-ns").classList.contains("selected");
+                let foodEn_DontKnow = document.getElementById("fn-dk").classList.contains("selected");
+                let foodEn_Sureness = foodEn_DontKnow ? 0 : foodEn_NotSure ? 1 : 2;
 
-                if (foodName.length === 0 && !foodName__DontKnow) {
-                    output.innerHTML = "Please provide a food name, or select 'I don't know'.";
-                    submit.textContent = "Submit";
-                    return;
-                }
+                let foodHe = document.getElementById("food-name-hebrew").value;
+                let foodHe_NotSure = document.getElementById("t-ns").classList.contains("selected");
+                let foodHe_DontKnowAny = document.getElementById("t-dk").classList.contains("selected");
+                let foodHe_Sureness = foodHe_DontKnowAny ? 0 : foodHe_NotSure ? 1 : 2;
 
-                let translations = document.getElementById("food-name-hebrew").value;
-                let translations__NotSure = document.getElementById("t-ns").classList.contains("selected");
-                let translations__DontKnowAny = document.getElementById("t-dk").classList.contains("selected");
+                let foodCompany = document.getElementById("company").value;
+                console.log(foodCompany, foodCompany.length);
+                
+                let foodCompanyObject = foodCompany.length === 0 ? null :
+                    foodCompany.startsWith("{") ? JSON.parse(foodCompany) : 
+                    { ID: foodCompany, en: "<TRANSLATION NEEDED>", he: "<TRANSLATION NEEDED>" };
 
-                let company = document.getElementById("company").value;
-                let company__NotSure = document.getElementById("co-ns").classList.contains("selected");
-                let company__DontKnowAny = document.getElementById("co-dk").classList.contains("selected");
+                let foodWeight = document.getElementById("food-weight").value;
 
                 let glycemicIndex = document.getElementById("glycemic-index").value;
-                let glycemicIndex__NotSure = document.getElementById("gi-ns").classList.contains("selected");
-                let glycemicIndex__DontKnow = document.getElementById("gi-dk").classList.contains("selected");
-
-                if (glycemicIndex.length === 0 && !glycemicIndex__DontKnow) {
-                    output.innerHTML = "Please provide a glycemic index, or select 'I don't know'.";
-                    submit.textContent = "Submit";
-                    return;
-                }
+                let glycemicIndex_NotSure = document.getElementById("gi-ns").classList.contains("selected");
+                let glycemicIndex_DontKnow = document.getElementById("gi-dk").classList.contains("selected");
+                glycemicIndex = glycemicIndex_DontKnow ? -1 : glycemicIndex
+                let glycemicIndex_Metadata = glycemicIndex_NotSure ? "inaccurate" : "";
 
                 let glycemicLoad = document.getElementById("glycemic-load").value;
-                let glycemicLoad__NotSure = document.getElementById("gl-ns").classList.contains("selected");
-                let glycemicLoad__DontKnow = document.getElementById("gl-dk").classList.contains("selected");
-
-                if (glycemicLoad.length === 0 && !glycemicLoad__DontKnow) {
-                    output.innerHTML = "Please provide a glycemic load, or select 'I don't know'.";
-                    submit.textContent = "Submit";
-                    return;
-                }
+                let glycemicLoad_NotSure = document.getElementById("gl-ns").classList.contains("selected");
+                let glycemicLoad_DontKnow = document.getElementById("gl-dk").classList.contains("selected");
+                glycemicLoad = glycemicLoad_DontKnow ? -1 : glycemicLoad;
+                let glycemicLoad_Metadata = glycemicLoad_NotSure ? "inaccurate" : "";
 
                 let sugar = document.getElementById("sugar").value;
-                let sugar__NotSure = document.getElementById("s-ns").classList.contains("selected");
-                let sugar__DontKnow = document.getElementById("s-dk").classList.contains("selected");
-
-                if (sugar.length === 0 && !sugar__DontKnow) {
-                    output.innerHTML = "Please provide sugar amount, or select 'I don't know'.";
-                    submit.textContent = "Submit";
-                    return;
-                }
+                let sugar_NotSure = document.getElementById("s-ns").classList.contains("selected");
+                let sugar_DontKnow = document.getElementById("s-dk").classList.contains("selected");
+                sugar = sugar_DontKnow ? -1 : sugar;
+                let sugar_Metadata = sugar_NotSure ? "inaccurate" : "";
 
                 let carbs = document.getElementById("carbs").value;
-                let carbs__NotSure = document.getElementById("c-ns").classList.contains("selected");
-                let carbs__DontKnow = document.getElementById("c-dk").classList.contains("selected");
-
-                if (carbs.length === 0 && !carbs__DontKnow) {
-                    output.innerHTML = "Please provide carbs amount, or select 'I don't know'.";
-                    submit.textContent = "Submit";
-                    return;
-                }
+                let carbs_NotSure = document.getElementById("c-ns").classList.contains("selected");
+                let carbs_DontKnow = document.getElementById("c-dk").classList.contains("selected");
+                carbs = carbs_DontKnow ? -1 : carbs;
+                let carbs_Metadata = carbs_NotSure ? "inaccurate" : "";
 
                 if (document.getElementById("food-name-english").classList.contains("already-exists") || document.getElementById("food-name-hebrew").classList.contains("already-exists")) {
                     output.innerHTML = "Food already exists in the food list.";
@@ -287,55 +283,27 @@
 
                 output.innerHTML = "Testing For Attempted XSS Attacks...";
 
-                if (name.attemptedXSS() || foodName.attemptedXSS() || glycemicIndex.attemptedXSS() || glycemicLoad.attemptedXSS() || sugar.attemptedXSS() || carbs.attemptedXSS() || translations.attemptedXSS()) {
+                if (name.attemptedXSS() || foodEn.attemptedXSS() || glycemicIndex.attemptedXSS() || glycemicLoad.attemptedXSS() || sugar.attemptedXSS() || carbs.attemptedXSS() || foodHe.attemptedXSS()) {
                     output.innerHTML = "Nice try 😉";
                     submit.textContent = "Submit";
                     return;
                 }
 
-                output.innerHTML = "Building Submission Packet...";
+                output.innerHTML = "Building & Sending Submission Packet...";
 
-                let payload = {
-                    type: "provide",
-                    name: name.length === 0 || name__RatherNotProvide ? "Anonymous" : name,
-                    foodEnglish: foodName.length === 0 ? "<english not given>" : foodName,
-                    foodEnglishSecurity: foodName__DontKnow ? 0 : (foodName__NotSure ? 1 : 2),
-                    foodHebrew: translations.length === 0 ? "<hebrew not given>" : translations,
-                    foodHebrewSecurity: translations__DontKnowAny ? 0 : (translations__NotSure ? 1 : 2),
-                    glycemicIndex: glycemicIndex.length === 0 ? -1 : parseFloat(glycemicIndex),
-                    glycemicIndexSecurity: glycemicIndex__DontKnow ? 0 : (glycemicIndex__NotSure ? 1 : 2),
-                    glycemicLoad: glycemicLoad.length === 0 ? -1 : parseFloat(glycemicLoad),
-                    glycemicLoadSecurity: glycemicLoad__DontKnow ? 0 : (glycemicLoad__NotSure ? 1 : 2),
-                    sugar: sugar.length === 0 ? -1 : parseFloat(sugar),
-                    sugarSecurity: sugar__DontKnow ? 0 : (sugar__NotSure ? 1 : 2),
-                    carbs: carbs.length === 0 ? -1 : parseFloat(carbs),
-                    carbsSecurity: carbs__DontKnow ? 0 : (carbs__NotSure ? 1 : 2),
-                    company: company.length === 0 ? null : company,
-                }
-
-                if (payload.foodEnglishSecurity == 0 && payload.foodHebrewSecurity == 0 && payload.glycemicIndexSecurity == 0) {
-                    output.innerHTML = "Contribution not submitted: not enough information provided.";
-                    submit.textContent = "Submit";
-                    return;
-                } else {
-                    output.innerHTML = "Sending Submission Packet...";
-                    fetch("https://apbd-contrib-bot.shaharmsecond.workers.dev/", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify(payload),
+                provideUsingDetails(name, [foodEn, foodEn_Sureness], [foodHe, foodHe_Sureness], foodWeight, foodCompanyObject, {value: glycemicIndex, metadata: glycemicIndex_Metadata}, {value: glycemicLoad, metadata: glycemicLoad_Metadata}, {value: sugar, metadata: sugar_Metadata}, {value: carbs, metadata: carbs_Metadata})
+                    .then(response => {
+                        output.innerHTML = response;
+                        submit.textContent = "Submit";
+                        // document.getElementById("food-name-english").value = "";
+                        // document.getElementById("food-name-hebrew").value = "";
+                        // document.getElementById("food-weight").value = "";
+                        // document.getElementById("glycemic-index").value = "";
+                        // document.getElementById("glycemic-load").value = "";
+                        // document.getElementById("sugar").value = "";
+                        // document.getElementById("carbs").value = "";
+                        // document.getElementById("company").value = "";
                     })
-                        .then(response => {
-                            output.innerHTML = "Getting Response...";
-                            return response.text();
-                        })
-                        .then(data => {
-                            output.innerHTML = data;
-                            submit.textContent = "Submit";
-                        });
-                }
-
 
             }   
         </script>
@@ -345,6 +313,7 @@
     <script src="/js/foods/help-marks.js"></script>
     <script src="/js/foods/choice-buttons.js"></script>
     <script src="/js/foods/food-name-validator.js"></script>
+    <script src="/js/foods/contribute.js"></script>
 
 
 

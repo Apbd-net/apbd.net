@@ -28,7 +28,6 @@ const PROJECT_SCRIPTS = {
             // We know were running from project root
             // foods' index.html is in source/html/foods/
             let tableHtml = readFileSync("source/html/foods/index.html", "utf8");
-            log(tableHtml);
             let p = new JSDOM(tableHtml);
             let tableBody = p.window.document.getElementById("FOODLIST_ENTRIES");
             let json = {
@@ -106,19 +105,6 @@ const PROJECT_SCRIPTS = {
                 })
             }
             return JSON.stringify(json);
-        },
-        "index.html": (content) => {
-            if (content.startsWith("<tr>")) {
-                // Content was just added by the bot. Move it to the correct place:
-                let tRowEnd = content.indexOf("</tr>");
-                let tRow = content.slice(0, tRowEnd + 5);
-                content = content.slice(tRowEnd + 5);
-
-                let p = new JSDOM(content);
-                p.window.document.getElementById("FOODLIST_ENTRIES").innerHTML += tRow;
-
-                return p.serialize();
-            }
         },
         "contribute/leaderboards.html": (content) => {
             if (content.startsWith("<tr>")) {

@@ -58,14 +58,13 @@ function activateFoodNameValidator(data) {
 
         let processed = companyField.value.trim().toLowerCase().replace(" ", "-");
 
-        console.log(tableData.filter(data => data.foodNameEn == enField.value || data.foodNameHe == heField.value));
 
-        if (tableData.some(data => (data.foodNameEn == enField.value || data.foodNameHe == heField.value) && (data.companyEn != processed && data.companyHe != processed && data.companyId != processed))) {
+        if (false) {
             heField.classList.remove("already-exists");
             heSpan.innerHTML = "";
             enField.classList.remove("already-exists");
             enSpan.innerHTML = "";
-        } else if (tableData.some(data => (data.foodNameEn == enField.value || data.foodNameHe == heField.value) && (data.companyEn == processed || data.companyHe == processed || data.companyId == processed))) {
+        } else if (false) {
             heField.classList.add("already-exists");
             heSpan.innerHTML = translationMatrix[89][languageIndex];
             enField.classList.add("already-exists");
@@ -75,5 +74,5 @@ function activateFoodNameValidator(data) {
 
     let companiesDatalist = document.getElementById("companies");
 
-    companiesDatalist.innerHTML = data.companies.map(company => `<option value='{ID: ${company.ID}, en: ${company.en}, he: ${company.he}}'>${window.document.dir == "ltr" ? company.en : company.he}</option>`).join("\n");
+    companiesDatalist.innerHTML = data.companies.map(company => `<option value='{"ID": "${company.ID}", "en": "${company.en}", "he": "${company.he}"}'>${window.document.dir == "ltr" ? company.en : company.he}</option>`).join("\n");
 }

@@ -104,7 +104,7 @@
                             <span en="Name" he="שם">Name</span>
                         </th>
                         <td>
-                            <input id="name" placeholder-en="First and last name..."
+                            <input id="name1" placeholder-en="First and last name..."
                                 placeholder-he="שם פרטי ושם משפחה..."
                                 oninput="document.getElementById('c2').style.display = document.getElementById('or').style.display = (this.value.length !== 0 || document.getElementById('n-np1').classList.contains('selected') ? 'none' : '')">
                             <div class="button-row">
@@ -189,7 +189,7 @@
                             <span en="Name" he="שם">Name</span>
                         </th>
                         <td>
-                            <input id="name" placeholder-en="First and last name..."
+                            <input id="name2" placeholder-en="First and last name..."
                                 placeholder-he="שם פרטי ושם משפחה..."
                                 oninput="document.getElementById('c1').style.display = document.getElementById('or').style.display = (this.value.length !== 0 || document.getElementById('n-np2').classList.contains('selected') ? 'none' : '')">
                             <div class="button-row">
@@ -278,6 +278,7 @@
     <script src="/js/foods/choice-buttons.js"></script>
     <script src="/js/foods/food-name-validator.js"></script>
     <script src="/js/foods/image-processor.js"></script>
+    <script src="/js/foods/contribute.js"></script>
 
     <script>
         String.prototype.attemptedXSS = function () {
@@ -286,7 +287,6 @@
         let submit = document.getElementById("submit");
         let output = document.getElementById("submition-output");
         submit.onclick = () => {
-            console.log(languageIndex);
             let notice = confirm("Are you sure you want to submit?");
             if (!notice) return;
 
@@ -294,38 +294,32 @@
 
             output.innerHTML = "Grabbing Data From Text Fields...";
 
-            let name = document.getElementById("name").value;
-            let name_RatherNotProvide = document.getElementById("n-np").classList.contains("selected");
-
+            let name = document.getElementById("name1").value;
+            let name_RatherNotProvide = document.getElementById("n-np1").classList.contains("selected");
             if (name.length === 0 && !name_RatherNotProvide) {
                 output.innerHTML = "Please provide a name, or select 'I'd rather not provide'.";
                 submit.textContent = "Submit";
                 return;
             }
 
-            let foodName = document.getElementById("food-name-english").value;
-            let foodName_NotSure = document.getElementById("fn-ns").classList.contains("selected");
-            let foodName_DontKnow = document.getElementById("fn-dk").classList.contains("selected");
+            let foodEn = document.getElementById("food-name-english").value;
+            let foodEn_NotSure = document.getElementById("fn-ns").classList.contains("selected");
+            let foodEn_DontKnow = document.getElementById("fn-dk").classList.contains("selected");
+            let foodEn_Sureness = foodEn_DontKnow ? 0 : foodEn_NotSure ? 1 : 2;
 
-            if (foodName.length === 0 && !foodName_DontKnow) {
-                output.innerHTML = "Please provide an english translation of the food name, or select 'I don't know'.";
-                submit.textContent = "Submit";
-                return;
-            }
+            let foodHe = document.getElementById("food-name-hebrew").value;
+            let foodHe_NotSure = document.getElementById("t-ns").classList.contains("selected");
+            let foodHe_DontKnow = document.getElementById("t-dk").classList.contains("selected");
+            let foodHe_Sureness = foodHe_DontKnow ? 0 : foodHe_NotSure ? 1 : 2;
 
-            let translations = document.getElementById("food-name-hebrew").value;
-            let translations_NotSure = document.getElementById("t-ns").classList.contains("selected");
-            let translations_DontKnow = document.getElementById("t-dk").classList.contains("selected");
-
-            if (translations.length === 0 && !translations_DontKnow) {
-                output.innerHTML = "Please provide a hebrew translation of the food name, or select 'I don't know'.";
-                submit.textContent = "Submit";
-                return;
-            }
+            let foodCompany = document.getElementById("company").value;
+            let foodCompanyObject = foodCompany.length === 0 ? null : 
+                foodCompany.startsWith("{") ? JSON.parse(foodCompany) :
+                { ID: foodCompany, en: "<TRANSLATION NEEDED>", he: "<TRANSLATION NEEDED>" };
 
             output.innerHTML = "Testing For Attempted XSS Attacks...";
 
-            if (name.attemptedXSS() || foodName.attemptedXSS() || translations.attemptedXSS()) {
+            if (name.attemptedXSS() || foodEn.attemptedXSS() || foodHe.attemptedXSS()) {
                 output.innerHTML = "Nice try 😉";
                 submit.textContent = "Submit";
                 return;
@@ -337,40 +331,15 @@
                 return;
             }
 
-            output.innerHTML = "Building Request Packet...";
-
-            let payload = {
-                type: "request",
-                name: name.length === 0 || name_RatherNotProvide ? "Anonymous" : name,
-                foodEnglish: foodName.length === 0 ? "Not Given" : foodName,
-                foodEnglishSecurity: foodName_DontKnow ? 0 : (foodName_NotSure ? 1 : 2),
-                foodHebrew: translations.length === 0 || translations_DontKnow ? "Not Given" : translations,
-                foodHebrewSecurity: translations_DontKnow ? 0 : (translations_NotSure ? 1 : 2),
-            }
-
-            if (foodName_DontKnow && translations_DontKnow) {
-                // Ignore "nonsense" requests
-                output.innerHTML = "Request not submitted: no information provided.";
-                submit.textContent = "Submit";
-                return;
-            } else {
-                output.innerHTML = "Sending Request Packet...";
-                fetch("https://apbd-contrib-bot.shaharmsecond.workers.dev/", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(payload),
-                })
-                    .then(response => {
-                        output.innerHTML = "Getting Response...";
-                        return response.text();
-                    })
-                    .then(data => {
-                        output.innerHTML = data;
-                        submit.textContent = "Submit";
-                    });
-            }
+            output.innerHTML = "Building & Sending Request Packet...";
+            requestUsingDetails(name, [foodEn, foodEn_Sureness], [foodHe, foodHe_Sureness], foodCompanyObject)
+                .then(response => {
+                    output.innerHTML = response;
+                    submit.textContent = "Submit";
+                    document.getElementById("food-name-english").value = "";
+                    document.getElementById("food-name-hebrew").value = "";
+                    document.getElementById("company").value = "";
+                });
         }
     </script>
 </body>
