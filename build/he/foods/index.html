@@ -102,7 +102,7 @@
             </select>
         </div>
 
-            <table id="food-list" style="display: table;">
+            <table id="food-list" style="display: none;">
                 <thead>
                     <tr style="position: sticky; top: 0px; background-color: #111;">
                         <th style="padding-block: 5px;">משקל (בגרמים)</th>
@@ -1588,6 +1588,7 @@
                     </tr>
                 </tbody>
             </table>
+            <script>document.getElementById("food-list").style.display = "table"</script>
 
         <div id="add-item-prompt">
             <h3>לא מצאת את מה שחיפשת?</h3>
