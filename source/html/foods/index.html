@@ -115,7 +115,9 @@
             </select>
         </div>
 
-            <table id="food-list" style="display: none;">
+        <p id="sorting-identifier" en="Sorting List..." he="ממיין רשימה..."></p>
+
+            <table id="food-list" style="display: table;">
                 <thead>
                     <tr style="position: sticky; top: 0px; background-color: #111;">
                         <th style="padding-block: 5px;" en="Weight (In Grams)" he="משקל (בגרמים)">Weight (In Grams)</th>
@@ -1615,13 +1617,12 @@
                     </tr>
                 </tbody>
             </table>
-            <script>document.getElementById("food-list").style.display = "table"</script>
 
         <div id="add-item-prompt">
             <h3 en="Can't find what you're looking for?" he="לא מצאת את מה שחיפשת?">Can't find what you're looking for?</h3>
             <a class="add-item-button" href="./contribute/request.html"  en="Request The Item" he="בקש את הפריט">
                 Request The Item
-            </a>
+            </a> 
         </div>
     </div>  
     <script src="/js/foods/help-marks.js"></script>

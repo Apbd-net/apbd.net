@@ -102,7 +102,9 @@
             </select>
         </div>
 
-            <table id="food-list" style="display: none;">
+        <p id="sorting-identifier">Sorting List...</p>
+
+            <table id="food-list" style="display: table;">
                 <thead>
                     <tr style="position: sticky; top: 0px; background-color: #111;">
                         <th style="padding-block: 5px;">Weight (In Grams)</th>
@@ -1588,11 +1590,10 @@
                     </tr>
                 </tbody>
             </table>
-            <script>document.getElementById("food-list").style.display = "table"</script>
 
         <div id="add-item-prompt">
             <h3>Can't find what you're looking for?</h3>
-            <a class="add-item-button" href="./contribute/request.html">Request The Item</a>
+            <a class="add-item-button" href="./contribute/request.html">Request The Item</a> 
         </div>
     </div>  
     <script src="/js/foods/help-marks.js"></script>

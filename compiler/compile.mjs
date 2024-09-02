@@ -2,7 +2,7 @@
 
 import { JSDOM } from "jsdom";
 import { readdirSync, copyFileSync, mkdirSync, readFileSync, writeFileSync, rmSync, existsSync, unlinkSync, cpSync } from "fs";
-import { log } from "console";
+import { info, log } from "console";
 import { watch } from "chokidar";
 import { chdir, cwd } from "process";
 import { exec } from "child_process";
@@ -24,7 +24,8 @@ const EXCLUDED_ROOT_PATHS = {
  */
 const PROJECT_SCRIPTS = {
     "foods": {
-        "data.json": (_) => {
+        "data.json": (_, runsOnLiveLoad) => {
+            if (runsOnLiveLoad) return null; // Slight optimization
             // We know were running from project root
             // foods' index.html is in source/html/foods/
             let tableHtml = readFileSync("source/html/foods/index.html", "utf8");
@@ -105,19 +106,6 @@ const PROJECT_SCRIPTS = {
                 })
             }
             return JSON.stringify(json);
-        },
-        "contribute/leaderboards.html": (content) => {
-            if (content.startsWith("<tr>")) {
-                // Content was just added by the bot. Move it to the correct place:
-                let tRowEnd = content.indexOf("</tr>");
-                let tRow = content.slice(0, tRowEnd + 5);
-                content = content.slice(tRowEnd + 5);
-
-                let p = new JSDOM(content);
-                p.window.document.getElementById("CONTRIBUTORS").innerHTML += tRow;
-
-                return p.serialize();
-            }
         }
     },
     "landing-page": {}
@@ -138,6 +126,7 @@ const JS = `js`;
 const IMG = `img`;
 const SUPPORTED_PROGRAMMING_LANGUAGES = [CSS, JS, IMG];
 
+var LIVE_SERVER_ACTIVE = false;
 
 /**
  * Returns the directory build path for a given language.
@@ -280,7 +269,7 @@ function buildTool(toolId, rootFiles) {
         if (PROJECT_SCRIPTS[toolId][file]) {
             let content = readFileSync(getToolDir(toolId) + file, "utf-8");
             log(`Running specified script on ${file}`);
-            content = PROJECT_SCRIPTS[toolId][file](content) || content;
+            content = PROJECT_SCRIPTS[toolId][file](content, LIVE_SERVER_ACTIVE) || content;
             writeFileSync(getToolDir(toolId) + file, content);
         }
         // Other types of files are not present in the tool's directories
@@ -365,6 +354,7 @@ function main() {
         if (LAUNCH_DEV_SERVER) {
             log(`Starting development server...`);
             liveServer.start({ root: BUILD_PATH, open: true });
+            LIVE_SERVER_ACTIVE = true;
             process.on("SIGINT", () => {
                 liveServer.shutdown()
                 log("Server stopped. Exiting...");

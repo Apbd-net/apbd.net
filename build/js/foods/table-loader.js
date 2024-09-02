@@ -16,8 +16,8 @@ let table = document.getElementById("food-list");
 let rows = Array.from(table.getElementsByTagName("tr"));
 
 sortBy(rows, parameters.get("sort"));
-
 table.innerHTML = rows.map(row => row.outerHTML).join("\n");
+document.getElementById("sorting-identifier").style.display = "none";
 
 table = document.getElementById("food-list");
 rows = Array.from(table.getElementsByTagName("tr"));
