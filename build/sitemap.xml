@@ -2,34 +2,42 @@
 <!-- Generate sitemap XML-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
-    xmlns:xhtml="http://www.w3.org/1999/xhtml"
-    xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
     <url>
         <loc>https://apbd.net/en/foods</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://apbd.net/en/foods" />
         <xhtml:link rel="alternate" hreflang="he" href="https://apbd.net/he/foods" />
-        
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://apbd.net/en/foods" />
+        <priority>1.0</priority>
     </url>
     <url>
         <loc>https://apbd.net/en/foods/about/database.html</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://apbd.net/en/foods/about/database.html" />
         <xhtml:link rel="alternate" hreflang="he" href="https://apbd.net/he/foods/about/database.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://apbd.net/en/foods/about/database.html" />
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://apbd.net/en/foods/contribute/leaderboards.html</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://apbd.net/en/foods/contribute/leaderboards.html" />
         <xhtml:link rel="alternate" hreflang="he" href="https://apbd.net/he/foods/contribute/leaderboards.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://apbd.net/en/foods/contribute/leaderboards.html" />
+        <priority>0.6</priority>
     </url>
     <url>
         <loc>https://apbd.net/en/foods/contribute/request.html</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://apbd.net/en/foods/contribute/request.html" />
         <xhtml:link rel="alternate" hreflang="he" href="https://apbd.net/he/foods/contribute/request.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://apbd.net/en/foods/contribute/request.html" />
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>https://apbd.net/en/foods/contribute/provide.html</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://apbd.net/en/foods/contribute/provide.html" />
         <xhtml:link rel="alternate" hreflang="he" href="https://apbd.net/he/foods/contribute/provide.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://apbd.net/en/foods/contribute/provide.html" />
+        <priority>0.8</priority>
     </url>
 </urlset>
