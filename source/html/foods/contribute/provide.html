@@ -237,6 +237,38 @@
                 <tr>
                     <th>
                         <help
+                            en="Starch is one of the three types of carbohydrates. aside from it, there are also fibers. Fibers are 'ok' carbs, while starches & sugars are 'bad' carbs."
+                            he="עמילן הוא אחד משלושת סוגי הפחמימות. סיבים תזונתיים הם הפחמימות הטובות, בעוד שעמילן וסוכר הן הפחמימות ה'רעות'."
+                        ></help>
+                        <span en="Starch (Per 100g)" he="עמילן (ל-100 גרם)"></span>
+                    </th>
+                    <td>
+                        <input id="starch" type="number" placeholder-en="Starch (grams)" placeholder-he="עמילן (גרם)" min="0">
+                        <div class="button-row">
+                            <button id="st-ns" type="button" en="I'm not sure" he="אני לא בטוח">I'm not sure</button>
+                            <button id="st-dk" type="button" en="I don't know" he="אני לא יודע">I don't know</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <help
+                            en="Fibers are the only healthy carbohydrates. Meals containing large amounts of fiber are much healthier, but they may make you 'visit' the bathroom more often :)"
+                            he="סיבים תזונתיים הם סוג הפחמימות הטוב היחיד. ארוחות מרובות בסיבים תזונתיים יותר בריאות, אך יכולות לגרום ל'ביקורים' תכופים בשירותים' :)"
+                        ></help>
+                        <span en="Fiber (Per 100g)" he="סיבים תזונתיים (ל-100 גרם)"></span>
+                    </th>
+                    <td>
+                        <input id="fiber" type="number" placeholder-en="Fiber (grams)" placeholder-he="סיבים תזונתיים (גרם)" min="0">
+                        <div class="button-row">
+                            <button id="f-ns" type="button" en="I'm not sure" he="אני לא בטוח">I'm not sure</button>
+                            <button id="f-dk" type="button" en="I don't know" he="אני לא יודע">I don't know</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <help
                             en="Almost every single food contains carbohydrates. Our body uses them to generate energy"
                             he="רוב המאכלים מכילים כמות מסוימת של פחמימות. הגוף שלנו משתמש בהם על מנת לייצר אנרגיה">
                         </help>
@@ -320,6 +352,18 @@
                 sugar = sugar_DontKnow ? -1 : sugar;
                 let sugar_Metadata = sugar_NotSure ? "inaccurate" : "";
 
+                let starch = document.getElementById("starch").value;
+                let starch_NotSure = document.getElementById("st-ns").classList.contains("selected");
+                let starch_DontKnow = document.getElementById("st-dk").classList.contains("selected");
+                starch = starch_DontKnow ? -1 : starch;
+                let starch_Metadata = starch_NotSure ? "inaccurate" : "";
+
+                let fiber = document.getElementById("fiber").value;
+                let fiber_NotSure = document.getElementById("f-ns").classList.contains("selected");
+                let fiber_DontKnow = document.getElementById("f-dk").classList.contains("selected");
+                fiber = fiber_DontKnow ? -1 : fiber;
+                let fiber_Metadata = fiber_NotSure ? "inaccurate" : "";
+
                 let carbs = document.getElementById("carbs").value;
                 let carbs_NotSure = document.getElementById("c-ns").classList.contains("selected");
                 let carbs_DontKnow = document.getElementById("c-dk").classList.contains("selected");
@@ -342,7 +386,7 @@
 
                 output.innerHTML = "Building & Sending Submission Packet...";
 
-                provideUsingDetails(name, [foodEn, foodEn_Sureness], [foodHe, foodHe_Sureness], foodWeight, foodCompanyObject, {value: glycemicIndex, metadata: glycemicIndex_Metadata}, {value: glycemicLoad, metadata: glycemicLoad_Metadata}, {value: sugar, metadata: sugar_Metadata}, {value: carbs, metadata: carbs_Metadata})
+                provideUsingDetails(name, [foodEn, foodEn_Sureness], [foodHe, foodHe_Sureness], foodWeight, foodCompanyObject, {value: glycemicIndex, metadata: glycemicIndex_Metadata}, {value: glycemicLoad, metadata: glycemicLoad_Metadata}, {value: sugar, metadata: sugar_Metadata}, {value: starch, metadata: starch_Metadata}, {value: fiber, metadata: fiber_Metadata}, {value: carbs, metadata: carbs_Metadata})
                     .then(response => {
                         output.innerHTML = response;
                         submit.textContent = "Submit";

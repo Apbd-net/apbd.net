@@ -76,7 +76,7 @@
     </header>
 
     <div class="container">
-        <blockquote>העמוד הזה קיים על מנת לאפשר לך ולאנשים אחרים לעזור אחד לשני, ע"י הרחבה של רשימת המאכלים המתועדים. אין צורך לחשוש אם לא בטוחים/יודעים מידע מסוים - אני על זה :)‏</blockquote>
+        <blockquote style="position: sticky; top: 0; background-color: #111111; padding-block: 5px;">העמוד הזה קיים על מנת לאפשר לך ולאנשים אחרים לעזור אחד לשני, ע"י הרחבה של רשימת המאכלים המתועדים. אין צורך לחשוש אם לא בטוחים/יודעים מידע מסוים - אני על זה :)‏</blockquote>
 
         <form id="provide-form">
             <table id="provide-table">
@@ -186,6 +186,32 @@
                 </tr>
                 <tr>
                     <th>
+                        <help>עמילן הוא אחד משלושת סוגי הפחמימות. סיבים תזונתיים הם הפחמימות הטובות, בעוד שעמילן וסוכר הן הפחמימות ה'רעות'.</help>
+                        <span>עמילן (ל-100 גרם)</span>
+                    </th>
+                    <td>
+                        <input id="starch" type="number" min="0" placeholder="עמילן (גרם)">
+                        <div class="button-row">
+                            <button id="st-ns" type="button">אני לא בטוח</button>
+                            <button id="st-dk" type="button">אני לא יודע</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <help>סיבים תזונתיים הם סוג הפחמימות הטוב היחיד. ארוחות מרובות בסיבים תזונתיים יותר בריאות, אך יכולות לגרום ל'ביקורים' תכופים בשירותים' :)</help>
+                        <span>סיבים תזונתיים (ל-100 גרם)</span>
+                    </th>
+                    <td>
+                        <input id="fiber" type="number" min="0" placeholder="סיבים תזונתיים (גרם)">
+                        <div class="button-row">
+                            <button id="f-ns" type="button">אני לא בטוח</button>
+                            <button id="f-dk" type="button">אני לא יודע</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
                         <help>רוב המאכלים מכילים כמות מסוימת של פחמימות. הגוף שלנו משתמש בהם על מנת לייצר אנרגיה</help>
                         <span>פחמימות (ל-100 גרם)</span>
                     </th>
@@ -267,6 +293,18 @@
                 sugar = sugar_DontKnow ? -1 : sugar;
                 let sugar_Metadata = sugar_NotSure ? "inaccurate" : "";
 
+                let starch = document.getElementById("starch").value;
+                let starch_NotSure = document.getElementById("st-ns").classList.contains("selected");
+                let starch_DontKnow = document.getElementById("st-dk").classList.contains("selected");
+                starch = starch_DontKnow ? -1 : starch;
+                let starch_Metadata = starch_NotSure ? "inaccurate" : "";
+
+                let fiber = document.getElementById("fiber").value;
+                let fiber_NotSure = document.getElementById("f-ns").classList.contains("selected");
+                let fiber_DontKnow = document.getElementById("f-dk").classList.contains("selected");
+                fiber = fiber_DontKnow ? -1 : fiber;
+                let fiber_Metadata = fiber_NotSure ? "inaccurate" : "";
+
                 let carbs = document.getElementById("carbs").value;
                 let carbs_NotSure = document.getElementById("c-ns").classList.contains("selected");
                 let carbs_DontKnow = document.getElementById("c-dk").classList.contains("selected");
@@ -289,7 +327,7 @@
 
                 output.innerHTML = "Building & Sending Submission Packet...";
 
-                provideUsingDetails(name, [foodEn, foodEn_Sureness], [foodHe, foodHe_Sureness], foodWeight, foodCompanyObject, {value: glycemicIndex, metadata: glycemicIndex_Metadata}, {value: glycemicLoad, metadata: glycemicLoad_Metadata}, {value: sugar, metadata: sugar_Metadata}, {value: carbs, metadata: carbs_Metadata})
+                provideUsingDetails(name, [foodEn, foodEn_Sureness], [foodHe, foodHe_Sureness], foodWeight, foodCompanyObject, {value: glycemicIndex, metadata: glycemicIndex_Metadata}, {value: glycemicLoad, metadata: glycemicLoad_Metadata}, {value: sugar, metadata: sugar_Metadata}, {value: starch, metadata: starch_Metadata}, {value: fiber, metadata: fiber_Metadata}, {value: carbs, metadata: carbs_Metadata})
                     .then(response => {
                         output.innerHTML = response;
                         submit.textContent = "Submit";

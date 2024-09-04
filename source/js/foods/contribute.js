@@ -39,9 +39,11 @@ async function requestUsingDetails(name, foodEn, foodHe, foodCompany) {
  * @param {{value: number, metadata: string}} gi The food's glycemic index, and additional metadata if needed.
  * @param {{value: number, metadata: string}} gl The food's glycemic load, and additional metadata if needed. 
  * @param {{value: number, metadata: string}} sugar The food's amount of sugar, and additional metadata if needed.
+ * @param {{value: number, metadata: string}} starch The food's amount of starch, and additional metadata if needed.
+ * @param {{value: number, metadata: string}} fiber The food's amount of fiber, and additional metadata if needed.
  * @param {{value: number, metadata: string}} carbs The food's amount of carbs, and additional metadata if needed.
  */
-async function provideUsingDetails(name, foodEn, foodHe, defaultWeight, foodCompany, gi, gl, sugar, carbs) {
+async function provideUsingDetails(name, foodEn, foodHe, defaultWeight, foodCompany, gi, gl, sugar, starch, fiber, carbs) {
     if (!name) name = "Anonymous";
     if (foodEn[0].length === 0 && foodHe[0].length === 0) return Promise.resolve("Addition not submitted: No food name provided.");
     let payload = {
@@ -59,6 +61,10 @@ async function provideUsingDetails(name, foodEn, foodHe, defaultWeight, foodComp
         glycemicLoadMetadata: gl.metadata,
         sugar: sugar.value,
         sugarMetadata: sugar.metadata,
+        starch: starch.value,
+        starchMetadata: starch.metadata,
+        fiber: fiber.value,
+        fiberMetadata: fiber.metadata,
         carbs: carbs.value,
         carbsMetadata: carbs.metadata
     }
