@@ -79,6 +79,11 @@ blockquote:hover {
     display: flex;
 }
 
+.tight {
+    padding-block: 0;
+    margin-block: 0;
+}
+
 .logo {
     display: flex;
     flex-direction: row;
@@ -329,7 +334,7 @@ blockquote:hover {
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
     :root {
         font-size: 0.8em;
     }
@@ -367,9 +372,22 @@ blockquote:hover {
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
     #food-list {
-        font-size: 0.8em;
+        font-size: 0.85em;
+        display: block !important;
+        width: 95vw;
+        overflow-x: scroll;
+    }
+
+    #food-list td, #food-list th {
+        min-width: 50px;
+    }
+
+    #food-list td:nth-child(2) {
+        position: sticky;
+        left: 0;
+        background-color: #111111;
     }
 
     header {
@@ -401,5 +419,38 @@ blockquote:hover {
         width: 80%;
         margin-inline-start: calc(50px + 5%);
         margin-block: 30px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .hide-600px {
+        display: none;
+    }
+}
+@media screen and (min-width: 600px) {
+    .show-600px {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .hide-500px {
+        display: none;
+    }
+}
+@media screen and (min-width: 500px) {
+    .show-500px {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .hide-400px {
+        display: none;
+    }
+}
+@media screen and (min-width: 400px) {
+    .show-400px {
+        display: none;
     }
 }

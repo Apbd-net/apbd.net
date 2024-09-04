@@ -75,11 +75,13 @@ for (let i = 0; i < rows.length; i++) {
         let gi = cells[2].getElementsByTagName("span")[0];
         let gl = cells[3].getElementsByTagName("span")[0];
         let sugar = cells[4].getElementsByTagName("span")[0];
-        let carbs = cells[5].getElementsByTagName("span")[0];
+        let starch = cells[5].getElementsByTagName("span")[0];
+        let fiber = cells[6].getElementsByTagName("span")[0];
+        let carbs = cells[7].getElementsByTagName("span")[0];
 
 
         // Add actual meta-data
-        let elements = [gi, gl, sugar, carbs];
+        let elements = [gi, gl, sugar, starch, fiber, carbs];
         for (let element of elements) {
             if (parseFloat(element.innerText) < 0) {
                 let par = document.createElement("desc");
@@ -152,14 +154,16 @@ for (let i = 0; i < rows.length; i++) {
 
         let name = cells[1];
         if (name.hasAttribute("company")) {
-            name.style.display = "flex";
-            name.style.alignItems = "center";
 
             let companyName = name.getAttribute("company-id");
             let companyImg = document.createElement("img");
             companyImg.crossOrigin = "Anonymous";
             companyImg.style.height = "1.2em";
             companyImg.style.display = "inline";
+            // And center the image inside the table cell vertically
+            name.style.verticalAlign = "middle";
+            companyImg.style.verticalAlign = "middle";
+
             companyImg.src = `/img/foods/logos/${companyName}.png`;
             companyImg.alt = companyName + " Logo";
             companyImg.style.paddingInlineEnd = "0.5rem";

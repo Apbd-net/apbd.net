@@ -103,6 +103,7 @@
         </div>
 
         <p id="sorting-identifier">Sorting List...</p>
+        <p class="show-500px tight">Scroll Sideways to reveal more details →</p>
 
             <table id="food-list" style="display: table;">
                 <thead>
@@ -111,8 +112,10 @@
                         <th style="padding-block: 5px;">Food Name</th>
                         <th style="padding-block: 5px;">Glycemic Index</th>
                         <th style="padding-block: 5px;">Glycemic Load</th>
-                        <th style="padding-block: 5px;">Sugars (In Grams)</th>
-                        <th style="padding-block: 5px;">Carbs (In Grams)</th>
+                        <th style="padding-block: 5px;">Sugars <span class="hide-500px">(In Grams)</span></th>
+                        <th style="padding-block: 5px;">Starch <span class="hide-500px">(In Grams)</span></th>
+                        <th style="padding-block: 5px;">Fiber <span class="hide-500px">(In Grams)</span></th>
+                        <th style="padding-block: 5px;">Carbs <span class="hide-500px">(In Grams)</span></th>
                     </tr>
                 </thead>
                 <tbody id="FOODLIST_ENTRIES">
@@ -122,6 +125,8 @@
                         <td><span style="color: #00ff00">-1</span></td>
                         <td><span class="GLFIELD" value="-1">-1</span></td>
                         <td><span class="SUGARFIELD" value="1.4">1.4</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="16.5">16.5</span></td>
                     </tr>
                     <tr>
@@ -130,6 +135,8 @@
                         <td><span style="color: #00ff00">-1</span></td>
                         <td><span class="GLFIELD" value="-1">-1</span></td>
                         <td><span class="SUGARFIELD" value="1.5">1.5</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="12">12</span></td>
                     </tr>
                     <tr>
@@ -138,6 +145,8 @@
                         <td><span inaccurate="" style="color: #00ff00">30</span></td>
                         <td><span inaccurate="" class="GLFIELD" value="4.1">4.1</span></td>
                         <td><span class="SUGARFIELD" value="7.87">7.87</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="16.8">16.8</span></td>
                     </tr>
                     <tr>
@@ -146,6 +155,8 @@
                         <td><span style="color: #00ff00">20</span></td>
                         <td><span class="GLFIELD" value="0.1">0.1</span></td>
                         <td><span class="SUGARFIELD" value="-1">-1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="7.69">7.69</span></td>
                     </tr>
                     <tr>
@@ -154,6 +165,8 @@
                         <td><span style="color: #00ff00">25</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -162,6 +175,8 @@
                         <td><span style="color: #9fe2bf">35</span></td>
                         <td><span class="GLFIELD" value="19.9">19.9</span></td>
                         <td><span class="SUGARFIELD" value="1.69">1.69</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="65.2">65.2</span></td>
                     </tr>
                     <tr>
@@ -170,6 +185,8 @@
                         <td><span style="color: #9fe2bf">36</span></td>
                         <td><span class="GLFIELD" value="5">5</span></td>
                         <td><span class="SUGARFIELD" value="10.38">10.38</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="13.81">13.81</span></td>
                     </tr>
                     <tr>
@@ -178,6 +195,8 @@
                         <td><span style="color: #9fe2bf">34</span></td>
                         <td><span class="GLFIELD" value="3.8">3.8</span></td>
                         <td><span class="SUGARFIELD" value="9.24">9.24</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="11.12">11.12</span></td>
                     </tr>
                     <tr>
@@ -186,6 +205,8 @@
                         <td><span style="color: #ff0000">85</span></td>
                         <td><span class="GLFIELD" value="72">72</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="88.2">88.2</span></td>
                     </tr>
                     <tr>
@@ -194,6 +215,8 @@
                         <td><span style="color: #00ff00">20</span></td>
                         <td><span class="GLFIELD" value="1.2">1.2</span></td>
                         <td><span class="SUGARFIELD" value="0.99">0.99</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="10.51">10.51</span></td>
                     </tr>
                     <tr>
@@ -202,6 +225,8 @@
                         <td><span style="color: #00ff00">10</span></td>
                         <td><span class="GLFIELD" value="0.9">0.9</span></td>
                         <td><span class="SUGARFIELD" value="0.66">0.66</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="8.53">8.53</span></td>
                     </tr>
                     <tr>
@@ -210,6 +235,8 @@
                         <td><span style="color: #00ff00">5</span></td>
                         <td><span class="GLFIELD" value="2.8">2.8</span></td>
                         <td><span class="SUGARFIELD" value="15">15</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="17">17</span></td>
                     </tr>
                     <tr>
@@ -218,6 +245,8 @@
                         <td><span style="color: #9fe2bf">48</span></td>
                         <td><span class="GLFIELD" value="10.1">10.1</span></td>
                         <td><span class="SUGARFIELD" value="12.23">12.23</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="22.89">22.89</span></td>
                     </tr>
                     <tr>
@@ -226,6 +255,8 @@
                         <td><span style="color: #9fe2bf">30</span></td>
                         <td><span class="GLFIELD" value="16.8">16.8</span></td>
                         <td><span class="SUGARFIELD" value="0.8">0.8</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="74.5">74.5</span></td>
                     </tr>
                     <tr>
@@ -234,6 +265,8 @@
                         <td><span style="color: #00ff00">5</span></td>
                         <td><span class="GLFIELD" value="0.1">0.1</span></td>
                         <td><span class="SUGARFIELD" value="0.3">0.3</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="2.7">2.7</span></td>
                     </tr>
                     <tr>
@@ -242,6 +275,8 @@
                         <td><span style="color: #9fe2bf">50</span></td>
                         <td><span class="GLFIELD" value="37.5">37.5</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="77.8">77.8</span></td>
                     </tr>
                     <tr>
@@ -250,6 +285,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -258,6 +295,8 @@
                         <td><span less-than="" style="color: #9fe2bf">50</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -266,6 +305,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -274,6 +315,8 @@
                         <td><span style="color: #9fe2bf">30</span></td>
                         <td><span class="GLFIELD" value="2.6">2.6</span></td>
                         <td><span class="SUGARFIELD" value="6.76">6.76</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="9.56">9.56</span></td>
                     </tr>
                     <tr>
@@ -282,6 +325,8 @@
                         <td><span style="color: #ffff00">66</span></td>
                         <td><span class="GLFIELD" value="28.38">28.38</span></td>
                         <td><span class="SUGARFIELD" value="9">9</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="46">46</span></td>
                     </tr>
                     <tr>
@@ -290,6 +335,8 @@
                         <td><span style="color: #00ff00">15</span></td>
                         <td><span class="GLFIELD" value="1.1">1.1</span></td>
                         <td><span class="SUGARFIELD" value="-1">-1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="-1">-1</span></td>
                     </tr>
                     <tr>
@@ -298,6 +345,8 @@
                         <td><span style="color: #ffff00">59</span></td>
                         <td><span class="GLFIELD" value="11">11</span></td>
                         <td><span class="SUGARFIELD" value="-1">-1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="-1">-1</span></td>
                     </tr>
                     <tr>
@@ -306,6 +355,8 @@
                         <td><span style="color: #00ff00">25</span></td>
                         <td><span class="GLFIELD" value="2.5">2.5</span></td>
                         <td><span class="SUGARFIELD" value="4.88">4.88</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="17">17</span></td>
                     </tr>
                     <tr>
@@ -314,6 +365,8 @@
                         <td><span style="color: #9fe2bf">53</span></td>
                         <td><span class="GLFIELD" value="4">4</span></td>
                         <td><span class="SUGARFIELD" value="9.96">9.96</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="14.49">14.49</span></td>
                     </tr>
                     <tr>
@@ -322,6 +375,8 @@
                         <td><span style="color: #ffff00">65</span></td>
                         <td><span class="GLFIELD" value="17.6">17.6</span></td>
                         <td><span class="SUGARFIELD" value="-1">-1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="-1">-1</span></td>
                     </tr>
                     <tr>
@@ -330,6 +385,8 @@
                         <td><span style="color: #00ff00">15</span></td>
                         <td><span class="GLFIELD" value="0.5">0.5</span></td>
                         <td><span class="SUGARFIELD" value="1.7">1.7</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="6.64">6.64</span></td>
                     </tr>
                     <tr>
@@ -338,6 +395,8 @@
                         <td><span style="color: #00ff00">15</span></td>
                         <td><span class="GLFIELD" value="0.3">0.3</span></td>
                         <td><span class="SUGARFIELD" value="2.2">2.2</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="8.95">8.95</span></td>
                     </tr>
                     <tr>
@@ -346,6 +405,8 @@
                         <td><span style="color: #9fe2bf">50</span></td>
                         <td><span class="GLFIELD" value="22">22</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="71.5">71.5</span></td>
                     </tr>
                     <tr>
@@ -354,6 +415,8 @@
                         <td><span style="color: #9fe2bf">40</span></td>
                         <td><span class="GLFIELD" value="28.2">28.2</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="75">75</span></td>
                     </tr>
                     <tr>
@@ -362,6 +425,8 @@
                         <td><span style="color: #9fe2bf">55</span></td>
                         <td><span class="GLFIELD" value="10.2">10.2</span></td>
                         <td><span class="SUGARFIELD" value="0.41">0.41</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="75.9">75.9</span></td>
                     </tr>
                     <tr>
@@ -370,6 +435,8 @@
                         <td><span inaccurate="" style="color: #9fe2bf">50</span></td>
                         <td><span less-than="" class="GLFIELD" value="10">10</span></td>
                         <td><span class="SUGARFIELD" value="0.1">0.1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="18.6">18.6</span></td>
                     </tr>
                     <tr>
@@ -378,6 +445,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -386,6 +455,8 @@
                         <td><span style="color: #00ff00">15</span></td>
                         <td><span class="GLFIELD" value="0.9">0.9</span></td>
                         <td><span class="SUGARFIELD" value="3.2">3.2</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="5.8">5.8</span></td>
                     </tr>
                     <tr>
@@ -394,6 +465,8 @@
                         <td><span style="color: #00ff00">5</span></td>
                         <td><span class="GLFIELD" value="0.6">0.6</span></td>
                         <td><span class="SUGARFIELD" value="0.64">0.64</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="49.9">49.9</span></td>
                     </tr>
                     <tr>
@@ -402,6 +475,8 @@
                         <td><span style="color: #00ff00">15</span></td>
                         <td><span class="GLFIELD" value="11.7">11.7</span></td>
                         <td><span class="SUGARFIELD" value="42.8">42.8</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span inaccurate="" class="CARBFIELD" value="78">78</span></td>
                     </tr>
                     <tr>
@@ -410,6 +485,8 @@
                         <td><span style="color: #9fe2bf">30</span></td>
                         <td><span class="GLFIELD" value="2">2</span></td>
                         <td><span class="SUGARFIELD" value="4.74">4.74</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="9.58">9.58</span></td>
                     </tr>
                     <tr>
@@ -418,6 +495,8 @@
                         <td><span style="color: #00ff00">15</span></td>
                         <td><span class="GLFIELD" value="0.8">0.8</span></td>
                         <td><span class="SUGARFIELD" value="2.4">2.4</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="5.3">5.3</span></td>
                     </tr>
                     <tr>
@@ -426,6 +505,8 @@
                         <td><span style="color: #00ff00">25</span></td>
                         <td><span class="GLFIELD" value="0.1">0.1</span></td>
                         <td><span class="SUGARFIELD" value="-1">-1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="-1">-1</span></td>
                     </tr>
                     <tr>
@@ -434,6 +515,8 @@
                         <td><span style="color: #ffff00">65</span></td>
                         <td><span class="GLFIELD" value="46.1">46.1</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="80.4">80.4</span></td>
                     </tr>
                     <tr>
@@ -442,6 +525,8 @@
                         <td><span style="color: #9fe2bf">30</span></td>
                         <td><span class="GLFIELD" value="12.6">12.6</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="42.1">42.1</span></td>
                     </tr>
                     <tr>
@@ -450,6 +535,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -458,6 +545,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -466,6 +555,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -474,6 +565,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -482,6 +575,8 @@
                         <td><span style="color: #9fe2bf">46</span></td>
                         <td><span class="GLFIELD" value="6.9">6.9</span></td>
                         <td><span class="SUGARFIELD" value="0.1">0.1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="15">15</span></td>
                     </tr>
                     <tr>
@@ -490,6 +585,8 @@
                         <td><span style="color: #9fe2bf">46</span></td>
                         <td><span class="GLFIELD" value="12.075">12.075</span></td>
                         <td><span class="SUGARFIELD" value="0.175">0.175</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="26.25">26.25</span></td>
                     </tr>
                     <tr>
@@ -498,6 +595,8 @@
                         <td><span style="color: #9fe2bf">46</span></td>
                         <td><span class="GLFIELD" value="14.49">14.49</span></td>
                         <td><span class="SUGARFIELD" value="0.21">0.21</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="31.25">31.25</span></td>
                     </tr>
                     <tr>
@@ -506,6 +605,8 @@
                         <td><span style="color: #9fe2bf">46</span></td>
                         <td><span class="GLFIELD" value="4.83">4.83</span></td>
                         <td><span class="SUGARFIELD" value="0.07">0.07</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="10.5">10.5</span></td>
                     </tr>
                     <tr>
@@ -514,6 +615,8 @@
                         <td><span style="color: #9fe2bf">46</span></td>
                         <td><span class="GLFIELD" value="6.037">6.037</span></td>
                         <td><span class="SUGARFIELD" value="0.087">0.087</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="13.125">13.125</span></td>
                     </tr>
                     <tr>
@@ -522,6 +625,8 @@
                         <td><span style="color: #9fe2bf">46</span></td>
                         <td><span class="GLFIELD" value="10.867">10.867</span></td>
                         <td><span class="SUGARFIELD" value="0.157">0.157</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="23.625">23.625</span></td>
                     </tr>
                     <tr>
@@ -530,6 +635,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -538,6 +645,8 @@
                         <td><span inaccurate="" style="color: #9fe2bf">35</span></td>
                         <td><span inaccurate="" class="GLFIELD" value="23.1">23.1</span></td>
                         <td><span class="SUGARFIELD" value="10.8">10.8</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="57.8">57.8</span></td>
                     </tr>
                     <tr>
@@ -546,6 +655,8 @@
                         <td><span style="color: #00ff00">5</span></td>
                         <td><span class="GLFIELD" value="2.9">2.9</span></td>
                         <td><span class="SUGARFIELD" value="2.2">2.2</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="81">81</span></td>
                     </tr>
                     <tr>
@@ -554,6 +665,8 @@
                         <td><span style="color: #00ff00">25</span></td>
                         <td><span class="GLFIELD" value="1.7">1.7</span></td>
                         <td><span class="SUGARFIELD" value="-1">-1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="-1">-1</span></td>
                     </tr>
                     <tr>
@@ -562,6 +675,8 @@
                         <td><span style="color: #9fe2bf">45</span></td>
                         <td><span inaccurate="" class="GLFIELD" value="2.54">2.54</span></td>
                         <td><span inaccurate="" class="SUGARFIELD" value="6">6</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="15">15</span></td>
                     </tr>
                     <tr>
@@ -570,6 +685,8 @@
                         <td><span style="color: #ffff00">63</span></td>
                         <td><span class="GLFIELD" value="6.3">6.3</span></td>
                         <td><span class="SUGARFIELD" value="10">10</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="10">10</span></td>
                     </tr>
                     <tr>
@@ -578,6 +695,8 @@
                         <td><span style="color: red;" danger="Coke Zero uses Aspertame as a sweetner. Aspertame still triggers insulin production, prompting glycogen synthesis, which is problematic.">0</span></td>
                         <td><span class="GLFIELD" value="0" danger="Coke Zero uses Aspertame as a sweetner. Aspertame still triggers insulin production, prompting glycogen synthesis, which is problematic.">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -586,6 +705,8 @@
                         <td><span style="color: #ff0000">70</span></td>
                         <td><span class="GLFIELD" value="53.8">53.8</span></td>
                         <td><span less-than="" class="SUGARFIELD" value="0.64">0.64</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="82.8">82.8</span></td>
                     </tr>
                     <tr>
@@ -594,6 +715,8 @@
                         <td><span style="color: #ff0000">85</span></td>
                         <td><span class="GLFIELD" value="72.3">72.3</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="91">91</span></td>
                     </tr>
                     <tr>
@@ -602,6 +725,8 @@
                         <td><span style="color: #00ff00">15</span></td>
                         <td><span class="GLFIELD" value="0.7">0.7</span></td>
                         <td><span class="SUGARFIELD" value="2.2">2.2</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="3.35">3.35</span></td>
                     </tr>
                     <tr>
@@ -610,6 +735,8 @@
                         <td><span style="color: #ffff00">60</span></td>
                         <td><span class="GLFIELD" value="12">12</span></td>
                         <td><span less-than="" class="SUGARFIELD" value="0.5">0.5</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="77.4">77.4</span></td>
                     </tr>
                     <tr>
@@ -618,6 +745,8 @@
                         <td><span style="color: #ffff00">60</span></td>
                         <td><span class="GLFIELD" value="12">12</span></td>
                         <td><span less-than="" class="SUGARFIELD" value="0.1">0.1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="23">23</span></td>
                     </tr>
                     <tr>
@@ -626,6 +755,8 @@
                         <td><span style="color: #9fe2bf">45</span></td>
                         <td><span class="GLFIELD" value="5.5">5.5</span></td>
                         <td><span class="SUGARFIELD" value="-1">-1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="-1">-1</span></td>
                     </tr>
                     <tr>
@@ -634,6 +765,8 @@
                         <td><span style="color: #00ff00">15</span></td>
                         <td><span class="GLFIELD" value="0.4">0.4</span></td>
                         <td><span class="SUGARFIELD" value="1.67">1.67</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="3.63">3.63</span></td>
                     </tr>
                     <tr>
@@ -642,6 +775,8 @@
                         <td><span style="color: #00ff00">15</span></td>
                         <td><span class="GLFIELD" value="0.4">0.4</span></td>
                         <td><span class="SUGARFIELD" value="1.38">1.38</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="2.16">2.16</span></td>
                     </tr>
                     <tr>
@@ -650,6 +785,8 @@
                         <td><span style="color: #ff0000">70</span></td>
                         <td><span class="GLFIELD" value="48.4">48.4</span></td>
                         <td><span class="SUGARFIELD" value="66.47">66.47</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="74.97">74.97</span></td>
                     </tr>
                     <tr>
@@ -658,6 +795,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -666,6 +805,8 @@
                         <td><span style="color: #9fe2bf">35</span></td>
                         <td><span class="GLFIELD" value="20.6">20.6</span></td>
                         <td><span class="SUGARFIELD" value="57.19">57.19</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="65.89">65.89</span></td>
                     </tr>
                     <tr>
@@ -674,6 +815,8 @@
                         <td><span style="color: #00ff00">5</span></td>
                         <td><span class="GLFIELD" value="3.2">3.2</span></td>
                         <td><span class="SUGARFIELD" value="4.09">4.09</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="68.9">68.9</span></td>
                     </tr>
                     <tr>
@@ -682,6 +825,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -690,6 +835,8 @@
                         <td><span style="color: #00ff00">20</span></td>
                         <td><span class="GLFIELD" value="1.7">1.7</span></td>
                         <td><span class="SUGARFIELD" value="2.35">2.35</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="5.7">5.7</span></td>
                     </tr>
                     <tr>
@@ -698,6 +845,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span inaccurate="" class="GLFIELD" value="0">0</span></td>
                         <td><span less-than="" class="SUGARFIELD" value="0.2">0.2</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span less-than="" class="CARBFIELD" value="1.02">1.02</span></td>
                     </tr>
                     <tr>
@@ -706,6 +855,8 @@
                         <td><span style="color: #ffff00">68</span></td>
                         <td><span class="GLFIELD" value="23.1">23.1</span></td>
                         <td><span class="SUGARFIELD" value="7.2">7.2</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="7.2">7.2</span></td>
                     </tr>
                     <tr>
@@ -714,6 +865,8 @@
                         <td><span style="color: red;" danger="Fanta Zero uses Aspertame as a sweetner. Aspertame still triggers insulin production, prompting glycogen synthesis, which is problematic.">0</span></td>
                         <td><span class="GLFIELD" value="0" danger="Fanta Zero uses Aspertame as a sweetner. Aspertame still triggers insulin production, prompting glycogen synthesis, which is problematic.">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -722,6 +875,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -730,6 +885,8 @@
                         <td><span style="color: #9fe2bf">35</span></td>
                         <td><span class="GLFIELD" value="6.7">6.7</span></td>
                         <td><span class="SUGARFIELD" value="16.26">16.26</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="19.18">19.18</span></td>
                     </tr>
                     <tr>
@@ -738,6 +895,8 @@
                         <td><span style="color: #9fe2bf">35</span></td>
                         <td><span class="GLFIELD" value="0.6">0.6</span></td>
                         <td><span class="SUGARFIELD" value="1.6">1.6</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="29">29</span></td>
                     </tr>
                     <tr>
@@ -746,6 +905,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -754,6 +915,8 @@
                         <td><span style="color: #ff0000">70</span></td>
                         <td><span class="GLFIELD" value="32">32</span></td>
                         <td><span class="SUGARFIELD" value="0.21">0.21</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="41.9">41.9</span></td>
                     </tr>
                     <tr>
@@ -762,6 +925,8 @@
                         <td><span style="color: #ff0000">70</span></td>
                         <td><span class="GLFIELD" value="49.92">49.92</span></td>
                         <td><span class="SUGARFIELD" value="0.327">0.327</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="65.364">65.364</span></td>
                     </tr>
                     <tr>
@@ -770,6 +935,8 @@
                         <td><span style="color: #ff0000">70</span></td>
                         <td><span class="GLFIELD" value="37.44">37.44</span></td>
                         <td><span class="SUGARFIELD" value="0.245">0.245</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="49.022">49.022</span></td>
                     </tr>
                     <tr>
@@ -778,6 +945,8 @@
                         <td><span style="color: #ff0000">70</span></td>
                         <td><span class="GLFIELD" value="22.72">22.72</span></td>
                         <td><span class="SUGARFIELD" value="0.149">0.149</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="29.749">29.749</span></td>
                     </tr>
                     <tr>
@@ -786,6 +955,8 @@
                         <td><span style="color: #9fe2bf">30</span></td>
                         <td><span class="GLFIELD" value="9">9</span></td>
                         <td><span class="SUGARFIELD" value="1">1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="33.06">33.06</span></td>
                     </tr>
                     <tr>
@@ -794,6 +965,8 @@
                         <td><span style="color: #00ff00">15</span></td>
                         <td><span class="GLFIELD" value="0.6">0.6</span></td>
                         <td><span class="SUGARFIELD" value="1.7">1.7</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="18">18</span></td>
                     </tr>
                     <tr>
@@ -802,6 +975,8 @@
                         <td><span style="color: #00ff00" danger="The lactose in milk breaks down into glucose during digestion. This causes a spike in blood sugar, which is unhealthy. It is recommended to avoid drinking if possible.">25.63</span></td>
                         <td><span class="GLFIELD" value="1.174" danger="The lactose in milk breaks down into glucose during digestion. This causes a spike in blood sugar, which is unhealthy. It is recommended to avoid drinking if possible.">1.174</span></td>
                         <td><span class="SUGARFIELD" value="4.7" danger="The lactose in milk breaks down into glucose during digestion. This causes a spike in blood sugar, which is unhealthy. It is recommended to avoid drinking if possible.">4.7</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="4.7">4.7</span></td>
                     </tr>
                     <tr>
@@ -810,6 +985,8 @@
                         <td><span style="color: #00ff00">25</span></td>
                         <td><span class="GLFIELD" value="13.3">13.3</span></td>
                         <td><span class="SUGARFIELD" value="-1">-1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="-1">-1</span></td>
                     </tr>
                     <tr>
@@ -818,6 +995,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -826,6 +1005,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -834,6 +1015,8 @@
                         <td><span style="color: #00ff00">22</span></td>
                         <td><span class="GLFIELD" value="1.2">1.2</span></td>
                         <td><span class="SUGARFIELD" value="-1">-1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="-1">-1</span></td>
                     </tr>
                     <tr>
@@ -842,6 +1025,8 @@
                         <td><span style="color: #9fe2bf">45</span></td>
                         <td><span class="GLFIELD" value="15.7">15.7</span></td>
                         <td><span class="SUGARFIELD" value="12">12</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="48">48</span></td>
                     </tr>
                     <tr>
@@ -850,6 +1035,8 @@
                         <td><span style="color: #9fe2bf">45</span></td>
                         <td><span class="GLFIELD" value="5.4">5.4</span></td>
                         <td><span class="SUGARFIELD" value="15.48">15.48</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="18.1">18.1</span></td>
                     </tr>
                     <tr>
@@ -858,6 +1045,8 @@
                         <td><span style="color: #9fe2bf">35</span></td>
                         <td><span class="GLFIELD" value="4.5">4.5</span></td>
                         <td><span class="SUGARFIELD" value="6">6</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="14">14</span></td>
                     </tr>
                     <tr>
@@ -866,6 +1055,8 @@
                         <td><span style="color: #9fe2bf">51</span></td>
                         <td><span class="GLFIELD" value="4.6">4.6</span></td>
                         <td><span class="SUGARFIELD" value="6">6</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="16">16</span></td>
                     </tr>
                     <tr>
@@ -874,6 +1065,8 @@
                         <td><span style="color: #00ff00">10</span></td>
                         <td><span class="GLFIELD" value="1.1">1.1</span></td>
                         <td><span class="SUGARFIELD" value="7.99">7.99</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="11.29">11.29</span></td>
                     </tr>
                     <tr>
@@ -882,6 +1075,8 @@
                         <td><span style="color: #ffff00">60</span></td>
                         <td><span class="GLFIELD" value="44">44</span></td>
                         <td><span class="SUGARFIELD" value="-1">-1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span inaccurate="" class="CARBFIELD" value="80">80</span></td>
                     </tr>
                     <tr>
@@ -890,6 +1085,8 @@
                         <td><span style="color: #9fe2bf">50</span></td>
                         <td><span class="GLFIELD" value="6.4">6.4</span></td>
                         <td><span class="SUGARFIELD" value="9.6">9.6</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="19.4">19.4</span></td>
                     </tr>
                     <tr>
@@ -898,6 +1095,8 @@
                         <td><span style="color: #9fe2bf">50</span></td>
                         <td><span class="GLFIELD" value="7.3">7.3</span></td>
                         <td><span inaccurate="" class="SUGARFIELD" value="9">9</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="14.88">14.88</span></td>
                     </tr>
                     <tr>
@@ -906,6 +1105,8 @@
                         <td><span style="color: #00ff00">20</span></td>
                         <td><span class="GLFIELD" value="2.1">2.1</span></td>
                         <td><span class="SUGARFIELD" value="2.6">2.6</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="6.2">6.2</span></td>
                     </tr>
                     <tr>
@@ -914,6 +1115,8 @@
                         <td><span style="color: #00ff00">20</span></td>
                         <td><span class="GLFIELD" value="0.6">0.6</span></td>
                         <td><span class="SUGARFIELD" value="2.5">2.5</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="9.32">9.32</span></td>
                     </tr>
                     <tr>
@@ -922,6 +1125,8 @@
                         <td><span style="color: #9fe2bf">33</span></td>
                         <td><span class="GLFIELD" value="4.1">4.1</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="17.2">17.2</span></td>
                     </tr>
                     <tr>
@@ -930,6 +1135,8 @@
                         <td><span style="color: #9fe2bf">50</span></td>
                         <td><span class="GLFIELD" value="7.6">7.6</span></td>
                         <td><span class="SUGARFIELD" value="-1">-1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="-1">-1</span></td>
                     </tr>
                     <tr>
@@ -938,6 +1145,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -946,6 +1155,8 @@
                         <td><span style="color: #9fe2bf">30</span></td>
                         <td><span class="GLFIELD" value="3.9">3.9</span></td>
                         <td><span class="SUGARFIELD" value="10.58">10.58</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="13.34">13.34</span></td>
                     </tr>
                     <tr>
@@ -954,6 +1165,8 @@
                         <td><span style="color: #ffff00">56</span></td>
                         <td><span class="GLFIELD" value="8.4">8.4</span></td>
                         <td><span class="SUGARFIELD" value="14.8">14.8</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="17">17</span></td>
                     </tr>
                     <tr>
@@ -962,6 +1175,8 @@
                         <td><span style="color: #ffff00">66</span></td>
                         <td><span class="GLFIELD" value="23.3">23.3</span></td>
                         <td><span class="SUGARFIELD" value="4.7">4.7</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="37">37</span></td>
                     </tr>
                     <tr>
@@ -970,6 +1185,8 @@
                         <td><span style="color: #9fe2bf">55</span></td>
                         <td><span class="GLFIELD" value="5.7">5.7</span></td>
                         <td><span inaccurate="" class="SUGARFIELD" value="5">5</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="12.14">12.14</span></td>
                     </tr>
                     <tr>
@@ -978,6 +1195,8 @@
                         <td><span style="color: #ffff00">65</span></td>
                         <td><span class="GLFIELD" value="5.2">5.2</span></td>
                         <td><span class="SUGARFIELD" value="7.86">7.86</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="8.16">8.16</span></td>
                     </tr>
                     <tr>
@@ -986,6 +1205,8 @@
                         <td><span style="color: #9fe2bf" danger="The lactose in milk breaks down into glucose during digestion. This causes a spike in blood sugar, which is unhealthy. It is recommended to avoid drinking if possible.">31</span></td>
                         <td><span class="GLFIELD" value="1.515" danger="The lactose in milk breaks down into glucose during digestion. This causes a spike in blood sugar, which is unhealthy. It is recommended to avoid drinking if possible.">1.515</span></td>
                         <td><span class="SUGARFIELD" value="5.1" danger="The lactose in milk breaks down into glucose during digestion. This causes a spike in blood sugar, which is unhealthy. It is recommended to avoid drinking if possible.">5.1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="5.1">5.1</span></td>
                     </tr>
                     <tr>
@@ -994,6 +1215,8 @@
                         <td><span style="color: #9fe2bf" danger="The lactose in milk breaks down into glucose during digestion. This causes a spike in blood sugar, which is unhealthy. It is recommended to avoid drinking if possible.">30</span></td>
                         <td><span class="GLFIELD" value="1.5" danger="The lactose in milk breaks down into glucose during digestion. This causes a spike in blood sugar, which is unhealthy. It is recommended to avoid drinking if possible.">1.5</span></td>
                         <td><span class="SUGARFIELD" value="5" danger="The lactose in milk breaks down into glucose during digestion. This causes a spike in blood sugar, which is unhealthy. It is recommended to avoid drinking if possible.">5</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="5">5</span></td>
                     </tr>
                     <tr>
@@ -1002,6 +1225,8 @@
                         <td><span style="color: #00ff00" danger="The lactose in milk breaks down into glucose during digestion. This causes a spike in blood sugar, which is unhealthy. It is recommended to avoid drinking if possible.">29.85</span></td>
                         <td><span class="GLFIELD" value="1.492" danger="The lactose in milk breaks down into glucose during digestion. This causes a spike in blood sugar, which is unhealthy. It is recommended to avoid drinking if possible.">1.492</span></td>
                         <td><span class="SUGARFIELD" value="4.95" danger="The lactose in milk breaks down into glucose during digestion. This causes a spike in blood sugar, which is unhealthy. It is recommended to avoid drinking if possible.">4.95</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="4.95">4.95</span></td>
                     </tr>
                     <tr>
@@ -1010,6 +1235,8 @@
                         <td><span style="color: #00ff00" danger="The lactose in milk breaks down into glucose during digestion. This causes a spike in blood sugar, which is unhealthy. It is recommended to avoid drinking if possible.">29.7</span></td>
                         <td><span class="GLFIELD" value="1.485" danger="The lactose in milk breaks down into glucose during digestion. This causes a spike in blood sugar, which is unhealthy. It is recommended to avoid drinking if possible.">1.485</span></td>
                         <td><span class="SUGARFIELD" value="4.9" danger="The lactose in milk breaks down into glucose during digestion. This causes a spike in blood sugar, which is unhealthy. It is recommended to avoid drinking if possible.">4.9</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="4.9">4.9</span></td>
                     </tr>
                     <tr>
@@ -1018,6 +1245,8 @@
                         <td><span style="color: #00ff00" danger="The lactose in milk breaks down into glucose during digestion. This causes a spike in blood sugar, which is unhealthy. It is recommended to avoid drinking if possible.">29.4</span></td>
                         <td><span class="GLFIELD" value="1.47" danger="The lactose in milk breaks down into glucose during digestion. This causes a spike in blood sugar, which is unhealthy. It is recommended to avoid drinking if possible.">1.47</span></td>
                         <td><span class="SUGARFIELD" value="4.8" danger="The lactose in milk breaks down into glucose during digestion. This causes a spike in blood sugar, which is unhealthy. It is recommended to avoid drinking if possible.">4.8</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="4.8">4.8</span></td>
                     </tr>
                     <tr>
@@ -1026,6 +1255,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -1034,6 +1265,8 @@
                         <td><span style="color: #9fe2bf">35</span></td>
                         <td><span class="GLFIELD" value="4.1">4.1</span></td>
                         <td><span class="SUGARFIELD" value="7.89">7.89</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="10.55">10.55</span></td>
                     </tr>
                     <tr>
@@ -1042,6 +1275,8 @@
                         <td><span inaccurate="" style="color: #ffff00">59</span></td>
                         <td><span inaccurate="" class="GLFIELD" value="41.6">41.6</span></td>
                         <td><span inaccurate="" class="SUGARFIELD" value="3">3</span></td>
+                        <td><span inaccurate="" class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span inaccurate="" class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span inaccurate="" class="CARBFIELD" value="65">65</span></td>
                     </tr>
                     <tr>
@@ -1050,6 +1285,8 @@
                         <td><span style="color: #ffff00">65</span></td>
                         <td><span class="GLFIELD" value="16.2">16.2</span></td>
                         <td><span class="SUGARFIELD" value="0.12">0.12</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="80.2">80.2</span></td>
                     </tr>
                     <tr>
@@ -1058,6 +1295,8 @@
                         <td><span style="color: #00ff00">25</span></td>
                         <td><span class="GLFIELD" value="3">3</span></td>
                         <td><span inaccurate="" class="SUGARFIELD" value="0.8">0.8</span></td>
+                        <td><span inaccurate="" class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span inaccurate="" class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span inaccurate="" class="CARBFIELD" value="65.7">65.7</span></td>
                     </tr>
                     <tr>
@@ -1066,6 +1305,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -1074,6 +1315,8 @@
                         <td><span style="color: #00ff00">15</span></td>
                         <td><span class="GLFIELD" value="1.5">1.5</span></td>
                         <td><span class="SUGARFIELD" value="4.2">4.2</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="10.94">10.94</span></td>
                     </tr>
                     <tr>
@@ -1082,6 +1325,8 @@
                         <td><span style="color: #9fe2bf">35</span></td>
                         <td><span class="GLFIELD" value="4.1">4.1</span></td>
                         <td><span class="SUGARFIELD" value="9.36">9.36</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="13.41">13.41</span></td>
                     </tr>
                     <tr>
@@ -1090,6 +1335,8 @@
                         <td><span style="color: #ffff00">60</span></td>
                         <td><span class="GLFIELD" value="5.5">5.5</span></td>
                         <td><span class="SUGARFIELD" value="5.9">5.9</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="9.81">9.81</span></td>
                     </tr>
                     <tr>
@@ -1098,6 +1345,8 @@
                         <td><span style="color: #9fe2bf">30</span></td>
                         <td><span class="GLFIELD" value="6.9">6.9</span></td>
                         <td><span class="SUGARFIELD" value="11.2">11.2</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="23.38">23.38</span></td>
                     </tr>
                     <tr>
@@ -1106,6 +1355,8 @@
                         <td><span style="color: #9fe2bf">40</span></td>
                         <td><span class="GLFIELD" value="28.4">28.4</span></td>
                         <td><span less-than="" class="SUGARFIELD" value="1">1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="70.9">70.9</span></td>
                     </tr>
                     <tr>
@@ -1114,6 +1365,8 @@
                         <td><span style="color: #9fe2bf">52.5</span></td>
                         <td><span inaccurate="" class="GLFIELD" value="33">33</span></td>
                         <td><span class="SUGARFIELD" value="2.67">2.67</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="74.7">74.7</span></td>
                     </tr>
                     <tr>
@@ -1122,6 +1375,8 @@
                         <td><span inaccurate="" style="color: #9fe2bf">53.5</span></td>
                         <td><span inaccurate="" class="GLFIELD" value="32.1">32.1</span></td>
                         <td><span class="SUGARFIELD" value="2.74">2.74</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="73.4">73.4</span></td>
                     </tr>
                     <tr>
@@ -1130,6 +1385,8 @@
                         <td><span inaccurate="" style="color: #9fe2bf">48.6</span></td>
                         <td><span inaccurate="" class="GLFIELD" value="14.6">14.6</span></td>
                         <td><span class="SUGARFIELD" value="0.75">0.75</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="30.1">30.1</span></td>
                     </tr>
                     <tr>
@@ -1138,6 +1395,8 @@
                         <td><span style="color: #9fe2bf">35</span></td>
                         <td><span class="GLFIELD" value="4">4</span></td>
                         <td><span class="SUGARFIELD" value="8.39">8.39</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="10.1">10.1</span></td>
                     </tr>
                     <tr>
@@ -1146,6 +1405,8 @@
                         <td><span style="color: #9fe2bf">30</span></td>
                         <td><span class="GLFIELD" value="4.7">4.7</span></td>
                         <td><span class="SUGARFIELD" value="9.8">9.8</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="15.469">15.469</span></td>
                     </tr>
                     <tr>
@@ -1154,6 +1415,8 @@
                         <td><span style="color: #9fe2bf">40</span></td>
                         <td><span class="GLFIELD" value="8">8</span></td>
                         <td><span class="SUGARFIELD" value="-1">-1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="-1">-1</span></td>
                     </tr>
                     <tr>
@@ -1162,6 +1425,8 @@
                         <td><span style="color: #9fe2bf">50</span></td>
                         <td><span class="GLFIELD" value="7.7">7.7</span></td>
                         <td><span class="SUGARFIELD" value="12.53">12.53</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="18.59">18.59</span></td>
                     </tr>
                     <tr>
@@ -1170,6 +1435,8 @@
                         <td><span style="color: #00ff00">15</span></td>
                         <td><span class="GLFIELD" value="0.9">0.9</span></td>
                         <td><span inaccurate="" class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span inaccurate="" class="CARBFIELD" value="5">5</span></td>
                     </tr>
                     <tr>
@@ -1178,6 +1445,8 @@
                         <td><span style="color: #00ff00">15</span></td>
                         <td><span class="GLFIELD" value="0.6">0.6</span></td>
                         <td><span class="SUGARFIELD" value="-1">-1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="-1">-1</span></td>
                     </tr>
                     <tr>
@@ -1186,6 +1455,8 @@
                         <td><span style="color: #ffff00">66</span></td>
                         <td><span class="GLFIELD" value="8.6">8.6</span></td>
                         <td><span class="SUGARFIELD" value="9.85">9.85</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="13.12">13.12</span></td>
                     </tr>
                     <tr>
@@ -1194,6 +1465,8 @@
                         <td><span style="color: #ff0000">70</span></td>
                         <td><span class="GLFIELD" value="58.8">58.8</span></td>
                         <td><span class="SUGARFIELD" value="0.3">0.3</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="84">84</span></td>
                     </tr>
                     <tr>
@@ -1202,6 +1475,8 @@
                         <td><span style="color: #9fe2bf">35</span></td>
                         <td><span class="GLFIELD" value="3.9">3.9</span></td>
                         <td><span class="SUGARFIELD" value="9.92">9.92</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="11.42">11.42</span></td>
                     </tr>
                     <tr>
@@ -1210,6 +1485,8 @@
                         <td><span style="color: #9fe2bf">35</span></td>
                         <td><span class="GLFIELD" value="6.7">6.7</span></td>
                         <td><span class="SUGARFIELD" value="13.67">13.67</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="18.67">18.67</span></td>
                     </tr>
                     <tr>
@@ -1218,6 +1495,8 @@
                         <td><span style="color: #9fe2bf">30</span></td>
                         <td><span class="GLFIELD" value="3">3</span></td>
                         <td><span inaccurate="" class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="9.62">9.62</span></td>
                     </tr>
                     <tr>
@@ -1226,6 +1505,8 @@
                         <td><span style="color: #9fe2bf">35</span></td>
                         <td><span class="GLFIELD" value="9.8">9.8</span></td>
                         <td><span class="SUGARFIELD" value="3">3</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="28">28</span></td>
                     </tr>
                     <tr>
@@ -1234,6 +1515,8 @@
                         <td><span inaccurate="" style="color: #ff0000">73</span></td>
                         <td><span class="GLFIELD" value="17.8">17.8</span></td>
                         <td><span class="SUGARFIELD" value="2.29">2.29</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="66.68">66.68</span></td>
                     </tr>
                     <tr>
@@ -1242,6 +1525,8 @@
                         <td><span style="color: #ff0000">95</span></td>
                         <td><span class="GLFIELD" value="78.9">78.9</span></td>
                         <td><span class="SUGARFIELD" value="3.52">3.52</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="83.1">83.1</span></td>
                     </tr>
                     <tr>
@@ -1250,6 +1535,8 @@
                         <td><span style="color: #9fe2bf">35</span></td>
                         <td><span class="GLFIELD" value="3.4">3.4</span></td>
                         <td><span inaccurate="" class="SUGARFIELD" value="6">6</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="9.57">9.57</span></td>
                     </tr>
                     <tr>
@@ -1258,6 +1545,8 @@
                         <td><span style="color: #9fe2bf">40</span></td>
                         <td><span class="GLFIELD" value="25.6">25.6</span></td>
                         <td><span class="SUGARFIELD" value="38.13">38.13</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="63.88">63.88</span></td>
                     </tr>
                     <tr>
@@ -1266,6 +1555,8 @@
                         <td><span style="color: #ffff00">65</span></td>
                         <td><span class="GLFIELD" value="4.5">4.5</span></td>
                         <td><span class="SUGARFIELD" value="1.36">1.36</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="6.5">6.5</span></td>
                     </tr>
                     <tr>
@@ -1274,6 +1565,8 @@
                         <td><span style="color: #ffff00">56</span></td>
                         <td><span class="GLFIELD" value="9.6">9.6</span></td>
                         <td><span class="SUGARFIELD" value="15.48">15.48</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="18.1">18.1</span></td>
                     </tr>
                     <tr>
@@ -1282,6 +1575,8 @@
                         <td><span style="color: #9fe2bf">35</span></td>
                         <td><span class="GLFIELD" value="3.4">3.4</span></td>
                         <td><span inaccurate="" class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="15.3">15.3</span></td>
                     </tr>
                     <tr>
@@ -1290,6 +1585,8 @@
                         <td><span style="color: #9fe2bf">40</span></td>
                         <td><span class="GLFIELD" value="22.8">22.8</span></td>
                         <td><span inaccurate="" class="SUGARFIELD" value="4">4</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="64.2">64.2</span></td>
                     </tr>
                     <tr>
@@ -1298,6 +1595,8 @@
                         <td><span style="color: #9fe2bf">40</span></td>
                         <td><span class="GLFIELD" value="22.9">22.9</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="69.5">69.5</span></td>
                     </tr>
                     <tr>
@@ -1306,6 +1605,8 @@
                         <td><span style="color: #9fe2bf">35</span></td>
                         <td><span class="GLFIELD" value="7.3">7.3</span></td>
                         <td><span inaccurate="" class="SUGARFIELD" value="0.87">0.87</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="21.3">21.3</span></td>
                     </tr>
                     <tr>
@@ -1314,6 +1615,8 @@
                         <td><span style="color: #00ff00">15</span></td>
                         <td><span class="GLFIELD" value="0.5">0.5</span></td>
                         <td><span class="SUGARFIELD" value="1.86">1.86</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="3.4">3.4</span></td>
                     </tr>
                     <tr>
@@ -1322,6 +1625,8 @@
                         <td><span style="color: #ffff00">65</span></td>
                         <td><span class="GLFIELD" value="46.8">46.8</span></td>
                         <td><span class="SUGARFIELD" value="59.19">59.19</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="79.52">79.52</span></td>
                     </tr>
                     <tr>
@@ -1330,6 +1635,8 @@
                         <td><span style="color: #00ff00">25</span></td>
                         <td><span class="GLFIELD" value="3">3</span></td>
                         <td><span class="SUGARFIELD" value="4.42">4.42</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="11.94">11.94</span></td>
                     </tr>
                     <tr>
@@ -1338,6 +1645,8 @@
                         <td><span style="color: #9fe2bf">40</span></td>
                         <td><span class="GLFIELD" value="1.1">1.1</span></td>
                         <td><span class="SUGARFIELD" value="3.34">3.34</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="5.54">5.54</span></td>
                     </tr>
                     <tr>
@@ -1346,6 +1655,8 @@
                         <td><span style="color: #00ff00">25</span></td>
                         <td><span class="GLFIELD" value="1.9">1.9</span></td>
                         <td><span class="SUGARFIELD" value="-1">-1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="-1">-1</span></td>
                     </tr>
                     <tr>
@@ -1354,6 +1665,8 @@
                         <td><span style="color: #9fe2bf">45</span></td>
                         <td><span class="GLFIELD" value="8.1">8.1</span></td>
                         <td><span class="SUGARFIELD" value="-1">-1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="-1">-1</span></td>
                     </tr>
                     <tr>
@@ -1362,6 +1675,8 @@
                         <td><span style="color: #ff0000">95</span></td>
                         <td><span class="GLFIELD" value="76.1">76.1</span></td>
                         <td><span class="SUGARFIELD" value="0.12">0.12</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="80.1">80.1</span></td>
                     </tr>
                     <tr>
@@ -1370,6 +1685,8 @@
                         <td><span style="color: #9fe2bf">50</span></td>
                         <td><span class="GLFIELD" value="27.9">27.9</span></td>
                         <td><span class="SUGARFIELD" value="0.93">0.93</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="76.7">76.7</span></td>
                     </tr>
                     <tr>
@@ -1378,6 +1695,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -1386,6 +1705,8 @@
                         <td><span style="color: #9fe2bf">30</span></td>
                         <td><span class="GLFIELD" value="0.8">0.8</span></td>
                         <td><span class="SUGARFIELD" value="-1">-1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="-1">-1</span></td>
                     </tr>
                     <tr>
@@ -1394,6 +1715,8 @@
                         <td><span style="color: #ffff00">60</span></td>
                         <td><span class="GLFIELD" value="42.4">42.4</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="72">72</span></td>
                     </tr>
                     <tr>
@@ -1402,6 +1725,8 @@
                         <td><span style="color: #9fe2bf">35</span></td>
                         <td><span class="GLFIELD" value="4.3">4.3</span></td>
                         <td><span class="SUGARFIELD" value="0.3">0.3</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="23">23</span></td>
                     </tr>
                     <tr>
@@ -1410,6 +1735,8 @@
                         <td><span style="color: #ff0000">70</span></td>
                         <td><span class="GLFIELD" value="46.5">46.5</span></td>
                         <td><span class="SUGARFIELD" value="2.53">2.53</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="72.1">72.1</span></td>
                     </tr>
                     <tr>
@@ -1418,6 +1745,8 @@
                         <td><span style="color: #00ff00">25</span></td>
                         <td><span class="GLFIELD" value="4.5">4.5</span></td>
                         <td><span class="SUGARFIELD" value="-1">-1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="32.9">32.9</span></td>
                     </tr>
                     <tr>
@@ -1426,6 +1755,8 @@
                         <td><span style="color: #9fe2bf">45</span></td>
                         <td><span class="GLFIELD" value="30.5">30.5</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="70.7">70.7</span></td>
                     </tr>
                     <tr>
@@ -1434,6 +1765,8 @@
                         <td><span style="color: #ffff00">64</span></td>
                         <td><span class="GLFIELD" value="17">17</span></td>
                         <td><span class="SUGARFIELD" value="10">10</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="10">10</span></td>
                     </tr>
                     <tr>
@@ -1442,6 +1775,8 @@
                         <td><span style="color: red;" danger="Sprite Zero uses Aspertame as a sweetner. Aspertame still triggers insulin production, prompting glycogen synthesis, which is problematic.">0</span></td>
                         <td><span class="GLFIELD" value="0" danger="Sprite Zero uses Aspertame as a sweetner. Aspertame still triggers insulin production, prompting glycogen synthesis, which is problematic.">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -1450,6 +1785,8 @@
                         <td><span style="color: #00ff00">25</span></td>
                         <td><span class="GLFIELD" value="1.9">1.9</span></td>
                         <td><span class="SUGARFIELD" value="4.89">4.89</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="7.68">7.68</span></td>
                     </tr>
                     <tr>
@@ -1458,6 +1795,8 @@
                         <td><span style="color: #ff0000">90</span></td>
                         <td><span inaccurate="" class="GLFIELD" value="70">70</span></td>
                         <td><span inaccurate="" class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span inaccurate="" class="CARBFIELD" value="80">80</span></td>
                     </tr>
                     <tr>
@@ -1466,6 +1805,8 @@
                         <td><span style="color: #ff0000">70</span></td>
                         <td><span class="GLFIELD" value="11.1">11.1</span></td>
                         <td><span class="SUGARFIELD" value="4.18">4.18</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="20.12">20.12</span></td>
                     </tr>
                     <tr>
@@ -1474,6 +1815,8 @@
                         <td><span style="color: #9fe2bf">30</span></td>
                         <td><span class="GLFIELD" value="1.1">1.1</span></td>
                         <td><span class="SUGARFIELD" value="2.63">2.63</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="3.923">3.923</span></td>
                     </tr>
                     <tr>
@@ -1482,6 +1825,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -1490,6 +1835,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -1498,6 +1845,8 @@
                         <td><span style="color: #9fe2bf">30</span></td>
                         <td><span class="GLFIELD" value="1.9">1.9</span></td>
                         <td><span class="SUGARFIELD" value="3.8">3.8</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="6.43">6.43</span></td>
                     </tr>
                     <tr>
@@ -1506,6 +1855,8 @@
                         <td><span style="color: #00ff00">5</span></td>
                         <td><span class="GLFIELD" value="3.3">3.3</span></td>
                         <td><span class="SUGARFIELD" value="13">13</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="13">13</span></td>
                     </tr>
                     <tr>
@@ -1514,6 +1865,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -1522,6 +1875,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -1530,6 +1885,8 @@
                         <td><span style="color: #00ff00">0</span></td>
                         <td><span class="GLFIELD" value="0">0</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="0">0</span></td>
                     </tr>
                     <tr>
@@ -1538,6 +1895,8 @@
                         <td><span style="color: #ff0000">75</span></td>
                         <td><span class="GLFIELD" value="5.6">5.6</span></td>
                         <td><span class="SUGARFIELD" value="6.2">6.2</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="7.55">7.55</span></td>
                     </tr>
                     <tr>
@@ -1546,6 +1905,8 @@
                         <td><span style="color: #9fe2bf">55</span></td>
                         <td><span class="GLFIELD" value="10.4">10.4</span></td>
                         <td><span class="SUGARFIELD" value="3.22">3.22</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="19">19</span></td>
                     </tr>
                     <tr>
@@ -1554,6 +1915,8 @@
                         <td><span style="color: #ff0000">85</span></td>
                         <td><span class="GLFIELD" value="62.6">62.6</span></td>
                         <td><span class="SUGARFIELD" value="0.27">0.27</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="73.6">73.6</span></td>
                     </tr>
                     <tr>
@@ -1562,6 +1925,8 @@
                         <td><span style="color: #ffff00">60</span></td>
                         <td><span class="GLFIELD" value="33.5">33.5</span></td>
                         <td><span class="SUGARFIELD" value="0">0</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="71.2">71.2</span></td>
                     </tr>
                     <tr>
@@ -1570,6 +1935,8 @@
                         <td><span style="color: #9fe2bf">45</span></td>
                         <td><span class="GLFIELD" value="28.9">28.9</span></td>
                         <td><span class="SUGARFIELD" value="2.31">2.31</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="68.6">68.6</span></td>
                     </tr>
                     <tr>
@@ -1578,6 +1945,8 @@
                         <td><span style="color: #ffff00">61</span></td>
                         <td><span class="GLFIELD" value="29.39">29.39</span></td>
                         <td><span class="SUGARFIELD" value="12">12</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="54">54</span></td>
                     </tr>
                     <tr>
@@ -1586,6 +1955,8 @@
                         <td><span style="color: #9fe2bf">45</span></td>
                         <td><span class="GLFIELD" value="33.8">33.8</span></td>
                         <td><span class="SUGARFIELD" value="2.5">2.5</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="74.9">74.9</span></td>
                     </tr>
                     <tr>
@@ -1594,6 +1965,8 @@
                         <td><span inaccurate="" style="color: #ffff00">65</span></td>
                         <td><span inaccurate="" class="GLFIELD" value="10.1">10.1</span></td>
                         <td><span inaccurate="" class="SUGARFIELD" value="6">6</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span less-than="" class="CARBFIELD" value="19">19</span></td>
                     </tr>
                     <tr>
@@ -1602,6 +1975,8 @@
                         <td><span style="color: #00ff00">15</span></td>
                         <td><span class="GLFIELD" value="1.8">1.8</span></td>
                         <td><span class="SUGARFIELD" value="-1">-1</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="-1">-1</span></td>
                     </tr>
                     <tr>
@@ -1610,6 +1985,8 @@
                         <td><span style="color: #00ff00">15</span></td>
                         <td><span class="GLFIELD" value="0.5">0.5</span></td>
                         <td><span class="SUGARFIELD" value="2.5">2.5</span></td>
+                        <td><span class="STARCHFIELD" value="-1">-1</span></td>
+                        <td><span class="FIBERFIELD" value="-1">-1</span></td>
                         <td><span class="CARBFIELD" value="3.1">3.1</span></td>
                     </tr>
                 </tbody>
