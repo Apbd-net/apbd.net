@@ -105,13 +105,13 @@ for (let i = 0; i < rows.length; i++) {
             } else if (element.hasAttribute("danger")) {
                 let par = document.createElement("desc");
                 par.innerText = "⚠"
-                par.style.color = "red";
+                par.style.color = "orange";
                 par.style.fontWeight = "900"
                 par.style.marginInlineStart = "0";
                 element.after(par)
-                if (element.getElementsByTagName("span").length == 0) element.style.cssText += "color: red;"
-                else element.getElementsByTagName("span")[0].style.cssText += "color: red;"
-                let text = "TODO";
+                if (element.getElementsByTagName("span").length == 0) element.style.cssText += "color: orange;"
+                else element.getElementsByTagName("span")[0].style.cssText += "color: orange;"
+                let text = element.getAttribute("danger");
 
                 element.addEventListener("mouseover", function () {
                     pre.textContent = text;

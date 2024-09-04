@@ -34,8 +34,8 @@ function sortBy(rows, method) {
         }
         case "company-d": {
             rows.sort((a, b) => {
-                let aName = translateCompanyName(a.getElementsByTagName("td")[1].getAttribute("company")) ?? String.fromCharCode(65535);
-                let bName = translateCompanyName(b.getElementsByTagName("td")[1].getAttribute("company")) ?? String.fromCharCode(65535);
+                let aName = a.getElementsByTagName("td")[1].getAttribute("company") ?? String.fromCharCode(65535);
+                let bName = b.getElementsByTagName("td")[1].getAttribute("company") ?? String.fromCharCode(65535);
                 if (aName > bName) return 1;
                 if (aName < bName) return -1;
                 return 0;
@@ -44,8 +44,8 @@ function sortBy(rows, method) {
         }
         case "company-u": {
             rows.sort((a, b) => {
-                let aName = translateCompanyName(a.getElementsByTagName("td")[1].getAttribute("company")) ?? String.fromCharCode(65535);
-                let bName = translateCompanyName(b.getElementsByTagName("td")[1].getAttribute("company")) ?? String.fromCharCode(65535);
+                let aName = a.getElementsByTagName("td")[1].getAttribute("company") ?? String.fromCharCode(65535);
+                let bName = b.getElementsByTagName("td")[1].getAttribute("company") ?? String.fromCharCode(65535);
                 if (aName < bName) return 1;
                 if (aName > bName) return -1;
                 return 0;

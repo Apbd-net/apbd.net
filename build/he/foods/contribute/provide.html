@@ -245,9 +245,7 @@
                 let foodCompany = document.getElementById("company").value;
                 console.log(foodCompany, foodCompany.length);
                 
-                let foodCompanyObject = foodCompany.length === 0 ? null :
-                    foodCompany.startsWith("{") ? JSON.parse(foodCompany) : 
-                    { ID: foodCompany, en: "<TRANSLATION NEEDED>", he: "<TRANSLATION NEEDED>" };
+                let foodCompanyObject = foodCompany.length === 0 ? null : localCompanyNameToObject(foodCompany, window.TABLE_JSON_DATA);
 
                 let foodWeight = document.getElementById("food-weight").value;
 

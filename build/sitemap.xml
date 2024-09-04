@@ -7,37 +7,37 @@
 
     <url>
         <loc>https://apbd.net/en/foods</loc>
+        <priority>1.0</priority>
         <xhtml:link rel="alternate" hreflang="en" href="https://apbd.net/en/foods" />
         <xhtml:link rel="alternate" hreflang="he" href="https://apbd.net/he/foods" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://apbd.net/en/foods" />
-        <priority>1.0</priority>
     </url>
     <url>
         <loc>https://apbd.net/en/foods/about/database.html</loc>
+        <priority>0.7</priority>
         <xhtml:link rel="alternate" hreflang="en" href="https://apbd.net/en/foods/about/database.html" />
         <xhtml:link rel="alternate" hreflang="he" href="https://apbd.net/he/foods/about/database.html" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://apbd.net/en/foods/about/database.html" />
-        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://apbd.net/en/foods/contribute/leaderboards.html</loc>
+        <priority>0.6</priority>
         <xhtml:link rel="alternate" hreflang="en" href="https://apbd.net/en/foods/contribute/leaderboards.html" />
         <xhtml:link rel="alternate" hreflang="he" href="https://apbd.net/he/foods/contribute/leaderboards.html" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://apbd.net/en/foods/contribute/leaderboards.html" />
-        <priority>0.6</priority>
     </url>
     <url>
         <loc>https://apbd.net/en/foods/contribute/request.html</loc>
+        <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="en" href="https://apbd.net/en/foods/contribute/request.html" />
         <xhtml:link rel="alternate" hreflang="he" href="https://apbd.net/he/foods/contribute/request.html" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://apbd.net/en/foods/contribute/request.html" />
-        <priority>0.8</priority>
     </url>
     <url>
         <loc>https://apbd.net/en/foods/contribute/provide.html</loc>
+        <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="en" href="https://apbd.net/en/foods/contribute/provide.html" />
         <xhtml:link rel="alternate" hreflang="he" href="https://apbd.net/he/foods/contribute/provide.html" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://apbd.net/en/foods/contribute/provide.html" />
-        <priority>0.8</priority>
     </url>
 </urlset>

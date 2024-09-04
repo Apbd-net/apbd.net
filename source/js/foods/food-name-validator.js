@@ -1,4 +1,5 @@
 fetch("/en/foods/data.json").then((response) => response.text()).then((data) => {
+    window.TABLE_JSON_DATA = JSON.parse(data);
     activateFoodNameValidator(JSON.parse(data));
 })
 
@@ -74,5 +75,17 @@ function activateFoodNameValidator(data) {
 
     let companiesDatalist = document.getElementById("companies");
 
-    companiesDatalist.innerHTML = data.companies.map(company => `<option value='{"ID": "${company.ID}", "en": "${company.en}", "he": "${company.he}"}'>${window.document.dir == "ltr" ? company.en : company.he}</option>`).join("\n");
+    
+    companiesDatalist.innerHTML = data.companies.map(company => `<option value="${window.document.dir == "ltr" ? company.en : company.he}"></option>`).join("\n");
+    console.log(companiesDatalist);
+    
+}
+
+function localCompanyNameToObject(localTranslation, data) {
+    /**
+     * @type {{ID: string, en: string, he: string}[]}
+     */
+    let companyArray = data.companies;
+
+    return companyArray.find(company => company.en == localTranslation || company.he == localTranslation) || {ID: localTranslation, en: "<TRANSLATION NEEDED>", he: "<TRANSLATION NEEDED>"};
 }

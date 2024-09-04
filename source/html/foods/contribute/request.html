@@ -313,9 +313,7 @@
             let foodHe_Sureness = foodHe_DontKnow ? 0 : foodHe_NotSure ? 1 : 2;
 
             let foodCompany = document.getElementById("company").value;
-            let foodCompanyObject = foodCompany.length === 0 ? null : 
-                foodCompany.startsWith("{") ? JSON.parse(foodCompany) :
-                { ID: foodCompany, en: "<TRANSLATION NEEDED>", he: "<TRANSLATION NEEDED>" };
+            let foodCompanyObject = foodCompany.length === 0 ? null : localCompanyNameToObject(foodCompany, window.TABLE_JSON_DATA);
 
             output.innerHTML = "Testing For Attempted XSS Attacks...";
 
