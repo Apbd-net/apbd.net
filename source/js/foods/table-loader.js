@@ -197,9 +197,9 @@ if (prevRows !== currentRows) {
         localStorage.currentRowAmount = currentRows;
     } else {
         let t = document.getElementById("change-count-text");
-        switch (languageIndex) {
-            case 0: t.innerText = `${currentRows - prevRows} Food Items Were Added Since Your Last Visit 😃`; break;
-            case 1: t.innerText = `${currentRows - prevRows} מוצרים נוספו לרשימה מאז ביקורך האחרון 😃`; break;
+        switch (window.document.documentElement.getAttribute("lang")) {
+            case "en": t.innerText = `${currentRows - prevRows} Food Items Were Added Since Your Last Visit 😃`; break;
+            case "he": t.innerText = `${currentRows - prevRows} מוצרים נוספו לרשימה מאז ביקורך האחרון 😃`; break;
         }
         t.style.display = "block";
         localStorage.currentRowAmount = currentRows;
