@@ -106,6 +106,54 @@ const PROJECT_SCRIPTS = {
                 })
             }
             return JSON.stringify(json);
+        },
+        
+        "contribute/leaderboards.html": (content, runsOnLiveLoad) => {
+            if (runsOnLiveLoad) return null; // Slight optimization
+            if (content.startsWith("<!DOCTYPE html>")) return content;
+            if (content.startsWith("PROV")) {
+                let regex = /PROV "([^"]+)"/g;
+                let contributorName = regex.exec(content)[1];
+                content = content.replace(regex, "");
+                // Look for the contributor. If they arent found, Create a new row.
+                // The tbody at which the contributors are present is called CONTRIBUTORS.
+                let parser = new JSDOM(content);
+                let tbody = parser.window.document.getElementById("CONTRIBUTORS");
+                let rows = tbody.getElementsByTagName("tr");
+                let found = false;
+                for (let row of rows) {
+                    if (row.id.includes(contributorName)) {
+                        let prov = row.querySelector("[prov]");
+                        let previous = parseInt(prov.innerHTML);
+                        if (Number.isNaN(previous)) {
+                            previous = 0;
+                        }
+                        prov.innerHTML = previous + 1;
+
+                        let score = row.querySelector("[score]");
+                        let previousScore = parseInt(score.innerHTML);
+                        if (Number.isNaN(previousScore)) {
+                            previousScore = 0;
+                        }
+                        score.innerHTML = previousScore + 10;
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    let row = tbody.getElementsByTagName("tr")[0].cloneNode(true);
+                    row.id = `CONTRIBUTOR__${contributorName}`;
+                    row.getElementsByTagName("th")[0].innerHTML = contributorName;
+                    row.querySelector("[prov]").innerHTML = 1;
+                    row.querySelector("[prov]").id = `PROV__${contributorName}`;
+                    row.querySelector("[req]").innerHTML = 0;
+                    row.querySelector("[req]").id = `REQ__${contributorName}`;
+                    row.querySelector("[score]").innerHTML = 10;
+                    tbody.appendChild(row);
+                }
+
+                return parser.serialize().replace(/([prov|req|score])=""/g, "$1");
+            }
         }
     },
     "landing-page": {}
@@ -266,10 +314,11 @@ function buildTool(toolId, rootFiles) {
     }
 
     rootFiles.forEach(file => {
-        if (PROJECT_SCRIPTS[toolId][file]) {
+        var f = file.replace(sl(), "/");
+        if (PROJECT_SCRIPTS[toolId][f]) {
             let content = readFileSync(getToolDir(toolId) + file, "utf-8");
             log(`Running specified script on ${file}`);
-            content = PROJECT_SCRIPTS[toolId][file](content, LIVE_SERVER_ACTIVE) || content;
+            content = PROJECT_SCRIPTS[toolId][f](content, LIVE_SERVER_ACTIVE) || content;
             writeFileSync(getToolDir(toolId) + file, content);
         }
         // Other types of files are not present in the tool's directories
@@ -303,8 +352,21 @@ function generateTranslation(content, lang) {
             if (element.hasAttribute("pre-ti")) element.removeAttribute("pre-ti");
         }
     }
+    let result = parser.serialize();
+    // For some reason, JSDom likes moves the gtag into the head element
+    // It doesnt do the same with html comments
+    // So we detect where the gtag comment it, and put the boilerplate there.
+    result = result.replace(`<!-- Google tag (gtag.js) -->`, `<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Y5TJK47MS3"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-    return parser.serialize();
+    gtag('config', 'G-Y5TJK47MS3');
+</script>
+`);
+    return result;
 }
 
 function main() {
