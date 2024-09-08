@@ -111,9 +111,10 @@ const PROJECT_SCRIPTS = {
         "contribute/leaderboards.html": (content, runsOnLiveLoad) => {
             if (runsOnLiveLoad) return null; // Slight optimization
             if (content.startsWith("<!DOCTYPE html>")) return content;
-            if (content.startsWith("PROV")) {
-                let regex = /PROV "([^"]+)"/g;
-                let contributorName = regex.exec(content)[1];
+            if (content.startsWith("PROV") || content.startsWith("REQ")) {
+                let regex = /(PROV|REQ) "([^"]+)"/g;
+                let contributorName = regex.exec(content)[2];
+                let contributionType = regex.exec(content)[1].toLowerCase();
                 content = content.replace(regex, "");
                 // Look for the contributor. If they arent found, Create a new row.
                 // The tbody at which the contributors are present is called CONTRIBUTORS.
@@ -123,19 +124,19 @@ const PROJECT_SCRIPTS = {
                 let found = false;
                 for (let row of rows) {
                     if (row.id.includes(contributorName)) {
-                        let prov = row.querySelector("[prov]");
-                        let previous = parseInt(prov.innerHTML);
+                        let toIncrement = row.querySelector(`[${contributionType}]`);
+                        let previous = parseInt(toIncrement.innerHTML);
                         if (Number.isNaN(previous)) {
                             previous = 0;
                         }
-                        prov.innerHTML = previous + 1;
+                        toIncrement.innerHTML = previous + 1;
 
                         let score = row.querySelector("[score]");
                         let previousScore = parseInt(score.innerHTML);
                         if (Number.isNaN(previousScore)) {
                             previousScore = 0;
                         }
-                        score.innerHTML = previousScore + 10;
+                        score.innerHTML = previousScore + (contributionType == "prov" ? 10 : 1);
                         found = true;
                         break;
                     }
@@ -144,11 +145,11 @@ const PROJECT_SCRIPTS = {
                     let row = tbody.getElementsByTagName("tr")[0].cloneNode(true);
                     row.id = `CONTRIBUTOR__${contributorName}`;
                     row.getElementsByTagName("th")[0].innerHTML = contributorName;
-                    row.querySelector("[prov]").innerHTML = 1;
+                    row.querySelector("[prov]").innerHTML = contributionType == "prov" ? 1 : 0;
                     row.querySelector("[prov]").id = `PROV__${contributorName}`;
-                    row.querySelector("[req]").innerHTML = 0;
+                    row.querySelector("[req]").innerHTML = contributionType == "req" ? 1 : 0;
                     row.querySelector("[req]").id = `REQ__${contributorName}`;
-                    row.querySelector("[score]").innerHTML = 10;
+                    row.querySelector("[score]").innerHTML = contributionType == "req" ? 1 : 10;
                     tbody.appendChild(row);
                 }
 
