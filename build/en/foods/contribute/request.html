@@ -300,6 +300,7 @@
                     canvas.height = image.offsetHeight;                    
                     canvas.getContext("2d").drawImage(image, 0, 0);
                     image.src = "";
+                    image.style.position = "none";
                     imagebase64s.push(canvas.toDataURL("image/png"));
                 }
                 
