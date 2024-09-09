@@ -1,3 +1,52 @@
+
+header {
+    display: flex;
+    height: 60px;
+    background-color: #222222;
+    align-items: top;
+    justify-content: space-between;
+    padding-inline: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+}
+
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo .sub {
+    font-size: 0.7em;
+    display: block ;
+}
+
+.logo a {
+    text-decoration: none;
+    color: white;
+}
+
+.logo .column {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logo img {
+    width: 2em;
+    height: 2em;
+    padding-inline-end: 10px;
+}
+
+.logo .column .title {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin: 0;
+
+}
+
+
 .dropdown {
     display: none;
     background: #222222;

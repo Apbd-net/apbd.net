@@ -10,6 +10,13 @@
         <priority>1.0</priority>
     </url>
     <url>
+        <loc>https://apbd.net/en</loc>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://apbd.net/en/" />
+        <xhtml:link rel="alternate" hreflang="he" href="https://apbd.net/he/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://apbd.net/en/" />
+    </url>
+    <url>
         <loc>https://apbd.net/en/foods</loc>
         <priority>1.0</priority>
         <xhtml:link rel="alternate" hreflang="en" href="https://apbd.net/en/foods" />
