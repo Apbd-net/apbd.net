@@ -257,6 +257,14 @@ blockquote:hover {
     border: 0px;
 }
 
+#food-list tr:nth-child(odd) {
+    background-color: #181818;
+}
+
+#food-list tr:nth-child(even) {
+    background-color: #111111;
+}
+
 #food-list td:nth-child(n) {
     text-align: center;
     overflow-x: hidden;
@@ -384,10 +392,18 @@ blockquote:hover {
         min-width: 50px;
     }
 
-    #food-list td:nth-child(2) {
+    #food-list td:nth-child(2), #food-list th:nth-child(2) {
         position: sticky;
         left: 0;
-        background-color: #111111;
+        background-color: inherit;
+    }
+    #food-list td:nth-child(2):dir(rtl), #food-list th:nth-child(2):dir(rtl) {
+        right: 0;
+        left: unset;
+    }
+
+    #food-list tr:hover> td:nth-child(2) {
+        background-color: #444444;
     }
 
     header {

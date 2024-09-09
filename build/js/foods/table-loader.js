@@ -26,8 +26,8 @@ rows = Array.from(table.getElementsByTagName("tr"));
 /*
  - Floating Point Errors
  - less/more than signs (< or >, `less-than` or `more-than`)
- - Estimated values (~) (`inaccurate`)
- - Attach approximated value indicator (todo) (`approximated`)
+ - Approximated values (~) (`inaccurate`)
+ - Attach Estimated value indicator (todo) (`estimated`)
  - Attach company name + image (`company="..."`)
  - Attach danger notes (`danger="..."`)
 */
@@ -94,6 +94,11 @@ for (let i = 0; i < rows.length; i++) {
                 par.innerText = "~"
                 par.style.marginInlineStart = "0";
                 element.after(par)
+            } else if (element.hasAttribute("estimated")) {
+                let par = document.createElement("desc");
+                par.innerText = "?";
+                par.marginInlineStart = "1px";
+                element.after(par);
             } else if (element.hasAttribute("less-than")) {
                 let par = document.createElement("desc");
                 par.innerText = "<"
