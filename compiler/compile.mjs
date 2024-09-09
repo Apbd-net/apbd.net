@@ -162,7 +162,7 @@ const PROJECT_SCRIPTS = {
 
 
 const SUPPORTED_LANGUAGES = ["en", "he"];
-const MIGRATE_TRANSLATION_SYSTEM = process.argv.includes("--migrate-translation-system") || process.argv.includes("--mts");
+const MIGRATE_TRANSLATION_SYSTEM = process.argv.includes("--migrate-translation-system") || process.argv.includes("--mts") || process.argv.includes("--m");
 const CONTINUOUS = process.argv.includes("--continuous") || process.argv.includes("--c");
 const LAUNCH_DEV_SERVER = process.argv.includes("--launch-dev-server") || process.argv.includes("--dev") || process.argv.includes("--d");
 
