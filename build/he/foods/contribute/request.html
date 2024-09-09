@@ -90,7 +90,7 @@
                         <td>
                             <input id="name1" oninput="document.getElementById('c2').style.display = document.getElementById('or').style.display = (this.value.length !== 0 || document.getElementById('n-np1').classList.contains('selected') ? 'none' : '')" placeholder="שם פרטי ושם משפחה...">
                             <div class="button-row">
-                                <button id="n-np1" type="button">מעדיף שלא למסור</button>
+                                <button id="n-np1" type="button" onclick="document.getElementById('name1').value = ''; this.classList.toggle('selected'); document.getElementById('name1').oninput(); this.classList.toggle('selected')">מעדיף שלא למסור</button>
                             </div>
                         </td>
                     </tr>
@@ -152,7 +152,7 @@
                         <td>
                             <input id="name2" oninput="document.getElementById('c1').style.display = document.getElementById('or').style.display = (this.value.length !== 0 || document.getElementById('n-np2').classList.contains('selected') ? 'none' : '')" placeholder="שם פרטי ושם משפחה...">
                             <div class="button-row">
-                                <button id="n-np2" type="button">מעדיף שלא למסור</button>
+                                <button id="n-np2" type="button" onclick="document.getElementById('name2').value = ''; this.classList.toggle('selected'); document.getElementById('name2').oninput(); this.classList.toggle('selected')">מעדיף שלא למסור</button>
                             </div>
                         </td>
                     </tr>
@@ -163,12 +163,12 @@
                         </th>
                         <td>
                             <div style="display: flex; width: 100%; flex-direction: row; justify-content: center;">
-                                <img width="0" height="0" style="display: none;">
+                                <img id="img1" width="0" height="0" style="display: none;">
                             </div>
                             <div class="button-row">
                                 <button type="button" onclick="takeAndDisplay(this.parentElement.parentElement)">צלם תמונה...</button>
-                                <label for="image-picker">בחר תמונה מהגלריה...</label>
-                                <input id="image-picker" type="file" accept="image/*" placeholder="בחר תמונה מהגלריה...">
+                                <label for="image-picker1">בחר תמונה מהגלריה...</label>
+                                <input id="image-picker1" type="file" accept="image/*" placeholder="בחר תמונה מהגלריה...">
                             </div>
                         </td>
                     </tr>
@@ -179,12 +179,12 @@
                         </th>
                         <td>
                             <div style="display: flex; width: 100%; flex-direction: row; justify-content: center;">
-                                <img width="0" height="0" style="display: none;">
+                                <img id="img2" width="0" height="0" style="display: none;">
                             </div>
                             <div class="button-row">
                                 <button type="button" onclick="takeAndDisplay(this.parentElement.parentElement)">צלם תמונה...</button>
-                                <label for="image-picker">בחר תמונה מהגלריה...</label>
-                                <input id="image-picker" type="file" accept="image/*" placeholder="בחר תמונה מהגלריה...">
+                                <label for="image-picker2">בחר תמונה מהגלריה...</label>
+                                <input id="image-picker2" type="file" accept="image/*" placeholder="בחר תמונה מהגלריה...">
                             </div>
                         </td>
                     </tr>
@@ -195,12 +195,12 @@
                         </th>
                         <td>
                             <div style="display: flex; width: 100%; flex-direction: row; justify-content: center;">
-                                <img width="0" height="0" style="display: none;">
+                                <img id="img3" width="0" height="0" style="display: none;">
                             </div>
                             <div class="button-row">
                                 <button type="button" onclick="takeAndDisplay(this.parentElement.parentElement)">צלם תמונה...</button>
-                                <label for="image-picker">בחר תמונה מהגלריה...</label>
-                                <input id="image-picker" type="file" accept="image/*" placeholder="בחר תמונה מהגלריה...">
+                                <label for="image-picker3">בחר תמונה מהגלריה...</label>
+                                <input id="image-picker3" type="file" accept="image/*" placeholder="בחר תמונה מהגלריה...">
                             </div>
                         </td>
                     </tr>
@@ -232,52 +232,83 @@
 
             submit.textContent = "Submitting...";
 
-            output.innerHTML = "Grabbing Data From Text Fields...";
+            if (document.getElementById('c1').style.display != "none") {
+                output.innerHTML = "Grabbing Data From Text Fields...";
 
-            let name = document.getElementById("name1").value;
-            let name_RatherNotProvide = document.getElementById("n-np1").classList.contains("selected");
-            if (name.length === 0 && !name_RatherNotProvide) {
-                output.innerHTML = "Please provide a name, or select 'I'd rather not provide'.";
-                submit.textContent = "Submit";
-                return;
-            }
-
-            let foodEn = document.getElementById("food-name-english").value;
-            let foodEn_NotSure = document.getElementById("fn-ns").classList.contains("selected");
-            let foodEn_DontKnow = document.getElementById("fn-dk").classList.contains("selected");
-            let foodEn_Sureness = foodEn_DontKnow ? 0 : foodEn_NotSure ? 1 : 2;
-
-            let foodHe = document.getElementById("food-name-hebrew").value;
-            let foodHe_NotSure = document.getElementById("t-ns").classList.contains("selected");
-            let foodHe_DontKnow = document.getElementById("t-dk").classList.contains("selected");
-            let foodHe_Sureness = foodHe_DontKnow ? 0 : foodHe_NotSure ? 1 : 2;
-
-            let foodCompany = document.getElementById("company").value;
-            let foodCompanyObject = foodCompany.length === 0 ? null : localCompanyNameToObject(foodCompany, window.TABLE_JSON_DATA);
-
-            output.innerHTML = "Testing For Attempted XSS Attacks...";
-
-            if (name.attemptedXSS() || foodEn.attemptedXSS() || foodHe.attemptedXSS()) {
-                output.innerHTML = "Nice try 😉";
-                submit.textContent = "Submit";
-                return;
-            }
-
-            if (document.getElementById("food-name-english").classList.contains("already-exists") || document.getElementById("food-name-hebrew").classList.contains("already-exists")) {
-                output.innerHTML = "Food already exists in the food list.";
-                submit.textContent = "Submit";
-                return;
-            }
-
-            output.innerHTML = "Building & Sending Request Packet...";
-            requestUsingDetails(name, [foodEn, foodEn_Sureness], [foodHe, foodHe_Sureness], foodCompanyObject)
-                .then(response => {
-                    output.innerHTML = response;
+                let name = document.getElementById("name1").value;
+                let name_RatherNotProvide = document.getElementById("n-np1").classList.contains("selected");
+                if (name.length === 0 && !name_RatherNotProvide) {
+                    output.innerHTML = "Please provide a name, or select 'I'd rather not provide'.";
                     submit.textContent = "Submit";
-                    document.getElementById("food-name-english").value = "";
-                    document.getElementById("food-name-hebrew").value = "";
-                    document.getElementById("company").value = "";
-                });
+                    return;
+                }
+
+                let foodEn = document.getElementById("food-name-english").value;
+                let foodEn_NotSure = document.getElementById("fn-ns").classList.contains("selected");
+                let foodEn_DontKnow = document.getElementById("fn-dk").classList.contains("selected");
+                let foodEn_Sureness = foodEn_DontKnow ? 0 : foodEn_NotSure ? 1 : 2;
+
+                let foodHe = document.getElementById("food-name-hebrew").value;
+                let foodHe_NotSure = document.getElementById("t-ns").classList.contains("selected");
+                let foodHe_DontKnow = document.getElementById("t-dk").classList.contains("selected");
+                let foodHe_Sureness = foodHe_DontKnow ? 0 : foodHe_NotSure ? 1 : 2;
+
+                let foodCompany = document.getElementById("company").value;
+                let foodCompanyObject = foodCompany.length === 0 ? null : localCompanyNameToObject(foodCompany, window.TABLE_JSON_DATA);
+
+                output.innerHTML = "Testing For Attempted XSS Attacks...";
+
+                if (name.attemptedXSS() || foodEn.attemptedXSS() || foodHe.attemptedXSS()) {
+                    output.innerHTML = "Nice try 😉";
+                    submit.textContent = "Submit";
+                    return;
+                }
+
+                if (document.getElementById("food-name-english").classList.contains("already-exists") || document.getElementById("food-name-hebrew").classList.contains("already-exists")) {
+                    output.innerHTML = "Food already exists in the food list.";
+                    submit.textContent = "Submit";
+                    return;
+                }
+
+                output.innerHTML = "Building & Sending Request Packet...";
+                requestUsingDetails(name, [foodEn, foodEn_Sureness], [foodHe, foodHe_Sureness], foodCompanyObject)
+                    .then(response => {
+                        output.innerHTML = response;
+                        submit.textContent = "Submit";
+                        document.getElementById("food-name-english").value = "";
+                        document.getElementById("food-name-hebrew").value = "";
+                        document.getElementById("company").value = "";
+                    });
+            }
+            else {
+                let name = document.getElementById("name2").value;
+                let name_RatherNotProvide = document.getElementById("n-np2").classList.contains("selected");
+                if (name.length === 0 && !name_RatherNotProvide) {
+                    output.innerHTML = "Please provide a name, or select 'I'd rather not provide'.";
+                    submit.textContent = "Submit";
+                    return;
+                }
+
+                output.innerHTML = "Grabbing Images...";
+                let imagebase64s = [];
+                let canvas = document.createElement("canvas");
+                for (let i = 1; i < 4; i++) {
+                    let image = document.getElementById(`img${i}`);
+                    image.width = 0; image.height = 0;
+                    image.style.position = "absolute";
+                    canvas.width = image.offsetWidth;
+                    canvas.height = image.offsetHeight;                    
+                    canvas.getContext("2d").drawImage(image, 0, 0);
+                    image.src = "";
+                    imagebase64s.push(canvas.toDataURL("image/png"));
+                }
+                
+                requestUsingImages(name, imagebase64s)
+                    .then(response => {
+                        output.innerHTML = response;
+                        submit.textContent = "Submit";
+                    });
+            }
         }
     </script>
 

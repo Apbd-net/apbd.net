@@ -1,6 +1,6 @@
 /**
  * @param {HTMLTableRowElement[]} rows 
- * @param {"name-d"|"name-u"|"company-d"|"company-u"|"glycemic-index-d"|"glycemic-index-u"|"glycemic-load-d"|"glycemic-load-u"|"carbs-d"|"carbs-u"|"sugar-d"|"sugar-u"} method 
+ * @param {"name-d"|"name-u"|"company-d"|"company-u"|"glycemic-index-d"|"glycemic-index-u"|"glycemic-load-d"|"glycemic-load-u"|"carbs-d"|"carbs-u"|"sugar-d"|"sugar-u"|"last-added"|"first-added"|"starch-d"|"starch-u"|"fiber-d"|"fiber-u"} method 
  */
 function sortBy(rows, method) {
     let header = rows.shift();
@@ -130,10 +130,62 @@ function sortBy(rows, method) {
             });
             break;
         }
+        case "starch-d": {
+            rows.sort((a, b) => {
+                let aStarch = parseFloat(a.getElementsByTagName("td")[5].getElementsByTagName("span")[0].innerText);
+                let bStarch = parseFloat(b.getElementsByTagName("td")[5].getElementsByTagName("span")[0].innerText);
+                if (aStarch < 0 && bStarch < 0) return 0;
+                if (aStarch < 0) return 1;
+                if (bStarch < 0) return -1;
+                if (aStarch > bStarch) return 1;
+                if (aStarch < bStarch) return -1;
+                return 0;
+            });
+            break;
+        }
+        case "starch-u": {
+            rows.sort((a, b) => {
+                let aStarch = parseFloat(a.getElementsByTagName("td")[5].getElementsByTagName("span")[0].innerText);
+                let bStarch = parseFloat(b.getElementsByTagName("td")[5].getElementsByTagName("span")[0].innerText);
+                if (aStarch < 0 && bStarch < 0) return 0;
+                if (aStarch < 0) return 1;
+                if (bStarch < 0) return -1;
+                if (aStarch < bStarch) return 1;
+                if (aStarch > bStarch) return -1;
+                return 0;
+            });
+            break;
+        }
+        case "fiber-d": {
+            rows.sort((a, b) => {
+                let aFiber = parseFloat(a.getElementsByTagName("td")[6].getElementsByTagName("span")[0].innerText);
+                let bFiber = parseFloat(b.getElementsByTagName("td")[6].getElementsByTagName("span")[0].innerText);
+                if (aFiber < 0 && bFiber < 0) return 0;
+                if (aFiber < 0) return 1;
+                if (bFiber < 0) return -1;
+                if (aFiber > bFiber) return 1;
+                if (aFiber < bFiber) return -1;
+                return 0;
+            });
+            break;
+        }
+        case "fiber-u": {
+            rows.sort((a, b) => {
+                let aFiber = parseFloat(a.getElementsByTagName("td")[6].getElementsByTagName("span")[0].innerText);
+                let bFiber = parseFloat(b.getElementsByTagName("td")[6].getElementsByTagName("span")[0].innerText);
+                if (aFiber < 0 && bFiber < 0) return 0;
+                if (aFiber < 0) return 1;
+                if (bFiber < 0) return -1;
+                if (aFiber < bFiber) return 1;
+                if (aFiber > bFiber) return -1;
+                return 0;
+            });
+            break;
+        }
         case "carbs-d": {
             rows.sort((a, b) => {
-                let aCarbs = parseFloat(a.getElementsByTagName("td")[5].getElementsByTagName("span")[0].innerText);
-                let bCarbs = parseFloat(b.getElementsByTagName("td")[5].getElementsByTagName("span")[0].innerText);
+                let aCarbs = parseFloat(a.getElementsByTagName("td")[7].getElementsByTagName("span")[0].innerText);
+                let bCarbs = parseFloat(b.getElementsByTagName("td")[7].getElementsByTagName("span")[0].innerText);
                 if (aCarbs < 0 && bCarbs < 0) return 0;
                 if (aCarbs < 0) return 1;
                 if (bCarbs < 0) return -1;
@@ -145,8 +197,8 @@ function sortBy(rows, method) {
         }
         case "carbs-u": {
             rows.sort((a, b) => {
-                let aCarbs = parseFloat(a.getElementsByTagName("td")[5].getElementsByTagName("span")[0].innerText);
-                let bCarbs = parseFloat(b.getElementsByTagName("td")[5].getElementsByTagName("span")[0].innerText);
+                let aCarbs = parseFloat(a.getElementsByTagName("td")[7].getElementsByTagName("span")[0].innerText);
+                let bCarbs = parseFloat(b.getElementsByTagName("td")[7].getElementsByTagName("span")[0].innerText);
                 if (aCarbs < 0 && bCarbs < 0) return 0;
                 if (aCarbs < 0) return 1;
                 if (bCarbs < 0) return -1;

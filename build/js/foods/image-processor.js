@@ -61,3 +61,31 @@ function pickImage(video, tdCell) {
 
     
 }
+
+
+/**
+ * @type {HTMLInputElement[]}
+ */
+var fileInputsForImages = [document.getElementById("image-picker1"), document.getElementById("image-picker2"), document.getElementById("image-picker3")];
+
+/**
+ * @type {HTMLImageElement[]}
+ */
+var correspondingImages = [document.getElementById("img1"), document.getElementById("img2"), document.getElementById("img3")];
+
+for (let i = 0; i < fileInputsForImages.length; i++) {
+    fileInputsForImages[i].style.display = "none";
+    fileInputsForImages[i].addEventListener("change", function () {
+        console.log(fileInputsForImages[i].files);
+        if (fileInputsForImages[i].files.length > 0) {
+            let reader = new FileReader();
+            reader.addEventListener("load", function () {
+                correspondingImages[i].src = reader.result;
+                correspondingImages[i].style.display = "block";
+                correspondingImages[i].style.width = "100%";
+                correspondingImages[i].style.height = "auto";
+            });
+            reader.readAsDataURL(fileInputsForImages[i].files[0]);
+        }
+    });
+}

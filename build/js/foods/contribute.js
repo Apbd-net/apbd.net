@@ -10,13 +10,45 @@ async function requestUsingDetails(name, foodEn, foodHe, foodCompany) {
     if (!name) name = "Anonymous";
     if (foodEn[0].length === 0 && foodHe[0].length === 0) return Promise.resolve("Request not submitted: No food name provided.");
     let payload = {
-        type: "request",
+        type: "request-details",
         name: name,
         foodEnglish: foodEn[0],
         foodEnglishSureness: foodEn[1],
         foodHebrew: foodHe[0],
         foodHebrewSureness: foodHe[1],
         foodCompany: foodCompany,
+    }
+    return await fetch("https://apbd-contrib-bot.shaharmsecond.workers.dev/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+    })
+        .then(response => response.text())
+        .then(data => data);
+}
+
+/**
+ * Sends a request using images to the cloudflare worker.
+ *
+ * @param {string} name - The name of the contributor, Leave empty for anonymous.
+ * @param {string[]} imageBase64s - An array of base64 encoded images.
+ * @returns {Promise<string>} The response from the cloudflare worker.
+ */
+async function requestUsingImages(name, imageBase64s) {    
+    let processed = imageBase64s.map(base64 => {
+        return base64.replace(/^data:image\/[a-z]+;base64,/, "");
+    })
+    processed = processed.filter(base64 => {
+        return base64 != "data:,"
+    })
+    imageBase64s = processed;
+    if (!name) name = "Anonymous";
+    let payload = {
+        type: "request-images",
+        name: name,
+        imageBase64s: imageBase64s
     }
     return await fetch("https://apbd-contrib-bot.shaharmsecond.workers.dev/", {
         method: "POST",
