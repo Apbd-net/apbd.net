@@ -159,7 +159,9 @@ const PROJECT_SCRIPTS = {
             }
         }
     },
-    "recipes": {},
+    "recipes": {
+        
+    },
 }
 
 
@@ -335,7 +337,7 @@ function buildTool(toolId, rootFiles) {
                 if (PROJECT_SCRIPTS[toolId][part]) {
                     log(`Running specified script on ${file} (Inherited from folder \`${part}\`)`);
                     let content = readFileSync(getToolDir(toolId) + file, "utf-8");
-                    content = PROJECT_SCRIPTS[toolId][part](content, LIVE_SERVER_ACTIVE) || content;
+                    content = PROJECT_SCRIPTS[toolId][part](content, LIVE_SERVER_ACTIVE, f) || content;
                     writeFileSync(getToolDir(toolId) + file, content);
                     break;
                 }
