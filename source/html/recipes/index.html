@@ -1,11 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/foods/dropdown.css">
+    <link rel="stylesheet" href="/css/landing-page/main.css">
+    <link rel="stylesheet" href="/css/recipes/main.css">
+    <link rel="stylesheet" href="/css/recipes/recipe-grid.css">
+    <link rel="stylesheet" href="/css/recipes/searchbar.css">
+    <link rel="stylesheet" href="/css/recipes/scroller.css">
 </head>
+
 <body>
-    
+    <script>
+        const touch = matchMedia('(hover: none)').matches
+        console.log(touch);
+
+        if (touch) {
+            let prev = window.document.body;
+            window.addEventListener("touchend", function (e) {
+                if (e.target.onclick) e.target.onclick();
+                if (prev !== e.target) prev.classList.remove("hover");
+                e.target.classList.toggle("hover");
+                prev = e.target;
+                console.log(e.target);
+            }, { passive: false });
+        }
+    </script>
+    <header>
+        <div class="logo">
+            <img src="/favicon.ico" alt="Website logo">
+            <div class="column">
+                <a class="title" href="/">APBD.net</a>
+                <a class="sub" href-en="/en/recipes" href-he="/he/recipes" en="The Great Cookbook"
+                    he="ספר המתכונים הגדול">
+                    The Cookbook
+                </a>
+            </div>
+
+        </div>
+        <nav class="header-menu">
+            <div class="dropdown">
+                <a id="about" href="#" en="About" he="אודות">About</a>
+                <div class="dropdown-content">
+                    <a target="_blank"
+                        href="https://rarediseases.org/rare-diseases/adult-polyglucosan-body-disease/">APBD
+                        <span>&UpperRightArrow;</span></a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a id="contribute" href="#" en="Contribute" he="תרום תוכן">Contribute</a>
+                <div class="dropdown-content">
+
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a id="contact" href="#" en="Language" he="שפה">Language</a>
+                <div class="dropdown-content">
+                    <a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'en')" href="#"
+                        en="English" he="אנגלית">English</a>
+                    <a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'he')" href="#"
+                        en="Hebrew" he="עברית">Hebrew</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <blockquote>
+            Enjoy your stay :D
+        </blockquote>
+
+        <div id="search-form">
+            <button type="button" class="search">⌕</button>
+            <input id="food-search" placeholder="Search..." autocomplete="on">
+            <select class="sort-switch" id="sort-switch"
+                onchange="window.location.href = window.location.origin + window.location.pathname + '?sort=' + this.value">
+                <option value="name-d" en="Sort By: Food Name &darr;" he="מיין לפי: שם מאכל &darr;"></option>
+                <option value="name-u" en="Sort By: Food Name &uarr;" he="מיין לפי: שם מאכל &uarr;"></option>
+                <option value="gl-d" en="Sort By: Glycemic Load &darr;" he="מיין לפי: עומס גליקמי &darr;"></option>
+                <option value="gl-u" en="Sort By: Glycemic Load &uarr;" he="מיין לפי: עומס גליקמי &uarr;"></option>
+                <option value="fiber-d" en="Sort By: Fiber &darr;" he="מיין לפי: סיבים תזונתיים &darr;"></option>
+                <option value="fiber-u" en="Sort By: Fiber &uarr;" he="מיין לפי: סיבים תזונתיים &uarr;"></option>
+                <option value="bad-carbs-d" en="Sort By: Bad Carbs &darr;" he="מיין לפי: פחמימות רעות &darr;"></option>
+                <option value="bad-carbs-u" en="Sort By: Bad Carbs &uarr;" he="מיין לפי: פחמימות רעות &uarr;"></option>
+                <option value="carbs-d" en="Sort By: Overall Carbs &darr;" he="מיין לפי: פחמימות סה&quot;כ &darr;">
+                </option>
+                <option value="carbs-u" en="Sort By: Overall Carbs &uarr;" he="מיין לפי: פחמימות סה&quot;כ &uarr;">
+                </option>
+            </select>
+        </div>
+        <div class="grid-container">
+            <div id="recipe-grid">
+
+                <a href="./items/lorem1.html" class="recipe">
+                    <div class="preview">
+                        <img src="https://www.budgetbytes.com/wp-content/uploads/2013/07/Creamy-Spinach-Tomato-Pasta-bowl-500x500.jpg"
+                            alt="pasta">
+                    </div>
+                    <div class="description">
+                        <h2>Lorem Ipsum</h2>
+                        <h3>Name Here</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type</p>
+                    </div>
+                    <ul class="metadata">
+                        <li><span class="identifier">Estimated GL</span>: <span class="value gl">4</span></li>
+                        <li><span class="identifier">Fiber</span>: <span class="grams fiber">13</span></li>
+                        <li><span class="identifier">Bad Carbs</span>: <span class="grams bad-carbs">5</span></li>
+                        <li><span class="identifier">Overall Carbs</span>: <span class="grams carbs">18</span></li>
+                    </ul>
+                </a>
+                <a href="./items/lorem1.html" class="recipe">
+                    <div class="preview">
+                        <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2023/05/red-sauce-pasta-recipe.jpg"
+                            alt="pasta">
+                    </div>
+                    <div class="description">
+                        <h2>Lorem Ipsum</h2>
+                        <h3>Name Here</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type</p>
+                    </div>
+                    <ul class="metadata">
+                        <li><span class="identifier">Estimated GL</span>: <span class="value gl">4</span></li>
+                        <li><span class="identifier">Fiber</span>: <span class="grams fiber">13</span></li>
+                        <li><span class="identifier">Bad Carbs</span>: <span class="grams bad-carbs">5</span></li>
+                        <li><span class="identifier">Overall Carbs</span>: <span class="grams carbs">18</span></li>
+                    </ul>
+                </a>
+                <a href="./items/lorem1.html" class="recipe">
+                    <div class="preview">
+                        <img src="https://www.allrecipes.com/thmb/QiGptPjQB5mqSXGVxE4sLPMJs_4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-269500-creamy-garlic-pasta-Beauties-2x1-bcd9cb83138849e4b17104a1cd51d063.jpg"
+                            alt="pasta">
+                    </div>
+                    <div class="description">
+                        <h2>Lorem Ipsum</h2>
+                        <h3>Name Here</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type</p>
+                    </div>
+                    <ul class="metadata">
+                        <li><span class="identifier">Estimated GL</span>: <span class="value gl">4</span></li>
+                        <li><span class="identifier">Fiber</span>: <span class="grams fiber">13</span></li>
+                        <li><span class="identifier">Bad Carbs</span>: <span class="grams bad-carbs">5</span></li>
+                        <li><span class="identifier">Overall Carbs</span>: <span class="grams carbs">18</span></li>
+                    </ul>
+                </a>
+                <a href="./items/lorem1.html" class="recipe">
+                    <div class="preview">
+                        <img src="https://3.bp.blogspot.com/-okeaImTxP6g/TeZPKv7nlKI/AAAAAAAAARo/zdMaRZGrryo/s640/Apri2011+049pwm.jpg"
+                            alt="pasta">
+                    </div>
+                    <div class="description">
+                        <h2>Lorem Ipsum</h2>
+                        <h3>Name Here</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type</p>
+                    </div>
+                    <ul class="metadata">
+                        <li><span class="identifier">Estimated GL</span>: <span class="value gl">4</span></li>
+                        <li><span class="identifier">Fiber</span>: <span class="grams fiber">13</span></li>
+                        <li><span class="identifier">Bad Carbs</span>: <span class="grams bad-carbs">5</span></li>
+                        <li><span class="identifier">Overall Carbs</span>: <span class="grams carbs">18</span></li>
+                    </ul>
+                </a>
+                <a href="./items/lorem1.html" class="recipe">
+                    <div class="preview">
+                        <img src="https://sweetlycakes.com/wp-content/uploads/2023/12/cookiemonstercookies-12-1.jpg"
+                            alt="pasta">
+                    </div>
+                    <div class="description">
+                        <h2>Lorem Ipsum</h2>
+                        <h3>Name Here</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type</p>
+                    </div>
+                    <ul class="metadata">
+                        <li><span class="identifier">Estimated GL</span>: <span class="value gl">4</span></li>
+                        <li><span class="identifier">Fiber</span>: <span class="grams fiber">13</span></li>
+                        <li><span class="identifier">Bad Carbs</span>: <span class="grams bad-carbs">5</span></li>
+                        <li><span class="identifier">Overall Carbs</span>: <span class="grams carbs">18</span></li>
+                    </ul>
+                </a>
+                <a href="./items/lorem1.html" class="recipe">
+                    <div class="preview">
+                        <img src="https://kitchenconfidante.com/wp-content/uploads/2022/05/Angus-Beef-Steak-Recipe-with-Garlic-Herb-Compound-Butter-kitchenconfidante.com-2745-FEATURED-IMAGE.jpg"
+                            alt="pasta">
+                    </div>
+                    <div class="description">
+                        <h2>Lorem Ipsum</h2>
+                        <h3>Name Here</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type</p>
+                    </div>
+                    <ul class="metadata">
+                        <li><span class="identifier">Estimated GL</span>: <span class="value gl">4</span></li>
+                        <li><span class="identifier">Fiber</span>: <span class="grams fiber">13</span></li>
+                        <li><span class="identifier">Bad Carbs</span>: <span class="grams bad-carbs">5</span></li>
+                        <li><span class="identifier">Overall Carbs</span>: <span class="grams carbs">18</span></li>
+                    </ul>
+                </a>
+                <a href="./items/lorem1.html" class="recipe">
+                    <div class="preview">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQk8aTuosBSWlxfFG-NU9K3R6-5gYtCpu5lA&s"
+                            alt="pasta">
+                    </div>
+                    <div class="description">
+                        <h2>Lorem Ipsum</h2>
+                        <h3>Name Here</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type</p>
+                    </div>
+                    <ul class="metadata">
+                        <li><span class="identifier">Estimated GL</span>: <span class="value gl">4</span></li>
+                        <li><span class="identifier">Fiber</span>: <span class="grams fiber">13</span></li>
+                        <li><span class="identifier">Bad Carbs</span>: <span class="grams bad-carbs">5</span></li>
+                        <li><span class="identifier">Overall Carbs</span>: <span class="grams carbs">18</span></li>
+                    </ul>
+                </a>
+                <a href="./items/lorem1.html" class="recipe">
+                    <div class="preview">
+                        <img src="https://natashaskitchen.com/wp-content/uploads/2020/03/Pan-Seared-Steak-4.jpg"
+                            alt="pasta">
+                    </div>
+                    <div class="description">
+                        <h2>Lorem Ipsum</h2>
+                        <h3>Name Here</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type</p>
+                    </div>
+                    <ul class="metadata">
+                        <li><span class="identifier">Estimated GL</span>: <span class="value gl">4</span></li>
+                        <li><span class="identifier">Fiber</span>: <span class="grams fiber">13</span></li>
+                        <li><span class="identifier">Bad Carbs</span>: <span class="grams bad-carbs">5</span></li>
+                        <li><span class="identifier">Overall Carbs</span>: <span class="grams carbs">18</span></li>
+                    </ul>
+                </a>
+            </div>
+
+            <div id="page-scroller">
+                <div id="scroll-text">
+                    <span en="Showing" he="מציג"></span>
+                    <span id="selection-start">1</span>
+                    <span en="to" he="עד"></span>
+                    <span id="selection-end">6</span>
+                    <span en="out of" he="מתוך"></span>
+                    <span id="total-recipes">24</span>
+                    <span en="recipes" he="מתכונים"></span>
+                </div>
+
+                <div id="scroller">
+                    <button type="button">&laquo;</button>
+                    <button type="button">&lsaquo;</button>
+                    <button type="button">&rsaquo;</button>
+                    <button type="button">&raquo;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="/js/recipes/scroller.js"></script>
 </body>
+
 </html>

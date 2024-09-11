@@ -1,0 +1,42 @@
+:root {
+    font-size: 0.8em;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+blockquote {
+    padding-inline: 20px;
+    padding-inline-end: 10px;
+    opacity: 0.5;
+    margin-block: 50px;
+    padding-block: 6px;
+    border-inline-start: 4px solid white;
+}
+
+blockquote:hover {
+    opacity: 1;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 60px;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1200px) {
+    .grid-container {
+        flex-direction: column-reverse;
+    }
+}

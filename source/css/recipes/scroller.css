@@ -1,0 +1,44 @@
+#page-scroller {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+@media screen and (max-width: 759px) {
+    #page-scroller {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+}
+
+#page-scroller>div#scroller {
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    border-block: 2px solid #333333;
+}
+
+#page-scroller>div#scroller>button {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #222222;
+    border: 0px;
+    border-inline-end: 2px solid #333333;
+}
+
+#page-scroller>div#scroller>button:first-child {
+    border-inline-start: 2px solid #333333;
+}
+
+#page-scroller>div#scroller>button:hover {
+    background-color: #333333;
+}
+
+#page-scroller>div#scroller>button.selected {
+    font-weight: bold;
+    text-decoration: underline;
+}
