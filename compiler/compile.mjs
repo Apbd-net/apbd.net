@@ -15,7 +15,7 @@ function sl() {
 const TOOLS = ["foods", "landing-page"];
 const EXCLUDED_ROOT_PATHS = {
     "foods": ["scrapes"],
-    "landing-page": []
+    "landing-page": [],
 };
 
 /**
@@ -315,12 +315,29 @@ function buildTool(toolId, rootFiles) {
     }
 
     rootFiles.forEach(file => {
-        var f = file.replace(sl(), "/");
+        let f = file.replace(sl(), "/");
         if (PROJECT_SCRIPTS[toolId][f]) {
             let content = readFileSync(getToolDir(toolId) + file, "utf-8");
             log(`Running specified script on ${file}`);
             content = PROJECT_SCRIPTS[toolId][f](content, LIVE_SERVER_ACTIVE) || content;
             writeFileSync(getToolDir(toolId) + file, content);
+        }
+        else {
+            // Check if the file's parent folder has a script instead
+            let fArray = f.split("/");
+            fArray.pop(); // Remove the file name
+            while (fArray.length > 0) {
+                let part = fArray.join("/") + "/";
+                fArray.pop(); // Remove the current folder name
+                // We're doing it in reverse to make sure more nested folders have higher priority
+                if (PROJECT_SCRIPTS[toolId][part]) {
+                    log(`Running specified script on ${file} (Inherited from folder \`${part}\`)`);
+                    let content = readFileSync(getToolDir(toolId) + file, "utf-8");
+                    content = PROJECT_SCRIPTS[toolId][part](content, LIVE_SERVER_ACTIVE) || content;
+                    writeFileSync(getToolDir(toolId) + file, content);
+                    break;
+                }
+            }
         }
         // Other types of files are not present in the tool's directories
         buildHTMLFile(file, toolId);

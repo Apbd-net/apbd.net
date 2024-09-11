@@ -61,7 +61,7 @@ Currently, the compiler supports 3 "compilation modes", whih can be toggled usin
 
 ### Features
 
-- **File-specific scripts**: Run a script when a file is getting built. You can modify the file using that script, or just grab its contents.
+- **File-specific scripts**: Run a script when a file is getting built. You can modify the file using that script, or just grab its contents. **This also works for entire folders.**
 - **Excluded Paths**: Allows a list of path to be exluded when building the tools. Works per tool.
 
 
