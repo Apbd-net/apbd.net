@@ -12,10 +12,11 @@ function sl() {
     return process.platform === "win32" ? "\\" : "/";
 }
 
-const TOOLS = ["foods", "landing-page"];
+const TOOLS = ["landing-page", "foods", "recipes"];
 const EXCLUDED_ROOT_PATHS = {
+    "landing-page": [],
     "foods": ["scrapes"],
-    "landing-page": []
+    "recipes": [],
 };
 
 /**
@@ -23,6 +24,7 @@ const EXCLUDED_ROOT_PATHS = {
  * Changes commited here are permanent.
  */
 const PROJECT_SCRIPTS = {
+    "landing-page": {},
     "foods": {
         "data.json": (_, runsOnLiveLoad) => {
             if (runsOnLiveLoad) return null; // Slight optimization
@@ -157,7 +159,7 @@ const PROJECT_SCRIPTS = {
             }
         }
     },
-    "landing-page": {}
+    "recipes": {},
 }
 
 
