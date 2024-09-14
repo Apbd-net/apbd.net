@@ -5,7 +5,6 @@ import { readdirSync, copyFileSync, mkdirSync, readFileSync, writeFileSync, rmSy
 import { info, log } from "console";
 import { watch } from "chokidar";
 import { chdir, cwd } from "process";
-import { exec } from "child_process";
 import liveServer from "live-server";
 
 function sl() {
@@ -26,7 +25,7 @@ const EXCLUDED_ROOT_PATHS = {
 const PROJECT_SCRIPTS = {
     "landing-page": {},
     "foods": {
-        "data.json": (_, runsOnLiveLoad) => {
+        "data.json": (content, runsOnLiveLoad) => {
             if (runsOnLiveLoad) return null; // Slight optimization
             // We know were running from project root
             // foods' index.html is in source/html/foods/
@@ -34,6 +33,7 @@ const PROJECT_SCRIPTS = {
             let p = new JSDOM(tableHtml);
             let tableBody = p.window.document.getElementById("FOODLIST_ENTRIES");
             let json = {
+                buildCount: (JSON.parse(content).buildCount || 0) + 1,
                 companies: [],
                 array: []
             };
@@ -61,7 +61,7 @@ const PROJECT_SCRIPTS = {
                         he: row.children[1].getAttribute("company-he")
                     },
                     defaultWeight: parseFloat(row.children[0].getAttribute("value")),
-                    glycemicIndex: parseFloat(row.children[2].getElementsByTagName("span")[0].innerText),
+                    glycemicIndex: parseFloat(row.children[2].getElementsByTagName("span")[0].innerHTML),
                     glycemicIndexMetadata: row.children[2]
                         .getElementsByTagName("span")[0]
                         .getAttributeNames()
@@ -160,7 +160,143 @@ const PROJECT_SCRIPTS = {
         }
     },
     "recipes": {
-        
+        "index.html": (content, _ ) => {
+            let recipes = readdirSync(`source${sl()}html${sl()}recipes${sl()}items`, {withFileTypes: true, recursive: false});
+            let gridEntries = [];
+            for (let fileName of recipes) {
+                let content = readFileSync(getToolDir("recipes") + `items${sl()}${fileName.name}`, "utf-8");
+                
+                let parser = new JSDOM(content);
+                let recipeAttributes = parser.window.document.getElementsByTagName("recipe-attributes");
+                log(recipeAttributes.length);
+                if (recipeAttributes.length === 0) continue;
+
+                let attributes = recipeAttributes[0];
+                let author = attributes.getElementsByTagName("author")[0];
+                let title = attributes.getElementsByTagName("title")[0];
+                let preview = attributes.getElementsByTagName("preview-url")[0];
+                let time = attributes.getElementsByTagName("time")[0];
+                let servings = attributes.getElementsByTagName("servings")[0];
+                let difficulty = attributes.getElementsByTagName("difficulty")[0];
+                let ingredients = attributes.getElementsByTagName("ingredients")[0];
+
+                let anchor = parser.window.document.createElement("a");
+                anchor.href = `./items/${fileName.name}`;
+                anchor.classList.add("recipe");
+                
+                let previewDiv = parser.window.document.createElement("div");
+                previewDiv.classList.add("preview");
+
+                if (preview) {
+                    let img = parser.window.document.createElement("img");
+                    img.src = preview.innerHTML;
+                    img.alt = title.innerHTML;
+                    previewDiv.appendChild(img);
+                }
+
+                let descriptionDiv = parser.window.document.createElement("div");
+                descriptionDiv.classList.add("description");
+
+                if (title && ingredients && author) {
+                    let h2 = parser.window.document.createElement("h2");
+                    for (let lang of SUPPORTED_LANGUAGES) {
+                        h2.setAttribute(lang, title.getAttribute(lang));
+                    }
+                    let h3 = parser.window.document.createElement("h3");
+                    for (let lang of SUPPORTED_LANGUAGES) {
+                        h3.setAttribute(lang, author.getAttribute(lang));
+                    }
+                    let p = parser.window.document.createElement("p");
+                    for (let element of ingredients.getElementsByTagName("item")) {
+                        let name = element.getElementsByTagName("name")[0];
+                        let span = parser.window.document.createElement("span");
+                        log(name.outerHTML);
+                        log(name.attributes.length);
+                        if (name.hasAttribute("en")) {
+                            for (let lang of SUPPORTED_LANGUAGES) {
+                                span.setAttribute(lang, name.getAttribute(lang));
+                            }
+                        } else {
+                            for (let lang of SUPPORTED_LANGUAGES) {
+                                span.setAttribute(lang, (name.getAttribute("pattern-" + lang) || "").replace("^", "").replace("$", ""));
+                            }
+                        }
+
+                        p.appendChild(span);
+
+                        let weight = element.getElementsByTagName("weight")[0];
+                        let span2 = parser.window.document.createElement("span");
+                        span2.innerHTML = `, ${weight.innerHTML}${weight.getAttribute("unit") || "g"}`;
+                        p.appendChild(span2);
+                        
+                        let span3 = parser.window.document.createElement("span");
+                        span3.innerHTML = "&nbsp;&nbsp;•&nbsp;&nbsp;";
+                        p.appendChild(span3);
+                    }
+
+                    p.removeChild(p.lastChild);
+
+                    descriptionDiv.appendChild(h2);
+                    descriptionDiv.appendChild(h3);
+                    descriptionDiv.appendChild(p);
+                }
+
+                let metadataUl = parser.window.document.createElement("ul");
+                metadataUl.classList.add("metadata");
+
+                if (time) {
+                    let li = parser.window.document.createElement("li");
+                    for (let lang of SUPPORTED_LANGUAGES) {
+                        li.setAttribute(lang, `<span class="identifier">${time.getAttribute(lang)}</span>` + `: ${time.innerHTML}${time.getAttribute("unit") || "min"}`);
+                    }
+                    metadataUl.appendChild(li);
+                }
+                if (difficulty) {
+                    let li = parser.window.document.createElement("li");
+                    for (let lang of SUPPORTED_LANGUAGES) {
+                        li.setAttribute(lang, `<span class="identifier">${difficulty.getAttribute(lang)}</span>` + `: ${difficulty.innerHTML}/10`);
+                    }
+                    metadataUl.appendChild(li);
+                }
+                if (servings) {
+                    let li = parser.window.document.createElement("li");
+                    let servingsMin = servings.getElementsByTagName("min")[0].innerHTML;
+                    let servingsMax = servings.getElementsByTagName("max")[0].innerHTML;
+                    let servingsVal = "";
+                    if (servingsMin === servingsMax) {
+                        servingsVal = servingsMin;
+                    } else {
+                        servingsVal = `${servingsMin} - ${servingsMax}`
+                    }
+                    for (let lang of SUPPORTED_LANGUAGES) {
+                        li.setAttribute(lang, `<span class="identifier">${servings.getAttribute(lang)}</span>` + `: ${servingsVal}`);
+                    }
+                    metadataUl.appendChild(li);
+                }
+                if (ingredients) {
+                    let li = parser.window.document.createElement("li");
+                    for (let lang of SUPPORTED_LANGUAGES) {
+                        li.setAttribute(lang, `<span class="identifier">${ingredients.getAttribute(lang)}</span>` + `: ${ingredients.children.length}`);
+                    }
+                    metadataUl.appendChild(li);
+                }
+
+                for (let element of [previewDiv, descriptionDiv, metadataUl]) anchor.appendChild(element);
+
+                gridEntries.push(anchor);
+            }
+
+            let parser = new JSDOM(content);
+            let div = parser.window.document.getElementById("recipe-grid");
+            let len = div.children.length;
+            for (let i = 0; i < len; i++) {
+                div.removeChild(div.children[0]);
+            }
+            for (let element of gridEntries) div.appendChild(element);
+            log(div.outerHTML);
+            log(gridEntries);
+            return parser.serialize();
+        }
     },
 }
 
