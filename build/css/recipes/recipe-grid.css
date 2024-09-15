@@ -60,20 +60,20 @@ a.recipe>div.description h2 {
     align-self: center;
 }
 
+a.recipe>div.description>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
 a.recipe>div.description h3 {
     font-size: 1.1em;
     margin: 0;
     margin-bottom: 10px;
     text-decoration: underline;
     font-weight: normal;
-    align-self: center;
 }
 
-a.recipe>div.description h3::before {
-    content: "By:\00a0";
-    display: inline-block;
-    text-decoration: none;
-}
 a.recipe>div.description p {  
     display: -webkit-box;
     max-width: 260px;

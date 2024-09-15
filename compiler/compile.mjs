@@ -172,7 +172,7 @@ const PROJECT_SCRIPTS = {
                 if (recipeAttributes.length === 0) continue;
 
                 let attributes = recipeAttributes[0];
-                let author = attributes.getElementsByTagName("author")[0];
+                let authors = attributes.getElementsByTagName("authors")[0];
                 let title = attributes.getElementsByTagName("title")[0];
                 let preview = attributes.getElementsByTagName("preview-url")[0];
                 let time = attributes.getElementsByTagName("time")[0];
@@ -197,21 +197,33 @@ const PROJECT_SCRIPTS = {
                 let descriptionDiv = parser.window.document.createElement("div");
                 descriptionDiv.classList.add("description");
 
-                if (title && ingredients && author) {
+                if (title && ingredients && authors) {
                     let h2 = parser.window.document.createElement("h2");
                     for (let lang of SUPPORTED_LANGUAGES) {
                         h2.setAttribute(lang, title.getAttribute(lang));
                     }
-                    let h3 = parser.window.document.createElement("h3");
-                    for (let lang of SUPPORTED_LANGUAGES) {
-                        h3.setAttribute(lang, author.getAttribute(lang));
+                    let authorContainer = parser.window.document.createElement("div");
+                    if (authors.getElementsByTagName("author").length > 0) {
+                        for (let author of authors.getElementsByTagName("author")) {
+                            let h3 = parser.window.document.createElement("h3");
+                            let span1 = parser.window.document.createElement("span");
+                            let span2 = parser.window.document.createElement("span");
+
+                            span1.setAttribute(author.getAttributeNames()[0], "");
+                            for (let lang of SUPPORTED_LANGUAGES) {
+                                span2.setAttribute(lang, author.getAttribute(lang));
+                            }
+
+                            h3.appendChild(span1);
+                            h3.appendChild(span2);
+
+                            authorContainer.appendChild(h3);
+                        }
                     }
                     let p = parser.window.document.createElement("p");
                     for (let element of ingredients.getElementsByTagName("item")) {
                         let name = element.getElementsByTagName("name")[0];
                         let span = parser.window.document.createElement("span");
-                        log(name.outerHTML);
-                        log(name.attributes.length);
                         if (name.hasAttribute("en")) {
                             for (let lang of SUPPORTED_LANGUAGES) {
                                 span.setAttribute(lang, name.getAttribute(lang));
@@ -237,7 +249,7 @@ const PROJECT_SCRIPTS = {
                     p.removeChild(p.lastChild);
 
                     descriptionDiv.appendChild(h2);
-                    descriptionDiv.appendChild(h3);
+                    descriptionDiv.appendChild(authorContainer);
                     descriptionDiv.appendChild(p);
                 }
 
@@ -246,20 +258,41 @@ const PROJECT_SCRIPTS = {
 
                 if (time) {
                     let li = parser.window.document.createElement("li");
+                    let span1 = parser.window.document.createElement("span");
+                    let span2 = parser.window.document.createElement("span");
+
+                    span1.setAttribute("time", "");
+                    span1.classList.add("identifier");
                     for (let lang of SUPPORTED_LANGUAGES) {
-                        li.setAttribute(lang, `<span class="identifier">${time.getAttribute(lang)}</span>` + `: ${time.innerHTML}${time.getAttribute("unit") || "min"}`);
+                        span2.setAttribute(lang, `${time.innerHTML}${time.getAttribute("unit") || "min"}`);
                     }
+                    li.appendChild(span1);
+                    span1.after(": ");
+                    li.appendChild(span2);
+
                     metadataUl.appendChild(li);
                 }
                 if (difficulty) {
                     let li = parser.window.document.createElement("li");
+                    let span1 = parser.window.document.createElement("span");
+                    let span2 = parser.window.document.createElement("span");
+
+                    span1.setAttribute("difficulty", "");
+                    span1.classList.add("identifier");
                     for (let lang of SUPPORTED_LANGUAGES) {
-                        li.setAttribute(lang, `<span class="identifier">${difficulty.getAttribute(lang)}</span>` + `: ${difficulty.innerHTML}/10`);
+                        span2.setAttribute(lang, difficulty.innerHTML + "/10");
                     }
+                    li.appendChild(span1);
+                    span1.after(": ");
+                    li.appendChild(span2);
+                    
                     metadataUl.appendChild(li);
                 }
                 if (servings) {
                     let li = parser.window.document.createElement("li");
+                    let span1 = parser.window.document.createElement("span");
+                    let span2 = parser.window.document.createElement("span");
+
                     let servingsMin = servings.getElementsByTagName("min")[0].innerHTML;
                     let servingsMax = servings.getElementsByTagName("max")[0].innerHTML;
                     let servingsVal = "";
@@ -268,16 +301,34 @@ const PROJECT_SCRIPTS = {
                     } else {
                         servingsVal = `${servingsMin} - ${servingsMax}`
                     }
+
+                    span1.setAttribute("servings", "");
+                    span1.classList.add("identifier");
                     for (let lang of SUPPORTED_LANGUAGES) {
-                        li.setAttribute(lang, `<span class="identifier">${servings.getAttribute(lang)}</span>` + `: ${servingsVal}`);
+                        span2.setAttribute(lang, servingsVal);
                     }
+
+                    li.appendChild(span1);
+                    span1.after(": ");
+                    li.appendChild(span2);
+
                     metadataUl.appendChild(li);
                 }
                 if (ingredients) {
                     let li = parser.window.document.createElement("li");
+                    let span1 = parser.window.document.createElement("span");
+                    let span2 = parser.window.document.createElement("span");
+
+                    span1.setAttribute("ingredients", "");
+                    span1.classList.add("identifier");
                     for (let lang of SUPPORTED_LANGUAGES) {
-                        li.setAttribute(lang, `<span class="identifier">${ingredients.getAttribute(lang)}</span>` + `: ${ingredients.children.length}`);
+                        span2.setAttribute(lang, ingredients.children.length);
                     }
+                    
+                    li.appendChild(span1);
+                    span1.after(": ");
+                    li.appendChild(span2);
+                    
                     metadataUl.appendChild(li);
                 }
 
@@ -295,7 +346,7 @@ const PROJECT_SCRIPTS = {
             for (let element of gridEntries) div.appendChild(element);
             log(div.outerHTML);
             log(gridEntries);
-            return parser.serialize();
+            return pretty(parser.serialize());
         }
     },
 }
