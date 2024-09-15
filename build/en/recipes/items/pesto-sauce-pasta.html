@@ -2,11 +2,182 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APBD.net | Pesto Sauce Pasta Recipe</title>
-
-
     
+    <link rel="stylesheet" href="/css/recipes/main.css">
+    <link rel="stylesheet" href="/css/foods/dropdown.css">
+    <link rel="stylesheet" href="/css/foods/main.css">
+    <link rel="stylesheet" href="/css/recipes/articles/main.css">
+    <link rel="stylesheet" href="/css/recipes/articles/sideview.css">
 </head>
 <body>
+    <script>
+		const touch = matchMedia('(hover: none)').matches
+		console.log(touch);
+
+		if (touch) {
+			let prev = window.document.body;
+			window.addEventListener("touchend", function (e) {
+				if (e.target.onclick) e.target.onclick();
+				if (prev !== e.target) prev.classList.remove("hover");
+				e.target.classList.toggle("hover");
+				prev = e.target;
+				console.log(e.target);
+			}, {
+				passive: false
+			});
+		}
+	</script>
+	<header>
+		<div class="logo">
+			<img src="/favicon.ico" alt="Website logo">
+			<div class="column">
+				<a class="title" href="/">APBD.net</a>
+				<a class="sub" href="/en/recipes">The Great Cookbook</a>
+			</div>
+
+		</div>
+		<nav class="header-menu">
+			<div class="dropdown">
+				<a id="about" href="#">About</a>
+				<div class="dropdown-content">
+					<a target="_blank" href="https://rarediseases.org/rare-diseases/adult-polyglucosan-body-disease/">APBD
+						<span>↗</span></a>
+				</div>
+			</div>
+			<div class="dropdown">
+				<a id="contribute" href="#">Contribute</a>
+				<div class="dropdown-content">
+
+				</div>
+			</div>
+
+			<div class="dropdown">
+				<a id="contact" href="#">Language</a>
+				<div class="dropdown-content">
+					<a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'en')" href="#">English</a>
+					<a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'he')" href="#">Hebrew</a>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+    <div class="container">
+        <div id="sideview">
+            <img src="https://assets.bonappetit.com/photos/57af6c7af1c801a1038bd2e6/16:9/w_1280,c_limit/ligurian-pesto-with-spaghetti.jpg" alt="pesto sauce pasta image" id="preview">
+            <hr>
+            <ul id="ingredients-sideview">
+                <li><span>Water</span><span>,
+                        2.5l</span></li>
+                <li><span>Just Taste Pasta</span><span>,
+                        250g</span></li>
+                <li><span>Pesto Sauce</span><span>,
+                        160g</span></li>
+                <li><span>Salt</span><span>,
+                        0.5tbsp</span></li>
+                <li><span>Olive Oil</span><span>,
+                        1tsp</span></li>
+                <li><span>Parmesan Cheese</span><span>,
+                        80g</span></li>
+            </ul>
+            <hr>
+            <ul id="recipe-stats">
+                <li id="time"><span>30min</span></li>
+                <li id="difficulty"><span>3</span></li>
+                <li id="servings"><span>3 - 5</span></li>
+                <li id="ingredient-amount"><span>6</span></li>
+            </ul>
+            <hr>
+            <h2>Nutrition Facts</h2>
+            <table id="nutrition-facts">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>100 Grams</th>
+                        <th>One Serving<br> (200 grams)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="carbs">
+                        <th>Carbohydrates:</th>
+                        <td>13.7g</td>
+                        <td>27.4g</td>
+                    </tr>
+                    <tr id="fiber">
+                        <th>Fiber</th>
+                        <td>9.6g</td>
+                        <td>19.2g</td>
+                    </tr>
+                    <tr id="sugar">
+                        <th>Sugar</th>
+                        <td>3.1g</td>
+                        <td>6.2g</td>
+                    </tr>
+                    <tr id="starch">
+                        <th>Starch</th>
+                        <td>1g</td>
+                        <td>2g</td>
+                    </tr>
+                    <tr id="gl">
+                        <th>Glycemic Load</th>
+                        <td>-1</td>
+                        <td>-1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <main>
+            <h1>
+                <span id="title">Pesto Sauce Pasta</span>
+                <small id="author">Shahar Marcus</small>
+            </h1>
+            <h2>Ingredients</h2>
+            <ul id="ingredients">
+                <li>
+                    2.5 Liters Water
+                </li>
+                <li>
+                    250g Just Taste Pasta
+                </li>
+                <li>
+                    160g Pesto Sauce
+                </li>
+                <li>
+                    0.5 teaspoon Salt
+                </li>
+                <li>
+                    1 teaspoon Olive Oil
+            </li></ul>
+            <h2>Instructions</h2>
+            <ol id="instructions">
+                <li>
+                    <p>Pour the water into a pot, and add the salt. Start boiling the water.</p>
+                </li>
+                <li>
+                    <p>Add the pasta to the boiling water, and wait 4 minutes. (We're cooking the pasta for a total of 5 minutes.)</p>
+                </li>
+                <li>
+                    <p>Take 3/4 cups pasta water from the boiling, and keep aside. Cool as much as possible, if possible.</p>
+                    <p class="note">You can take as much pasta water as your'e comfortable with. Just make sure you have more than 3/4 cups.</p>
+                </li>
+                <li>
+                    <content>Wait until the pasta reaches 5 minutes in water. Then, dump the pasta into a strainer.</content>
+                    <p class="note">Leaving the pasta in the water can cause it to get mushy.</p>
+                </li>
+                <li>
+                    <content>Then, to a pan (or the same pot, if you prefer, since the pot is now empty) add the olive oil. Wait for it to heat up, and then add the pesto sauce, pasta water and parmesan cheese to the pan.</content>
+                </li>
+                <li>
+                    <content>Quickly mix the sauce until it reaches a texture similar to that of pink sauce</content>
+                    <p class="note">If the sauch is too watery, keep stirring the sauce. It will gradually reduce it.</p>
+                </li>
+                <li>
+                    <content>Add the pasta to the sauce, and mix it well. Enjoy your pasta! :)</content>
+                    <p class="note">To make the pasta healthier to eat, refrigirate it - when reheated, some of the starch will become resistent, and will behave like fiber.</p>
+                </li>
+            </ol>
+        </main>
+    </div>
+
     <recipe-attributes style="display: none;">
         <preview-url>https://assets.bonappetit.com/photos/57af6c7af1c801a1038bd2e6/16:9/w_1280,c_limit/ligurian-pesto-with-spaghetti.jpg</preview-url>
         <title>Pesto Sauce Pasta</title>

@@ -1,0 +1,38 @@
+#sideview {
+    padding: 10px;
+    border-inline-end: 2px solid #333333;
+    height: 100%;
+}
+
+#nutrition-facts {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align:left;
+}
+
+#nutrition-facts:dir(rtl) {
+    text-align:right;
+}
+
+#nutrition-facts thead {
+    background-color: #333333;
+    color: white;
+    font-weight: 800;
+    text-align: center;
+}
+
+#nutrition-facts td, #nutrition-facts th {
+    border: 1px solid #222222;
+    padding: 5px;
+}
+
+#nutrition-facts #fiber>th::before {
+    content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+}
+#nutrition-facts #starch>th::before {
+    content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+}
+#nutrition-facts #sugar>th::before {
+    content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+}

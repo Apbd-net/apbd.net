@@ -1,151 +1,171 @@
 <!DOCTYPE html>
-<html lang-en="en" lang-he="he" dir-he="rtl" dir-en="ltr" authored-en="By: " authored-he="נכתב ע&quot;י: " adapted-en="Adapted By: " adapted-he="הותאם ע&quot;י:" time-en="Time: " time-he="זמן: " difficulty-en="Difficulty: " difficulty-he="רמת קושי: " servings-en="Servings: " servings-he="מספר מנות: " nutrition-en="Nutrition Facts: " nutrition-he="סימון תזונתי: " ingredients-en="Ingredients: " ingredients-he="מרכיבים: " instructions-en="Instructions: " instructions-he="הוראות הכנה: ">
+<html lang-en="en" lang-he="he" dir-he="rtl" dir-en="ltr" authored-en="By: " authored-he="נכתב ע&quot;י: "
+	adapted-en="Adapted By: " adapted-he="הותאם ע&quot;י:" time-en="Time: " time-he="זמן: " difficulty-en="Difficulty: "
+	difficulty-he="רמת קושי: " servings-en="Servings: " servings-he="מספר מנות: " nutrition-en="Nutrition Facts: "
+	nutrition-he="סימון תזונתי: " ingredients-en="Ingredients: " ingredients-he="מרכיבים: "
+	instructions-en="Instructions: " instructions-he="הוראות הכנה: ">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title en="APBD.net | Cookbook" he="APBD.net | ספר המתכונים">Apbd.net | Cookbook</title>
-    <link rel="stylesheet" href="/css/foods/dropdown.css">
-    <link rel="stylesheet" href="/css/landing-page/main.css">
-    <link rel="stylesheet" href="/css/recipes/main.css">
-    <link rel="stylesheet" href="/css/recipes/recipe-grid.css">
-    <link rel="stylesheet" href="/css/recipes/searchbar.css">
-    <link rel="stylesheet" href="/css/recipes/scroller.css">
-  </head>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title en="APBD.net | Cookbook" he="APBD.net | ספר המתכונים">Apbd.net | Cookbook</title>
+	<link rel="stylesheet" href="/css/foods/dropdown.css">
+	<link rel="stylesheet" href="/css/landing-page/main.css">
+	<link rel="stylesheet" href="/css/recipes/main.css">
+	<link rel="stylesheet" href="/css/recipes/recipe-grid.css">
+	<link rel="stylesheet" href="/css/recipes/searchbar.css">
+	<link rel="stylesheet" href="/css/recipes/scroller.css">
+</head>
 
-  <body>
-    <script>
-      const touch = matchMedia('(hover: none)').matches
-      console.log(touch);
+<body>
+	<script>
+		const touch = matchMedia('(hover: none)').matches
+		console.log(touch);
 
-      if (touch) {
-        let prev = window.document.body;
-        window.addEventListener("touchend", function(e) {
-          if (e.target.onclick) e.target.onclick();
-          if (prev !== e.target) prev.classList.remove("hover");
-          e.target.classList.toggle("hover");
-          prev = e.target;
-          console.log(e.target);
-        }, {
-          passive: false
-        });
-      }
-    </script>
-    <header>
-      <div class="logo">
-        <img src="/favicon.ico" alt="Website logo">
-        <div class="column">
-          <a class="title" href="/">APBD.net</a>
-          <a class="sub" href-en="/en/recipes" href-he="/he/recipes" en="The Great Cookbook" he="ספר המתכונים הגדול"></a>
-        </div>
+		if (touch) {
+			let prev = window.document.body;
+			window.addEventListener("touchend", function (e) {
+				if (e.target.onclick) e.target.onclick();
+				if (prev !== e.target) prev.classList.remove("hover");
+				e.target.classList.toggle("hover");
+				prev = e.target;
+				console.log(e.target);
+			}, {
+				passive: false
+			});
+		}
+	</script>
+	<header>
+		<div class="logo">
+			<img src="/favicon.ico" alt="Website logo">
+			<div class="column">
+				<a class="title" href="/">APBD.net</a>
+				<a class="sub" href-en="/en/recipes" href-he="/he/recipes" en="The Great Cookbook"
+					he="ספר המתכונים הגדול"></a>
+			</div>
 
-      </div>
-      <nav class="header-menu">
-        <div class="dropdown">
-          <a id="about" href="#" en="About" he="אודות">About</a>
-          <div class="dropdown-content">
-            <a target="_blank" href="https://rarediseases.org/rare-diseases/adult-polyglucosan-body-disease/">APBD
-              <span>↗</span></a>
-          </div>
-        </div>
-        <div class="dropdown">
-          <a id="contribute" href="#" en="Contribute" he="תרום תוכן">Contribute</a>
-          <div class="dropdown-content">
+		</div>
+		<nav class="header-menu">
+			<div class="dropdown">
+				<a id="about" href="#" en="About" he="אודות">About</a>
+				<div class="dropdown-content">
+					<a target="_blank"
+						href="https://rarediseases.org/rare-diseases/adult-polyglucosan-body-disease/">APBD
+						<span>↗</span></a>
+				</div>
+			</div>
+			<div class="dropdown">
+				<a id="contribute" href="#" en="Contribute" he="תרום תוכן">Contribute</a>
+				<div class="dropdown-content">
 
-          </div>
-        </div>
+				</div>
+			</div>
 
-        <div class="dropdown">
-          <a id="contact" href="#" en="Language" he="שפה">Language</a>
-          <div class="dropdown-content">
-            <a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'en')" href="#" en="English" he="אנגלית">English</a>
-            <a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'he')" href="#" en="Hebrew" he="עברית">Hebrew</a>
-          </div>
-        </div>
-      </nav>
-    </header>
+			<div class="dropdown">
+				<a id="contact" href="#" en="Language" he="שפה">Language</a>
+				<div class="dropdown-content">
+					<a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'en')" href="#"
+						en="English" he="אנגלית">English</a>
+					<a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'he')" href="#"
+						en="Hebrew" he="עברית">Hebrew</a>
+				</div>
+			</div>
+		</nav>
+	</header>
 
-    <div class="container">
+	<div class="container">
 
-      <blockquote>
-        Enjoy your stay :D
-      </blockquote>
+		<blockquote>
+			Enjoy your stay :D
+		</blockquote>
 
-      <div id="search-form">
-        <button type="button" class="search">⌕</button>
-        <input id="food-search" placeholder="Search..." autocomplete="on">
-        <select class="sort-switch" id="sort-switch" onchange="window.location.href = window.location.origin + window.location.pathname + '?sort=' + this.value">
-          <option value="name-d" en="Sort By: Food Name ↓" he="מיין לפי: שם מאכל ↓"></option>
-          <option value="name-u" en="Sort By: Food Name ↑" he="מיין לפי: שם מאכל ↑"></option>
-          <option value="gl-d" en="Sort By: Glycemic Load ↓" he="מיין לפי: עומס גליקמי ↓"></option>
-          <option value="gl-u" en="Sort By: Glycemic Load ↑" he="מיין לפי: עומס גליקמי ↑"></option>
-          <option value="fiber-d" en="Sort By: Fiber ↓" he="מיין לפי: סיבים תזונתיים ↓"></option>
-          <option value="fiber-u" en="Sort By: Fiber ↑" he="מיין לפי: סיבים תזונתיים ↑"></option>
-          <option value="bad-carbs-d" en="Sort By: Bad Carbs ↓" he="מיין לפי: פחמימות רעות ↓"></option>
-          <option value="bad-carbs-u" en="Sort By: Bad Carbs ↑" he="מיין לפי: פחמימות רעות ↑"></option>
-          <option value="carbs-d" en="Sort By: Overall Carbs ↓" he="מיין לפי: פחמימות סה&quot;כ ↓">
-          </option>
-          <option value="carbs-u" en="Sort By: Overall Carbs ↑" he="מיין לפי: פחמימות סה&quot;כ ↑">
-          </option>
-        </select>
-      </div>
-      <div class="grid-container">
-        <div id="recipe-grid">
+		<div id="search-form">
+			<button type="button" class="search">⌕</button>
+			<input id="food-search" placeholder="Search..." autocomplete="on">
+			<select class="sort-switch" id="sort-switch"
+				onchange="window.location.href = window.location.origin + window.location.pathname + '?sort=' + this.value">
+				<option value="name-d" en="Sort By: Food Name ↓" he="מיין לפי: שם מאכל ↓"></option>
+				<option value="name-u" en="Sort By: Food Name ↑" he="מיין לפי: שם מאכל ↑"></option>
+				<option value="gl-d" en="Sort By: Glycemic Load ↓" he="מיין לפי: עומס גליקמי ↓"></option>
+				<option value="gl-u" en="Sort By: Glycemic Load ↑" he="מיין לפי: עומס גליקמי ↑"></option>
+				<option value="fiber-d" en="Sort By: Fiber ↓" he="מיין לפי: סיבים תזונתיים ↓"></option>
+				<option value="fiber-u" en="Sort By: Fiber ↑" he="מיין לפי: סיבים תזונתיים ↑"></option>
+				<option value="bad-carbs-d" en="Sort By: Bad Carbs ↓" he="מיין לפי: פחמימות רעות ↓"></option>
+				<option value="bad-carbs-u" en="Sort By: Bad Carbs ↑" he="מיין לפי: פחמימות רעות ↑"></option>
+				<option value="carbs-d" en="Sort By: Overall Carbs ↓" he="מיין לפי: פחמימות סה&quot;כ ↓">
+				</option>
+				<option value="carbs-u" en="Sort By: Overall Carbs ↑" he="מיין לפי: פחמימות סה&quot;כ ↑">
+				</option>
+			</select>
+		</div>
+		<div class="grid-container">
+			<div id="recipe-grid">
 
-          <a href="./items/pesto-sauce-pasta.html" class="recipe">
-            <div class="preview"><img src="https://assets.bonappetit.com/photos/57af6c7af1c801a1038bd2e6/16:9/w_1280,c_limit/ligurian-pesto-with-spaghetti.jpg" alt=""></div>
-            <div class="description">
-              <h2 en="Pesto Sauce Pasta" he="פסטה ברוטב פסטו"></h2>
-              <div>
-                <h3><span role=""></span><span en="Shahar Marcus" he="שחר מרכוס"></span></h3>
-              </div>
-              <p><span en="Water" he="מים"></span><span>, 2.5l</span><span>&nbsp;&nbsp;•&nbsp;&nbsp;</span><span en="Just Taste Pasta" he="פסטה של Just Taste"></span><span>, 250g</span><span>&nbsp;&nbsp;•&nbsp;&nbsp;</span><span en="Pesto Sauce" he="רוטב פסטו"></span><span>, 160g</span><span>&nbsp;&nbsp;•&nbsp;&nbsp;</span><span en="Salt" he="מלח"></span><span>, 0.5tbsp</span><span>&nbsp;&nbsp;•&nbsp;&nbsp;</span><span en="Olive Oil" he="שמן זית"></span><span>, 1tsp</span><span>&nbsp;&nbsp;•&nbsp;&nbsp;</span><span en="Parmesan Cheese" he="גבינת פרמזן"></span><span>, 80g</span></p>
-            </div>
-            <ul class="metadata">
-              <li><span time="" class="identifier"></span>: <span en="30min" he="30min"></span></li>
-              <li><span difficulty="" class="identifier"></span>: <span en="3/10" he="3/10"></span></li>
-              <li><span servings="" class="identifier"></span>: <span en="3 - 5" he="3 - 5"></span></li>
-              <li><span ingredients="" class="identifier"></span>: <span en="6" he="6"></span></li>
-            </ul>
-          </a>
-        </div>
+				<a href="./items/pesto-sauce-pasta.html" class="recipe">
+					<div class="preview"><img
+							src="https://assets.bonappetit.com/photos/57af6c7af1c801a1038bd2e6/16:9/w_1280,c_limit/ligurian-pesto-with-spaghetti.jpg"
+							alt=""></div>
+					<div class="description">
+						<h2 en="Pesto Sauce Pasta" he="פסטה ברוטב פסטו"></h2>
+						<div>
+							<h3><span role=""></span><span en="Shahar Marcus" he="שחר מרכוס"></span></h3>
+						</div>
+						<p><span en="Water" he="מים"></span><span>,
+								2.5l</span><span>&nbsp;&nbsp;•&nbsp;&nbsp;</span><span en="Just Taste Pasta"
+								he="פסטה של Just Taste"></span><span>,
+								250g</span><span>&nbsp;&nbsp;•&nbsp;&nbsp;</span><span en="Pesto Sauce"
+								he="רוטב פסטו"></span><span>,
+								160g</span><span>&nbsp;&nbsp;•&nbsp;&nbsp;</span><span en="Salt" he="מלח"></span><span>,
+								0.5tbsp</span><span>&nbsp;&nbsp;•&nbsp;&nbsp;</span><span en="Olive Oil"
+								he="שמן זית"></span><span>,
+								1tsp</span><span>&nbsp;&nbsp;•&nbsp;&nbsp;</span><span en="Parmesan Cheese"
+								he="גבינת פרמזן"></span><span>, 80g</span></p>
+					</div>
+					<ul class="metadata">
+						<li><span time="" class="identifier"></span>: <span en="30min" he="30min"></span></li>
+						<li><span difficulty="" class="identifier"></span>: <span en="3/10" he="3/10"></span></li>
+						<li><span servings="" class="identifier"></span>: <span en="3 - 5" he="3 - 5"></span></li>
+						<li><span ingredients="" class="identifier"></span>: <span en="6" he="6"></span></li>
+					</ul>
+				</a>
+			</div>
 
-        <div id="page-scroller">
-          <div id="scroll-text">
-            <span en="Showing" he="מציג"></span>
-            <span id="selection-start"></span>
-            <span en="to" he="עד"></span>
-            <span id="selection-end"></span>
-            <span en="out of" he="מתוך"></span>
-            <span id="total-recipes"></span>
-            <span en="recipes" he="מתכונים"></span>
-          </div>
+			<div id="page-scroller">
+				<div id="scroll-text">
+					<span en="Showing" he="מציג"></span>
+					<span id="selection-start"></span>
+					<span en="to" he="עד"></span>
+					<span id="selection-end"></span>
+					<span en="out of" he="מתוך"></span>
+					<span id="total-recipes"></span>
+					<span en="recipes" he="מתכונים"></span>
+				</div>
 
-          <div id="scroller">
-            <button type="button">«</button>
-            <button type="button">‹</button>
-            <button type="button">›</button>
-            <button type="button">»</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <script src="/js/recipes/scroller.js"></script>
-    <script src="/js/recipes/foodDataFetcher.js"></script>
-
-
-
-
-
-
-
-
-
-
+				<div id="scroller">
+					<button type="button">«</button>
+					<button type="button">‹</button>
+					<button type="button">›</button>
+					<button type="button">»</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
-  </body>
+	<script src="/js/recipes/scroller.js"></script>
+	<script src="/js/recipes/foodDataFetcher.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
 
 </html>

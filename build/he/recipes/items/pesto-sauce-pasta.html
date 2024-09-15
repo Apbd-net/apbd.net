@@ -2,11 +2,182 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APBD.net | מתכון לפסטה ברוטב פסטו</title>
-
-
     
+    <link rel="stylesheet" href="/css/recipes/main.css">
+    <link rel="stylesheet" href="/css/foods/dropdown.css">
+    <link rel="stylesheet" href="/css/foods/main.css">
+    <link rel="stylesheet" href="/css/recipes/articles/main.css">
+    <link rel="stylesheet" href="/css/recipes/articles/sideview.css">
 </head>
 <body>
+    <script>
+		const touch = matchMedia('(hover: none)').matches
+		console.log(touch);
+
+		if (touch) {
+			let prev = window.document.body;
+			window.addEventListener("touchend", function (e) {
+				if (e.target.onclick) e.target.onclick();
+				if (prev !== e.target) prev.classList.remove("hover");
+				e.target.classList.toggle("hover");
+				prev = e.target;
+				console.log(e.target);
+			}, {
+				passive: false
+			});
+		}
+	</script>
+	<header>
+		<div class="logo">
+			<img src="/favicon.ico" alt="Website logo">
+			<div class="column">
+				<a class="title" href="/">APBD.net</a>
+				<a class="sub" href="/he/recipes">ספר המתכונים הגדול</a>
+			</div>
+
+		</div>
+		<nav class="header-menu">
+			<div class="dropdown">
+				<a id="about" href="#">אודות</a>
+				<div class="dropdown-content">
+					<a target="_blank" href="https://rarediseases.org/rare-diseases/adult-polyglucosan-body-disease/">APBD
+						<span>↗</span></a>
+				</div>
+			</div>
+			<div class="dropdown">
+				<a id="contribute" href="#">תרום תוכן</a>
+				<div class="dropdown-content">
+
+				</div>
+			</div>
+
+			<div class="dropdown">
+				<a id="contact" href="#">שפה</a>
+				<div class="dropdown-content">
+					<a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'en')" href="#">אנגלית</a>
+					<a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'he')" href="#">עברית</a>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+    <div class="container">
+        <div id="sideview">
+            <img src="https://assets.bonappetit.com/photos/57af6c7af1c801a1038bd2e6/16:9/w_1280,c_limit/ligurian-pesto-with-spaghetti.jpg" alt="pesto sauce pasta image" id="preview">
+            <hr>
+            <ul id="ingredients-sideview">
+                <li><span>Water</span><span>,
+                        2.5l</span></li>
+                <li><span>Just Taste Pasta</span><span>,
+                        250g</span></li>
+                <li><span>Pesto Sauce</span><span>,
+                        160g</span></li>
+                <li><span>Salt</span><span>,
+                        0.5tbsp</span></li>
+                <li><span>Olive Oil</span><span>,
+                        1tsp</span></li>
+                <li><span>Parmesan Cheese</span><span>,
+                        80g</span></li>
+            </ul>
+            <hr>
+            <ul id="recipe-stats">
+                <li id="time"><span>30min</span></li>
+                <li id="difficulty"><span>3</span></li>
+                <li id="servings"><span>3 - 5</span></li>
+                <li id="ingredient-amount"><span>6</span></li>
+            </ul>
+            <hr>
+            <h2>סימון תזונתי</h2>
+            <table id="nutrition-facts">
+                <thead>
+                    <tr>
+                        <th>שדה</th>
+                        <th>100 גרם</th>
+                        <th>מנה אחת (200 גרם)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="carbs">
+                        <th>:פחמימות</th>
+                        <td>13.7g</td>
+                        <td>27.4g</td>
+                    </tr>
+                    <tr id="fiber">
+                        <th>סיבים</th>
+                        <td>9.6g</td>
+                        <td>19.2g</td>
+                    </tr>
+                    <tr id="sugar">
+                        <th>סוכר</th>
+                        <td>3.1g</td>
+                        <td>6.2g</td>
+                    </tr>
+                    <tr id="starch">
+                        <th>עמילן</th>
+                        <td>1g</td>
+                        <td>2g</td>
+                    </tr>
+                    <tr id="gl">
+                        <th>עומס גליקמי</th>
+                        <td>-1</td>
+                        <td>-1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <main>
+            <h1>
+                <span id="title">פסטה ברוטב פסטו</span>
+                <small id="author">שחר מרכוס</small>
+            </h1>
+            <h2>מרכיבים</h2>
+            <ul id="ingredients">
+                <li>
+                    2.5 Liters Water
+                </li>
+                <li>
+                    250g Just Taste Pasta
+                </li>
+                <li>
+                    160g Pesto Sauce
+                </li>
+                <li>
+                    0.5 teaspoon Salt
+                </li>
+                <li>
+                    1 teaspoon Olive Oil
+            </li></ul>
+            <h2>הוראות</h2>
+            <ol id="instructions">
+                <li>
+                    <p>שופכים את המים לסיר, ומוסיפים את המלח. מתחילים להרתיח את המים.</p>
+                </li>
+                <li>
+                    <p>מוסיפים את הפסטה למים הרותחים, וממתינים 4 דקות. (מבשלים את הפסטה סך הכל 5 דקות.)</p>
+                </li>
+                <li>
+                    <p>לוקחים 3/4 כוסות מי פסטה מהסיר הרותח, ושומרים בצד. מצננים כמה שאפשר, אם אפשר.</p>
+                    <p class="note">אתם יכולים לקחת גם יותר משלושת-רבעי כוס, אם זה יותר נוח לכם.</p>
+                </li>
+                <li>
+                    <content>ממתינים עד שהפסטה מגיעה ל-5 דקות במים. לאחר מכן, שופכים את הפסטה למסננת.</content>
+                    <p class="note">הפסטה יכולה להפוך לעיסתית אם משאירים אותה במים יותר מדי זמן.</p>
+                </li>
+                <li>
+                    <content>לאחר מכן, למחבת (או לאותו סיר, אם תרצו, מכיוון שהסיר ריק כעת) מוסיפים את השמן. מחכים שהשמן יתחמם, ואז מוסיפים למחבת את רוטב הפסטו, מי הפסטה וגבינת הפרמזן.</content>
+                </li>
+                <li>
+                    <content>מערבבים במהירות את הרוטב עד שהוא מגיע למרקם דומה לזה של רוטב רוזה.</content>
+                    <p class="note">אם הרוטב נראה מיימי מדי, המשיכו לערבב את הרוטב - המים יתאדו לאט לאט, והרוטב יגיע למרקם המתאים.</p>
+                </li>
+                <li>
+                    <content>מוסיפים את הפסטה לרוטב, ומערבבים כראוי. בתיאבון :)</content>
+                    <p class="note">כדי להפוך את הפסטה לבריאה יותר, תקררו אותה - כשהפסטה תחומם שוב, חלק מהעמילן בפסטה יהפוך לעמיד, ויתנהג כמו סיבים תזונתיים.</p>
+                </li>
+            </ol>
+        </main>
+    </div>
+
     <recipe-attributes style="display: none;">
         <preview-url>https://assets.bonappetit.com/photos/57af6c7af1c801a1038bd2e6/16:9/w_1280,c_limit/ligurian-pesto-with-spaghetti.jpg</preview-url>
         <title>פסטה ברוטב פסטו</title>
