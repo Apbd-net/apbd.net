@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang-en="en" lang-he="he" dir-he="rtl" dir-en="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title en="Apbd.net | Write A Recipe" he="Apbd.net | כתיבת מתכון"></title>
+
+    
+    <link rel="stylesheet" href="/css/recipes/main.css">
+    <link rel="stylesheet" href="/css/foods/dropdown.css">
+    <link rel="stylesheet" href="/css/foods/main.css">
+    <link rel="stylesheet" href="/css/recipes/articles/main.css">
+    <link rel="stylesheet" href="/css/recipes/articles/sideview.css">
+    <link rel="stylesheet" href="/css/recipes/contribute/write.css">
+</head>
+<body>
+    <script>
+		const touch = matchMedia('(hover: none)').matches
+		console.log(touch);
+
+		if (touch) {
+			let prev = window.document.body;
+			window.addEventListener("touchend", function (e) {
+				if (e.target.onclick) e.target.onclick();
+				if (prev !== e.target) prev.classList.remove("hover");
+				e.target.classList.toggle("hover");
+				prev = e.target;
+				console.log(e.target);
+			}, {
+				passive: false
+			});
+		}
+	</script>
+	<header>
+		<div class="logo">
+			<img src="/favicon.ico" alt="Website logo">
+			<div class="column">
+				<a class="title" href="/">APBD.net</a>
+				<a class="sub" href-en="/en/recipes" href-he="/he/recipes" en="The Great Cookbook"
+					he="ספר המתכונים הגדול"></a>
+			</div>
+
+		</div>
+		<nav class="header-menu">
+			<div class="dropdown">
+				<a id="about" href="#" en="About" he="אודות">About</a>
+				<div class="dropdown-content">
+					<a target="_blank"
+						href="https://rarediseases.org/rare-diseases/adult-polyglucosan-body-disease/">APBD
+						<span>↗</span></a>
+				</div>
+			</div>
+			<div class="dropdown">
+				<a id="contribute" href="#" en="Contribute" he="תרום תוכן">Contribute</a>
+				<div class="dropdown-content">
+					<a href="./contribute/write-a-recipe.html" en="Write a Recipe" he="כתוב מתכון"></a>
+				</div>
+			</div>
+
+			<div class="dropdown">
+				<a id="contact" href="#" en="Language" he="שפה">Language</a>
+				<div class="dropdown-content">
+					<a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'en')" href="#"
+						en="English" he="אנגלית">English</a>
+					<a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'he')" href="#"
+						en="Hebrew" he="עברית">Hebrew</a>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+    <blockquote
+        en="Thank you for considering to contribute, and Welcome♥️<br>
+        You can edit different texts on this page by clicking on them. For your comfort, these texts will by highlighted.<br>
+        Anything else that doesn't strictly follow the pattern of &quot;Click To Edit&quot; Will have a thorough guide on how to edit it."
+        he="תודה רבה על שבחרתם להוסיף לנו מתכון, וברוכים הבאים ♥️<br>
+        אתם יכולים לערוך טקסטים שונים באתר ע&quot;י לחיצה עליהם. לנוחיותכם, אותם טקסטים יסומנו באמצעות מסגרת מיוחדת.<br>
+        כל דבר אחר שלא עוקב במדויק אחר התבנית &quot;לחצו כדי לערוך&quot; יכיל מדריך יסודי על הוספת טקסט אליו."    
+    ></blockquote>
+    <div class="container">
+        <div id="sideview">
+            <h1 id="sideview-title"></h1>
+            <img src="https://assets.bonappetit.com/photos/57af6c7af1c801a1038bd2e6/16:9/w_1280,c_limit/ligurian-pesto-with-spaghetti.jpg" alt="pesto sauce pasta image" id="preview">
+            <hr id="sideview-ingredients-hr">
+            <h2 en="Ingredients" he="מרכיבים" id="sideview-ingredients-title"></h2>
+            <ul id="sideview-ingredients">
+                <li><span>Water</span><span>,
+                        2.5l</span></li>
+                <li><span>Just Taste Pasta</span><span>,
+                        250g</span></li>
+                <li><span>Pesto Sauce</span><span>,
+                        160g</span></li>
+                <li><span>Salt</span><span>,
+                        0.5tbsp</span></li>
+                <li><span>Olive Oil</span><span>,
+                        1tsp</span></li>
+                <li><span>Parmesan Cheese</span><span>,
+                        80g</span></li>
+            </ul>
+            <hr>
+            <h2 en="General Information" he="מידע כללי"></h2>
+            <ul id="recipe-stats">
+                <li><span en="Cooking Time: " he="זמן הכנה: "></span><span id="time">30min</span></li>
+                <li><span en="Difficulty: " he="רמת קושי: "></span><span id="difficulty">3</span>/10</li>
+                <li><span en="Total Servings: " he="כמות מנות: "></span><span id="servings">3 - 5</span></li>
+                <li><span en="Total Ingredients: " he="כמות מרכיבים: "></span><span id="ingredient-amount">5</span></li>
+                <li><span en="Total Steps: " he="כמות שלבים: "></span><span id="step-amount">7</span></li>
+                <li><span en="Kashrut Status: " he="סטטוס כשרות: "></span><span id="kashrut" en="Kosher, Dairy" he="כשר, חלבי"></span></li>
+
+            </ul>
+            <hr>
+            <h2 en="Nutrition Facts" he="סימון תזונתי"></h2>
+            <table id="nutrition-facts">
+                <thead>
+                    <tr>
+                        <th en="Field" he="שדה"></th>
+                        <th en="100 Grams" he="100 גרם"></th>
+                        <th en="One Serving<br> (200 grams)" he="מנה אחת (200 גרם)" value="200" id="serving-weight-identifier"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="carbs">
+                        <th en="Carbohydrates:" he="פחמימות:"></th>
+                        <td>13.7g</td>
+                        <td>27.4g</td>
+                    </tr>
+                    <tr id="fiber">
+                        <th en="Fiber" he="סיבים"></th>
+                        <td>9.6g</td>
+                        <td>19.2g</td>
+                    </tr>
+                    <tr id="sugar">
+                        <th en="Sugar" he="סוכר"></th>
+                        <td>3.1g</td>
+                        <td>6.2g</td>
+                    </tr>
+                    <tr id="starch">
+                        <th en="Starch" he="עמילן"></th>
+                        <td>1g</td>
+                        <td>2g</td>
+                    </tr>
+                    <tr id="glycemic-load">
+                        <th en="Glycemic Load (Estimated)" he="עומס גליקמי (מוערך)"></th>
+                        <td>-1</td>
+                        <td>-1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <main>
+            <h1>
+                <span contenteditable id="title" placeholder-en="Recipe Title" placeholder-he="שם המתכון"></span>
+                <small contenteditable id="author" en="Anonymous" he="אנונימי"></small>
+            </h1>
+            <h2 en="Ingredients" he="מרכיבים"></h2>
+            <blockquote
+                en="Each ingredient must be on a seperate list item.<br>
+                Starting to add an ingredient will immidately add another list entry at the end of the list.<br>
+                To continue adding ingredients, simply click on the last list entry, and continue typing away..."
+                he="כל מרכיב שונה חייב להיות בשורה שונה ברשימה.<br>
+                כשמתחילים להקליד בתוך הרשימה, ישר תופיע שורה חדשה בסוף הרשימה.<br>
+                על מנת להוסיף עוד רכיבים, לוחצים על אותה שורה אחרונה ברשימה, ומתחילם לערוך גם אותה."
+
+            ></blockquote>
+            <ul id="ingredients">
+                <li><span en="Ingredient Name" he="שם המרכיב"></span>: <span contenteditable placeholder-en="Ingredient Name Here" placeholder-he="שם המרכיב כאן"></span>, <span en="Quantity" he="כמות"></span>: <input type="number" class="weight-input"><select name="units" class="weight-units"></select></li>
+            </ul>
+            <h2 en="Instructions" he="הוראות"></h2>
+            <ol id="instructions">
+                <li>
+                    <p>
+                        <span contenteditable placeholder-en="Instruction Here" placeholder-he="שלב כאן"></span>
+                    </p>
+                    <p class="note">
+                        <span contenteditable placeholder-en="If you have anything else extra to add about this step, type it here. You can leave this empty." placeholder-he="אם יש לכם הערות להוסיף לגבי השלב הזה במתכון, זה המקום לכתוב אותן. אפשר להשאיר את זה ריק."></span>
+                    </p>
+                </li>
+            </ol>
+        </main>
+    </div>
+
+    <script src="/js/recipes/recipePage.js"></script>
+    <script src="/js/recipes/statColors.js"></script>
+    <script src="/js/recipes/contentEditablePlaceholder.js"></script>
+</body>
+</html>

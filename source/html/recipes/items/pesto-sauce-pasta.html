@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang-en="en" lang-he="he" dir-he="rtl" dir-en="ltr">
+<html lang-en="en" lang-he="he" dir-he="rtl" dir-en="ltr"
+    nodata-he="אין מידע" nodata-en="No Data">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,7 +52,7 @@
 			<div class="dropdown">
 				<a id="contribute" href="#" en="Contribute" he="תרום תוכן">Contribute</a>
 				<div class="dropdown-content">
-
+					<a href="./contribute/write-a-recipe.html" en="Write a Recipe" he="כתוב מתכון"></a>
 				</div>
 			</div>
 
@@ -69,9 +70,11 @@
 
     <div class="container">
         <div id="sideview">
+            <h1 en="Pesto Sauce Pasta Recipe" he="מתכון לפסטה ברוטב פסטו" id="sideview-title"></h1>
             <img src="https://assets.bonappetit.com/photos/57af6c7af1c801a1038bd2e6/16:9/w_1280,c_limit/ligurian-pesto-with-spaghetti.jpg" alt="pesto sauce pasta image" id="preview">
-            <hr>
-            <ul id="ingredients-sideview">
+            <hr id="sideview-ingredients-hr">
+            <h2 en="Ingredients" he="מרכיבים" id="sideview-ingredients-title"></h2>
+            <ul id="sideview-ingredients">
                 <li><span>Water</span><span>,
                         2.5l</span></li>
                 <li><span>Just Taste Pasta</span><span>,
@@ -86,11 +89,15 @@
                         80g</span></li>
             </ul>
             <hr>
+            <h2 en="General Information" he="מידע כללי"></h2>
             <ul id="recipe-stats">
-                <li id="time"><span>30min</span></li>
-                <li id="difficulty"><span>3</span></li>
-                <li id="servings"><span>3 - 5</span></li>
-                <li id="ingredient-amount"><span>6</span></li>
+                <li><span en="Cooking Time: " he="זמן הכנה: "></span><span id="time">30min</span></li>
+                <li><span en="Difficulty: " he="רמת קושי: "></span><span id="difficulty">3</span>/10</li>
+                <li><span en="Total Servings: " he="כמות מנות: "></span><span id="servings">3 - 5</span></li>
+                <li><span en="Total Ingredients: " he="כמות מרכיבים: "></span><span id="ingredient-amount">5</span></li>
+                <li><span en="Total Steps: " he="כמות שלבים: "></span><span id="step-amount">7</span></li>
+                <li><span en="Kashrut Status: " he="סטטוס כשרות: "></span><span id="kashrut" en="Kosher, Dairy" he="כשר, חלבי"></span></li>
+
             </ul>
             <hr>
             <h2 en="Nutrition Facts" he="סימון תזונתי"></h2>
@@ -99,12 +106,12 @@
                     <tr>
                         <th en="Field" he="שדה"></th>
                         <th en="100 Grams" he="100 גרם"></th>
-                        <th en="One Serving<br> (200 grams)" he="מנה אחת (200 גרם)"></th>
+                        <th en="One Serving<br> (200 grams)" he="מנה אחת (200 גרם)" value="200" id="serving-weight-identifier"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr id="carbs">
-                        <th en="Carbohydrates:" he=":פחמימות"></th>
+                        <th en="Carbohydrates:" he="פחמימות:"></th>
                         <td>13.7g</td>
                         <td>27.4g</td>
                     </tr>
@@ -123,8 +130,8 @@
                         <td>1g</td>
                         <td>2g</td>
                     </tr>
-                    <tr id="gl">
-                        <th en="Glycemic Load" he="עומס גליקמי"></th>
+                    <tr id="glycemic-load">
+                        <th en="Glycemic Load (Estimated)" he="עומס גליקמי (מוערך)"></th>
                         <td>-1</td>
                         <td>-1</td>
                     </tr>
@@ -326,5 +333,8 @@
             </step>
         </instructions>
     </recipe-attributes>
+
+    <script src="/js/recipes/recipePage.js"></script>
+    <script src="/js/recipes/statColors.js"></script>
 </body>
 </html>

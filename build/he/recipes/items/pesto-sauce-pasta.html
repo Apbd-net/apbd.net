@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="he" dir="rtl"><head>
+<!DOCTYPE html><html lang="he" dir="rtl" nodata="אין מידע"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APBD.net | מתכון לפסטה ברוטב פסטו</title>
@@ -47,7 +47,7 @@
 			<div class="dropdown">
 				<a id="contribute" href="#">תרום תוכן</a>
 				<div class="dropdown-content">
-
+					<a href="./contribute/write-a-recipe.html">כתוב מתכון</a>
 				</div>
 			</div>
 
@@ -63,9 +63,11 @@
 
     <div class="container">
         <div id="sideview">
+            <h1 id="sideview-title">מתכון לפסטה ברוטב פסטו</h1>
             <img src="https://assets.bonappetit.com/photos/57af6c7af1c801a1038bd2e6/16:9/w_1280,c_limit/ligurian-pesto-with-spaghetti.jpg" alt="pesto sauce pasta image" id="preview">
-            <hr>
-            <ul id="ingredients-sideview">
+            <hr id="sideview-ingredients-hr">
+            <h2 id="sideview-ingredients-title">מרכיבים</h2>
+            <ul id="sideview-ingredients">
                 <li><span>Water</span><span>,
                         2.5l</span></li>
                 <li><span>Just Taste Pasta</span><span>,
@@ -80,11 +82,15 @@
                         80g</span></li>
             </ul>
             <hr>
+            <h2>מידע כללי</h2>
             <ul id="recipe-stats">
-                <li id="time"><span>30min</span></li>
-                <li id="difficulty"><span>3</span></li>
-                <li id="servings"><span>3 - 5</span></li>
-                <li id="ingredient-amount"><span>6</span></li>
+                <li><span>זמן הכנה: </span><span id="time">30min</span></li>
+                <li><span>רמת קושי: </span><span id="difficulty">3</span>/10</li>
+                <li><span>כמות מנות: </span><span id="servings">3 - 5</span></li>
+                <li><span>כמות מרכיבים: </span><span id="ingredient-amount">5</span></li>
+                <li><span>כמות שלבים: </span><span id="step-amount">7</span></li>
+                <li><span>סטטוס כשרות: </span><span id="kashrut">כשר, חלבי</span></li>
+
             </ul>
             <hr>
             <h2>סימון תזונתי</h2>
@@ -93,12 +99,12 @@
                     <tr>
                         <th>שדה</th>
                         <th>100 גרם</th>
-                        <th>מנה אחת (200 גרם)</th>
+                        <th value="200" id="serving-weight-identifier">מנה אחת (200 גרם)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr id="carbs">
-                        <th>:פחמימות</th>
+                        <th>פחמימות:</th>
                         <td>13.7g</td>
                         <td>27.4g</td>
                     </tr>
@@ -117,8 +123,8 @@
                         <td>1g</td>
                         <td>2g</td>
                     </tr>
-                    <tr id="gl">
-                        <th>עומס גליקמי</th>
+                    <tr id="glycemic-load">
+                        <th>עומס גליקמי (מוערך)</th>
                         <td>-1</td>
                         <td>-1</td>
                     </tr>
@@ -252,5 +258,8 @@
             </step>
         </instructions>
     </recipe-attributes>
+
+    <script src="/js/recipes/recipePage.js"></script>
+    <script src="/js/recipes/statColors.js"></script>
 
 </body></html>

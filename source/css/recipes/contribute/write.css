@@ -1,0 +1,5 @@
+[contenteditable] {
+    outline: 2px dashed white;
+    min-width: 20px;
+    padding-inline: 10px;
+}

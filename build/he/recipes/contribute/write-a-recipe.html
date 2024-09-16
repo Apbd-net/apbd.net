@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang="he" dir="rtl"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apbd.net | כתיבת מתכון</title>
+
+    
+    <link rel="stylesheet" href="/css/recipes/main.css">
+    <link rel="stylesheet" href="/css/foods/dropdown.css">
+    <link rel="stylesheet" href="/css/foods/main.css">
+    <link rel="stylesheet" href="/css/recipes/articles/main.css">
+    <link rel="stylesheet" href="/css/recipes/articles/sideview.css">
+    <link rel="stylesheet" href="/css/recipes/contribute/write.css">
+</head>
+<body>
+    <script>
+		const touch = matchMedia('(hover: none)').matches
+		console.log(touch);
+
+		if (touch) {
+			let prev = window.document.body;
+			window.addEventListener("touchend", function (e) {
+				if (e.target.onclick) e.target.onclick();
+				if (prev !== e.target) prev.classList.remove("hover");
+				e.target.classList.toggle("hover");
+				prev = e.target;
+				console.log(e.target);
+			}, {
+				passive: false
+			});
+		}
+	</script>
+	<header>
+		<div class="logo">
+			<img src="/favicon.ico" alt="Website logo">
+			<div class="column">
+				<a class="title" href="/">APBD.net</a>
+				<a class="sub" href="/he/recipes">ספר המתכונים הגדול</a>
+			</div>
+
+		</div>
+		<nav class="header-menu">
+			<div class="dropdown">
+				<a id="about" href="#">אודות</a>
+				<div class="dropdown-content">
+					<a target="_blank" href="https://rarediseases.org/rare-diseases/adult-polyglucosan-body-disease/">APBD
+						<span>↗</span></a>
+				</div>
+			</div>
+			<div class="dropdown">
+				<a id="contribute" href="#">תרום תוכן</a>
+				<div class="dropdown-content">
+					<a href="./contribute/write-a-recipe.html">כתוב מתכון</a>
+				</div>
+			</div>
+
+			<div class="dropdown">
+				<a id="contact" href="#">שפה</a>
+				<div class="dropdown-content">
+					<a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'en')" href="#">אנגלית</a>
+					<a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'he')" href="#">עברית</a>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+    <blockquote>תודה רבה על שבחרתם להוסיף לנו מתכון, וברוכים הבאים ♥️<br>
+        אתם יכולים לערוך טקסטים שונים באתר ע"י לחיצה עליהם. לנוחיותכם, אותם טקסטים יסומנו באמצעות מסגרת מיוחדת.<br>
+        כל דבר אחר שלא עוקב במדויק אחר התבנית "לחצו כדי לערוך" יכיל מדריך יסודי על הוספת טקסט אליו.</blockquote>
+    <div class="container">
+        <div id="sideview">
+            <h1 id="sideview-title"></h1>
+            <img src="https://assets.bonappetit.com/photos/57af6c7af1c801a1038bd2e6/16:9/w_1280,c_limit/ligurian-pesto-with-spaghetti.jpg" alt="pesto sauce pasta image" id="preview">
+            <hr id="sideview-ingredients-hr">
+            <h2 id="sideview-ingredients-title">מרכיבים</h2>
+            <ul id="sideview-ingredients">
+                <li><span>Water</span><span>,
+                        2.5l</span></li>
+                <li><span>Just Taste Pasta</span><span>,
+                        250g</span></li>
+                <li><span>Pesto Sauce</span><span>,
+                        160g</span></li>
+                <li><span>Salt</span><span>,
+                        0.5tbsp</span></li>
+                <li><span>Olive Oil</span><span>,
+                        1tsp</span></li>
+                <li><span>Parmesan Cheese</span><span>,
+                        80g</span></li>
+            </ul>
+            <hr>
+            <h2>מידע כללי</h2>
+            <ul id="recipe-stats">
+                <li><span>זמן הכנה: </span><span id="time">30min</span></li>
+                <li><span>רמת קושי: </span><span id="difficulty">3</span>/10</li>
+                <li><span>כמות מנות: </span><span id="servings">3 - 5</span></li>
+                <li><span>כמות מרכיבים: </span><span id="ingredient-amount">5</span></li>
+                <li><span>כמות שלבים: </span><span id="step-amount">7</span></li>
+                <li><span>סטטוס כשרות: </span><span id="kashrut">כשר, חלבי</span></li>
+
+            </ul>
+            <hr>
+            <h2>סימון תזונתי</h2>
+            <table id="nutrition-facts">
+                <thead>
+                    <tr>
+                        <th>שדה</th>
+                        <th>100 גרם</th>
+                        <th value="200" id="serving-weight-identifier">מנה אחת (200 גרם)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="carbs">
+                        <th>פחמימות:</th>
+                        <td>13.7g</td>
+                        <td>27.4g</td>
+                    </tr>
+                    <tr id="fiber">
+                        <th>סיבים</th>
+                        <td>9.6g</td>
+                        <td>19.2g</td>
+                    </tr>
+                    <tr id="sugar">
+                        <th>סוכר</th>
+                        <td>3.1g</td>
+                        <td>6.2g</td>
+                    </tr>
+                    <tr id="starch">
+                        <th>עמילן</th>
+                        <td>1g</td>
+                        <td>2g</td>
+                    </tr>
+                    <tr id="glycemic-load">
+                        <th>עומס גליקמי (מוערך)</th>
+                        <td>-1</td>
+                        <td>-1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <main>
+            <h1>
+                <span contenteditable="" id="title" placeholder="שם המתכון"></span>
+                <small contenteditable="" id="author">אנונימי</small>
+            </h1>
+            <h2>מרכיבים</h2>
+            <blockquote>כל מרכיב שונה חייב להיות בשורה שונה ברשימה.<br>
+                כשמתחילים להקליד בתוך הרשימה, ישר תופיע שורה חדשה בסוף הרשימה.<br>
+                על מנת להוסיף עוד רכיבים, לוחצים על אותה שורה אחרונה ברשימה, ומתחילם לערוך גם אותה.</blockquote>
+            <ul id="ingredients">
+                <li><span>שם המרכיב</span>: <span contenteditable="" placeholder="שם המרכיב כאן"></span>, <span>כמות</span>: <input type="number" class="weight-input"><select name="units" class="weight-units"></select></li>
+            </ul>
+            <h2>הוראות</h2>
+            <ol id="instructions">
+                <li>
+                    <p>
+                        <span contenteditable="" placeholder="שלב כאן"></span>
+                    </p>
+                    <p class="note">
+                        <span contenteditable="" placeholder="אם יש לכם הערות להוסיף לגבי השלב הזה במתכון, זה המקום לכתוב אותן. אפשר להשאיר את זה ריק."></span>
+                    </p>
+                </li>
+            </ol>
+        </main>
+    </div>
+
+    <script src="/js/recipes/recipePage.js"></script>
+    <script src="/js/recipes/statColors.js"></script>
+    <script src="/js/recipes/contentEditablePlaceholder.js"></script>
+
+</body></html>

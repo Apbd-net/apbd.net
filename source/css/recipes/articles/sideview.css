@@ -1,12 +1,18 @@
 #sideview {
-    padding: 10px;
-    border-inline-end: 2px solid #333333;
-    height: 100%;
+    padding-inline-start: 10px;
+    position: sticky;
+    top: 0px;
+}
+
+#sideview-title {
+    text-align: center;
+    display: none;
 }
 
 #nutrition-facts {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
     margin-top: 20px;
     text-align:left;
 }
@@ -22,9 +28,17 @@
     text-align: center;
 }
 
+:lang("en") #nutrition-facts tr *:first-child {
+    width: 100px; /* Fixes some fields getting cut off*/
+}
+
 #nutrition-facts td, #nutrition-facts th {
     border: 1px solid #222222;
     padding: 5px;
+}
+
+#nutrition-facts t {
+    text-align: center;
 }
 
 #nutrition-facts #fiber>th::before {
@@ -35,4 +49,14 @@
 }
 #nutrition-facts #sugar>th::before {
     content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+}
+
+
+#recipe-stats {
+    list-style-type: none;
+    font-weight: bold;
+}
+
+:lang("en") #recipe-stats #time>span::before {
+    content: "Cooking Time:\00a0";
 }
