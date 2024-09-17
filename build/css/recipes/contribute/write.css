@@ -4,6 +4,27 @@
     padding-inline: 10px;
 }
 
+#preview-selector {
+    display: none;
+}
+
+#preview-image {
+    width: 100%;
+}
+
+#preview-selector-label {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #111111;
+    color: white;
+    border: 2px dashed white;
+    aspect-ratio: 16/9;
+}
+
 input[type="number"] {
     width: 80px;
     border: 2px dashed white;

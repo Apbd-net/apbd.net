@@ -69,6 +69,16 @@
     <div class="container">
         <div id="sideview">
             <h1 id="sideview-title" placeholder="Recipe Name Will Appear Here When Scrolling"></h1>
+            <figure>
+                <div id="preview-selector-label" onclick="document.getElementById('preview-selector').click()">
+                    <img src="" id="preview-image">
+                    <label for="preview-selector">Click Here To Upload An Image</label>
+                </div>
+                <input type="file" id="preview-selector" accept="image/*">
+                <figcaption>
+                    <span contenteditable="" placeholder="Describe the image you uploaded to the box above"></span>
+                </figcaption>
+            </figure>
             <hr id="sideview-ingredients-hr">
             <h2 id="sideview-ingredients-title">Ingredients</h2>
             <ul id="sideview-ingredients">

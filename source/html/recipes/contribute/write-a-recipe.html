@@ -80,6 +80,19 @@
     <div class="container">
         <div id="sideview">
             <h1 id="sideview-title" placeholder-en="Recipe Name Will Appear Here When Scrolling" placeholder-he="שם המתכון יופיע כאן כשגוללים מטה"></h1>
+            <figure>
+                <div id="preview-selector-label" onclick="document.getElementById('preview-selector').click()">
+                    <img src="" id="preview-image">
+                    <label for="preview-selector" en="Click Here To Upload An Image" he="לחץ כאן כדי להעלות תמונה"></label>
+                </div>
+                <input type="file" id="preview-selector" accept="image/*">
+                <figcaption>
+                    <span contenteditable 
+                        placeholder-en="Describe the image you uploaded to the box above" 
+                        placeholder-he="תאר את התמונה שהעלת לתיבה לעיל"
+                    ></span>
+                </figcaption>
+            </figure>
             <hr id="sideview-ingredients-hr">
             <h2 en="Ingredients" he="מרכיבים" id="sideview-ingredients-title"></h2>
             <ul id="sideview-ingredients">

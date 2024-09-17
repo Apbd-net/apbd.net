@@ -1,13 +1,31 @@
 
-#sideview img {
+#sideview figure {
+    border: 1px solid #333333;
+    padding: 5px;
+    margin: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sideview figure> *.preview {
     width: 100%;
+}
+
+#sideview figure>figcaption {
+    margin-top: 6px;
+    width: fit-content;
+    margin-inline: auto;
+    font-style: italic;
 }
 
 #sideview {
     padding-inline-start: 10px;
     position: sticky;
     top: 0px;
-    width: 470px;
+    min-width: 320px;
+    width: 320px;
+    max-width: 320px;
     height: 100%;
     font-size: 0.8em;
     overflow-y: auto;

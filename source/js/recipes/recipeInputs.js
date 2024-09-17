@@ -17,6 +17,12 @@ const ingredientContainer = document.getElementById("ingredients");
  */
 const instructionContainer = document.getElementById("instructions");
 
+/** @type {HTMLInputElement} */
+const previewSelector = document.getElementById("preview-selector");
+
+/** @type {HTMLImageElement} */
+const previewImage = document.getElementById("preview-image");
+
 // For both ingredient and instruction elements, if all of them are not empty, we need to add another one at the end.
 
 function onIngredientChange() {
@@ -34,9 +40,12 @@ function onIngredientChange() {
             shouldAddEmptyIngredientEntry = false;
         } 
     }
+    ingredientAmount.innerText = ingredientContainer.children.length;
     if (shouldAddEmptyIngredientEntry) {
         addIngredientEntry();
     }
+
+
 }
 
 function addIngredientEntry() {
@@ -71,6 +80,7 @@ function onInstructionChange() {
             break;
         }
     }
+    stepAmount.innerText = instructionContainer.children.length;
     if (shouldAddEmptyInstructionEntry) {
         addInstructionEntry();
     }
@@ -87,4 +97,12 @@ function addInstructionEntry() {
 }
 
 ingredientContainer.querySelectorAll("span[contenteditable], input[type=number]").forEach(span => span.addEventListener("input", onIngredientChange));
-instructionContainer.querySelectorAll("span[contenteditable]").forEach(span => span.addEventListener("input", onInstructionChange))
+instructionContainer.querySelectorAll("span[contenteditable]").forEach(span => span.addEventListener("input", onInstructionChange));
+
+ingredientAmount.innerText = "0";
+stepAmount.innerText = "0";
+
+
+previewSelector.addEventListener("change", e => {
+    previewImage.src = URL.createObjectURL(e.target.files[0]);
+})
