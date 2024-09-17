@@ -49,7 +49,7 @@
 			<div class="dropdown">
 				<a id="contribute" href="#">Contribute</a>
 				<div class="dropdown-content">
-					<a href="./contribute/write-a-recipe.html">Write a Recipe</a>
+					<a href="../contribute/write-a-recipe.html">Write a Recipe</a>
 				</div>
 			</div>
 
@@ -73,28 +73,49 @@
             <hr id="sideview-ingredients-hr">
             <h2 id="sideview-ingredients-title">Ingredients</h2>
             <ul id="sideview-ingredients">
-                <li><span>Water</span><span>,
-                        2.5l</span></li>
-                <li><span>Just Taste Pasta</span><span>,
-                        250g</span></li>
-                <li><span>Pesto Sauce</span><span>,
-                        160g</span></li>
-                <li><span>Salt</span><span>,
-                        0.5tbsp</span></li>
-                <li><span>Olive Oil</span><span>,
-                        1tsp</span></li>
-                <li><span>Parmesan Cheese</span><span>,
-                        80g</span></li>
             </ul>
             <hr>
             <h2>General Information</h2>
             <ul id="recipe-stats">
-                <li><span>Cooking Time: </span><span id="time">30min</span></li>
-                <li><span>Difficulty: </span><span id="difficulty">3</span>/10</li>
-                <li><span>Total Servings: </span><span id="servings">3 - 5</span></li>
-                <li><span>Total Ingredients: </span><span id="ingredient-amount">5</span></li>
-                <li><span>Total Steps: </span><span id="step-amount">7</span></li>
-                <li><span>Kashrut Status: </span><span id="kashrut">Kosher, Dairy</span></li>
+                <li>
+                    <span>Cooking Time: </span>
+                    <input type="number" id="cook-time">
+                    <select class="time-units" id="cook-time-units">
+                        <option value="min">minutes</option>
+                        <option value="h">hours</option>
+                        <option value="d">days</option>
+                    </select>
+                </li>
+                <li>
+                    <span>Difficulty: </span>
+                    <input type="number" id="difficulty" min="0" max="10"> /10
+                </li>
+                <li>
+                    <span>Total Servings: </span>
+                    <input type="number" id="servings-min">
+                    <span> to </span>
+                    <input type="number" id="servings-max">
+                </li>
+                <li>
+                    <span>Total Ingredients: Currently </span>
+                    <span id="ingredient-amount">5</span>
+                </li>
+                <li>
+                    <span>Total Steps: Currently </span>
+                    <span id="step-amount">7</span>
+                </li>
+                <li>
+                    <span>Kashrut Status: </span>
+                    <select name="kashrut" id="kashrut">
+                        <option value="k" label="Kosher"></option>
+                        <option value="nk" label="Not Kosher"></option>
+                    </select>
+                    <select name="Status" id="food-kashrut-type">
+                        <option value="d" label="Dairy"></option>
+                        <option value="n" label="Pareve"></option>
+                        <option value="m" label="Meat"></option>
+                    </select>
+                </li>
 
             </ul>
             <hr>
@@ -146,13 +167,33 @@
                 Starting to add an ingredient will immidately add another list entry at the end of the list.<br>
                 To continue adding ingredients, simply click on the last list entry, and continue typing away...</blockquote>
             <ul id="ingredients">
-                <li><span>Ingredient Name</span>: <span contenteditable="" placeholder="Ingredient Name Here"></span>, <span>Quantity</span>: <input type="number" class="weight-input"><select name="units" class="weight-units"></select></li>
+                <li>
+                    <span>Ingredient Name</span>: 
+                    <span contenteditable="" placeholder="Ingredient Name Here"></span> , 
+                    <span>Quantity</span>: 
+                    <input type="number" class="weight-input">
+                    <select name="units" class="weight-units">
+                        <option value="g" label="grams"></option>
+                        <option value="kg" label="kilograms"></option>
+                        <option value="mg" label="milligrams"></option>
+                        <option value="ml" label="milliliters"></option>
+                        <option value="l" label="liters"></option>
+                        <option value="oz" label="ounces"></option>
+                        <option value="lb" label="pounds"></option>
+                        <option value="tsp" label="tsp"></option>
+                        <option value="tbsp" label="tbsp"></option>
+                        <option value="cup" label="cup"></option>
+                        <option value="pint" label="pint"></option>
+                        <option value="quart" label="quart"></option>
+                        <option value="gallon" label="gallon"></option>
+                    </select>
+                </li>
             </ul>
             <h2>Instructions</h2>
             <ol id="instructions">
                 <li>
                     <p>
-                        <span contenteditable="" placeholder="Instruction Here"></span>
+                        <span contenteditable="" placeholder="Type out instruction Here"></span>
                     </p>
                     <p class="note">
                         <span contenteditable="" placeholder="If you have anything else extra to add about this step, type it here. You can leave this empty."></span>

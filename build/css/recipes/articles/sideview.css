@@ -1,3 +1,13 @@
+
+#sideview {
+    width: 470px;
+    font-size: 0.8em;
+}
+
+#sideview img {
+    width: 100%;
+}
+
 #sideview {
     padding-inline-start: 10px;
     position: sticky;

@@ -53,7 +53,7 @@
 			<div class="dropdown">
 				<a id="contribute" href="#" en="Contribute" he="תרום תוכן">Contribute</a>
 				<div class="dropdown-content">
-					<a href="./contribute/write-a-recipe.html" en="Write a Recipe" he="כתוב מתכון"></a>
+					<a href="../contribute/write-a-recipe.html" en="Write a Recipe" he="כתוב מתכון"></a>
 				</div>
 			</div>
 
@@ -84,28 +84,49 @@
             <hr id="sideview-ingredients-hr">
             <h2 en="Ingredients" he="מרכיבים" id="sideview-ingredients-title"></h2>
             <ul id="sideview-ingredients">
-                <li><span>Water</span><span>,
-                        2.5l</span></li>
-                <li><span>Just Taste Pasta</span><span>,
-                        250g</span></li>
-                <li><span>Pesto Sauce</span><span>,
-                        160g</span></li>
-                <li><span>Salt</span><span>,
-                        0.5tbsp</span></li>
-                <li><span>Olive Oil</span><span>,
-                        1tsp</span></li>
-                <li><span>Parmesan Cheese</span><span>,
-                        80g</span></li>
             </ul>
             <hr>
             <h2 en="General Information" he="מידע כללי"></h2>
             <ul id="recipe-stats">
-                <li><span en="Cooking Time: " he="זמן הכנה: "></span><span id="time">30min</span></li>
-                <li><span en="Difficulty: " he="רמת קושי: "></span><span id="difficulty">3</span>/10</li>
-                <li><span en="Total Servings: " he="כמות מנות: "></span><span id="servings">3 - 5</span></li>
-                <li><span en="Total Ingredients: " he="כמות מרכיבים: "></span><span id="ingredient-amount">5</span></li>
-                <li><span en="Total Steps: " he="כמות שלבים: "></span><span id="step-amount">7</span></li>
-                <li><span en="Kashrut Status: " he="סטטוס כשרות: "></span><span id="kashrut" en="Kosher, Dairy" he="כשר, חלבי"></span></li>
+                <li>
+                    <span en="Cooking Time: " he="זמן הכנה: "></span>
+                    <input type="number" id="cook-time"/>
+                    <select class="time-units" id="cook-time-units">
+                        <option value="min" en="minutes" he="דקות"></option>
+                        <option value="h" en="hours" he="שעות"></option>
+                        <option value="d" en="days" he="ימים"></option>
+                    </select>
+                </li>
+                <li>
+                    <span en="Difficulty: " he="רמת קושי: "></span>
+                    <input type="number" id="difficulty" min="0" max="10"/> /10
+                </li>
+                <li>
+                    <span en="Total Servings: " he="כמות מנות: "></span>
+                    <input type="number" id="servings-min"/>
+                    <span en=" to " he=" עד "></span>
+                    <input type="number" id="servings-max"/>
+                </li>
+                <li>
+                    <span en="Total Ingredients: Currently " he="כמות מרכיבים: כרגע "></span>
+                    <span id="ingredient-amount">5</span>
+                </li>
+                <li>
+                    <span en="Total Steps: Currently " he="כמות שלבים: כרגע "></span>
+                    <span id="step-amount">7</span>
+                </li>
+                <li>
+                    <span en="Kashrut Status: " he="סטטוס כשרות: "></span>
+                    <select name="kashrut" id="kashrut">
+                        <option value="k" label-en="Kosher" label-he="כשר"></option>
+                        <option value="nk" label-en="Not Kosher" label-he="לא כשר"></option>
+                    </select>
+                    <select name="Status" id="food-kashrut-type">
+                        <option value="d" label-en="Dairy" label-he="חלבי"></option>
+                        <option value="n" label-en="Pareve" label-he="פרווה"></option>
+                        <option value="m" label-en="Meat" label-he="בשרי"></option>
+                    </select>
+                </li>
 
             </ul>
             <hr>
@@ -163,13 +184,33 @@
 
             ></blockquote>
             <ul id="ingredients">
-                <li><span en="Ingredient Name" he="שם המרכיב"></span>: <span contenteditable placeholder-en="Ingredient Name Here" placeholder-he="שם המרכיב כאן"></span>, <span en="Quantity" he="כמות"></span>: <input type="number" class="weight-input"><select name="units" class="weight-units"></select></li>
+                <li>
+                    <span en="Ingredient Name" he="שם המרכיב"></span>: 
+                    <span contenteditable placeholder-en="Ingredient Name Here" placeholder-he="שם המרכיב כאן"></span> , 
+                    <span en="Quantity" he="כמות"></span>: 
+                    <input type="number" class="weight-input">
+                    <select name="units" class="weight-units">
+                        <option value="g" label-en="grams" label-he="גרם"></option>
+                        <option value="kg" label-en="kilograms" label-he="קילוגרם"></option>
+                        <option value="mg" label-en="milligrams" label-he="מיליגרם"></option>
+                        <option value="ml" label-en="milliliters" label-he="מיליליטר"></option>
+                        <option value="l" label-en="liters" label-he="ליטרים"></option>
+                        <option value="oz" label-en="ounces" label-he="אונקיות"></option>
+                        <option value="lb" label-en="pounds" label-he="פאונד"></option>
+                        <option value="tsp" label-en="tsp" label-he="כפית"></option>
+                        <option value="tbsp" label-en="tbsp" label-he="כף"></option>
+                        <option value="cup" label-en="cup" label-he="כוס"></option>
+                        <option value="pint" label-en="pint" label-he="פיינט"></option>
+                        <option value="quart" label-en="quart" label-he="קוורט"></option>
+                        <option value="gallon" label-en="gallon" label-he="גלון"></option>
+                    </select>
+                </li>
             </ul>
             <h2 en="Instructions" he="הוראות"></h2>
             <ol id="instructions">
                 <li>
                     <p>
-                        <span contenteditable placeholder-en="Instruction Here" placeholder-he="שלב כאן"></span>
+                        <span contenteditable placeholder-en="Type out instruction Here" placeholder-he="הקלד שלב כאן"></span>
                     </p>
                     <p class="note">
                         <span contenteditable placeholder-en="If you have anything else extra to add about this step, type it here. You can leave this empty." placeholder-he="אם יש לכם הערות להוסיף לגבי השלב הזה במתכון, זה המקום לכתוב אותן. אפשר להשאיר את זה ריק."></span>

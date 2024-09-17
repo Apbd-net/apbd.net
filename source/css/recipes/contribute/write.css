@@ -3,3 +3,27 @@
     min-width: 20px;
     padding-inline: 10px;
 }
+
+input[type="number"] {
+    width: 80px;
+    border: 2px dashed white;
+    outline: 0px;
+    background-color: transparent;
+    margin-block: 4px;
+}
+
+select {
+    border: 2px dashed white;
+    background-color: #111111;
+    margin-block: 4px;
+    width: 80px;
+}
+
+#recipe-stats input[type="number"] {
+    width: 40px;
+}
+
+select.time-units, select.weight-units {
+    width: 90px;
+    margin-inline-start: 2px;
+}

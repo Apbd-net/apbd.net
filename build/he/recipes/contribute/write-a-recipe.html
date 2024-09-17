@@ -49,7 +49,7 @@
 			<div class="dropdown">
 				<a id="contribute" href="#">תרום תוכן</a>
 				<div class="dropdown-content">
-					<a href="./contribute/write-a-recipe.html">כתוב מתכון</a>
+					<a href="../contribute/write-a-recipe.html">כתוב מתכון</a>
 				</div>
 			</div>
 
@@ -73,28 +73,49 @@
             <hr id="sideview-ingredients-hr">
             <h2 id="sideview-ingredients-title">מרכיבים</h2>
             <ul id="sideview-ingredients">
-                <li><span>Water</span><span>,
-                        2.5l</span></li>
-                <li><span>Just Taste Pasta</span><span>,
-                        250g</span></li>
-                <li><span>Pesto Sauce</span><span>,
-                        160g</span></li>
-                <li><span>Salt</span><span>,
-                        0.5tbsp</span></li>
-                <li><span>Olive Oil</span><span>,
-                        1tsp</span></li>
-                <li><span>Parmesan Cheese</span><span>,
-                        80g</span></li>
             </ul>
             <hr>
             <h2>מידע כללי</h2>
             <ul id="recipe-stats">
-                <li><span>זמן הכנה: </span><span id="time">30min</span></li>
-                <li><span>רמת קושי: </span><span id="difficulty">3</span>/10</li>
-                <li><span>כמות מנות: </span><span id="servings">3 - 5</span></li>
-                <li><span>כמות מרכיבים: </span><span id="ingredient-amount">5</span></li>
-                <li><span>כמות שלבים: </span><span id="step-amount">7</span></li>
-                <li><span>סטטוס כשרות: </span><span id="kashrut">כשר, חלבי</span></li>
+                <li>
+                    <span>זמן הכנה: </span>
+                    <input type="number" id="cook-time">
+                    <select class="time-units" id="cook-time-units">
+                        <option value="min">דקות</option>
+                        <option value="h">שעות</option>
+                        <option value="d">ימים</option>
+                    </select>
+                </li>
+                <li>
+                    <span>רמת קושי: </span>
+                    <input type="number" id="difficulty" min="0" max="10"> /10
+                </li>
+                <li>
+                    <span>כמות מנות: </span>
+                    <input type="number" id="servings-min">
+                    <span> עד </span>
+                    <input type="number" id="servings-max">
+                </li>
+                <li>
+                    <span>כמות מרכיבים: כרגע </span>
+                    <span id="ingredient-amount">5</span>
+                </li>
+                <li>
+                    <span>כמות שלבים: כרגע </span>
+                    <span id="step-amount">7</span>
+                </li>
+                <li>
+                    <span>סטטוס כשרות: </span>
+                    <select name="kashrut" id="kashrut">
+                        <option value="k" label="כשר"></option>
+                        <option value="nk" label="לא כשר"></option>
+                    </select>
+                    <select name="Status" id="food-kashrut-type">
+                        <option value="d" label="חלבי"></option>
+                        <option value="n" label="פרווה"></option>
+                        <option value="m" label="בשרי"></option>
+                    </select>
+                </li>
 
             </ul>
             <hr>
@@ -146,13 +167,33 @@
                 כשמתחילים להקליד בתוך הרשימה, ישר תופיע שורה חדשה בסוף הרשימה.<br>
                 על מנת להוסיף עוד רכיבים, לוחצים על אותה שורה אחרונה ברשימה, ומתחילם לערוך גם אותה.</blockquote>
             <ul id="ingredients">
-                <li><span>שם המרכיב</span>: <span contenteditable="" placeholder="שם המרכיב כאן"></span>, <span>כמות</span>: <input type="number" class="weight-input"><select name="units" class="weight-units"></select></li>
+                <li>
+                    <span>שם המרכיב</span>: 
+                    <span contenteditable="" placeholder="שם המרכיב כאן"></span> , 
+                    <span>כמות</span>: 
+                    <input type="number" class="weight-input">
+                    <select name="units" class="weight-units">
+                        <option value="g" label="גרם"></option>
+                        <option value="kg" label="קילוגרם"></option>
+                        <option value="mg" label="מיליגרם"></option>
+                        <option value="ml" label="מיליליטר"></option>
+                        <option value="l" label="ליטרים"></option>
+                        <option value="oz" label="אונקיות"></option>
+                        <option value="lb" label="פאונד"></option>
+                        <option value="tsp" label="כפית"></option>
+                        <option value="tbsp" label="כף"></option>
+                        <option value="cup" label="כוס"></option>
+                        <option value="pint" label="פיינט"></option>
+                        <option value="quart" label="קוורט"></option>
+                        <option value="gallon" label="גלון"></option>
+                    </select>
+                </li>
             </ul>
             <h2>הוראות</h2>
             <ol id="instructions">
                 <li>
                     <p>
-                        <span contenteditable="" placeholder="שלב כאן"></span>
+                        <span contenteditable="" placeholder="הקלד שלב כאן"></span>
                     </p>
                     <p class="note">
                         <span contenteditable="" placeholder="אם יש לכם הערות להוסיף לגבי השלב הזה במתכון, זה המקום לכתוב אותן. אפשר להשאיר את זה ריק."></span>
