@@ -1,9 +1,4 @@
 
-#sideview {
-    width: 470px;
-    font-size: 0.8em;
-}
-
 #sideview img {
     width: 100%;
 }
@@ -12,6 +7,11 @@
     padding-inline-start: 10px;
     position: sticky;
     top: 0px;
+    width: 470px;
+    height: 100%;
+    font-size: 0.8em;
+    overflow-y: auto;
+    scrollbar-width: none;
 }
 
 #sideview-title {

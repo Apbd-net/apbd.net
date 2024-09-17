@@ -6,6 +6,8 @@
     display: flex;
     flex-direction: row;
     width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     align-items: flex-start;
     justify-content: start;
     padding-inline: 0;
@@ -26,13 +28,14 @@ h2 {
 
 main {
     width: 100%;
+    height: 100%;
     padding-inline: 30px;
     border-inline-start: 2px solid #333333;
+    overflow-y: scroll;
 }
 hr {
     color: #333333;
     border: 1px solid #333333;
-    height: 100%;
 }
 
 #instructions li {
