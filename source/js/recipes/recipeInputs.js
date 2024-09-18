@@ -63,11 +63,14 @@ function addIngredientEntry() {
 function onInstructionChange() {
     let shouldAddEmptyInstructionEntry = true;
     for (let instruction of instructionContainer.children) {
-        /** @type {HTMLSpanElement} */
+        /** @type {HTMLSpanElement[]} */
         let contentSpans = instruction.querySelectorAll("span[contenteditable]");
+        console.log(contentSpans);
         let hasAllEmpty = true;
         for (let contentSpan of contentSpans) {
-            if (contentSpan.innerText.length > 0) {
+            console.log(contentSpan.textContent, contentSpan.textContent.length);
+            
+            if (contentSpan.textContent.length > 0) {
                 hasAllEmpty = false;
                 break;
             }
@@ -77,10 +80,9 @@ function onInstructionChange() {
                 instructionContainer.removeChild(instruction);
             }
             shouldAddEmptyInstructionEntry = false;
-            break;
         }
     }
-    stepAmount.innerText = instructionContainer.children.length;
+    stepAmount.textContent = instructionContainer.children.length;
     if (shouldAddEmptyInstructionEntry) {
         addInstructionEntry();
     }

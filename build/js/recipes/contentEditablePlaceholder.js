@@ -5,7 +5,7 @@ let showPlaceholders = `
     color: #555; 
 }
 
-[placeholder]:empty:focus:before {
+[placeholder]:not(:empty):focus:before {
     content: "";
 }
 `;
@@ -19,6 +19,8 @@ document.head.appendChild(styleSheet);
  */
 let contentEditables = document.querySelectorAll("[contenteditable]");
 for (let element of contentEditables) {
+    let height = element.offsetHeight;
+    element.style.minHeight = `${height}px`;
     element.addEventListener('focusout', () => {
         if (element.textContent.replace(/\s/g, "").length === 0) {
             element.textContent = "";

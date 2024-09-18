@@ -17,6 +17,8 @@
     width: fit-content;
     margin-inline: auto;
     font-style: italic;
+    text-align: center;
+    display: flex;
 }
 
 #sideview {
@@ -83,8 +85,4 @@
 #recipe-stats {
     list-style-type: none;
     font-weight: bold;
-}
-
-:lang("en") #recipe-stats #time>span::before {
-    content: "Cooking Time:\00a0";
 }
