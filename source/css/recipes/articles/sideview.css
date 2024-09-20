@@ -28,6 +28,7 @@
     min-width: 320px;
     width: 320px;
     max-width: 320px;
+    padding-top: 10px;
     height: 100%;
     font-size: 0.8em;
     overflow-y: auto;
@@ -43,8 +44,22 @@
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
-    margin-top: 20px;
+    margin-block: 20px;
     text-align:left;
+}
+
+#nutrition-facts::after {
+    display: block;
+    color: gray;
+    text-align: center;
+    font-style: italic;
+    width: 320px;
+    margin-block: 15px;
+}
+
+#nutrition-facts:lang("en")::after {
+    content: "* This table is a mostly accurate estimate of the dish's nutritional values. The actual values may fluctuate a little bit if the dish is made a bit differently, or from slightly differing products.";
+    user-select: text;
 }
 
 #nutrition-facts:dir(rtl) {
