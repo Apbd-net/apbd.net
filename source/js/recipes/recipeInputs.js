@@ -1,21 +1,23 @@
+
+
 /**
  * @type {HTMLSpanElement}
  */
 const ingredientAmount = document.getElementById("ingredient-amount");
-/**
- * @type {HTMLSpanElement}
- */
-const stepAmount = document.getElementById("step-amount");
-
 /**
  * @type {HTMLUListElement}
  */
 const ingredientContainer = document.getElementById("ingredients");
 
 /**
+ * @type {HTMLSpanElement}
+ */
+const instructionAmount = document.getElementById("step-amount");
+/**
  * @type {HTMLOListElement}
  */
 const instructionContainer = document.getElementById("instructions");
+
 
 /** @type {HTMLInputElement} */
 const previewSelector = document.getElementById("preview-selector");
@@ -45,6 +47,20 @@ function onIngredientChange() {
         addIngredientEntry();
     }
 
+    // Update the sideview list preview
+
+    ingredientsSideview.innerHTML = "";
+
+    for (let ingredient of Array.from(ingredientContainer.children)) {
+        let span = document.createElement("li");
+
+        let foodName = ingredient.querySelector("span[contenteditable]").textContent;
+        let foodWeight = ingredient.querySelector("input[type=number]").value;
+        if (foodWeight.length === 0 && foodName.length === 0) continue;
+        let foodUnits = ingredient.querySelector("select");
+        span.innerText = foodName + ", " + foodWeight + " " + foodUnits.options[foodUnits.selectedIndex].label;
+        ingredientsSideview.appendChild(span);
+    }
 
 }
 
@@ -82,7 +98,7 @@ function onInstructionChange() {
             shouldAddEmptyInstructionEntry = false;
         }
     }
-    stepAmount.textContent = instructionContainer.children.length;
+    instructionAmount.textContent = instructionContainer.children.length;
     if (shouldAddEmptyInstructionEntry) {
         addInstructionEntry();
     }
@@ -102,7 +118,7 @@ ingredientContainer.querySelectorAll("span[contenteditable], input[type=number]"
 instructionContainer.querySelectorAll("span[contenteditable]").forEach(span => span.addEventListener("input", onInstructionChange));
 
 ingredientAmount.innerText = "0";
-stepAmount.innerText = "0";
+instructionAmount.innerText = "0";
 
 
 previewSelector.addEventListener("change", e => {
