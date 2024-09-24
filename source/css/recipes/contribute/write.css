@@ -50,3 +50,9 @@ select.time-units, select.weight-units {
     width: 90px;
     margin-inline-start: 2px;
 }
+
+#nutrition-facts input[type="number"] {
+    max-width: 30px;
+    appearance: textfield;
+    display: inline;
+}
