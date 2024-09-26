@@ -10,30 +10,39 @@ let glycemicLoadRow = document.getElementById("glycemic-load");
 
 if (carbsRow && fiberRow && sugarRow && starchRow && glycemicLoadRow) {
     let value100g = normalizeWeight(carbsRow.children[1].innerHTML);
+    if (!value100g) value100g = carbsRow.children[1];
+    
     let valueServing = normalizeWeight(carbsRow.children[2].innerHTML);
+    if (!valueServing) valueServing = carbsRow.children[2];
 
     let fiber100g = normalizeWeight(fiberRow.children[1].innerHTML);
+    if (!fiber100g) fiber100g = fiberRow.children[1];
     let fiberServing = normalizeWeight(fiberRow.children[2].innerHTML);
+    if (!fiberServing) fiberServing = fiberRow.children[2];
 
     let sugar100g = normalizeWeight(sugarRow.children[1].innerHTML);
+    if (!sugar100g) sugar100g = sugarRow.children[1];
     let sugarServing = normalizeWeight(sugarRow.children[2].innerHTML);
+    if (!sugarServing) sugarServing = sugarRow.children[2];
 
     let starch100g = normalizeWeight(starchRow.children[1].innerHTML);
+    if (!starch100g) starch100g = starchRow.children[1];
     let starchServing = normalizeWeight(starchRow.children[2].innerHTML);
+    if (!starchServing) starchServing = starchRow.children[2];
 
     let colors = getRatioQuality(value100g.value, fiber100g.value, sugar100g.value, starch100g.value);
     
-    carbsRow.children[1].style.color = colors.carbsColor;
-    fiberRow.children[1].style.color = colors.fiberColor;
-    sugarRow.children[1].style.color = colors.sugarColor;
-    starchRow.children[1].style.color = colors.starchColor;
+    carbsRow.children[1].style.color = colors.carbsColor + "!important";;
+    fiberRow.children[1].style.color = colors.fiberColor + "!important";;
+    sugarRow.children[1].style.color = colors.sugarColor + "!important";;
+    starchRow.children[1].style.color = colors.starchColor + "!important";;
     
     let colorsServing = getRatioQuality(valueServing.value, fiberServing.value, sugarServing.value, starchServing.value);
 
-    carbsRow.children[2].style.color = colorsServing.carbsColor;
-    fiberRow.children[2].style.color = colorsServing.fiberColor;
-    sugarRow.children[2].style.color = colorsServing.sugarColor;
-    starchRow.children[2].style.color = colorsServing.starchColor;
+    carbsRow.children[2].style.color = colorsServing.carbsColor + "!important";
+    fiberRow.children[2].style.color = colorsServing.fiberColor + "!important";
+    sugarRow.children[2].style.color = colorsServing.sugarColor + "!important";
+    starchRow.children[2].style.color = colorsServing.starchColor + "!important";
 
     let load100g = parseFloat(glycemicLoadRow.children[1].innerHTML);
     let loadServing = parseFloat(glycemicLoadRow.children[2].innerHTML);
@@ -41,8 +50,8 @@ if (carbsRow && fiberRow && sugarRow && starchRow && glycemicLoadRow) {
     let load100gColor = load100g < 0 ? "gray" : load100g < 5 ? "#00ff00" : load100g < 10 ? "#9fe2bf" : load100g < 15 ? "#ffff00" : "#00ff00";
     let loadServingColor = loadServing < 0 ? "gray" : loadServing < 5 ? "#00ff00" : loadServing < 10 ? "#9fe2bf" : loadServing < 15 ? "#ffff00" : "#00ff00";
     
-    glycemicLoadRow.children[1].style.color = load100gColor;
-    glycemicLoadRow.children[2].style.color = loadServingColor;
+    glycemicLoadRow.children[1].style.color = load100gColor + "!important";
+    glycemicLoadRow.children[2].style.color = loadServingColor + "!important";
 
     if (load100g < 0) {
         glycemicLoadRow.children[1].innerHTML = document.documentElement.getAttribute("nodata");
@@ -108,7 +117,6 @@ function getRatioQuality(totalCarbs, ofWhichFiber, ofWhichSugar, ofWhichStarch) 
     
     let carbScore = fiberScore + sugarScore + starchScore;
     let carbsColor = totalCarbs >= 1 ? "#00ff00" : totalCarbs <= 1 ? "#9fe2bf" : totalCarbs <= -4 ? "#ffff00" : "#ff0000";
-    console.log(carbScore);
     
 
     return {carbsColor, fiberColor, sugarColor, starchColor};

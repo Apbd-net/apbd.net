@@ -63,9 +63,10 @@
 		</nav>
 	</header>
 
-    <blockquote>Thank you for considering to contribute, and Welcome♥️<br>
+    <blockquote id="blockquote">Thank you for considering to contribute, and Welcome♥️<br>
         You can edit different texts on this page by clicking on them. For your comfort, these texts will by highlighted.<br>
-        Anything else that doesn't strictly follow the pattern of "Click To Edit" Will have a thorough guide on how to edit it.</blockquote>
+        Anything else that doesn't strictly follow the pattern of "Click To Edit" Will have a thorough guide on how to edit it.<br>
+        <button onclick="document.getElementById(`blockquote`).style.display = `none`">Click here to hide this</button></blockquote>
     <div class="container">
         <div id="sideview">
             <h1 id="sideview-title" placeholder="Recipe Name Will Appear Here When Scrolling"></h1>
@@ -76,7 +77,7 @@
                 </div>
                 <input type="file" id="preview-selector" accept="image/*">
                 <figcaption>
-                    <span contenteditable="" placeholder="Describe the image you uploaded to the box above"></span>
+                    <span contenteditable="" id="preview-image-description" placeholder="Describe the image you uploaded to the box above"></span>
                 </figcaption>
             </figure>
             <hr id="sideview-ingredients-hr">
@@ -107,11 +108,11 @@
                 </li>
                 <li>
                     <span>Total Ingredients: Currently </span>
-                    <span id="ingredient-amount">5</span>
+                    <span id="ingredient-amount"></span>
                 </li>
                 <li>
                     <span>Total Steps: Currently </span>
-                    <span id="step-amount">7</span>
+                    <span id="step-amount"></span>
                 </li>
                 <li>
                     <span>Kashrut Status: </span>
@@ -134,34 +135,34 @@
                     <tr>
                         <th>Field</th>
                         <th>100 Grams</th>
-                        <th value="200" id="serving-weight-identifier">One Serving<br> (<input type="number"> grams)</th>
+                        <th value="200" id="serving-weight-identifier">One Serving<br>(<input type="number" id="serving-size"> grams)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr id="carbs">
                         <th>Carbohydrates:</th>
-                        <td><input type="number"> g</td>
-                        <td>27.4g</td>
+                        <td><input type="number" placeholder="No Data"> g</td>
+                        <td><input type="number" placeholder="No Data"> g</td>
                     </tr>
                     <tr id="fiber">
                         <th>Fiber</th>
-                        <td>9.6g</td>
-                        <td>19.2g</td>
+                        <td><input type="number" placeholder="No Data"> g</td>
+                        <td><input type="number" placeholder="No Data"> g</td>
                     </tr>
                     <tr id="sugar">
                         <th>Sugar</th>
-                        <td>3.1g</td>
-                        <td>6.2g</td>
+                        <td><input type="number" placeholder="No Data"> g</td>
+                        <td><input type="number" placeholder="No Data"> g</td>
                     </tr>
                     <tr id="starch">
                         <th>Starch</th>
-                        <td>1g</td>
-                        <td>2g</td>
+                        <td><input type="number" placeholder="No Data"> g</td>
+                        <td><input type="number" placeholder="No Data"> g</td>
                     </tr>
                     <tr id="glycemic-load">
-                        <th>Glycemic Load (Estimated)</th>
-                        <td>-1</td>
-                        <td>-1</td>
+                        <th>Glycemic Load: (Estimated)</th>
+                        <td><input type="number" placeholder="No Data"></td>
+                        <td><input type="number" placeholder="No Data"></td>
                     </tr>
                 </tbody>
             </table>
@@ -199,6 +200,10 @@
                 </li>
             </ul>
             <h2>Instructions</h2>
+            <blockquote>To make following a recipe easier, this website displays the cooking process of a recipe
+                as a list of steps. each step may have a note below it, if some extra information is handy/important to know.
+                Writing flows the same as it did with the Ingredients section: When starting to type out a step,
+                another, empty one should appear at the end of the list, such that there will always be an 'empty' step.</blockquote>
             <ol id="instructions">
                 <li>
                     <p>
@@ -211,7 +216,7 @@
             </ol>
         </main>
     </div>
-
+    <button type="submit" id="submit">Submit Recipe</button>
     <script src="/js/recipes/recipePage.js"></script>
     <script src="/js/recipes/statColors.js"></script>
     <script src="/js/recipes/contentEditablePlaceholder.js"></script>

@@ -27,6 +27,11 @@
     aspect-ratio: 16/9;
 }
 
+figcaption>span[contenteditable] {
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
 input[type="number"] {
     width: 80px;
     border: 2px dashed white;
@@ -52,7 +57,12 @@ select.time-units, select.weight-units {
 }
 
 #nutrition-facts input[type="number"] {
-    max-width: 30px;
+    max-width: 70px;
     appearance: textfield;
     display: inline;
+    text-align: center;
+}
+
+#nutrition-facts thead input[type="number"] {
+    max-width: 30px;
 }

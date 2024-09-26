@@ -63,9 +63,10 @@
 		</nav>
 	</header>
 
-    <blockquote>תודה רבה על שבחרתם להוסיף לנו מתכון, וברוכים הבאים ♥️<br>
+    <blockquote id="blockquote">תודה רבה על שבחרתם להוסיף לנו מתכון, וברוכים הבאים ♥️<br>
         אתם יכולים לערוך טקסטים שונים באתר ע"י לחיצה עליהם. לנוחיותכם, אותם טקסטים יסומנו באמצעות מסגרת מיוחדת.<br>
-        כל דבר אחר שלא עוקב במדויק אחר התבנית "לחצו כדי לערוך" יכיל מדריך יסודי על הוספת טקסט אליו.</blockquote>
+        כל דבר אחר שלא עוקב במדויק אחר התבנית "לחצו כדי לערוך" יכיל מדריך יסודי על הוספת טקסט אליו.<br>
+        <button onclick="document.getElementById(`blockquote`).style.display = `none`">לחץ כאן כדי להסתיר</button></blockquote>
     <div class="container">
         <div id="sideview">
             <h1 id="sideview-title" placeholder="שם המתכון יופיע כאן כשגוללים מטה"></h1>
@@ -76,7 +77,7 @@
                 </div>
                 <input type="file" id="preview-selector" accept="image/*">
                 <figcaption>
-                    <span contenteditable="" placeholder="תאר את התמונה שהעלת לתיבה לעיל"></span>
+                    <span contenteditable="" id="preview-image-description" placeholder="תאר את התמונה שהעלת לתיבה לעיל"></span>
                 </figcaption>
             </figure>
             <hr id="sideview-ingredients-hr">
@@ -107,11 +108,11 @@
                 </li>
                 <li>
                     <span>כמות מרכיבים: כרגע </span>
-                    <span id="ingredient-amount">5</span>
+                    <span id="ingredient-amount"></span>
                 </li>
                 <li>
                     <span>כמות שלבים: כרגע </span>
-                    <span id="step-amount">7</span>
+                    <span id="step-amount"></span>
                 </li>
                 <li>
                     <span>סטטוס כשרות: </span>
@@ -134,34 +135,34 @@
                     <tr>
                         <th>שדה</th>
                         <th>100 גרם</th>
-                        <th value="200" id="serving-weight-identifier">מנה אחת (<input type="number"> גרם)</th>
+                        <th value="200" id="serving-weight-identifier">מנה אחת<br>(<input type="number" id="serving-size"> גרם)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr id="carbs">
                         <th>פחמימות:</th>
-                        <td><input type="number"> g</td>
-                        <td>27.4g</td>
+                        <td><input type="number" placeholder="אין מידע"> g</td>
+                        <td><input type="number" placeholder="אין מידע"> g</td>
                     </tr>
                     <tr id="fiber">
                         <th>סיבים</th>
-                        <td>9.6g</td>
-                        <td>19.2g</td>
+                        <td><input type="number" placeholder="אין מידע"> g</td>
+                        <td><input type="number" placeholder="אין מידע"> g</td>
                     </tr>
                     <tr id="sugar">
                         <th>סוכר</th>
-                        <td>3.1g</td>
-                        <td>6.2g</td>
+                        <td><input type="number" placeholder="אין מידע"> g</td>
+                        <td><input type="number" placeholder="אין מידע"> g</td>
                     </tr>
                     <tr id="starch">
                         <th>עמילן</th>
-                        <td>1g</td>
-                        <td>2g</td>
+                        <td><input type="number" placeholder="אין מידע"> g</td>
+                        <td><input type="number" placeholder="אין מידע"> g</td>
                     </tr>
                     <tr id="glycemic-load">
-                        <th>עומס גליקמי (מוערך)</th>
-                        <td>-1</td>
-                        <td>-1</td>
+                        <th>עומס גליקמי: (מוערך)</th>
+                        <td><input type="number" placeholder="אין מידע"></td>
+                        <td><input type="number" placeholder="אין מידע"></td>
                     </tr>
                 </tbody>
             </table>
@@ -199,6 +200,10 @@
                 </li>
             </ul>
             <h2>הוראות</h2>
+            <blockquote>על מנת להקל על המשתמש, האתר מציג את הליך הבישול של כל מתכון כרשימה של שלבים.
+                כל שלב יכול להכיל הערה מתחתיו, המכילה מידע שימושי נוסף כזה או אחר.
+                כתיבת המתכון 'זורמת' באותה דרך כמו כתיבת המרכיבים: כאשר מתחילים לכתוב שלב, יווסף בסוף הרשימה
+                שלב ריק, כך שיהיה אפשר להמשיך להוסיף שלבים (פשוט מתחילים לכתוב את השלב הבא בשלב הריק בסוף הרשימה).</blockquote>
             <ol id="instructions">
                 <li>
                     <p>
@@ -211,7 +216,7 @@
             </ol>
         </main>
     </div>
-
+    <button type="submit" id="submit">שלח מתכון</button>
     <script src="/js/recipes/recipePage.js"></script>
     <script src="/js/recipes/statColors.js"></script>
     <script src="/js/recipes/contentEditablePlaceholder.js"></script>

@@ -69,13 +69,15 @@
 		</nav>
 	</header>
 
-    <blockquote
+    <blockquote id="blockquote"
         en="Thank you for considering to contribute, and Welcome♥️<br>
         You can edit different texts on this page by clicking on them. For your comfort, these texts will by highlighted.<br>
-        Anything else that doesn't strictly follow the pattern of &quot;Click To Edit&quot; Will have a thorough guide on how to edit it."
+        Anything else that doesn't strictly follow the pattern of &quot;Click To Edit&quot; Will have a thorough guide on how to edit it.<br>
+        <button onclick='document.getElementById(`blockquote`).style.display = `none`'>Click here to hide this</button>"
         he="תודה רבה על שבחרתם להוסיף לנו מתכון, וברוכים הבאים ♥️<br>
         אתם יכולים לערוך טקסטים שונים באתר ע&quot;י לחיצה עליהם. לנוחיותכם, אותם טקסטים יסומנו באמצעות מסגרת מיוחדת.<br>
-        כל דבר אחר שלא עוקב במדויק אחר התבנית &quot;לחצו כדי לערוך&quot; יכיל מדריך יסודי על הוספת טקסט אליו."    
+        כל דבר אחר שלא עוקב במדויק אחר התבנית &quot;לחצו כדי לערוך&quot; יכיל מדריך יסודי על הוספת טקסט אליו.<br>
+        <button onclick='document.getElementById(`blockquote`).style.display = `none`'>לחץ כאן כדי להסתיר</button>"    
     ></blockquote>
     <div class="container">
         <div id="sideview">
@@ -87,7 +89,7 @@
                 </div>
                 <input type="file" id="preview-selector" accept="image/*">
                 <figcaption>
-                    <span contenteditable 
+                    <span contenteditable id="preview-image-description"
                         placeholder-en="Describe the image you uploaded to the box above" 
                         placeholder-he="תאר את התמונה שהעלת לתיבה לעיל"
                     ></span>
@@ -121,11 +123,11 @@
                 </li>
                 <li>
                     <span en="Total Ingredients: Currently " he="כמות מרכיבים: כרגע "></span>
-                    <span id="ingredient-amount">5</span>
+                    <span id="ingredient-amount"></span>
                 </li>
                 <li>
                     <span en="Total Steps: Currently " he="כמות שלבים: כרגע "></span>
-                    <span id="step-amount">7</span>
+                    <span id="step-amount"></span>
                 </li>
                 <li>
                     <span en="Kashrut Status: " he="סטטוס כשרות: "></span>
@@ -148,34 +150,34 @@
                     <tr>
                         <th en="Field" he="שדה"></th>
                         <th en="100 Grams" he="100 גרם"></th>
-                        <th en="One Serving<br> (<input type='number'> grams)" he="מנה אחת (<input type='number'> גרם)" value="200" id="serving-weight-identifier"></th>
+                        <th en="One Serving<br>(<input type='number' id='serving-size'> grams)" he="מנה אחת<br>(<input type='number' id='serving-size'> גרם)" value="200" id="serving-weight-identifier"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr id="carbs">
                         <th en="Carbohydrates:" he="פחמימות:"></th>
-                        <td><input type="number"> g</td>
-                        <td>27.4g</td>
+                        <td><input type="number" placeholder-en="No Data" placeholder-he="אין מידע"> g</td>
+                        <td><input type="number" placeholder-en="No Data" placeholder-he="אין מידע"> g</td>
                     </tr>
                     <tr id="fiber">
                         <th en="Fiber" he="סיבים"></th>
-                        <td>9.6g</td>
-                        <td>19.2g</td>
+                        <td><input type="number" placeholder-en="No Data" placeholder-he="אין מידע"> g</td>
+                        <td><input type="number" placeholder-en="No Data" placeholder-he="אין מידע"> g</td>
                     </tr>
                     <tr id="sugar">
                         <th en="Sugar" he="סוכר"></th>
-                        <td>3.1g</td>
-                        <td>6.2g</td>
+                        <td><input type="number" placeholder-en="No Data" placeholder-he="אין מידע"> g</td>
+                        <td><input type="number" placeholder-en="No Data" placeholder-he="אין מידע"> g</td>
                     </tr>
                     <tr id="starch">
                         <th en="Starch" he="עמילן"></th>
-                        <td>1g</td>
-                        <td>2g</td>
+                        <td><input type="number" placeholder-en="No Data" placeholder-he="אין מידע"> g</td>
+                        <td><input type="number" placeholder-en="No Data" placeholder-he="אין מידע"> g</td>
                     </tr>
                     <tr id="glycemic-load">
-                        <th en="Glycemic Load (Estimated)" he="עומס גליקמי (מוערך)"></th>
-                        <td>-1</td>
-                        <td>-1</td>
+                        <th en="Glycemic Load: (Estimated)" he="עומס גליקמי: (מוערך)"></th>
+                        <td><input type="number" placeholder-en="No Data" placeholder-he="אין מידע"></td>
+                        <td><input type="number" placeholder-en="No Data" placeholder-he="אין מידע"></td>
                     </tr>
                 </tbody>
             </table>
@@ -219,6 +221,16 @@
                 </li>
             </ul>
             <h2 en="Instructions" he="הוראות"></h2>
+            <blockquote
+                en="To make following a recipe easier, this website displays the cooking process of a recipe
+                as a list of steps. each step may have a note below it, if some extra information is handy/important to know.
+                Writing flows the same as it did with the Ingredients section: When starting to type out a step,
+                another, empty one should appear at the end of the list, such that there will always be an 'empty' step."
+                he="על מנת להקל על המשתמש, האתר מציג את הליך הבישול של כל מתכון כרשימה של שלבים.
+                כל שלב יכול להכיל הערה מתחתיו, המכילה מידע שימושי נוסף כזה או אחר.
+                כתיבת המתכון 'זורמת' באותה דרך כמו כתיבת המרכיבים: כאשר מתחילים לכתוב שלב, יווסף בסוף הרשימה
+                שלב ריק, כך שיהיה אפשר להמשיך להוסיף שלבים (פשוט מתחילים לכתוב את השלב הבא בשלב הריק בסוף הרשימה)."
+            ></blockquote>
             <ol id="instructions">
                 <li>
                     <p>
@@ -231,7 +243,7 @@
             </ol>
         </main>
     </div>
-
+    <button type="submit" id="submit" en="Submit Recipe" he="שלח מתכון"></button>
     <script src="/js/recipes/recipePage.js"></script>
     <script src="/js/recipes/statColors.js"></script>
     <script src="/js/recipes/contentEditablePlaceholder.js"></script>

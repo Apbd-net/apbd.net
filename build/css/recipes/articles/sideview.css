@@ -85,20 +85,24 @@
     padding: 5px;
 }
 
-#nutrition-facts t {
-    text-align: center;
-}
-
-#nutrition-facts #fiber>th::before {
-    content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
-}
-#nutrition-facts #starch>th::before {
-    content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
-}
+#nutrition-facts #fiber>th::before,
+#nutrition-facts #starch>th::before,
 #nutrition-facts #sugar>th::before {
-    content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+    font-size: 0.6em;
+    color: lightgray;
 }
 
+
+#nutrition-facts:lang("en") #fiber>th::before,
+#nutrition-facts:lang("en") #starch>th::before,
+#nutrition-facts:lang("en") #sugar>th::before {
+    content: "\00a0\00a0\00a0\00a0\00a0\00a0of which\00a0\00a0";
+}
+#nutrition-facts #fiber>th::after,
+#nutrition-facts #starch>th::after,
+#nutrition-facts #sugar>th::after {
+    content: ":";
+}
 
 #recipe-stats {
     list-style-type: none;
