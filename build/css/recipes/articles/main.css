@@ -20,6 +20,11 @@ h1 {
     font-weight: 600;
 }
 
+h1 small {
+    font-size: 0.5em;
+    color: gray;
+}
+
 h2 {
     font-size: 1.5em;
     border-inline-start: 4px solid white;
@@ -62,11 +67,4 @@ hr {
 #author, #weight {
     font-size: 0.5em;
     color: gray;
-}
-
-#author:lang("en")::before {
-    content: "By: ";
-}
-#author:lang("he")::before {
-    content: "חיבר: ";
 }

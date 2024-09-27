@@ -14,8 +14,6 @@
 
 #sideview figure>figcaption {
     margin-top: 6px;
-    width: fit-content;
-    margin-inline: auto;
     font-style: italic;
     text-align: center;
     display: flex;
