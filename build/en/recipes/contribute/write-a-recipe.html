@@ -216,11 +216,26 @@
                 </li>
             </ol>
         </main>
+    </div> <!---->
+    <div id="submition-section">
+        <button type="submit" id="submit" submitting="Submitting...">Submit Recipe</button>
+        <h3 id="submition-output" class="invisible" output1="Recipe Submitted! (See your submition here: {{}})" output2="Nice Try😉" output3="Bruh, Why even bother trying buffer overflow attacks 😐" output4="Converting Recipe Into Packet..." output5="Sending Recipe..."></h3>
+        <h3 id="display-on-missing-fields" class="invisible">
+            <span style="color: white;">Cannot submit recipe, The following required fields are missing: </span>
+            <span class="invisible title">Recipe Title</span>,
+            <span class="invisible ingredients">Ingredients (0 ingredients provided)</span>, 
+            <span class="invisible instructions">Instructions (0 steps provided)</span>, 
+            <span class="invisible cook-time">Cooking Time</span>, 
+            <span class="invisible difficulty">Difficulty</span>, 
+            <span class="invisible servings-min">Minimum Servings</span>, 
+            <span class="invisible servings-max">Maximun Servings</span>, 
+            <span class="invisible serving-size">Serving Size</span>
+        </h3>
     </div>
-    <button type="submit" id="submit">Submit Recipe</button>
     <script src="/js/recipes/recipePage.js"></script>
     <script src="/js/recipes/statColors.js"></script>
     <script src="/js/recipes/contentEditablePlaceholder.js"></script>
     <script src="/js/recipes/recipeInputs.js"></script>
+    <script src="/js/recipes/submitRecipe.js"></script>
 
 </body></html>

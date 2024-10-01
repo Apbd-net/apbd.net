@@ -216,11 +216,26 @@
                 </li>
             </ol>
         </main>
+    </div> <!---->
+    <div id="submition-section">
+        <button type="submit" id="submit" submitting="שולח מתכון...">שלח מתכון</button>
+        <h3 id="submition-output" class="invisible" output1="המתכון נשלח בהצלחה! (ניתן לראות את בקשת הוספת המתכון כאן: {{}})" output2="נסיון נחמד😉" output3="אחי, למה בכלל לנסות מתקפות באפר אוברפלאו 😐" output4="הופך את המתכון לפאקטה..." output5="שולח מתכון..."></h3>
+        <h3 id="display-on-missing-fields" class="invisible">
+            <span style="color: white;">המתכון לא נשלח - חסרים השדות להלן: </span>
+            <span class="invisible title">כותרת מתכון</span>,
+            <span class="invisible ingredients">מרכיבים (לא סופקו מרכיבים)</span>, 
+            <span class="invisible instructions">שלבים (לא סופקו שלבים)</span>, 
+            <span class="invisible cook-time">זמן בישול</span>, 
+            <span class="invisible difficulty">רמת קושי</span>, 
+            <span class="invisible servings-min">כמות מנות (מינימום)</span>, 
+            <span class="invisible servings-max">כמות מנות (מקסימום)</span>, 
+            <span class="invisible serving-size">משקל מנה</span>
+        </h3>
     </div>
-    <button type="submit" id="submit">שלח מתכון</button>
     <script src="/js/recipes/recipePage.js"></script>
     <script src="/js/recipes/statColors.js"></script>
     <script src="/js/recipes/contentEditablePlaceholder.js"></script>
     <script src="/js/recipes/recipeInputs.js"></script>
+    <script src="/js/recipes/submitRecipe.js"></script>
 
 </body></html>

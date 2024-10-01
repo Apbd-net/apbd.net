@@ -1,3 +1,5 @@
+
+
 [contenteditable], input {
     outline: 2px dashed white;
     min-width: 20px;
@@ -11,6 +13,10 @@ input[type="text"] {
 }
 input[type="number"] {
     padding-inline: 0px;
+}
+
+.container {
+    background-color: #111111;
 }
 
 #preview-selector {
@@ -72,4 +78,21 @@ select.time-units, select.weight-units {
 
 #nutrition-facts thead input[type="number"] {
     max-width: 30px;
+}
+
+.invisible {
+    display: none;
+}
+
+#submition-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-block: 5px;
+}
+
+#submition-section #submit {
+    font-size: 1.2em;
 }

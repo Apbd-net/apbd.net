@@ -6,6 +6,8 @@ const ingredients = document.getElementById("ingredients");
 const recipeTitle = document.getElementById("title");
 const sideviewTitle = document.getElementById("sideview-title");
 
+const blockqoute = document.getElementById("blockquote");
+const main = document.getElementsByTagName("main")[0];
 
 let observer = new IntersectionObserver((entries) => {
     if (entries[0].target.id === "ingredients") {
@@ -25,6 +27,7 @@ let observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
             sideviewTitle.style.display = "none";
         } else {
+            sideviewTitle.innerHTML = recipeTitle.innerHTML
             sideviewTitle.style.display = "block";
         }
     }

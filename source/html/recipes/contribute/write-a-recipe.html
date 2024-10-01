@@ -243,11 +243,41 @@
                 </li>
             </ol>
         </main>
+    </div> <!---->
+    <div id="submition-section">
+        <button type="submit" id="submit" en="Submit Recipe" he="שלח מתכון" submitting-en="Submitting..." submitting-he="שולח מתכון..."></button>
+        <h3 id="submition-output" class="invisible"
+            output1-en="Recipe Submitted! (See your submition here: {{}})"
+            output1-he="המתכון נשלח בהצלחה! (ניתן לראות את בקשת הוספת המתכון כאן: {{}})"
+
+            output2-en="Nice Try😉" 
+            output2-he="נסיון נחמד😉" 
+
+            output3-en="Bruh, Why even bother trying buffer overflow attacks 😐"
+            output3-he="אחי, למה בכלל לנסות מתקפות באפר אוברפלאו 😐"
+
+            output4-en="Converting Recipe Into Packet..."
+            output4-he="הופך את המתכון לפאקטה..."
+
+            output5-en="Sending Recipe..."
+            output5-he="שולח מתכון..."
+        ></h3>
+        <h3 id="display-on-missing-fields" class="invisible">
+            <span style="color: white;" en="Cannot submit recipe, The following required fields are missing: " he="המתכון לא נשלח - חסרים השדות להלן: "></span>
+            <span class="invisible title" en="Recipe Title" he="כותרת מתכון"></span>,
+            <span class="invisible ingredients" en="Ingredients (0 ingredients provided)" he="מרכיבים (לא סופקו מרכיבים)"></span>, 
+            <span class="invisible instructions" en="Instructions (0 steps provided)" he="שלבים (לא סופקו שלבים)"></span>, 
+            <span class="invisible cook-time" en="Cooking Time" he="זמן בישול"></span>, 
+            <span class="invisible difficulty" en="Difficulty" he="רמת קושי"></span>, 
+            <span class="invisible servings-min" en="Minimum Servings" he="כמות מנות (מינימום)"></span>, 
+            <span class="invisible servings-max" en="Maximun Servings" he="כמות מנות (מקסימום)"></span>, 
+            <span class="invisible serving-size" en="Serving Size" he="משקל מנה"></span>
+        </h3>
     </div>
-    <button type="submit" id="submit" en="Submit Recipe" he="שלח מתכון"></button>
     <script src="/js/recipes/recipePage.js"></script>
     <script src="/js/recipes/statColors.js"></script>
     <script src="/js/recipes/contentEditablePlaceholder.js"></script>
     <script src="/js/recipes/recipeInputs.js"></script>
+    <script src="/js/recipes/submitRecipe.js"></script>
 </body>
 </html>
