@@ -75,10 +75,18 @@ submitButton.onclick = () => {
                 payload[input.id] = input.element.src;
                 break;
             case ["cook-time-units", "kashrut", "food-kashrut-type"].includes(input.id):
+                if (input.element.selectedIndex === 0) {
+                    missingRequireds.push(input.id);
+                    break;
+                }
                 payload[input.id] = input.element.options[input.element.selectedIndex].value;
                 break;
             case ["carbs", "fiber", "sugar", "starch", "glycemic-load"].includes(input.id):
                 let inputs = input.element.getElementsByTagName("input");
+                if (inputs[0].value.length === 0 || inputs[1].value.length === 0) {
+                    missingOptionals.push(input.id);
+                    break;
+                }
                 payload[input.id + "-100g"] = inputs[0].value;
                 payload[input.id + "-serving"] = inputs[1].value;
                 break;
@@ -112,6 +120,7 @@ submitButton.onclick = () => {
         for (let item of missingRequireds) {
             try {
                 displayOnMissingFields.getElementsByClassName(item)[0].classList.remove("invisible");
+                inputs.find(i => i.id === item).element.classList.add("required");
             } catch (e) {console.log(e);}
         }
         displayOnMissingFields.classList.remove("invisible");

@@ -106,6 +106,7 @@
                     <span en="Cooking Time: " he="זמן הכנה: "></span>
                     <input type="number" id="cook-time"/>
                     <select class="time-units" id="cook-time-units">
+                        <option value=""></option>
                         <option value="min" en="minutes" he="דקות"></option>
                         <option value="h" en="hours" he="שעות"></option>
                         <option value="d" en="days" he="ימים"></option>
@@ -132,10 +133,12 @@
                 <li>
                     <span en="Kashrut Status: " he="סטטוס כשרות: "></span>
                     <select name="kashrut" id="kashrut">
+                        <option value=""></option>
                         <option value="k" label-en="Kosher" label-he="כשר"></option>
                         <option value="nk" label-en="Not Kosher" label-he="לא כשר"></option>
                     </select>
                     <select name="Status" id="food-kashrut-type">
+                        <option value=""></option>
                         <option value="d" label-en="Dairy" label-he="חלבי"></option>
                         <option value="n" label-en="Pareve" label-he="פרווה"></option>
                         <option value="m" label-en="Meat" label-he="בשרי"></option>
@@ -205,6 +208,7 @@
                     <span en="Quantity" he="כמות"></span>: 
                     <input type="number" class="weight-input">
                     <select name="units" class="weight-units">
+                        <option value=""></option>
                         <option value="g" label-en="grams" label-he="גרם"></option>
                         <option value="kg" label-en="kilograms" label-he="קילוגרם"></option>
                         <option value="mg" label-en="milligrams" label-he="מיליגרם"></option>
@@ -262,7 +266,7 @@
             output5-en="Sending Recipe..."
             output5-he="שולח מתכון..."
         ></h3>
-        <h3 id="display-on-missing-fields" class="invisible">
+        <h3 id="display-on-missing-fields" class="invisible" style="text-align: center;">
             <span style="color: white;" en="Cannot submit recipe, The following required fields are missing: " he="המתכון לא נשלח - חסרים השדות להלן: "></span>
             <span class="invisible title" en="Recipe Title" he="כותרת מתכון"></span>,
             <span class="invisible ingredients" en="Ingredients (0 ingredients provided)" he="מרכיבים (לא סופקו מרכיבים)"></span>, 
@@ -271,7 +275,10 @@
             <span class="invisible difficulty" en="Difficulty" he="רמת קושי"></span>, 
             <span class="invisible servings-min" en="Minimum Servings" he="כמות מנות (מינימום)"></span>, 
             <span class="invisible servings-max" en="Maximun Servings" he="כמות מנות (מקסימום)"></span>, 
-            <span class="invisible serving-size" en="Serving Size" he="משקל מנה"></span>
+            <span class="invisible serving-size" en="Serving Size" he="משקל מנה"></span>,
+            <span class="invisible kashrut" en="Kashrut Status" he="סטטוס כשרות"></span>,
+            <span class="invisible food-kashrut-type" en="Food Kashrut Type" he="סוג כשרות"></span>,
+            <span class="invisible cook-time-units" en="Cooking Time Units" he="יחידות זמן בישול"></span>
         </h3>
     </div>
     <script src="/js/recipes/recipePage.js"></script>
