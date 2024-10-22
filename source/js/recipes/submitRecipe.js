@@ -72,7 +72,7 @@ submitButton.onclick = () => {
                 let base64 = canvas.toDataURL("image/png");
                 // Strip the data: prefix
                 base64 = base64.slice(base64.indexOf(",") + 1);
-                payload[input.id] = input.element.src;
+                payload[input.id + "-base64"] = input.element.src;
                 break;
             case ["cook-time-units", "kashrut", "food-kashrut-type"].includes(input.id):
                 if (input.element.selectedIndex === 0) {
@@ -87,7 +87,7 @@ submitButton.onclick = () => {
                     missingOptionals.push(input.id);
                     break;
                 }
-                payload[input.id + "-100g"] = inputs[0].value;
+                payload[input.id + "100g"] = inputs[0].value;
                 payload[input.id + "-serving"] = inputs[1].value;
                 break;
             case input.id === "instructions":
@@ -146,6 +146,16 @@ submitButton.onclick = () => {
             submitButton.innerHTML = initial;
             submitionOutput.innerHTML = "";
         }
+    }
+    // Manipulate payload keys to remove - and turn them into camelCase
+    let newObj = {};
+    for (let [key, value] of Object.entries(payload)) {
+        while(key.includes("-")) {
+            let ind = key.indexOf("-");
+            let letter = key.charAt(ind + 1).toUpperCase();
+            key = key.substring(0, ind) + letter + key.substring(ind + 2);
+        }
+        newObj[key] = value;0
     }
 
     payload.type = "recipes-submit-recipe"
