@@ -80,15 +80,17 @@
             </figure>
             <hr id="sideview-ingredients-hr">
             <h2 en="Ingredients" he="מרכיבים" id="sideview-ingredients-title"></h2>
-            <ul id="sideview-ingredients">{{SIDEVIEWINGREDIENTS}}</ul>
+            <ul id="sideview-ingredients">{{INGREDIENTSSIDEVIEWELEMENT}}
+
+            </ul>
             <hr>
             <h2 en="General Information" he="מידע כללי"></h2>
             <ul id="recipe-stats">
                 <li><span en="Cooking Time: " he="זמן הכנה: "></span><span id="time">{{COOKTIME}}{{COOKTIMEUNITS}}</span></li>
                 <li><span en="Difficulty: " he="רמת קושי: "></span><span id="difficulty">{{DIFFICULTY}}</span>/10</li>
                 <li><span en="Total Servings: " he="כמות מנות: "></span><span id="servings">{{SERVINGSMIN}} <span en="to" he="עד"></span> {{SERVINGSMAX}}</span></li>
-                <li><span en="Total Ingredients: " he="כמות מרכיבים: "></span><span id="ingredient-amount">{{INGREDIENTAMOUNT}}</span></li>
-                <li><span en="Total Steps: " he="כמות שלבים: "></span><span id="step-amount">{{STEPAMOUNT}}</span></li>
+                <li><span en="Total Ingredients: " he="כמות מרכיבים: "></span><span id="ingredient-amount">{{INGREDIENTSCOUNT}}</span></li>
+                <li><span en="Total Steps: " he="כמות שלבים: "></span><span id="step-amount">{{INSTRUCTIONSCOUNT}}</span></li>
                 <li><span en="Kashrut Status: " he="סטטוס כשרות: "></span><span id="kashrut" en="{{KASHRUT_en}}, {{FOODKASHRUTTYPE_en}}" he="{{KASHRUT_he}}, {{FOODKASHRUTTYPE_he}}"></span></li>
 
             </ul>
@@ -137,9 +139,13 @@
                 <small id="author" en="Shahar Marcus" he="שחר מרכוס"></small>
             </h1>
             <h2 en="Ingredients" he="מרכיבים"></h2>
-            <ul id="ingredients">{{INGREDIENTS}}</ul>
+            <ul id="ingredients">{{INGREDIENTSELEMENT}}
+
+            </ul>
             <h2 en="Instructions" he="הוראות"></h2>
-            <ol id="instructions">{{INSTRUCTIONS}}</ol>
+            <ol id="instructions">{{INSTRUCTIONSELEMENT}}
+
+            </ol>
         </main>
     </div>
 
