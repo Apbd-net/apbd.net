@@ -72,7 +72,7 @@ submitButton.onclick = () => {
                 let base64 = canvas.toDataURL("image/png");
                 // Strip the data: prefix
                 base64 = base64.slice(base64.indexOf(",") + 1);
-                payload[input.id] = input.element.src;
+                payload[input.id + "-base64"] = input.element.src;
                 break;
             case ["cook-time-units", "kashrut", "food-kashrut-type"].includes(input.id):
                 if (input.element.selectedIndex === 0) {
@@ -87,31 +87,52 @@ submitButton.onclick = () => {
                     missingOptionals.push(input.id);
                     break;
                 }
-                payload[input.id + "-100g"] = inputs[0].value;
+                payload[input.id + "100g"] = inputs[0].value;
                 payload[input.id + "-serving"] = inputs[1].value;
                 break;
             case input.id === "instructions":
-                payload["instructions"] = [];
+                payload["instructions-element"] = "";
+                payload["instructions-count"] = 0;
                 for (const child of input.element.children) {
                     let instruction = child.querySelector("span[contenteditable]").textContent;
                     let note = child.querySelector("p.note").textContent;
                     if (instruction.length === 0 && note.trim().length === 0) continue;
-                    payload["instructions"].push({ instruction: instruction, note: note });
+                    payload["instructions-count"]++;
+                    payload["instructions-element"] += `
+                <li>
+                    <p
+                        ${document.documentElement.getAttribute("lang")}="${instruction}"
+                    ></p>${(note.trim().length > 0 ? `
+                    <p class="note
+                        ${document.documentElement.getAttribute("lang")}="${note}"
+                    ></p>` : "")}
+                </li>`
                 }
-                if (payload.instructions.length === 0) missingRequireds.push("instructions");
+                if (payload["instructions-element"].length === 0) missingRequireds.push("instructions");
                 break;
             case ["ingredients"].includes(input.id):
-                payload["ingredients"] = [];
+                payload["ingredients-element"] = "";
+                payload["ingredients-sideview-element"] = "";
+                payload["ingredients-count"] = 0;
                 
                 for (const child of input.element.children) {
                     let ingName = child.querySelector("span[contenteditable]").textContent;
                     let ingAmount = child.querySelector("input[type=number]").value;
                     let ingUnit = child.querySelector("select").options[child.querySelector("select").selectedIndex].value;
+                    let ingUnitLabel = child.querySelector("select").options[child.querySelector("select").selectedIndex].label;
                     if (ingName.length === 0 && ingAmount.length === 0) continue;
-                    payload["ingredients"].push({ name: ingName, amount: ingAmount, unit: ingUnit });
+                    payload["ingredients-count"]++;
+                    payload["ingredients-element"] += `
+                <li>
+                    <span class="ing-weight">${ingAmount}</span> 
+                    <span class="ing-unit">${ingUnitLabel}</span> 
+                    <span class="ing-name">${ingName}</span>
+                </li>`
+                    payload["ingredients-sideview-element"] += `
+                <li><span class="ing-name">${ingName}</span>, ${ingAmount}${ingUnit}</li>`
                 }
                 
-                if (payload.ingredients.length === 0) missingRequireds.push("ingredients");
+                if (payload["ingredients-element"].length === 0) missingRequireds.push("ingredients");
                 break;
         }
     }
@@ -146,6 +167,16 @@ submitButton.onclick = () => {
             submitButton.innerHTML = initial;
             submitionOutput.innerHTML = "";
         }
+    }
+    // Manipulate payload keys to remove - and turn them into camelCase
+    let newObj = {};
+    for (let [key, value] of Object.entries(payload)) {
+        while(key.includes("-")) {
+            let ind = key.indexOf("-");
+            let letter = key.charAt(ind + 1).toUpperCase();
+            key = key.substring(0, ind) + letter + key.substring(ind + 2);
+        }
+        newObj[key] = value;0
     }
 
     payload.type = "recipes-submit-recipe"
