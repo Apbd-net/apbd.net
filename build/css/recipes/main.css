@@ -1,7 +1,3 @@
-:root {
-    font-size: 0.8em;
-}
-
 body {
     display: flex;
     flex-direction: column;
@@ -39,4 +35,24 @@ blockquote:hover {
     .grid-container {
         flex-direction: column-reverse;
     }
+}
+
+header .logo::after {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #333333;   
+    border: 2px solid lightgray; 
+    border-radius: 4px;
+    font-weight: bold;
+    padding: 4px;
+    color: lightgray;
+    font-size: 0.6rem;
+    margin-inline-start: 20px;
+}
+
+:lang("en") header .logo::after {
+    content: "Early Access";
+}
+
+:lang("he") header .logo::after {
+    content: "גישה מוקדמת";
 }

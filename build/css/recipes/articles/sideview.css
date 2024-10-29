@@ -96,6 +96,13 @@
 #nutrition-facts:lang("en") #sugar>th::before {
     content: "\00a0\00a0\00a0\00a0\00a0\00a0of which\00a0\00a0";
 }
+
+#nutrition-facts:lang("he") #fiber>th::before,
+#nutrition-facts:lang("he") #starch>th::before,
+#nutrition-facts:lang("he") #sugar>th::before {
+    content: "\00a0\00a0\00a0\00a0\00a0\00a0מתוכם\00a0\00a0";
+}
+
 #nutrition-facts #fiber>th::after,
 #nutrition-facts #starch>th::after,
 #nutrition-facts #sugar>th::after {
