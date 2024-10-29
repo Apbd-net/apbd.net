@@ -1,0 +1,115 @@
+
+#sideview figure {
+    border: 1px solid #333333;
+    padding: 5px;
+    margin: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sideview figure> *.preview {
+    width: 100%;
+}
+
+#sideview figure>figcaption {
+    margin-top: 6px;
+    font-style: italic;
+    text-align: center;
+    display: flex;
+}
+
+#sideview {
+    padding-inline-start: 10px;
+    position: sticky;
+    top: 0px;
+    min-width: 320px;
+    width: 320px;
+    max-width: 320px;
+    padding-top: 10px;
+    height: 100%;
+    font-size: 0.8em;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+#sideview-title {
+    text-align: center;
+    display: none;
+}
+
+#nutrition-facts {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-block: 20px;
+    text-align:left;
+}
+
+#nutrition-facts::after {
+    display: block;
+    color: gray;
+    text-align: center;
+    font-style: italic;
+    width: 320px;
+    margin-block: 15px;
+}
+
+#nutrition-facts:lang("en")::after {
+    content: "* This table is a mostly accurate estimate of the dish's nutritional values. The actual values may fluctuate a little bit if the dish is made a bit differently, or from slightly differing products.";
+}
+
+#nutrition-facts:lang("he")::after {
+    content: "* הטבלה לעיל היא הערכה מדויקת ככל האפשר של הערכים התזונתיים של המאכל. במציאות, הערכים עלולים להשתנות אם משתמשים במוצרים קצת שונים, או מכינים את המאכל בדרך קצת שונה.";
+}
+
+#nutrition-facts:dir(rtl) {
+    text-align:right;
+}
+
+#nutrition-facts thead {
+    background-color: #333333;
+    color: white;
+    font-weight: 800;
+    text-align: center;
+}
+
+:lang("en") #nutrition-facts tr *:first-child {
+    width: 100px; /* Fixes some fields getting cut off*/
+}
+
+#nutrition-facts td, #nutrition-facts th {
+    border: 1px solid #222222;
+    padding: 5px;
+}
+
+#nutrition-facts #fiber>th::before,
+#nutrition-facts #starch>th::before,
+#nutrition-facts #sugar>th::before {
+    font-size: 0.6em;
+    color: lightgray;
+}
+
+
+#nutrition-facts:lang("en") #fiber>th::before,
+#nutrition-facts:lang("en") #starch>th::before,
+#nutrition-facts:lang("en") #sugar>th::before {
+    content: "\00a0\00a0\00a0\00a0\00a0\00a0of which\00a0\00a0";
+}
+
+#nutrition-facts:lang("he") #fiber>th::before,
+#nutrition-facts:lang("he") #starch>th::before,
+#nutrition-facts:lang("he") #sugar>th::before {
+    content: "\00a0\00a0\00a0\00a0\00a0\00a0מתוכם\00a0\00a0";
+}
+
+#nutrition-facts #fiber>th::after,
+#nutrition-facts #starch>th::after,
+#nutrition-facts #sugar>th::after {
+    content: ":";
+}
+
+#recipe-stats {
+    list-style-type: none;
+    font-weight: bold;
+}

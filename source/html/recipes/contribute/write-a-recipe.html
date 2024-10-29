@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang-en="en" lang-he="he" dir-he="rtl" dir-en="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title en="Apbd.net | Write A Recipe" he="Apbd.net | כתיבת מתכון"></title>
+
+    
+    <link rel="stylesheet" href="/css/recipes/main.css">
+    <link rel="stylesheet" href="/css/foods/dropdown.css">
+    <link rel="stylesheet" href="/css/foods/main.css">
+    <link rel="stylesheet" href="/css/recipes/articles/main.css">
+    <link rel="stylesheet" href="/css/recipes/articles/sideview.css">
+    <link rel="stylesheet" href="/css/recipes/contribute/write.css">
+</head>
+<body>
+    <script>
+		const touch = matchMedia('(hover: none)').matches
+		console.log(touch);
+
+		if (touch) {
+			let prev = window.document.body;
+			window.addEventListener("touchend", function (e) {
+				if (e.target.onclick) e.target.onclick();
+				if (prev !== e.target) prev.classList.remove("hover");
+				e.target.classList.toggle("hover");
+				prev = e.target;
+				console.log(e.target);
+			}, {
+				passive: false
+			});
+		}
+	</script>
+	<header>
+		<div class="logo">
+			<img src="/favicon.ico" alt="Website logo">
+			<div class="column">
+				<a class="title" href="/">APBD.net</a>
+				<a class="sub" href-en="/en/recipes" href-he="/he/recipes" en="The Great Cookbook"
+					he="ספר המתכונים הגדול"></a>   
+			</div>
+
+		</div>
+		<nav class="header-menu">
+			<div class="dropdown">
+				<a id="about" href="#" en="About" he="אודות">About</a>
+				<div class="dropdown-content">
+					<a target="_blank"
+						href="https://rarediseases.org/rare-diseases/adult-polyglucosan-body-disease/">APBD
+						<span>↗</span></a>
+				</div>
+			</div>
+			<div class="dropdown">
+				<a id="contribute" href="#" en="Contribute" he="תרום תוכן">Contribute</a>
+				<div class="dropdown-content">
+					<a href="../contribute/write-a-recipe.html" en="Write a Recipe" he="כתוב מתכון"></a>
+				</div>
+			</div>
+
+			<div class="dropdown">
+				<a id="contact" href="#" en="Language" he="שפה">Language</a>
+				<div class="dropdown-content">
+					<a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'en')" href="#"
+						en="English" he="אנגלית">English</a>
+					<a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'he')" href="#"
+						en="Hebrew" he="עברית">Hebrew</a>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+    <blockquote id="blockquote"
+        en="Thank you for considering to contribute, and Welcome♥️<br>
+        You can edit different texts on this page by clicking on them. For your comfort, these texts will by highlighted.<br>
+        Anything else that doesn't strictly follow the pattern of &quot;Click To Edit&quot; Will have a thorough guide on how to edit it.<br>
+        <button onclick='document.getElementById(`blockquote`).style.display = `none`'>Click here to hide this</button>"
+        he="תודה רבה על שבחרתם להוסיף לנו מתכון, וברוכים הבאים ♥️<br>
+        אתם יכולים לערוך טקסטים שונים באתר ע&quot;י לחיצה עליהם. לנוחיותכם, אותם טקסטים יסומנו באמצעות מסגרת מיוחדת.<br>
+        כל דבר אחר שלא עוקב במדויק אחר התבנית &quot;לחצו כדי לערוך&quot; יכיל מדריך יסודי על הוספת טקסט אליו.<br>
+        <button onclick='document.getElementById(`blockquote`).style.display = `none`'>לחץ כאן כדי להסתיר</button>"    
+    ></blockquote>
+    <div class="container">
+        <div id="sideview">
+            <h1 id="sideview-title" placeholder-en="Recipe Name Will Appear Here When Scrolling" placeholder-he="שם המתכון יופיע כאן כשגוללים מטה"></h1>
+            <figure>
+                <div id="preview-selector-label" onclick="document.getElementById('preview-selector').click()">
+                    <img src="" id="preview-image">
+                    <label for="preview-selector" en="Click Here To Upload An Image" he="לחץ כאן כדי להעלות תמונה"></label>
+                </div>
+                <input type="file" id="preview-selector" accept="image/*">
+                <figcaption>
+                    <span contenteditable id="preview-image-description"
+                        placeholder-en="Describe the image you uploaded to the box above" 
+                        placeholder-he="תאר את התמונה שהעלת לתיבה לעיל"
+                    ></span>
+                </figcaption>
+            </figure>
+            <hr id="sideview-ingredients-hr">
+            <h2 en="Ingredients" he="מרכיבים" id="sideview-ingredients-title"></h2>
+            <ul id="sideview-ingredients">
+            </ul>
+            <hr>
+            <h2 en="General Information" he="מידע כללי"></h2>
+            <ul id="recipe-stats">
+                <li>
+                    <span en="Cooking Time: " he="זמן הכנה: "></span>
+                    <input type="number" id="cook-time"/>
+                    <select class="time-units" id="cook-time-units">
+                        <option value=""></option>
+                        <option value="min" en="minutes" he="דקות"></option>
+                        <option value="h" en="hours" he="שעות"></option>
+                        <option value="d" en="days" he="ימים"></option>
+                    </select>
+                </li>
+                <li>
+                    <span en="Difficulty: " he="רמת קושי: "></span>
+                    <input type="number" id="difficulty" min="0" max="10"/> /10
+                </li>
+                <li>
+                    <span en="Total Servings: " he="כמות מנות: "></span>
+                    <input type="number" id="servings-min"/>
+                    <span en=" to " he=" עד "></span>
+                    <input type="number" id="servings-max"/>
+                </li>
+                <li>
+                    <span en="Total Ingredients: Currently " he="כמות מרכיבים: כרגע "></span>
+                    <span id="ingredient-amount"></span>
+                </li>
+                <li>
+                    <span en="Total Steps: Currently " he="כמות שלבים: כרגע "></span>
+                    <span id="step-amount"></span>
+                </li>
+                <li>
+                    <span en="Kashrut Status: " he="סטטוס כשרות: "></span>
+                    <select name="kashrut" id="kashrut">
+                        <option value=""></option>
+                        <option value="k" label-en="Kosher" label-he="כשר"></option>
+                        <option value="nk" label-en="Not Kosher" label-he="לא כשר"></option>
+                    </select>
+                    <select name="Status" id="food-kashrut-type">
+                        <option value=""></option>
+                        <option value="d" label-en="Dairy" label-he="חלבי"></option>
+                        <option value="n" label-en="Pareve" label-he="פרווה"></option>
+                        <option value="m" label-en="Meat" label-he="בשרי"></option>
+                    </select>
+                </li>
+
+            </ul>
+            <hr>
+            <h2 en="Nutrition Facts" he="סימון תזונתי"></h2>
+            <table id="nutrition-facts">
+                <thead>
+                    <tr>
+                        <th en="Field" he="שדה"></th>
+                        <th en="100 Grams" he="100 גרם"></th>
+                        <th en="One Serving<br>(<input type='number' id='serving-size'> grams)" he="מנה אחת<br>(<input type='number' id='serving-size'> גרם)" value="200" id="serving-weight-identifier"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="carbs">
+                        <th en="Carbohydrates:" he="פחמימות:"></th>
+                        <td><input type="number" placeholder-en="No Data" placeholder-he="אין מידע"> g</td>
+                        <td><input type="number" placeholder-en="No Data" placeholder-he="אין מידע"> g</td>
+                    </tr>
+                    <tr id="fiber">
+                        <th en="Fiber" he="סיבים"></th>
+                        <td><input type="number" placeholder-en="No Data" placeholder-he="אין מידע"> g</td>
+                        <td><input type="number" placeholder-en="No Data" placeholder-he="אין מידע"> g</td>
+                    </tr>
+                    <tr id="sugar">
+                        <th en="Sugar" he="סוכר"></th>
+                        <td><input type="number" placeholder-en="No Data" placeholder-he="אין מידע"> g</td>
+                        <td><input type="number" placeholder-en="No Data" placeholder-he="אין מידע"> g</td>
+                    </tr>
+                    <tr id="starch">
+                        <th en="Starch" he="עמילן"></th>
+                        <td><input type="number" placeholder-en="No Data" placeholder-he="אין מידע"> g</td>
+                        <td><input type="number" placeholder-en="No Data" placeholder-he="אין מידע"> g</td>
+                    </tr>
+                    <tr id="glycemic-load">
+                        <th en="Glycemic Load: (Estimated)" he="עומס גליקמי: (מוערך)"></th>
+                        <td><input type="number" placeholder-en="No Data" placeholder-he="אין מידע"></td>
+                        <td><input type="number" placeholder-en="No Data" placeholder-he="אין מידע"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <main>
+            <h1>
+                <span contenteditable id="title" placeholder-en="Recipe Title" placeholder-he="שם המתכון"></span>
+                <small en="By: " he="מחבר: " style="padding-inline-end: 2px;"></small>
+                <small contenteditable id="author" placeholder-en="Your Name (Optional)" placeholder-he="שם המחבר (אופציונאלי)"></small>
+            </h1>
+            <h2 en="Ingredients" he="מרכיבים"></h2>
+            <blockquote
+                en="Each ingredient must be on a seperate list item.<br>
+                Starting to add an ingredient will immidately add another list entry at the end of the list.<br>
+                To continue adding ingredients, simply click on the last list entry, and continue typing away..."
+                he="כל מרכיב שונה חייב להיות בשורה שונה ברשימה.<br>
+                כשמתחילים להקליד בתוך הרשימה, ישר תופיע שורה חדשה בסוף הרשימה.<br>
+                על מנת להוסיף עוד רכיבים, לוחצים על אותה שורה אחרונה ברשימה, ומתחילם לערוך גם אותה."
+
+            ></blockquote>
+            <ul id="ingredients">
+                <li>
+                    <span en="Ingredient Name" he="שם המרכיב"></span>: 
+                    <span contenteditable placeholder-en="Ingredient Name Here" placeholder-he="שם המרכיב כאן"></span> , 
+                    <span en="Quantity" he="כמות"></span>: 
+                    <input type="number" class="weight-input">
+                    <select name="units" class="weight-units">
+                        <option value=""></option>
+                        <option value="g" label-en="grams" label-he="גרם"></option>
+                        <option value="kg" label-en="kilograms" label-he="קילוגרם"></option>
+                        <option value="mg" label-en="milligrams" label-he="מיליגרם"></option>
+                        <option value="ml" label-en="milliliters" label-he="מיליליטר"></option>
+                        <option value="l" label-en="liters" label-he="ליטרים"></option>
+                        <option value="oz" label-en="ounces" label-he="אונקיות"></option>
+                        <option value="lb" label-en="pounds" label-he="פאונד"></option>
+                        <option value="tsp" label-en="tsp" label-he="כפית"></option>
+                        <option value="tbsp" label-en="tbsp" label-he="כף"></option>
+                        <option value="cup" label-en="cup" label-he="כוס"></option>
+                        <option value="pint" label-en="pint" label-he="פיינט"></option>
+                        <option value="quart" label-en="quart" label-he="קוורט"></option>
+                        <option value="gallon" label-en="gallon" label-he="גלון"></option>
+                    </select>
+                </li>
+            </ul>
+            <h2 en="Instructions" he="הוראות"></h2>
+            <blockquote
+                en="To make following a recipe easier, this website displays the cooking process of a recipe
+                as a list of steps. each step may have a note below it, if some extra information is handy/important to know.
+                Writing flows the same as it did with the Ingredients section: When starting to type out a step,
+                another, empty one should appear at the end of the list, such that there will always be an 'empty' step."
+                he="על מנת להקל על המשתמש, האתר מציג את הליך הבישול של כל מתכון כרשימה של שלבים.
+                כל שלב יכול להכיל הערה מתחתיו, המכילה מידע שימושי נוסף כזה או אחר.
+                כתיבת המתכון 'זורמת' באותה דרך כמו כתיבת המרכיבים: כאשר מתחילים לכתוב שלב, יווסף בסוף הרשימה
+                שלב ריק, כך שיהיה אפשר להמשיך להוסיף שלבים (פשוט מתחילים לכתוב את השלב הבא בשלב הריק בסוף הרשימה)."
+            ></blockquote>
+            <ol id="instructions">
+                <li>
+                    <p>
+                        <span contenteditable placeholder-en="Type out instruction Here" placeholder-he="הקלד שלב כאן"></span>
+                    </p>
+                    <p class="note">
+                        <span contenteditable placeholder-en="If you have anything else extra to add about this step, type it here. You can leave this empty." placeholder-he="אם יש לכם הערות להוסיף לגבי השלב הזה במתכון, זה המקום לכתוב אותן. אפשר להשאיר את זה ריק."></span>
+                    </p>
+                </li>
+            </ol>
+        </main>
+    </div> <!---->
+    <div id="submition-section">
+        <button type="submit" id="submit" en="Submit Recipe" he="שלח מתכון" submitting-en="Submitting..." submitting-he="שולח מתכון..."></button>
+        <h3 id="submition-output" class="invisible"
+            output1-en="Recipe Submitted! (See your submition here: {{}})"
+            output1-he="המתכון נשלח בהצלחה! (ניתן לראות את בקשת הוספת המתכון כאן: {{}})"
+
+            output2-en="Nice Try😉" 
+            output2-he="נסיון נחמד😉" 
+
+            output3-en="Bruh, Why even bother trying buffer overflow attacks 😐"
+            output3-he="אחי, למה בכלל לנסות מתקפות באפר אוברפלאו 😐"
+
+            output4-en="Converting Recipe Into Packet..."
+            output4-he="הופך את המתכון לפאקטה..."
+
+            output5-en="Sending Recipe..."
+            output5-he="שולח מתכון..."
+        ></h3>
+        <h3 id="display-on-missing-fields" class="invisible" style="text-align: center;">
+            <span style="color: white;" en="Cannot submit recipe, The following required fields are missing: " he="המתכון לא נשלח - חסרים השדות להלן: "></span>
+            <span class="invisible title" en="Recipe Title" he="כותרת מתכון"></span>,
+            <span class="invisible ingredients" en="Ingredients (0 ingredients provided)" he="מרכיבים (לא סופקו מרכיבים)"></span>, 
+            <span class="invisible instructions" en="Instructions (0 steps provided)" he="שלבים (לא סופקו שלבים)"></span>, 
+            <span class="invisible cook-time" en="Cooking Time" he="זמן בישול"></span>, 
+            <span class="invisible difficulty" en="Difficulty" he="רמת קושי"></span>, 
+            <span class="invisible servings-min" en="Minimum Servings" he="כמות מנות (מינימום)"></span>, 
+            <span class="invisible servings-max" en="Maximun Servings" he="כמות מנות (מקסימום)"></span>, 
+            <span class="invisible serving-size" en="Serving Size" he="משקל מנה"></span>,
+            <span class="invisible kashrut" en="Kashrut Status" he="סטטוס כשרות"></span>,
+            <span class="invisible food-kashrut-type" en="Food Kashrut Type" he="סוג כשרות"></span>,
+            <span class="invisible cook-time-units" en="Cooking Time Units" he="יחידות זמן בישול"></span>
+        </h3>
+    </div>
+    <script src="/js/recipes/recipePage.js"></script>
+    <script src="/js/recipes/statColors.js"></script>
+    <script src="/js/recipes/contentEditablePlaceholder.js"></script>
+    <script src="/js/recipes/recipeInputs.js"></script>
+    <script src="/js/recipes/submitRecipe.js"></script>
+</body>
+</html>

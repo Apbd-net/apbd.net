@@ -5,17 +5,17 @@ import { readdirSync, copyFileSync, mkdirSync, readFileSync, writeFileSync, rmSy
 import { info, log } from "console";
 import { watch } from "chokidar";
 import { chdir, cwd } from "process";
-import { exec } from "child_process";
 import liveServer from "live-server";
 
 function sl() {
     return process.platform === "win32" ? "\\" : "/";
 }
 
-const TOOLS = ["foods", "landing-page"];
+const TOOLS = ["landing-page", "foods", "recipes"];
 const EXCLUDED_ROOT_PATHS = {
-    "foods": ["scrapes"],
     "landing-page": [],
+    "foods": ["scrapes"],
+    "recipes": [],
 };
 
 /**
@@ -23,8 +23,10 @@ const EXCLUDED_ROOT_PATHS = {
  * Changes commited here are permanent.
  */
 const PROJECT_SCRIPTS = {
+    "landing-page": {},
     "foods": {
-        "data.json": (_, runsOnLiveLoad) => {
+        "data.json": (content, runsOnLiveLoad) => {
+            return null;
             if (runsOnLiveLoad) return null; // Slight optimization
             // We know were running from project root
             // foods' index.html is in source/html/foods/
@@ -32,6 +34,7 @@ const PROJECT_SCRIPTS = {
             let p = new JSDOM(tableHtml);
             let tableBody = p.window.document.getElementById("FOODLIST_ENTRIES");
             let json = {
+                buildCount: (JSON.parse(content).buildCount || 0) + 1,
                 companies: [],
                 array: []
             };
@@ -59,7 +62,7 @@ const PROJECT_SCRIPTS = {
                         he: row.children[1].getAttribute("company-he")
                     },
                     defaultWeight: parseFloat(row.children[0].getAttribute("value")),
-                    glycemicIndex: parseFloat(row.children[2].getElementsByTagName("span")[0].innerText),
+                    glycemicIndex: parseFloat(row.children[2].getElementsByTagName("span")[0].innerHTML),
                     glycemicIndexMetadata: row.children[2]
                         .getElementsByTagName("span")[0]
                         .getAttributeNames()
@@ -157,7 +160,9 @@ const PROJECT_SCRIPTS = {
             }
         }
     },
-    "landing-page": {}
+    "recipes": {
+
+    },
 }
 
 
@@ -333,7 +338,7 @@ function buildTool(toolId, rootFiles) {
                 if (PROJECT_SCRIPTS[toolId][part]) {
                     log(`Running specified script on ${file} (Inherited from folder \`${part}\`)`);
                     let content = readFileSync(getToolDir(toolId) + file, "utf-8");
-                    content = PROJECT_SCRIPTS[toolId][part](content, LIVE_SERVER_ACTIVE) || content;
+                    content = PROJECT_SCRIPTS[toolId][part](content, LIVE_SERVER_ACTIVE, f) || content;
                     writeFileSync(getToolDir(toolId) + file, content);
                     break;
                 }

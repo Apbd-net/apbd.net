@@ -1,0 +1,118 @@
+
+
+[contenteditable], input {
+    outline: 2px dashed white;
+    min-width: 20px;
+    padding-inline: 10px;
+    width: fit-content;
+    border: 0.1px solid transparent;
+    background-color: #111111;
+}
+
+input[type="text"] {
+    padding-inline: 10px 0px;
+}
+input[type="number"] {
+    padding-inline: 0px;
+}
+
+[contenteditable].required, input.required {
+    outline: 2px dashed red;
+}
+
+input[type="number"].required, 
+select.required,
+.required li:first-child input,
+.required li:first-child input[type="number"],
+.required li:first-child select {
+    border: 2px dashed red;
+}
+.required li:first-child [contenteditable] {
+    outline: 2px dashed red;
+}
+
+.container {
+    background-color: #111111;
+}
+
+#preview-selector {
+    display: none;
+}
+
+#preview-image {
+    width: 100%;
+}
+
+#preview-selector-label {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #111111;
+    color: white;
+    border: 2px dashed white;
+    aspect-ratio: 16/9;
+}
+
+figcaption>span[contenteditable] {
+    max-width: 282px;
+    word-wrap: break-word;
+}
+
+input[type="number"] {
+    width: 80px;
+    border: 2px dashed white;
+    outline: 0px;
+    background-color: transparent;
+    margin-block: 4px;
+}
+
+select {
+    border: 2px dashed white;
+    background-color: #111111;
+    margin-block: 4px;
+    width: 80px;
+}
+
+#ingredients {
+    padding-block: 20px;
+}
+
+#recipe-stats input[type="number"] {
+    width: 40px;
+}
+
+select.time-units, select.weight-units {
+    width: 90px;
+    margin-inline-start: 2px;
+}
+
+#nutrition-facts input[type="number"] {
+    max-width: 70px;
+    appearance: textfield;
+    display: inline;
+    text-align: center;
+}
+
+#nutrition-facts thead input[type="number"] {
+    max-width: 30px;
+}
+
+.invisible {
+    display: none;
+}
+
+#submition-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-block: 5px;
+}
+
+#submition-section #submit {
+    font-size: 1.2em;
+}

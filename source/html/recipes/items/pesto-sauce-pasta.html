@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang-en="en" lang-he="he" dir-he="rtl" dir-en="ltr"
+    nodata-he="אין מידע" nodata-en="No Data">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title en="APBD.net | Pesto Sauce Pasta Recipe" he="APBD.net | מתכון לפסטה ברוטב פסטו"></title>
+    
+    <link rel="stylesheet" href="/css/recipes/main.css">
+    <link rel="stylesheet" href="/css/foods/dropdown.css">
+    <link rel="stylesheet" href="/css/landing-page/main.css">
+    <link rel="stylesheet" href="/css/recipes/articles/main.css">
+    <link rel="stylesheet" href="/css/recipes/articles/sideview.css">
+</head>
+<body>
+    <script>
+		const touch = matchMedia('(hover: none)').matches
+		console.log(touch);
+
+		if (touch) {
+			let prev = window.document.body;
+			window.addEventListener("touchend", function (e) {
+				if (e.target.onclick) e.target.onclick();
+				if (prev !== e.target) prev.classList.remove("hover");
+				e.target.classList.toggle("hover");
+				prev = e.target;
+				console.log(e.target);
+			}, {
+				passive: false
+			});
+		}
+	</script>
+	<header>
+		<div class="logo">
+			<img src="/favicon.ico" alt="Website logo">
+			<div class="column">
+				<a class="title" href="/">APBD.net</a>
+				<a class="sub" href-en="/en/recipes" href-he="/he/recipes" en="The Great Cookbook"
+					he="ספר המתכונים הגדול"></a>
+			</div>
+
+		</div>
+		<nav class="header-menu">
+			<div class="dropdown">
+				<a id="about" href="#" en="About" he="אודות">About</a>
+				<div class="dropdown-content">
+					<a target="_blank"
+						href="https://rarediseases.org/rare-diseases/adult-polyglucosan-body-disease/">APBD
+						<span>↗</span></a>
+				</div>
+			</div>
+			<div class="dropdown">
+				<a id="contribute" href="#" en="Contribute" he="תרום תוכן">Contribute</a>
+				<div class="dropdown-content">
+					<a href="../contribute/write-a-recipe.html" en="Write a Recipe" he="כתוב מתכון"></a>
+				</div>
+			</div>
+
+			<div class="dropdown">
+				<a id="contact" href="#" en="Language" he="שפה">Language</a>
+				<div class="dropdown-content">
+					<a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'en')" href="#"
+						en="English" he="אנגלית">English</a>
+					<a onclick="window.location.href = window.location.href.replace(new RegExp('he|en'), 'he')" href="#"
+						en="Hebrew" he="עברית">Hebrew</a>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+    <div class="container">
+        <div id="sideview">
+            <h1 en="Pesto Sauce Pasta Recipe" he="מתכון לפסטה ברוטב פסטו" id="sideview-title"></h1>
+            <figure>
+                <img class="preview" src="/img/foods/logos/default.png" alt="pesto sauce pasta image" id="preview">
+                <figcaption
+                    en="Just Taste Chickpea Pasta in Pesto Sauce"
+                    he="פסטת Just Taste מקמח חומוס וסויה ברוטב פסטו"
+                ></figcaption>
+            </figure>
+            <hr id="sideview-ingredients-hr">
+            <h2 en="Ingredients" he="מרכיבים" id="sideview-ingredients-title"></h2>
+            <ul id="sideview-ingredients">
+                <li><span class="ing-name">Water</span>, 2.5l</li>
+                <li><span class="ing-name">Just Taste Pasta</span>, 250g</li>
+                <li><span class="ing-name">Pesto Sauce</span>, 250g</li>
+                <li><span class="ing-name">Salt</span>, 0.5tbsp</li>
+                <li><span class="ing-name">Olive Oil</span>, 1tsp</li>
+                <li><span class="ing-name">Parmesan Cheese</span>, 80g</li>
+            </ul>
+            <hr>
+            <h2 en="General Information" he="מידע כללי"></h2>
+            <ul id="recipe-stats">
+                <li><span en="Cooking Time: " he="זמן הכנה: "></span><span id="time">30min</span></li>
+                <li><span en="Difficulty: " he="רמת קושי: "></span><span id="difficulty">3</span>/10</li>
+                <li><span en="Total Servings: " he="כמות מנות: "></span><span id="servings">3 <span en="to" he="עד"></span> 5</span></li>
+                <li><span en="Total Ingredients: " he="כמות מרכיבים: "></span><span id="ingredient-amount">5</span></li>
+                <li><span en="Total Steps: " he="כמות שלבים: "></span><span id="step-amount">7</span></li>
+                <li><span en="Kashrut Status: " he="סטטוס כשרות: "></span><span id="kashrut" en="Kosher, Dairy" he="כשר, חלבי"></span></li>
+
+            </ul>
+            <hr>
+            <h2 en="Nutrition Facts" he="סימון תזונתי"></h2>
+            <table id="nutrition-facts">
+                <thead>
+                    <tr>
+                        <th en="Field" he="שדה"></th>
+                        <th en="100 Grams" he="100 גרם"></th>
+                        <th en="One Serving<br> (200 grams)" he="מנה אחת (200 גרם)" value="200" id="serving-weight-identifier"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="carbs">
+                        <th en="Carbohydrates:" he="פחמימות:"></th>
+                        <td>13.7g</td>
+                        <td>27.4g</td>
+                    </tr>
+                    <tr id="fiber">
+                        <th en="Fiber" he="סיבים"></th>
+                        <td>9.6g</td>
+                        <td>19.2g</td>
+                    </tr>
+                    <tr id="sugar">
+                        <th en="Sugar" he="סוכר"></th>
+                        <td>3.1g</td>
+                        <td>6.2g</td>
+                    </tr>
+                    <tr id="starch">
+                        <th en="Starch" he="עמילן"></th>
+                        <td>1g</td>
+                        <td>2g</td>
+                    </tr>
+                    <tr id="glycemic-load">
+                        <th en="Glycemic Load (Estimated)" he="עומס גליקמי (מוערך)"></th>
+                        <td>-1</td>
+                        <td>-1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <main>
+            <h1>
+                <span id="title" en="Pesto Sauce Pasta" he="פסטה ברוטב פסטו"></span>
+                <small id="author" en="Shahar Marcus" he="שחר מרכוס"></small>
+            </h1>
+            <h2 en="Ingredients" he="מרכיבים"></h2>
+            <ul id="ingredients">
+                <li>
+                    <span class="ing-weight">2.5</span> 
+                    <span class="ing-unit">Liters</span> 
+                    <span class="ing-name">Water</span>
+                </li>
+                <li>
+                    <span class="ing-weight">250</span>
+                    <span class="ing-unit">Grams</span>
+                    <span class="ing-name">Just Taste Pasta</span>
+                </li>
+                <li>
+                    <span class="ing-weight">160</span>
+                    <span class="ing-unit">Grams</span>
+                    <span class="ing-name">Pesto Sauce</span>
+                </li>
+                <li>
+                    <span class="ing-weight">0.5</span>
+                    <span class="ing-unit">Teaspoons</span>
+                    <span class="ing-name">Salt</span>
+                </li>
+                <li>
+                    <span class="ing-weight">1</span>
+                    <span class="ing-unit">Teaspoon</span>
+                    <span class="ing-name">Olive Oil</span>
+                </li>
+                <li>
+                    <span class="ing-weight">80</span>
+                    <span class="ing-unit">Grams</span>
+                    <span class="ing-name">Paremesan Cheese</span>
+                </li>
+            </ul>
+            <h2 en="Instructions" he="הוראות"></h2>
+            <ol id="instructions">
+                <li>
+                    <p
+                        en="Pour the water into a pot, and add the salt. Start boiling the water."
+                        he="שופכים את המים לסיר, ומוסיפים את המלח. מתחילים להרתיח את המים."
+                    ></p>
+                </li>
+                <li>
+                    <p
+                        en="Add the pasta to the boiling water, and wait 4 minutes. (We're cooking the pasta for a total of 5 minutes.)"
+                        he="מוסיפים את הפסטה למים הרותחים, וממתינים 4 דקות. (מבשלים את הפסטה סך הכל 5 דקות.)"
+                    ></p>
+                </li>
+                <li>
+                    <p
+                        en="Take 3/4 cups pasta water from the boiling, and keep aside. Cool as much as possible, if possible."
+                        he="לוקחים 3/4 כוסות מי פסטה מהסיר הרותח, ושומרים בצד. מצננים כמה שאפשר, אם אפשר."
+                    ></p>
+                    <p class="note"
+                        en="You can take as much pasta water as your'e comfortable with. Just make sure you have more than 3/4 cups."
+                        he="אתם יכולים לקחת גם יותר משלושת-רבעי כוס, אם זה יותר נוח לכם."
+                    ></p>
+                </li>
+                <li>
+                    <content
+                        en="Wait until the pasta reaches 5 minutes in water. Then, dump the pasta into a strainer."
+                        he="ממתינים עד שהפסטה מגיעה ל-5 דקות במים. לאחר מכן, שופכים את הפסטה למסננת."
+                    ></content>
+                    <p class="note"
+                        en="Leaving the pasta in the water can cause it to get mushy."
+                        he="הפסטה יכולה להפוך לעיסתית אם משאירים אותה במים יותר מדי זמן."
+                    ></p>
+                </li>
+                <li>
+                    <content
+                        en="Then, to a pan (or the same pot, if you prefer, since the pot is now empty) add the olive oil. Wait for it to heat up, and then add the pesto sauce, pasta water and parmesan cheese to the pan."
+                        he="לאחר מכן, למחבת (או לאותו סיר, אם תרצו, מכיוון שהסיר ריק כעת) מוסיפים את השמן. מחכים שהשמן יתחמם, ואז מוסיפים למחבת את רוטב הפסטו, מי הפסטה וגבינת הפרמזן."
+                    ></content>
+                </li>
+                <li>
+                    <content
+                        en="Quickly mix the sauce until it reaches a texture similar to that of pink sauce"
+                        he="מערבבים במהירות את הרוטב עד שהוא מגיע למרקם דומה לזה של רוטב רוזה."
+                    ></content>
+                    <p class="note"
+                        en="If the sauch is too watery, keep stirring the sauce. It will gradually reduce it."
+                        he="אם הרוטב נראה מיימי מדי, המשיכו לערבב את הרוטב - המים יתאדו לאט לאט, והרוטב יגיע למרקם המתאים."
+                    ></p>
+                </li>
+                <li>
+                    <content
+                        en="Add the pasta to the sauce, and mix it well. Enjoy your pasta! :)"
+                        he="מוסיפים את הפסטה לרוטב, ומערבבים כראוי. בתיאבון :)"
+                    ></content>
+                    <p class="note"
+                        en="To make the pasta healthier to eat, refrigirate it - when reheated, some of the starch will become resistent, and will behave like fiber."
+                        he="כדי להפוך את הפסטה לבריאה יותר, תקררו אותה - כשהפסטה תחומם שוב, חלק מהעמילן בפסטה יהפוך לעמיד, ויתנהג כמו סיבים תזונתיים."
+                    ></p>
+                </li>
+            </ol>
+        </main>
+    </div>
+
+    <recipe-attributes style="display: none;">
+        <preview-url>https://assets.bonappetit.com/photos/57af6c7af1c801a1038bd2e6/16:9/w_1280,c_limit/ligurian-pesto-with-spaghetti.jpg</preview-url>
+        <title en="Pesto Sauce Pasta" he="פסטה ברוטב פסטו"></title>
+        <authors>
+            <author role="authored" en="Shahar Marcus" he="שחר מרכוס"></author>
+            <!-- <author role="adapted" en="Shahar Marcus" he="שחר מרכוס"></author> -->
+        </authors>
+        <time unit="min">30</time>
+        <difficulty>3</difficulty>
+        <servings>
+            <min>3</min>
+            <max>5</max>
+        </servings>
+        <nutrition-facts>
+            <weight unit="g">200</weight>
+            <gl></gl>
+            <fiber unit="g">19.2</fiber>
+            <sugar unit="g">6.2</sugar>
+            <starch unit="g">2</starch>
+        </nutrition-facts>
+        <ingredients>
+            <item>
+                <name pattern-en="^Water$" pattern-he="^מים$"></name>
+                <weight unit="l">2.5</weight>
+            </item>
+            <item>
+                <name company-id="just-taste" 
+                      pattern-en="(?:Spaghetti|Fettuccine|Pappardelle)$" pattern-he="(?:ספגטי|פטוצ'יני|פפרדלה)" 
+                      en="Just Taste Pasta" he="פסטה של Just Taste"></name>
+                <weight unit="g">250</weight>
+            </item>
+            <item>
+                <name pattern-en="^Pesto Sauce$" pattern-he="^רוטב פסטו$"></name>
+                <weight unit="g">160</weight>
+            </item>
+            <item>
+                <name pattern-en="^Salt$" pattern-he="^מלח$"></name>
+                <weight unit="tbsp">0.5</weight>
+            </item>
+            <item>
+                <name pattern-en="^Olive Oil$" pattern-he="^שמן זית$"></name>
+                <weight unit="tsp">1</weight>
+            </item>
+            <item>
+                <name pattern-en="^Parmesan Cheese$" pattern-he="^גבינת פרמזן$"></name>
+                <weight unit="g">80</weight>
+            </item>
+        </ingredients>
+        <instructions>
+            <step>
+                <content
+                    en="Pour the water into a pot, and add the salt. Start boiling the water."
+                    he="שופכים את המים לסיר, ומוסיפים את המלח. מתחילים להרתיח את המים."
+                ></content>
+            </step>
+            <step>
+                <content
+                    en="Add the pasta to the boiling water, and wait 4 minutes. (We're cooking the pasta for a total of 5 minutes.)"
+                    he="מוסיפים את הפסטה למים הרותחים, וממתינים 4 דקות. (מבשלים את הפסטה סך הכל 5 דקות.)"
+                ></content>
+            </step>
+            <step>
+                <content
+                    en="Take 3/4 cups pasta water from the boiling, and keep aside. Cool as much as possible, if possible."
+                    he="לוקחים 3/4 כוסות מי פסטה מהסיר הרותח, ושומרים בצד. מצננים כמה שאפשר, אם אפשר."
+                ></content>
+                <note
+                    en="You can take as much pasta water as your'e comfortable with. Just make sure you have more than 3/4 cups."
+                    he="אתם יכולים לקחת גם יותר משלושת-רבעי כוס, אם זה יותר נוח לכם."
+                ></note>
+            </step>
+            <step>
+                <content
+                    en="Wait until the pasta reaches 5 minutes in water. Then, dump the pasta into a strainer."
+                    he="ממתינים עד שהפסטה מגיעה ל-5 דקות במים. לאחר מכן, שופכים את הפסטה למסננת."
+                ></content>
+                <note
+                    en="Leaving the pasta in the water can cause it to get mushy."
+                    he="הפסטה יכולה להפוך לעיסתית אם משאירים אותה במים יותר מדי זמן."
+                ></note>
+            </step>
+            <step>
+                <content
+                    en="Then, to a pan (or the same pot, if you prefer, since the pot is now empty) add the olive oil. Wait for it to heat up, and then add the pesto sauce, pasta water and parmesan cheese to the pan."
+                    he="לאחר מכן, למחבת (או לאותו סיר, אם תרצו, מכיוון שהסיר ריק כעת) מוסיפים את השמן. מחכים שהשמן יתחמם, ואז מוסיפים למחבת את רוטב הפסטו, מי הפסטה וגבינת הפרמזן."
+                ></content>
+            </step>
+            <step>
+                <content
+                    en="Quickly mix the sauce until it reaches a texture similar to that of pink sauce"
+                    he="מערבבים במהירות את הרוטב עד שהוא מגיע למרקם דומה לזה של רוטב רוזה."
+                ></content>
+                <note
+                    en="If the sauch is too watery, keep stirring the sauce. It will gradually reduce it."
+                    he="אם הרוטב נראה מיימי מדי, המשיכו לערבב את הרוטב - המים יתאדו לאט לאט, והרוטב יגיע למרקם המתאים."
+                ></note>
+            </step>
+            <step>
+                <content
+                    en="Add the pasta to the sauce, and mix it well. Enjoy your pasta! :)"
+                    he="מוסיפים את הפסטה לרוטב, ומערבבים כראוי. בתיאבון :)"
+                ></content>
+                <note
+                    en="To make the pasta healthier to eat, refrigirate it - when reheated, some of the starch will become resistent, and will behave like fiber."
+                    he="כדי להפוך את הפסטה לבריאה יותר, תקררו אותה - כשהפסטה תחומם שוב, חלק מהעמילן בפסטה יהפוך לעמיד, ויתנהג כמו סיבים תזונתיים."
+                ></note>
+            </step>
+        </instructions>
+    </recipe-attributes>
+
+    <script src="/js/recipes/recipePage.js"></script>
+    <script src="/js/recipes/statColors.js"></script>
+</body>
+</html>
