@@ -33,10 +33,20 @@ main {
     padding-inline: 30px;
     border-inline-start: 2px solid #333333;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
 }
 hr {
     color: #333333;
     border: 1px solid #333333;
+}
+
+#authoring {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
 }
 
 #instructions li {

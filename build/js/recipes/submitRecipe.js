@@ -42,14 +42,22 @@ submitButton.onclick = () => {
                 payload[input.id] = input.element.value;
                 break;
             case ["title"].includes(input.id): {
-                if (input.element.textContent.length === 0) {
+                if (input.element.value.length === 0) {
                     missingRequireds.push(input.id);
                     break;
                 }
                 payload[input.id] = input.element.value;
                 break;
             }
-            case ["author", "preview-image-description"].includes(input.id):
+            case ["author"].includes(input.id): {
+                if (input.element.value.length === 0) {
+                    missingRequireds.push(input.id);
+                    break;
+                }
+                payload[input.id] = input.element.value;
+                break;
+            }
+            case ["preview-image-description"].includes(input.id):
                 if (input.element.textContent.length === 0) {
                     missingOptionals.push(input.id);
                     break;
@@ -116,7 +124,7 @@ submitButton.onclick = () => {
                 payload["ingredients-count"] = 0;
                 
                 for (const child of input.element.children) {
-                    let ingName = child.querySelector("span[contenteditable]").textContent;
+                    let ingName = child.querySelector("input[type=text]").value;
                     let ingAmount = child.querySelector("input[type=number]").value;
                     let ingUnit = child.querySelector("select").options[child.querySelector("select").selectedIndex].value;
                     let ingUnitLabel = child.querySelector("select").options[child.querySelector("select").selectedIndex].label;
@@ -184,13 +192,14 @@ submitButton.onclick = () => {
 
     submitionOutput.innerHTML = submitionOutput.getAttribute("output-5");
     console.log(payload);
-    return;
+    console.log(JSON.stringify(payload));
+    console.log(JSON.parse(JSON.stringify(payload)).type);
     fetch("https://apbd-contrib-bot.shaharmsecond.workers.dev/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify("payload")
+        body: JSON.stringify(payload)
     })
         .then(response => response.text())
         .then(text => {

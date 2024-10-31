@@ -171,10 +171,12 @@
             </table>
         </div>
         <main>
-            <h1>
-                <span contenteditable="" id="title" placeholder="שם המתכון"></span>
-                <small style="padding-inline-end: 2px;">מחבר: </small>
-                <small contenteditable="" id="author" placeholder="שם המחבר (אופציונאלי)"></small>
+            <h1 style="width: 100%; display: flex; flex-direction: column;">
+                <textarea id="title" placeholder="שם המתכון"></textarea>
+                <div id="authoring">
+                    <small style="padding-inline-end: 2px;">מחבר: </small>
+                    <textarea id="author" placeholder="שם המחבר (אופציונאלי)"></textarea>
+                </div> 
             </h1>
             <h2>מרכיבים</h2>
             <blockquote>כל מרכיב שונה חייב להיות בשורה שונה ברשימה.<br>
@@ -183,7 +185,7 @@
             <ul id="ingredients">
                 <li>
                     <span>שם המרכיב</span>: 
-                    <span contenteditable="" placeholder="שם המרכיב כאן"></span> , 
+                    <input type="text" placeholder="שם המרכיב כאן"> , 
                     <span>כמות</span>: 
                     <input type="number" class="weight-input">
                     <select name="units" class="weight-units">
@@ -212,7 +214,7 @@
             <ol id="instructions">
                 <li>
                     <p>
-                        <span contenteditable="" placeholder="הקלד שלב כאן"></span>
+                        <span class="step" contenteditable="" placeholder="הקלד שלב כאן"></span>
                     </p>
                     <p class="note">
                         <span contenteditable="" placeholder="אם יש לכם הערות להוסיף לגבי השלב הזה במתכון, זה המקום לכתוב אותן. אפשר להשאיר את זה ריק."></span>

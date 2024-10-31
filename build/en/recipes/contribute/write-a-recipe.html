@@ -171,10 +171,12 @@
             </table>
         </div>
         <main>
-            <h1>
-                <span contenteditable="" id="title" placeholder="Recipe Title"></span>
-                <small style="padding-inline-end: 2px;">By: </small>
-                <small contenteditable="" id="author" placeholder="Your Name (Optional)"></small>
+            <h1 style="width: 100%; display: flex; flex-direction: column;">
+                <textarea id="title" placeholder="Recipe Title"></textarea>
+                <div id="authoring">
+                    <small style="padding-inline-end: 2px;">By: </small>
+                    <textarea id="author" placeholder="Your Name (Optional)"></textarea>
+                </div> 
             </h1>
             <h2>Ingredients</h2>
             <blockquote>Each ingredient must be on a seperate list item.<br>
@@ -183,7 +185,7 @@
             <ul id="ingredients">
                 <li>
                     <span>Ingredient Name</span>: 
-                    <span contenteditable="" placeholder="Ingredient Name Here"></span> , 
+                    <input type="text" placeholder="Ingredient Name Here"> , 
                     <span>Quantity</span>: 
                     <input type="number" class="weight-input">
                     <select name="units" class="weight-units">
@@ -212,7 +214,7 @@
             <ol id="instructions">
                 <li>
                     <p>
-                        <span contenteditable="" placeholder="Type out instruction Here"></span>
+                        <span class="step" contenteditable="" placeholder="Type out instruction Here"></span>
                     </p>
                     <p class="note">
                         <span contenteditable="" placeholder="If you have anything else extra to add about this step, type it here. You can leave this empty."></span>

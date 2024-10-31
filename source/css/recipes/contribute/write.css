@@ -1,12 +1,14 @@
 
 
-[contenteditable], input {
+[contenteditable], input, textarea {
     outline: 2px dashed white;
     min-width: 20px;
     padding-inline: 10px;
     width: fit-content;
     border: 0.1px solid transparent;
     background-color: #111111;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
 }
 
 input[type="text"] {
@@ -16,13 +18,15 @@ input[type="number"] {
     padding-inline: 0px;
 }
 
-[contenteditable].required, input.required {
+[contenteditable].required, 
+textarea.required,  
+.required li:first-child input[type="text"],
+.required li:first-child [contenteditable] {
     outline: 2px dashed red;
 }
 
-input[type="number"].required, 
 select.required,
-.required li:first-child input,
+input[type="number"].required,
 .required li:first-child input[type="number"],
 .required li:first-child select {
     border: 2px dashed red;
@@ -76,8 +80,30 @@ select {
     width: 80px;
 }
 
+#title {
+    font-size: 1.3em;
+    min-height: 1.4em;
+    height: 0px;
+    width: min(80%, 600px);
+    resize: none;
+    text-align: center;
+    margin-inline: auto;
+}
+
+
+#author {
+    min-height: 1.4em;
+    height: 0px;
+    width: min(200px, 40%);
+    resize: none;
+}
+
 #ingredients {
     padding-block: 20px;
+}
+
+#instructions span.step {
+    display: block;
 }
 
 #recipe-stats input[type="number"] {

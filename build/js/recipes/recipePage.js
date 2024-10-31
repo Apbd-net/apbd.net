@@ -27,7 +27,7 @@ let observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
             sideviewTitle.style.display = "none";
         } else {
-            sideviewTitle.innerHTML = recipeTitle.innerHTML
+            sideviewTitle.innerHTML = recipeTitle.value
             sideviewTitle.style.display = "block";
         }
     }

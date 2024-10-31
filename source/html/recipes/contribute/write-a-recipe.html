@@ -186,10 +186,12 @@
             </table>
         </div>
         <main>
-            <h1>
-                <span contenteditable id="title" placeholder-en="Recipe Title" placeholder-he="שם המתכון"></span>
-                <small en="By: " he="מחבר: " style="padding-inline-end: 2px;"></small>
-                <small contenteditable id="author" placeholder-en="Your Name (Optional)" placeholder-he="שם המחבר (אופציונאלי)"></small>
+            <h1 style="width: 100%; display: flex; flex-direction: column;">
+                <textarea id="title" placeholder-en="Recipe Title" placeholder-he="שם המתכון"></textarea>
+                <div id="authoring">
+                    <small en="By: " he="מחבר: " style="padding-inline-end: 2px;"></small>
+                    <textarea id="author" placeholder-en="Your Name (Optional)" placeholder-he="שם המחבר (אופציונאלי)"></textarea>
+                </div> 
             </h1>
             <h2 en="Ingredients" he="מרכיבים"></h2>
             <blockquote
@@ -204,7 +206,7 @@
             <ul id="ingredients">
                 <li>
                     <span en="Ingredient Name" he="שם המרכיב"></span>: 
-                    <span contenteditable placeholder-en="Ingredient Name Here" placeholder-he="שם המרכיב כאן"></span> , 
+                    <input type="text" placeholder-en="Ingredient Name Here" placeholder-he="שם המרכיב כאן"></span> , 
                     <span en="Quantity" he="כמות"></span>: 
                     <input type="number" class="weight-input">
                     <select name="units" class="weight-units">
@@ -239,7 +241,7 @@
             <ol id="instructions">
                 <li>
                     <p>
-                        <span contenteditable placeholder-en="Type out instruction Here" placeholder-he="הקלד שלב כאן"></span>
+                        <span class="step" contenteditable placeholder-en="Type out instruction Here" placeholder-he="הקלד שלב כאן"></span>
                     </p>
                     <p class="note">
                         <span contenteditable placeholder-en="If you have anything else extra to add about this step, type it here. You can leave this empty." placeholder-he="אם יש לכם הערות להוסיף לגבי השלב הזה במתכון, זה המקום לכתוב אותן. אפשר להשאיר את זה ריק."></span>
