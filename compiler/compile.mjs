@@ -161,7 +161,27 @@ const PROJECT_SCRIPTS = {
         }
     },
     "recipes": {
+        /** @param {string} content @param {bool} _  @param {string} fileName */
+        "items/": (content, _, fileName) => {
+            if (!fileName.endsWith(".ini")) {
+                log(`Skipping non-ini file: ${fileName}`);
+                return null;
+            }
+            let htmlFileName = fileName.split(".")[0];
+            let contentTable = content.split("\n").map(x => [x.split("=")[0], x.substring(x.indexOf("=") + 1).trim()]);
+            if (!process.recipesSkeletonFile) {
+                process.recipesSkeletonFile = readFileSync(getToolLangDir(IMG, "recipes") + `__skeleton.html`, "utf-8");
+            }
 
+            /** @type {string} */
+            let newFile = process.recipesSkeletonFile;
+            for (let [key, value] of contentTable) {
+                newFile = newFile.replace(new RegExp(`{{${key}}}`, "g"), value);
+            }
+
+            writeFileSync(getToolDir("recipes") + `${htmlFileName}.html`, newFile);
+            return null;
+        }
     },
 }
 
@@ -216,11 +236,24 @@ function getToolBuildDir(lang, toolId) {
  * 
  * Language here only refers to programming languages, since their sources are present before compilation
  *
- * @param {string} lang - the language code (`HTML`, `CSS`, `JS`)
+ * @param {string} lang - the language code (`HTML`, `CSS`, `JS`, `IMG`)
  * @return {string} the source directory for the given language
  */
 function getLangDir(lang) {
     return `${SOURCE_PATH}${sl()}${lang}${sl()}`;
+}
+
+/**
+ * Returns the directory path for a given tool and language.
+ * 
+ * Language here only refers to programming languages, since their sources are present before compilation
+ *
+ * @param {string} lang - the language code (`HTML`, `CSS`, `JS`, `IMG`)
+ * @param {string} toolId - The ID of the tool
+ * @return {string} The directory path for the given language and tool ID
+ */
+function getToolLangDir(lang, toolId) {
+    return getLangDir(lang) + toolId + sl();
 }
 
 /**

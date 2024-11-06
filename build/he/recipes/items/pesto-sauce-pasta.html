@@ -1,11 +1,11 @@
 <!DOCTYPE html><html lang="he" dir="rtl" nodata="אין מידע"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APBD.net | מתכון לפסטה ברוטב פסטו</title>
+    <title>APBD.net | מתכון פסטה ברוטב פסטו</title>
     
     <link rel="stylesheet" href="/css/recipes/main.css">
     <link rel="stylesheet" href="/css/foods/dropdown.css">
-    <link rel="stylesheet" href="/css/landing-page/main.css">
+    <link rel="stylesheet" href="/css/foods/main.css">
     <link rel="stylesheet" href="/css/recipes/articles/main.css">
     <link rel="stylesheet" href="/css/recipes/articles/sideview.css">
 </head>
@@ -63,25 +63,20 @@
 
     <div class="container">
         <div id="sideview">
-            <h1 id="sideview-title">מתכון לפסטה ברוטב פסטו</h1>
+            <h1 id="sideview-title">מתכון פסטה ברוטב פסטו</h1>
             <figure>
-                <img class="preview" src="/img/foods/logos/default.png" alt="pesto sauce pasta image" id="preview">
+                <img class="preview" src="/img/foods/logos/default.png" id="preview" alt="תמונה של המאכל המוכן">
                 <figcaption>פסטת Just Taste מקמח חומוס וסויה ברוטב פסטו</figcaption>
             </figure>
             <hr id="sideview-ingredients-hr">
             <h2 id="sideview-ingredients-title">מרכיבים</h2>
-            <ul id="sideview-ingredients">
-                <li><span class="ing-name">Water</span>, 2.5l</li>
-                <li><span class="ing-name">Just Taste Pasta</span>, 250g</li>
-                <li><span class="ing-name">Pesto Sauce</span>, 250g</li>
-                <li><span class="ing-name">Salt</span>, 0.5tbsp</li>
-                <li><span class="ing-name">Olive Oil</span>, 1tsp</li>
-                <li><span class="ing-name">Parmesan Cheese</span>, 80g</li>
+            <ul id="sideview-ingredients"><li><span class="ing-name">Water</span>, 2.5l</li><li><span class="ing-name">Just Taste Pasta</span>, 250g</li><li><span class="ing-name">Pesto Sauce</span>, 250g</li><li><span class="ing-name">Salt</span>, 0.5tbsp</li><li><span class="ing-name">Olive Oil</span>, 1tsp</li><li><span class="ing-name">Parmesan Cheese</span>, 80g</li>
+
             </ul>
             <hr>
             <h2>מידע כללי</h2>
             <ul id="recipe-stats">
-                <li><span>זמן הכנה: </span><span id="time">30min</span></li>
+                <li><span>זמן הכנה: </span><span id="time">30</span><span>דקות</span></li>
                 <li><span>רמת קושי: </span><span id="difficulty">3</span>/10</li>
                 <li><span>כמות מנות: </span><span id="servings">3 <span>עד</span> 5</span></li>
                 <li><span>כמות מרכיבים: </span><span id="ingredient-amount">5</span></li>
@@ -129,148 +124,23 @@
             </table>
         </div>
         <main>
-            <h1>
+            <h1 style="width: 100%; display: flex; flex-direction: column;"></h1>
                 <span id="title">פסטה ברוטב פסטו</span>
-                <small id="author">שחר מרכוס</small>
-            </h1>
+                <div id="authoring">
+                    <span style="padding-inline-end: 2px;">מחבר: </span>
+                    <span id="author">שחר מרכוס</span>
+                </div> 
+            
             <h2>מרכיבים</h2>
-            <ul id="ingredients">
-                <li>
-                    <span class="ing-weight">2.5</span> 
-                    <span class="ing-unit">Liters</span> 
-                    <span class="ing-name">Water</span>
-                </li>
-                <li>
-                    <span class="ing-weight">250</span>
-                    <span class="ing-unit">Grams</span>
-                    <span class="ing-name">Just Taste Pasta</span>
-                </li>
-                <li>
-                    <span class="ing-weight">160</span>
-                    <span class="ing-unit">Grams</span>
-                    <span class="ing-name">Pesto Sauce</span>
-                </li>
-                <li>
-                    <span class="ing-weight">0.5</span>
-                    <span class="ing-unit">Teaspoons</span>
-                    <span class="ing-name">Salt</span>
-                </li>
-                <li>
-                    <span class="ing-weight">1</span>
-                    <span class="ing-unit">Teaspoon</span>
-                    <span class="ing-name">Olive Oil</span>
-                </li>
-                <li>
-                    <span class="ing-weight">80</span>
-                    <span class="ing-unit">Grams</span>
-                    <span class="ing-name">Paremesan Cheese</span>
-                </li>
+            <ul id="ingredients"><li><span class="ing-weight">2.5</span> <span class="ing-unit">Liters</span> <span class="ing-name">Water</span></li><li><span class="ing-weight">250</span> <span class="ing-unit">Grams</span> <span class="ing-name">Just Taste Pasta</span></li><li><span class="ing-weight">160</span> <span class="ing-unit">Grams</span> <span class="ing-name">Pesto Sauce</span></li><li><span class="ing-weight">0.5</span> <span class="ing-unit">Teaspoons</span> <span class="ing-name">Salt</span></li><li><span class="ing-weight">1</span> <span class="ing-unit">Teaspoon</span> <span class="ing-name">Olive Oil</span></li><li><span class="ing-weight">80</span> <span class="ing-unit">Grams</span> <span class="ing-name">Paremesan Cheese</span></li>
+
             </ul>
             <h2>הוראות</h2>
-            <ol id="instructions">
-                <li>
-                    <p>שופכים את המים לסיר, ומוסיפים את המלח. מתחילים להרתיח את המים.</p>
-                </li>
-                <li>
-                    <p>מוסיפים את הפסטה למים הרותחים, וממתינים 4 דקות. (מבשלים את הפסטה סך הכל 5 דקות.)</p>
-                </li>
-                <li>
-                    <p>לוקחים 3/4 כוסות מי פסטה מהסיר הרותח, ושומרים בצד. מצננים כמה שאפשר, אם אפשר.</p>
-                    <p class="note">אתם יכולים לקחת גם יותר משלושת-רבעי כוס, אם זה יותר נוח לכם.</p>
-                </li>
-                <li>
-                    <content>ממתינים עד שהפסטה מגיעה ל-5 דקות במים. לאחר מכן, שופכים את הפסטה למסננת.</content>
-                    <p class="note">הפסטה יכולה להפוך לעיסתית אם משאירים אותה במים יותר מדי זמן.</p>
-                </li>
-                <li>
-                    <content>לאחר מכן, למחבת (או לאותו סיר, אם תרצו, מכיוון שהסיר ריק כעת) מוסיפים את השמן. מחכים שהשמן יתחמם, ואז מוסיפים למחבת את רוטב הפסטו, מי הפסטה וגבינת הפרמזן.</content>
-                </li>
-                <li>
-                    <content>מערבבים במהירות את הרוטב עד שהוא מגיע למרקם דומה לזה של רוטב רוזה.</content>
-                    <p class="note">אם הרוטב נראה מיימי מדי, המשיכו לערבב את הרוטב - המים יתאדו לאט לאט, והרוטב יגיע למרקם המתאים.</p>
-                </li>
-                <li>
-                    <content>מוסיפים את הפסטה לרוטב, ומערבבים כראוי. בתיאבון :)</content>
-                    <p class="note">כדי להפוך את הפסטה לבריאה יותר, תקררו אותה - כשהפסטה תחומם שוב, חלק מהעמילן בפסטה יהפוך לעמיד, ויתנהג כמו סיבים תזונתיים.</p>
-                </li>
+            <ol id="instructions"><li>    <p>שופכים את המים לסיר, ומוסיפים את המלח. מתחילים להרתיח את המים.</p></li><li>    <p>מוסיפים את הפסטה למים הרותחים, וממתינים 4 דקות. (מבשלים את הפסטה סך הכל 5 דקות.)</p></li><li>    <p>לוקחים 3/4 כוסות מי פסטה מהסיר הרותח, ושומרים בצד. מצננים כמה שאפשר, אם אפשר.</p>    <p class="note">אתם יכולים לקחת גם יותר משלושת-רבעי כוס, אם זה יותר נוח לכם.</p></li><li>    <content>ממתינים עד שהפסטה מגיעה ל-5 דקות במים. לאחר מכן, שופכים את הפסטה למסננת.</content>    <p class="note">הפסטה יכולה להפוך לעיסתית אם משאירים אותה במים יותר מדי זמן.</p></li><li>    <content>לאחר מכן, למחבת (או לאותו סיר, אם תרצו, מכיוון שהסיר ריק כעת) מוסיפים את השמן. מחכים שהשמן יתחמם, ואז מוסיפים למחבת את רוטב הפסטו, מי הפסטה וגבינת הפרמזן.</content></li><li>    <content>מערבבים במהירות את הרוטב עד שהוא מגיע למרקם דומה לזה של רוטב רוזה.</content>    <p class="note">אם הרוטב נראה מיימי מדי, המשיכו לערבב את הרוטב - המים יתאדו לאט לאט, והרוטב יגיע למרקם המתאים.</p></li><li>    <content>מוסיפים את הפסטה לרוטב, ומערבבים כראוי. בתיאבון :)</content>    <p class="note">כדי להפוך את הפסטה לבריאה יותר, תקררו אותה - כשהפסטה תחומם שוב, חלק מהעמילן בפסטה יהפוך לעמיד, ויתנהג כמו סיבים תזונתיים.</p></li>
+
             </ol>
         </main>
     </div>
-
-    <recipe-attributes style="display: none;">
-        <preview-url>https://assets.bonappetit.com/photos/57af6c7af1c801a1038bd2e6/16:9/w_1280,c_limit/ligurian-pesto-with-spaghetti.jpg</preview-url>
-        <title>פסטה ברוטב פסטו</title>
-        <authors>
-            <author role="authored">שחר מרכוס</author>
-            <!-- <author role="adapted" en="Shahar Marcus" he="שחר מרכוס"></author> -->
-        </authors>
-        <time unit="min">30</time>
-        <difficulty>3</difficulty>
-        <servings>
-            <min>3</min>
-            <max>5</max>
-        </servings>
-        <nutrition-facts>
-            <weight unit="g">200</weight>
-            <gl></gl>
-            <fiber unit="g">19.2</fiber>
-            <sugar unit="g">6.2</sugar>
-            <starch unit="g">2</starch>
-        </nutrition-facts>
-        <ingredients>
-            <item>
-                <name pattern="^מים$"></name>
-                <weight unit="l">2.5</weight>
-            </item>
-            <item>
-                <name company-id="just-taste" pattern="(?:ספגטי|פטוצ'יני|פפרדלה)">פסטה של Just Taste</name>
-                <weight unit="g">250</weight>
-            </item>
-            <item>
-                <name pattern="^רוטב פסטו$"></name>
-                <weight unit="g">160</weight>
-            </item>
-            <item>
-                <name pattern="^מלח$"></name>
-                <weight unit="tbsp">0.5</weight>
-            </item>
-            <item>
-                <name pattern="^שמן זית$"></name>
-                <weight unit="tsp">1</weight>
-            </item>
-            <item>
-                <name pattern="^גבינת פרמזן$"></name>
-                <weight unit="g">80</weight>
-            </item>
-        </ingredients>
-        <instructions>
-            <step>
-                <content>שופכים את המים לסיר, ומוסיפים את המלח. מתחילים להרתיח את המים.</content>
-            </step>
-            <step>
-                <content>מוסיפים את הפסטה למים הרותחים, וממתינים 4 דקות. (מבשלים את הפסטה סך הכל 5 דקות.)</content>
-            </step>
-            <step>
-                <content>לוקחים 3/4 כוסות מי פסטה מהסיר הרותח, ושומרים בצד. מצננים כמה שאפשר, אם אפשר.</content>
-                <note>אתם יכולים לקחת גם יותר משלושת-רבעי כוס, אם זה יותר נוח לכם.</note>
-            </step>
-            <step>
-                <content>ממתינים עד שהפסטה מגיעה ל-5 דקות במים. לאחר מכן, שופכים את הפסטה למסננת.</content>
-                <note>הפסטה יכולה להפוך לעיסתית אם משאירים אותה במים יותר מדי זמן.</note>
-            </step>
-            <step>
-                <content>לאחר מכן, למחבת (או לאותו סיר, אם תרצו, מכיוון שהסיר ריק כעת) מוסיפים את השמן. מחכים שהשמן יתחמם, ואז מוסיפים למחבת את רוטב הפסטו, מי הפסטה וגבינת הפרמזן.</content>
-            </step>
-            <step>
-                <content>מערבבים במהירות את הרוטב עד שהוא מגיע למרקם דומה לזה של רוטב רוזה.</content>
-                <note>אם הרוטב נראה מיימי מדי, המשיכו לערבב את הרוטב - המים יתאדו לאט לאט, והרוטב יגיע למרקם המתאים.</note>
-            </step>
-            <step>
-                <content>מוסיפים את הפסטה לרוטב, ומערבבים כראוי. בתיאבון :)</content>
-                <note>כדי להפוך את הפסטה לבריאה יותר, תקררו אותה - כשהפסטה תחומם שוב, חלק מהעמילן בפסטה יהפוך לעמיד, ויתנהג כמו סיבים תזונתיים.</note>
-            </step>
-        </instructions>
-    </recipe-attributes>
 
     <script src="/js/recipes/recipePage.js"></script>
     <script src="/js/recipes/statColors.js"></script>

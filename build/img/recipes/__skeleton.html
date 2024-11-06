@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title en="APBD.net | {{TITLE}} Recipe" he="APBD.net | מתכון {{TITLE}}"></title>
+    <title en="APBD.net | {{TITLE_en}} Recipe" he="APBD.net | מתכון {{TITLE_he}}"></title>
     
     <link rel="stylesheet" href="/css/recipes/main.css">
     <link rel="stylesheet" href="/css/foods/dropdown.css">
@@ -70,12 +70,12 @@
 
     <div class="container">
         <div id="sideview">
-            <h1 en="Pesto Sauce Pasta Recipe" he="מתכון לפסטה ברוטב פסטו" id="sideview-title"></h1>
+            <h1 en="{{TITLE_en}} Recipe" he="מתכון {{TITLE_he}}" id="sideview-title"></h1>
             <figure>
                 <img class="preview" src="{{PREVIEWIMAGEBASE64}}" alt-en="An Image of the final product" alt-he="תמונה של המאכל המוכן" id="preview">
                 <figcaption
-                    en="{{PREVIEWIMAGEDESCRIPTION}}"
-                    he="{{PREVIEWIMAGEDESCRIPTION}}"
+                    en="{{PREVIEWIMAGEDESCRIPTION_en}}"
+                    he="{{PREVIEWIMAGEDESCRIPTION_he}}"
                 ></figcaption>
             </figure>
             <hr id="sideview-ingredients-hr">
@@ -86,12 +86,12 @@
             <hr>
             <h2 en="General Information" he="מידע כללי"></h2>
             <ul id="recipe-stats">
-                <li><span en="Cooking Time: " he="זמן הכנה: "></span><span id="time">{{COOKTIME}}{{COOKTIMEUNITS}}</span></li>
+                <li><span en="Cooking Time: " he="זמן הכנה: "></span><span id="time">{{COOKTIME}}</span><span en="{{COOKTIMEUNITS_en}}" he="{{COOKTIMEUNITS_he}}"></span></li>
                 <li><span en="Difficulty: " he="רמת קושי: "></span><span id="difficulty">{{DIFFICULTY}}</span>/10</li>
                 <li><span en="Total Servings: " he="כמות מנות: "></span><span id="servings">{{SERVINGSMIN}} <span en="to" he="עד"></span> {{SERVINGSMAX}}</span></li>
                 <li><span en="Total Ingredients: " he="כמות מרכיבים: "></span><span id="ingredient-amount">{{INGREDIENTSCOUNT}}</span></li>
                 <li><span en="Total Steps: " he="כמות שלבים: "></span><span id="step-amount">{{INSTRUCTIONSCOUNT}}</span></li>
-                <li><span en="Kashrut Status: " he="סטטוס כשרות: "></span><span id="kashrut" en="{{KASHRUT}}, {{FOODKASHRUTTYPE}}" he="{{KASHRUT}}, {{FOODKASHRUTTYPE}}"></span></li>
+                <li><span en="Kashrut Status: " he="סטטוס כשרות: "></span><span id="kashrut" en="{{KASHRUT_en}}, {{FOODKASHRUTTYPE_en}}" he="{{KASHRUT_he}}, {{FOODKASHRUTTYPE_he}}"></span></li>
 
             </ul>
             <hr>
@@ -101,7 +101,7 @@
                     <tr>
                         <th en="Field" he="שדה"></th>
                         <th en="100 Grams" he="100 גרם"></th>
-                        <th en="One Serving<br> ({{SERVINGSIZE}} grams)" he="מנה אחת ({{SERVINGSIZE}} גרם)" value="{{SERVINGSIZE}}" id="serving-weight-identifier"></th>
+                        <th en="One Serving<br> ({{SERVINGSIZE}} {{SERVINGUNITS_en}})" he="מנה אחת ({{SERVINGSIZE}} {{SERVINGUNITS_he}})" value="{{SERVINGSIZE}}" id="serving-weight-identifier"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -134,9 +134,12 @@
             </table>
         </div>
         <main>
-            <h1>
-                <span id="title" en="{{TITLE}}" he="{{TITLE}}"></span>
-                <small id="author" en="{{AUTHOR}}" he="{{AUTHOR}}"></small>
+            <h1 style="width: 100%; display: flex; flex-direction: column;"></h1>
+                <span id="title" en="{{TITLE_en}}" he="{{TITLE_he}}"></span>
+                <div id="authoring">
+                    <span en="By: " he="מחבר: " style="padding-inline-end: 2px;"></span>
+                    <span id="author" en="{{AUTHOR_en}}" he="{{AUTHOR_he}}"></span>
+                </div> 
             </h1>
             <h2 en="Ingredients" he="מרכיבים"></h2>
             <ul id="ingredients">{{INGREDIENTSELEMENT}}

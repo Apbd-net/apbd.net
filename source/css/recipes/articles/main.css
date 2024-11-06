@@ -47,6 +47,23 @@ hr {
     justify-content: center;
     align-items: center;
     margin-top: 10px;
+    gap: 4px;
+}
+
+#authoring span {
+    font-size: 1.2rem;
+    color: gray;
+}
+
+#authoring #author {
+    font-weight: bold;
+}
+
+#title {
+    font-size: 3em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 #instructions li {

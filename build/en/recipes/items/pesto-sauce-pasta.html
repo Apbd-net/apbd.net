@@ -5,7 +5,7 @@
     
     <link rel="stylesheet" href="/css/recipes/main.css">
     <link rel="stylesheet" href="/css/foods/dropdown.css">
-    <link rel="stylesheet" href="/css/landing-page/main.css">
+    <link rel="stylesheet" href="/css/foods/main.css">
     <link rel="stylesheet" href="/css/recipes/articles/main.css">
     <link rel="stylesheet" href="/css/recipes/articles/sideview.css">
 </head>
@@ -65,23 +65,18 @@
         <div id="sideview">
             <h1 id="sideview-title">Pesto Sauce Pasta Recipe</h1>
             <figure>
-                <img class="preview" src="/img/foods/logos/default.png" alt="pesto sauce pasta image" id="preview">
+                <img class="preview" src="/img/foods/logos/default.png" id="preview" alt="An Image of the final product">
                 <figcaption>Just Taste Chickpea Pasta in Pesto Sauce</figcaption>
             </figure>
             <hr id="sideview-ingredients-hr">
             <h2 id="sideview-ingredients-title">Ingredients</h2>
-            <ul id="sideview-ingredients">
-                <li><span class="ing-name">Water</span>, 2.5l</li>
-                <li><span class="ing-name">Just Taste Pasta</span>, 250g</li>
-                <li><span class="ing-name">Pesto Sauce</span>, 250g</li>
-                <li><span class="ing-name">Salt</span>, 0.5tbsp</li>
-                <li><span class="ing-name">Olive Oil</span>, 1tsp</li>
-                <li><span class="ing-name">Parmesan Cheese</span>, 80g</li>
+            <ul id="sideview-ingredients"><li><span class="ing-name">Water</span>, 2.5l</li><li><span class="ing-name">Just Taste Pasta</span>, 250g</li><li><span class="ing-name">Pesto Sauce</span>, 250g</li><li><span class="ing-name">Salt</span>, 0.5tbsp</li><li><span class="ing-name">Olive Oil</span>, 1tsp</li><li><span class="ing-name">Parmesan Cheese</span>, 80g</li>
+
             </ul>
             <hr>
             <h2>General Information</h2>
             <ul id="recipe-stats">
-                <li><span>Cooking Time: </span><span id="time">30min</span></li>
+                <li><span>Cooking Time: </span><span id="time">30</span><span>minutes</span></li>
                 <li><span>Difficulty: </span><span id="difficulty">3</span>/10</li>
                 <li><span>Total Servings: </span><span id="servings">3 <span>to</span> 5</span></li>
                 <li><span>Total Ingredients: </span><span id="ingredient-amount">5</span></li>
@@ -129,148 +124,23 @@
             </table>
         </div>
         <main>
-            <h1>
+            <h1 style="width: 100%; display: flex; flex-direction: column;"></h1>
                 <span id="title">Pesto Sauce Pasta</span>
-                <small id="author">Shahar Marcus</small>
-            </h1>
+                <div id="authoring">
+                    <span style="padding-inline-end: 2px;">By: </span>
+                    <span id="author">Shahar Marcus</span>
+                </div> 
+            
             <h2>Ingredients</h2>
-            <ul id="ingredients">
-                <li>
-                    <span class="ing-weight">2.5</span> 
-                    <span class="ing-unit">Liters</span> 
-                    <span class="ing-name">Water</span>
-                </li>
-                <li>
-                    <span class="ing-weight">250</span>
-                    <span class="ing-unit">Grams</span>
-                    <span class="ing-name">Just Taste Pasta</span>
-                </li>
-                <li>
-                    <span class="ing-weight">160</span>
-                    <span class="ing-unit">Grams</span>
-                    <span class="ing-name">Pesto Sauce</span>
-                </li>
-                <li>
-                    <span class="ing-weight">0.5</span>
-                    <span class="ing-unit">Teaspoons</span>
-                    <span class="ing-name">Salt</span>
-                </li>
-                <li>
-                    <span class="ing-weight">1</span>
-                    <span class="ing-unit">Teaspoon</span>
-                    <span class="ing-name">Olive Oil</span>
-                </li>
-                <li>
-                    <span class="ing-weight">80</span>
-                    <span class="ing-unit">Grams</span>
-                    <span class="ing-name">Paremesan Cheese</span>
-                </li>
+            <ul id="ingredients"><li><span class="ing-weight">2.5</span> <span class="ing-unit">Liters</span> <span class="ing-name">Water</span></li><li><span class="ing-weight">250</span> <span class="ing-unit">Grams</span> <span class="ing-name">Just Taste Pasta</span></li><li><span class="ing-weight">160</span> <span class="ing-unit">Grams</span> <span class="ing-name">Pesto Sauce</span></li><li><span class="ing-weight">0.5</span> <span class="ing-unit">Teaspoons</span> <span class="ing-name">Salt</span></li><li><span class="ing-weight">1</span> <span class="ing-unit">Teaspoon</span> <span class="ing-name">Olive Oil</span></li><li><span class="ing-weight">80</span> <span class="ing-unit">Grams</span> <span class="ing-name">Paremesan Cheese</span></li>
+
             </ul>
             <h2>Instructions</h2>
-            <ol id="instructions">
-                <li>
-                    <p>Pour the water into a pot, and add the salt. Start boiling the water.</p>
-                </li>
-                <li>
-                    <p>Add the pasta to the boiling water, and wait 4 minutes. (We're cooking the pasta for a total of 5 minutes.)</p>
-                </li>
-                <li>
-                    <p>Take 3/4 cups pasta water from the boiling, and keep aside. Cool as much as possible, if possible.</p>
-                    <p class="note">You can take as much pasta water as your'e comfortable with. Just make sure you have more than 3/4 cups.</p>
-                </li>
-                <li>
-                    <content>Wait until the pasta reaches 5 minutes in water. Then, dump the pasta into a strainer.</content>
-                    <p class="note">Leaving the pasta in the water can cause it to get mushy.</p>
-                </li>
-                <li>
-                    <content>Then, to a pan (or the same pot, if you prefer, since the pot is now empty) add the olive oil. Wait for it to heat up, and then add the pesto sauce, pasta water and parmesan cheese to the pan.</content>
-                </li>
-                <li>
-                    <content>Quickly mix the sauce until it reaches a texture similar to that of pink sauce</content>
-                    <p class="note">If the sauch is too watery, keep stirring the sauce. It will gradually reduce it.</p>
-                </li>
-                <li>
-                    <content>Add the pasta to the sauce, and mix it well. Enjoy your pasta! :)</content>
-                    <p class="note">To make the pasta healthier to eat, refrigirate it - when reheated, some of the starch will become resistent, and will behave like fiber.</p>
-                </li>
+            <ol id="instructions"><li>    <p>Pour the water into a pot, and add the salt. Start boiling the water.</p></li><li>    <p>Add the pasta to the boiling water, and wait 4 minutes. (We're cooking the pasta for a total of 5 minutes.)</p></li><li>    <p>Take 3/4 cups pasta water from the boiling, and keep aside. Cool as much as possible, if possible.</p>    <p class="note">You can take as much pasta water as your'e comfortable with. Just make sure you have more than 3/4 cups.</p></li><li>    <content>Wait until the pasta reaches 5 minutes in water. Then, dump the pasta into a strainer.</content>    <p class="note">Leaving the pasta in the water can cause it to get mushy.</p></li><li>    <content>Then, to a pan (or the same pot, if you prefer, since the pot is now empty) add the olive oil. Wait for it to heat up, and then add the pesto sauce, pasta water and parmesan cheese to the pan.</content></li><li>    <content>Quickly mix the sauce until it reaches a texture similar to that of pink sauce</content>    <p class="note">If the sauch is too watery, keep stirring the sauce. It will gradually reduce it.</p></li><li>    <content>Add the pasta to the sauce, and mix it well. Enjoy your pasta! :)</content>    <p class="note">To make the pasta healthier to eat, refrigirate it - when reheated, some of the starch will become resistent, and will behave like fiber.</p></li>
+
             </ol>
         </main>
     </div>
-
-    <recipe-attributes style="display: none;">
-        <preview-url>https://assets.bonappetit.com/photos/57af6c7af1c801a1038bd2e6/16:9/w_1280,c_limit/ligurian-pesto-with-spaghetti.jpg</preview-url>
-        <title>Pesto Sauce Pasta</title>
-        <authors>
-            <author role="authored">Shahar Marcus</author>
-            <!-- <author role="adapted" en="Shahar Marcus" he="שחר מרכוס"></author> -->
-        </authors>
-        <time unit="min">30</time>
-        <difficulty>3</difficulty>
-        <servings>
-            <min>3</min>
-            <max>5</max>
-        </servings>
-        <nutrition-facts>
-            <weight unit="g">200</weight>
-            <gl></gl>
-            <fiber unit="g">19.2</fiber>
-            <sugar unit="g">6.2</sugar>
-            <starch unit="g">2</starch>
-        </nutrition-facts>
-        <ingredients>
-            <item>
-                <name pattern="^Water$"></name>
-                <weight unit="l">2.5</weight>
-            </item>
-            <item>
-                <name company-id="just-taste" pattern="(?:Spaghetti|Fettuccine|Pappardelle)$">Just Taste Pasta</name>
-                <weight unit="g">250</weight>
-            </item>
-            <item>
-                <name pattern="^Pesto Sauce$"></name>
-                <weight unit="g">160</weight>
-            </item>
-            <item>
-                <name pattern="^Salt$"></name>
-                <weight unit="tbsp">0.5</weight>
-            </item>
-            <item>
-                <name pattern="^Olive Oil$"></name>
-                <weight unit="tsp">1</weight>
-            </item>
-            <item>
-                <name pattern="^Parmesan Cheese$"></name>
-                <weight unit="g">80</weight>
-            </item>
-        </ingredients>
-        <instructions>
-            <step>
-                <content>Pour the water into a pot, and add the salt. Start boiling the water.</content>
-            </step>
-            <step>
-                <content>Add the pasta to the boiling water, and wait 4 minutes. (We're cooking the pasta for a total of 5 minutes.)</content>
-            </step>
-            <step>
-                <content>Take 3/4 cups pasta water from the boiling, and keep aside. Cool as much as possible, if possible.</content>
-                <note>You can take as much pasta water as your'e comfortable with. Just make sure you have more than 3/4 cups.</note>
-            </step>
-            <step>
-                <content>Wait until the pasta reaches 5 minutes in water. Then, dump the pasta into a strainer.</content>
-                <note>Leaving the pasta in the water can cause it to get mushy.</note>
-            </step>
-            <step>
-                <content>Then, to a pan (or the same pot, if you prefer, since the pot is now empty) add the olive oil. Wait for it to heat up, and then add the pesto sauce, pasta water and parmesan cheese to the pan.</content>
-            </step>
-            <step>
-                <content>Quickly mix the sauce until it reaches a texture similar to that of pink sauce</content>
-                <note>If the sauch is too watery, keep stirring the sauce. It will gradually reduce it.</note>
-            </step>
-            <step>
-                <content>Add the pasta to the sauce, and mix it well. Enjoy your pasta! :)</content>
-                <note>To make the pasta healthier to eat, refrigirate it - when reheated, some of the starch will become resistent, and will behave like fiber.</note>
-            </step>
-        </instructions>
-    </recipe-attributes>
 
     <script src="/js/recipes/recipePage.js"></script>
     <script src="/js/recipes/statColors.js"></script>
