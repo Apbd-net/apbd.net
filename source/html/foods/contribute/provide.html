@@ -309,57 +309,57 @@
                     return;
                 }
 
-                let foodEn = document.getElementById("food-name-english").value;
+                let foodEn = document.getElementById("food-name-english").value || "";
                 let foodEn_NotSure = document.getElementById("fn-ns").classList.contains("selected");
                 let foodEn_DontKnow = document.getElementById("fn-dk").classList.contains("selected");
                 let foodEn_Sureness = foodEn_DontKnow ? 0 : foodEn_NotSure ? 1 : 2;
 
-                let foodHe = document.getElementById("food-name-hebrew").value;
+                let foodHe = document.getElementById("food-name-hebrew").value || "";
                 let foodHe_NotSure = document.getElementById("t-ns").classList.contains("selected");
                 let foodHe_DontKnowAny = document.getElementById("t-dk").classList.contains("selected");
                 let foodHe_Sureness = foodHe_DontKnowAny ? 0 : foodHe_NotSure ? 1 : 2;
 
-                let foodCompany = document.getElementById("company").value;
+                let foodCompany = document.getElementById("company").value || "";
                 console.log(foodCompany, foodCompany.length);
                 
                 let foodCompanyObject = foodCompany.length === 0 ? null : localCompanyNameToObject(foodCompany, window.TABLE_JSON_DATA);
 
-                let foodWeight = document.getElementById("food-weight").value;
+                let foodWeight = document.getElementById("food-weight").value || "";
 
-                let glycemicIndex = document.getElementById("glycemic-index").value;
+                let glycemicIndex = document.getElementById("glycemic-index").value || "";
                 let glycemicIndex_NotSure = document.getElementById("gi-ns").classList.contains("selected");
                 let glycemicIndex_DontKnow = document.getElementById("gi-dk").classList.contains("selected");
-                glycemicIndex = glycemicIndex_DontKnow ? -1 : glycemicIndex
+                glycemicIndex = glycemicIndex_DontKnow ? "-1" : glycemicIndex
                 let glycemicIndex_Metadata = glycemicIndex_NotSure ? "inaccurate" : "";
 
-                let glycemicLoad = document.getElementById("glycemic-load").value;
+                let glycemicLoad = document.getElementById("glycemic-load").value || "";
                 let glycemicLoad_NotSure = document.getElementById("gl-ns").classList.contains("selected");
                 let glycemicLoad_DontKnow = document.getElementById("gl-dk").classList.contains("selected");
-                glycemicLoad = glycemicLoad_DontKnow ? -1 : glycemicLoad;
+                glycemicLoad = glycemicLoad_DontKnow ? "-1" : glycemicLoad;
                 let glycemicLoad_Metadata = glycemicLoad_NotSure ? "inaccurate" : "";
 
-                let sugar = document.getElementById("sugar").value;
+                let sugar = document.getElementById("sugar").value || "";
                 let sugar_NotSure = document.getElementById("s-ns").classList.contains("selected");
                 let sugar_DontKnow = document.getElementById("s-dk").classList.contains("selected");
-                sugar = sugar_DontKnow ? -1 : sugar;
+                sugar = sugar_DontKnow ? "-1" : sugar;
                 let sugar_Metadata = sugar_NotSure ? "inaccurate" : "";
 
-                let starch = document.getElementById("starch").value;
+                let starch = document.getElementById("starch").value || "";
                 let starch_NotSure = document.getElementById("st-ns").classList.contains("selected");
                 let starch_DontKnow = document.getElementById("st-dk").classList.contains("selected");
-                starch = starch_DontKnow ? -1 : starch;
+                starch = starch_DontKnow ? "-1" : starch;
                 let starch_Metadata = starch_NotSure ? "inaccurate" : "";
 
-                let fiber = document.getElementById("fiber").value;
+                let fiber = document.getElementById("fiber").value || "";
                 let fiber_NotSure = document.getElementById("f-ns").classList.contains("selected");
                 let fiber_DontKnow = document.getElementById("f-dk").classList.contains("selected");
-                fiber = fiber_DontKnow ? -1 : fiber;
+                fiber = fiber_DontKnow ? "-1" : fiber;
                 let fiber_Metadata = fiber_NotSure ? "inaccurate" : "";
 
-                let carbs = document.getElementById("carbs").value;
+                let carbs = document.getElementById("carbs").value || "";
                 let carbs_NotSure = document.getElementById("c-ns").classList.contains("selected");
                 let carbs_DontKnow = document.getElementById("c-dk").classList.contains("selected");
-                carbs = carbs_DontKnow ? -1 : carbs;
+                carbs = carbs_DontKnow ? "-1" : carbs;
                 let carbs_Metadata = carbs_NotSure ? "inaccurate" : "";
 
                 if (document.getElementById("food-name-english").classList.contains("already-exists") || document.getElementById("food-name-hebrew").classList.contains("already-exists")) {
